@@ -83,6 +83,8 @@ namespace ThLaunchSite
                 MessageBox.Show($"ゲームパス設定の構成に失敗。\n{ex.Message}", "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+            CurrentUserBar.Content = !string.IsNullOrEmpty(User.CurrentUserName) ? User.CurrentUserName : "";
         }
 
         private string GetSelectedGameId()
@@ -147,6 +149,8 @@ namespace ThLaunchSite
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+
+            CurrentUserBar.Content = !string.IsNullOrEmpty(User.CurrentUserName) ? User.CurrentUserName : "";
         }
 
         private void GamePathBrowseButton_Click(object sender, RoutedEventArgs e)

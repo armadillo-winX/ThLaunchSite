@@ -47,6 +47,10 @@
         <Label Content="パス:" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="GamePathBox" Margin="46,55,57,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <Button x:Name="GamePathBrowseButton" Content="参照(_B)"  HorizontalAlignment="Right" Margin="0,54,10,0" VerticalAlignment="Top" Click="GamePathBrowseButton_Click"/>
+        <StatusBar Height="22" VerticalAlignment="Bottom">
+            <StatusBarItem Content="現在のユーザー:"/>
+            <StatusBarItem x:Name="CurrentUserBar"/>
+        </StatusBar>
 
     </Grid>
 </Window>
