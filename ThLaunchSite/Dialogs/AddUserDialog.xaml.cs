@@ -5,6 +5,8 @@
     /// </summary>
     public partial class AddUserDialog : Window
     {
+        public string? UserName { get; set; }
+
         public AddUserDialog()
         {
             InitializeComponent();
@@ -21,6 +23,7 @@
                     if (!User.Exist(userName))
                     {
                         User.AddUser(userName);
+                        this.UserName = userName;
                         DialogResult = true;
                     }
                     else

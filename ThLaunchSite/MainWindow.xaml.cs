@@ -87,5 +87,41 @@ namespace ThLaunchSite
                 _ = _aboutDialog.Activate();
             }
         }
+
+        private void AddUserMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            AddUserDialog addUserDialog = new();
+            addUserDialog.Owner = this;
+            if (addUserDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    User.SwitchUser(addUserDialog.UserName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message, "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void SelectUserMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            SelectUserDialog selectUserDialog = new();
+            selectUserDialog.Owner = this;
+            if (selectUserDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    User.SwitchUser(selectUserDialog.SelectedUserName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message, "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
     }
 }

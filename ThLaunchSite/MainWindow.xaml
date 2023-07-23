@@ -15,6 +15,13 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="ユーザー(_U)">
+                <MenuItem x:Name="AddUserMenuItem" Header="ユーザーの追加(_A)" Click="AddUserMenuItem_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/User_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
             <MenuItem Header="ヘルプ(_H)">
                 <MenuItem x:Name="AboutMenuItem" Header="このツールについて(_A)" Click="AboutMenuItem_Click"/>
             </MenuItem>
