@@ -14,11 +14,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Run_16x.png" />
     <None Remove="Images\Settings_12x_16x.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Settings\" />
+    <None Remove="Images\User_16x.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,7 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Run_16x.png" />
     <Resource Include="Images\Settings_12x_16x.png" />
+    <Resource Include="Images\User_16x.png" />
   </ItemGroup>
 
 </Project>

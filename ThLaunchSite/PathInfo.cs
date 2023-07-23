@@ -20,5 +20,14 @@
                 return !string.IsNullOrEmpty(User.CurrentUserDirectoryName) ? currentUserDirectory : string.Empty;
             }
         }
+
+        public static string GamePathSettingsFile
+        {
+            get
+            {
+                string gamePathSettingsFile = $"{SettingsDirectory}\\ThLaunchSite.GamePath.xml";
+                return !string.IsNullOrEmpty(SettingsDirectory) ? gamePathSettingsFile : string.Empty;
+            }
+        }
     }
 }

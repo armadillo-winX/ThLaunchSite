@@ -2,7 +2,7 @@
 {
     internal class VersionInfo
     {
-        private static readonly string _appPath = PathInfo.AppPath;
+        public static readonly string _appPath = PathInfo.AppPath;
 
         public static string? AppName => FileVersionInfo.GetVersionInfo(_appPath).ProductName;
 

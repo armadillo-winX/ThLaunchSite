@@ -4,7 +4,7 @@ namespace ThLaunchSite.Game
 {
     internal class GameOperation
     {
-        public static string StartGame(string gameId)
+        public static string LaunchGame(string gameId)
         {
             string? gamePath = GamePath.GetGamePath(gameId);
             if (File.Exists(gamePath))
@@ -39,7 +39,7 @@ namespace ThLaunchSite.Game
             }
         }
 
-        public static string StartGameWithVpatch(string gameId)
+        public static string LaunchGameWithVpatch(string gameId)
         {
             string? gamePath = GamePath.GetGamePath(gameId);
             string? gameDirectory = Path.GetDirectoryName(gamePath);
@@ -79,7 +79,7 @@ namespace ThLaunchSite.Game
             }
         }
 
-        public static string StartGameWithThprac(string gameId)
+        public static string LaunchGameWithThprac(string gameId)
         {
             string? gamePath = GamePath.GetGamePath(gameId);
             string gameDirectory = Path.GetDirectoryName(gamePath);
@@ -125,7 +125,7 @@ namespace ThLaunchSite.Game
             }
         }
 
-        public static string StartGameWithAnyPatch(string gameId, string patch)
+        public static string LaunchGameWithAnyPatch(string gameId, string patch)
         {
             string? gamePath = GamePath.GetGamePath(gameId);
             string gameDirectory = Path.GetDirectoryName(gamePath);
@@ -165,7 +165,7 @@ namespace ThLaunchSite.Game
             }
         }
 
-        public static void StartCustomProgram(string gameId)
+        public static void LaunchCustomProgram(string gameId)
         {
             string? gamePath = GamePath.GetGamePath(gameId);
             string gameDirectory = Path.GetDirectoryName(gamePath);

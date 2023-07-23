@@ -87,5 +87,61 @@
                 return null;
             }
         }
+
+        public static void SetGamePath(string gameId, string path)
+        {
+            if (gameId == GameIndex.Th06)
+            {
+                Th06= path;
+            }
+            else if (gameId == GameIndex.Th07)
+            {
+                Th07= path;
+            }
+            else if (gameId == GameIndex.Th08)
+            {
+                Th08= path;
+            }
+            else if (gameId == GameIndex.Th09)
+            {
+                Th09 = path;
+            }
+            else if (gameId == GameIndex.Th10)
+            {
+                Th10 = path;
+            }
+            else if (gameId == GameIndex.Th11)
+            {
+                Th11 = path;
+            }
+            else if (gameId == GameIndex.Th12)
+            {
+                Th12 = path;
+            }
+            else if (gameId == GameIndex.Th13)
+            {
+                Th13 = path;
+            }
+            else if (gameId == GameIndex.Th14)
+            {
+                Th14 = path;
+            }
+            else if (gameId == GameIndex.Th15)
+            {
+                Th15 = path;
+            }
+            else if (gameId == GameIndex.Th16)
+            {
+                Th16 = path;
+            }
+            else if (gameId == GameIndex.Th17)
+            {
+                Th17 = path;
+            }
+            else if (gameId == GameIndex.Th18)
+            {
+                Th18 = path;
+            }
+        }
     }
 }

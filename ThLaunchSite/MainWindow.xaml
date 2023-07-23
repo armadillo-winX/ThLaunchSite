@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThLaunchSite"
         mc:Ignorable="d"
-        Title="MainWindow" Height="331" Width="469">
+        Title="MainWindow" Height="331" Width="469" Closing="Window_Closing">
     <Grid>
         <Menu Height="18" VerticalAlignment="Top">
             <MenuItem Header="ゲーム(_G)">
-                <MenuItem x:Name="SetGamePathMenuItem" Header="ゲームのパスを設定(_S)">
+                <MenuItem x:Name="LaunchGameMenuItem" Header="ゲームを起動する(_L)" Click="LaunchGameMenuItem_Click">
                     <MenuItem.Icon>
-                        <Image Source="/Images/Settings_12x_16x.png"/>
+                        <Image Source="/Images/Run_16x.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
@@ -21,11 +21,32 @@
                         <Image Source="/Images/User_16x.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem x:Name="SelectUserMenuItem" Header="ユーザーの選択(_S)" Click="SelectUserMenuItem_Click" />
             </MenuItem>
             <MenuItem Header="ヘルプ(_H)">
                 <MenuItem x:Name="AboutMenuItem" Header="このツールについて(_A)" Click="AboutMenuItem_Click"/>
             </MenuItem>
         </Menu>
+        <ToolBar x:Name="MainToolBar" Height="28" Margin="0,18,0,0" VerticalAlignment="Top">
+            <ComboBox x:Name="GameComboBox" Width="120" SelectionChanged="GameComboBox_SelectionChanged">
+                <ComboBoxItem Uid="Th06" Content="東方紅魔郷"/>
+                <ComboBoxItem Uid="Th07" Content="東方妖々夢"/>
+                <ComboBoxItem Uid="Th08" Content="東方永夜抄"/>
+                <ComboBoxItem Uid="Th09" Content="東方花映塚"/>
+                <ComboBoxItem Uid="Th10" Content="東方風神録"/>
+                <ComboBoxItem Uid="Th11" Content="東方地霊殿"/>
+                <ComboBoxItem Uid="Th12" Content="東方星蓮船"/>
+                <ComboBoxItem Uid="Th13" Content="東方神霊廟"/>
+                <ComboBoxItem Uid="Th14" Content="東方輝針城"/>
+                <ComboBoxItem Uid="Th15" Content="東方紺珠伝"/>
+                <ComboBoxItem Uid="Th16" Content="東方天空璋"/>
+                <ComboBoxItem Uid="Th17" Content="東方鬼形獣"/>
+                <ComboBoxItem Uid="Th18" Content="東方虹龍洞"/>
+            </ComboBox>
+        </ToolBar>
+        <Label Content="パス:" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="GamePathBox" Margin="46,55,57,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Button x:Name="GamePathBrowseButton" Content="参照(_B)"  HorizontalAlignment="Right" Margin="0,54,10,0" VerticalAlignment="Top" Click="GamePathBrowseButton_Click"/>
 
     </Grid>
 </Window>

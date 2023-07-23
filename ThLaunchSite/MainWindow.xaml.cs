@@ -4,8 +4,10 @@ global using System.IO;
 global using System.Windows;
 global using System.Xml;
 
-global using ThLaunchSite.Game;
+global using ThLaunchSite.Dialogs;
 global using ThLaunchSite.Exceptions;
+global using ThLaunchSite.Game;
+global using ThLaunchSite.Settings;
 
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +21,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ThLaunchSite.Dialogs;
+using Microsoft.Win32;
 
 namespace ThLaunchSite
 {
@@ -71,9 +73,32 @@ namespace ThLaunchSite
                     MessageBox.Show(ex.Message, "エラー", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+
+            try
+            {
+                SettingsConfiguration.ConfigureGamePathSettings();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ゲームパス設定の構成に失敗。\n{ex.Message}", "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
-        private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
+        private string GetSelectedGameId()
+        {
+            if (GameComboBox.SelectedIndex > -1)
+            {
+                ComboBoxItem item = (ComboBoxItem)GameComboBox.SelectedItem;
+                return (string)item.Uid;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+        public void AboutMenuItem_Click(object sender, RoutedEventArgs e)
         {
             if (_aboutDialog == null || !_aboutDialog.IsLoaded)
             {
@@ -121,6 +146,52 @@ namespace ThLaunchSite
                     MessageBox.Show(this, ex.Message, "エラー",
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+            }
+        }
+
+        private void GamePathBrowseButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new();
+            openFileDialog.Filter = "ゲーム実行ファイル|*.exe";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string gamePath = openFileDialog.FileName;
+                GamePathBox.Text = gamePath;
+                string gameId = GetSelectedGameId();
+                GamePath.SetGamePath(gameId, gamePath);
+            }
+        }
+
+        private void LaunchGameMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            string gameId = GetSelectedGameId();
+            GameOperation.LaunchGame(gameId);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            try
+            {
+                User.SaveUserSelectionConfig();
+                SettingsConfiguration.SaveGamePathSettings();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"設定の保存に失敗\n{ex.Message}", "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void GameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GamePathBox.Clear();
+
+            string gameId = GetSelectedGameId();
+            string? gamePath = GamePath.GetGamePath(gameId);
+
+            if (!string.IsNullOrEmpty(gamePath) )
+            {
+                GamePathBox.Text = gamePath;
             }
         }
     }
