@@ -7,5 +7,7 @@
         public double WindowHeight { get; set; }
 
         public string? SelectedGameId { get; set; }
+
+        public bool AlwaysOnTop { get; set; }
     }
 }

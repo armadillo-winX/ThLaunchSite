@@ -15,6 +15,10 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="オプション(_O)">
+                <MenuItem x:Name="AlwaysOnTopMenuItem"
+                          IsCheckable="True" Header="常に最前面に表示(_A)" Click="AlwaysOnTopMenuItem_Click"/>
+            </MenuItem>
             <MenuItem Header="ヘルプ(_H)">
                 <MenuItem x:Name="AboutMenuItem" Header="このツールについて(_A)" Click="AboutMenuItem_Click"/>
             </MenuItem>

@@ -103,6 +103,8 @@ namespace ThLaunchSite
             MainWindowSettings mainWindowSettings = SettingsConfiguration.ConfigureMainWindowSettings();
             this.Width = mainWindowSettings.WindowWidth;
             this.Height = mainWindowSettings.WindowHeight;
+            this.Topmost = mainWindowSettings.AlwaysOnTop;
+            AlwaysOnTopMenuItem.IsChecked = mainWindowSettings.AlwaysOnTop;
 
             string? selectedGameId = mainWindowSettings.SelectedGameId;
             if (!string.IsNullOrEmpty(selectedGameId))
@@ -121,6 +123,7 @@ namespace ThLaunchSite
             mainWindowSettings.WindowWidth = this.Width;
             mainWindowSettings.WindowHeight = this.Height;
             mainWindowSettings.SelectedGameId = GetSelectedGameId();
+            mainWindowSettings.AlwaysOnTop = AlwaysOnTopMenuItem.IsChecked;
 
             SettingsConfiguration.SaveMainWindowSettings(mainWindowSettings);
         }
@@ -184,6 +187,11 @@ namespace ThLaunchSite
             {
                 GamePathBox.Text = gamePath;
             }
+        }
+
+        private void AlwaysOnTopMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = AlwaysOnTopMenuItem.IsChecked;
         }
     }
 }
