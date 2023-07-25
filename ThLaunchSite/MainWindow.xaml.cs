@@ -69,6 +69,7 @@ namespace ThLaunchSite
                         $"設定ファイルディレクトリの生成に失敗。\nアプリケーションを終了します。\n\n[詳細]\n{ex.Message}",
                         "エラー",
                         MessageBoxButton.OK, MessageBoxImage.Error);
+                    Environment.Exit(1);
                 }
             }
 
