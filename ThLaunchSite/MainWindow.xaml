@@ -15,14 +15,6 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="ユーザー(_U)">
-                <MenuItem x:Name="AddUserMenuItem" Header="ユーザーの追加(_A)" Click="AddUserMenuItem_Click">
-                    <MenuItem.Icon>
-                        <Image Source="/Images/User_16x.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem x:Name="SelectUserMenuItem" Header="ユーザーの選択(_S)" Click="SelectUserMenuItem_Click" />
-            </MenuItem>
             <MenuItem Header="ヘルプ(_H)">
                 <MenuItem x:Name="AboutMenuItem" Header="このツールについて(_A)" Click="AboutMenuItem_Click"/>
             </MenuItem>
@@ -48,8 +40,7 @@
         <TextBox x:Name="GamePathBox" Margin="46,55,57,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <Button x:Name="GamePathBrowseButton" Content="参照(_B)"  HorizontalAlignment="Right" Margin="0,54,10,0" VerticalAlignment="Top" Click="GamePathBrowseButton_Click"/>
         <StatusBar Height="22" VerticalAlignment="Bottom">
-            <StatusBarItem Content="現在のユーザー:"/>
-            <StatusBarItem x:Name="CurrentUserBar"/>
+            
         </StatusBar>
 
     </Grid>

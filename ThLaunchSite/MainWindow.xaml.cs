@@ -2,26 +2,14 @@
 global using System.Diagnostics;
 global using System.IO;
 global using System.Windows;
-global using System.Xml;
 
-global using ThLaunchSite.Dialogs;
 global using ThLaunchSite.Exceptions;
 global using ThLaunchSite.Game;
 global using ThLaunchSite.Settings;
 
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Microsoft.Win32;
+using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace ThLaunchSite
 {
@@ -34,9 +22,7 @@ namespace ThLaunchSite
 
         private readonly string? _appName = VersionInfo.AppName;
         private readonly string? _appVersion = VersionInfo.AppVersion;
-        private readonly string _usersDirectory = PathInfo.UsersDirectory;
-        private readonly string _userIndex = PathInfo.UserIndex;
-        private readonly string _userSelectionConfig = PathInfo.UserSelectionConfig;
+        private readonly string? _settingsDirectory = PathInfo.SettingsDirectory;
 
 
         private readonly Dictionary<string, int> GameDictionary =
@@ -63,39 +49,24 @@ namespace ThLaunchSite
 
             this.Title = $"{_appName} ver.{_appVersion}";
 
-            if (!Directory.Exists(_usersDirectory) || !File.Exists(_userIndex))
-            {
-                AddUserDialog addUserDialog = new();
-                addUserDialog.ShowDialog();
-            }
-            else
+            if (!Directory.Exists(_settingsDirectory))
             {
                 try
                 {
-                    if (File.Exists(_userSelectionConfig))
-                    {
-                        string userName = User.GetUserSelection();
-                        User.SwitchUser(userName);
-                    }
-                    else
-                    {
-                        SelectUserDialog selectUserDialog = new();
-                        if (selectUserDialog.ShowDialog() == true)
-                        {
-                            string selectedUserName = selectUserDialog.SelectedUserName;
-                            User.SwitchUser(selectedUserName);
-                        }
-                    }
+                    Directory.CreateDirectory(_settingsDirectory);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "エラー", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(
+                        $"設定ファイルディレクトリの生成に失敗。\nアプリケーションを終了します。\n\n[詳細]\n{ex.Message}",
+                        "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
 
             try
             {
-                ConfigureGamePathSettings();
+                SettingsConfiguration.ConfigureGamePathSettings();
             }
             catch (Exception ex)
             {
@@ -112,8 +83,6 @@ namespace ThLaunchSite
                 MessageBox.Show($"メインウィンドウ設定の構成に失敗。\n{ex.Message}", "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            CurrentUserBar.Content = !string.IsNullOrEmpty(User.CurrentUserName) ? User.CurrentUserName : "";
         }
 
         private string GetSelectedGameId()
@@ -127,11 +96,6 @@ namespace ThLaunchSite
             {
                 return string.Empty;
             }
-        }
-
-        private void ConfigureGamePathSettings()
-        {
-            SettingsConfiguration.ConfigureGamePathSettings();
         }
 
         private void ConfigureMainWindowSettings()
@@ -176,47 +140,6 @@ namespace ThLaunchSite
             }
         }
 
-        private void AddUserMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            AddUserDialog addUserDialog = new();
-            addUserDialog.Owner = this;
-            if (addUserDialog.ShowDialog() == true)
-            {
-                try
-                {
-                    User.SwitchUser(addUserDialog.UserName);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(this, ex.Message, "エラー",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-        }
-
-        private void SelectUserMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            SelectUserDialog selectUserDialog = new();
-            selectUserDialog.Owner = this;
-            if (selectUserDialog.ShowDialog() == true)
-            {
-                try
-                {
-                    SaveMainWindowSettings();
-                    User.SwitchUser(selectUserDialog.SelectedUserName);
-                    ConfigureGamePathSettings();
-                    ConfigureMainWindowSettings();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(this, ex.Message, "エラー",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-
-            CurrentUserBar.Content = !string.IsNullOrEmpty(User.CurrentUserName) ? User.CurrentUserName : "";
-        }
-
         private void GamePathBrowseButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new();
@@ -240,7 +163,6 @@ namespace ThLaunchSite
         {
             try
             {
-                User.SaveUserSelectionConfig();
                 SettingsConfiguration.SaveGamePathSettings();
                 SaveMainWindowSettings();
             }
@@ -258,7 +180,7 @@ namespace ThLaunchSite
             string gameId = GetSelectedGameId();
             string? gamePath = GamePath.GetGamePath(gameId);
 
-            if (!string.IsNullOrEmpty(gamePath) )
+            if (!string.IsNullOrEmpty(gamePath))
             {
                 GamePathBox.Text = gamePath;
             }
