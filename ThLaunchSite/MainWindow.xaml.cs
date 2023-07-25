@@ -9,7 +9,10 @@ global using ThLaunchSite.Settings;
 
 using Microsoft.Win32;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Threading;
 using System.Windows.Controls;
+using System.Xml.Linq;
 
 namespace ThLaunchSite
 {
@@ -18,7 +21,10 @@ namespace ThLaunchSite
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string GameProcessName { get; set; }
+
         private AboutDialog? _aboutDialog = null;
+        private BackgroundWorker? _gameWaitingWorker = null;
 
         private readonly string? _appName = VersionInfo.AppName;
         private readonly string? _appVersion = VersionInfo.AppVersion;
@@ -48,6 +54,8 @@ namespace ThLaunchSite
             InitializeComponent();
 
             this.Title = $"{_appName} ver.{_appVersion}";
+
+            this.GameProcessName = string.Empty;
 
             if (!Directory.Exists(_settingsDirectory))
             {
@@ -83,6 +91,8 @@ namespace ThLaunchSite
                 MessageBox.Show($"メインウィンドウ設定の構成に失敗。\n{ex.Message}", "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+            AppStatusBlock.Content = "準備完了";
         }
 
         private string GetSelectedGameId()
@@ -128,6 +138,44 @@ namespace ThLaunchSite
             SettingsConfiguration.SaveMainWindowSettings(mainWindowSettings);
         }
 
+        private void EnableLimitationMode(bool enabled)
+        {
+            GameComboBox.IsEnabled = !enabled;
+            LaunchGameMenuItem.IsEnabled = !enabled;
+            GamePathBox.IsEnabled= !enabled;
+            GamePathBrowseButton.IsEnabled= !enabled;
+        }
+
+        private void EnableWaitGameEndMode(string gameProcessName)
+        {
+            this.GameProcessName= gameProcessName;
+            AppStatusBlock.Content = "ゲームの終了を待機中";
+            EnableLimitationMode(true);
+
+            _gameWaitingWorker = new BackgroundWorker();
+            _gameWaitingWorker.DoWork += new DoWorkEventHandler(Worker_Dowork);
+            _gameWaitingWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(Worker_Running_Complete);
+            _gameWaitingWorker.RunWorkerAsync(gameProcessName);
+
+        }
+
+        private void Worker_Dowork(object sender, DoWorkEventArgs e)
+        {
+            string name = (string)e.Argument;
+
+            while (GameOperation.IsRunningGame(name))
+            {
+                Thread.Sleep(500);
+            }
+        }
+
+        private void Worker_Running_Complete(object sender, RunWorkerCompletedEventArgs e)
+        {
+            AppStatusBlock.Content = "準備完了";
+            this.GameProcessName = string.Empty;
+            EnableLimitationMode(false);
+        }
+
         public void AboutMenuItem_Click(object sender, RoutedEventArgs e)
         {
             if (_aboutDialog == null || !_aboutDialog.IsLoaded)
@@ -159,7 +207,8 @@ namespace ThLaunchSite
         private void LaunchGameMenuItem_Click(object sender, RoutedEventArgs e)
         {
             string gameId = GetSelectedGameId();
-            GameOperation.LaunchGame(gameId);
+            string gameProcessName = GameOperation.LaunchGame(gameId);
+            EnableWaitGameEndMode(gameProcessName);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
