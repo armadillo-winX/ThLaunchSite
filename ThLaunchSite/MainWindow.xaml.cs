@@ -38,6 +38,25 @@ namespace ThLaunchSite
         private readonly string _userIndex = PathInfo.UserIndex;
         private readonly string _userSelectionConfig = PathInfo.UserSelectionConfig;
 
+
+        private readonly Dictionary<string, int> GameDictionary =
+            new()
+            {
+                { "Th06", 0 },
+                { "Th07", 1 },
+                { "Th08", 2 },
+                { "Th09", 3 },
+                { "Th10", 4 },
+                { "Th11", 5 },
+                { "Th12", 6 },
+                { "Th13", 7 },
+                { "Th14", 8 },
+                { "Th15", 9 },
+                { "Th16", 10 },
+                { "Th17", 11 },
+                { "Th18", 12 }
+            };
+
         public MainWindow()
         {
             InitializeComponent();
@@ -76,11 +95,21 @@ namespace ThLaunchSite
 
             try
             {
-                SettingsConfiguration.ConfigureGamePathSettings();
+                ConfigureGamePathSettings();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"ゲームパス設定の構成に失敗。\n{ex.Message}", "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            try
+            {
+                ConfigureMainWindowSettings();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"メインウィンドウ設定の構成に失敗。\n{ex.Message}", "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
@@ -98,6 +127,38 @@ namespace ThLaunchSite
             {
                 return string.Empty;
             }
+        }
+
+        private void ConfigureGamePathSettings()
+        {
+            SettingsConfiguration.ConfigureGamePathSettings();
+        }
+
+        private void ConfigureMainWindowSettings()
+        {
+            MainWindowSettings mainWindowSettings = SettingsConfiguration.ConfigureMainWindowSettings();
+            this.Width = mainWindowSettings.WindowWidth;
+            this.Height = mainWindowSettings.WindowHeight;
+
+            string? selectedGameId = mainWindowSettings.SelectedGameId;
+            if (!string.IsNullOrEmpty(selectedGameId))
+            {
+                GameComboBox.SelectedIndex = GameDictionary[selectedGameId];
+            }
+            else
+            {
+                GameComboBox.SelectedIndex = 0;
+            }
+        }
+
+        private void SaveMainWindowSettings()
+        {
+            MainWindowSettings mainWindowSettings = new();
+            mainWindowSettings.WindowWidth = this.Width;
+            mainWindowSettings.WindowHeight = this.Height;
+            mainWindowSettings.SelectedGameId = GetSelectedGameId();
+
+            SettingsConfiguration.SaveMainWindowSettings(mainWindowSettings);
         }
 
         public void AboutMenuItem_Click(object sender, RoutedEventArgs e)
@@ -141,7 +202,10 @@ namespace ThLaunchSite
             {
                 try
                 {
+                    SaveMainWindowSettings();
                     User.SwitchUser(selectUserDialog.SelectedUserName);
+                    ConfigureGamePathSettings();
+                    ConfigureMainWindowSettings();
                 }
                 catch (Exception ex)
                 {
@@ -178,6 +242,7 @@ namespace ThLaunchSite
             {
                 User.SaveUserSelectionConfig();
                 SettingsConfiguration.SaveGamePathSettings();
+                SaveMainWindowSettings();
             }
             catch (Exception ex)
             {

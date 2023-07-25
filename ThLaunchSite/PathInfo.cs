@@ -29,5 +29,14 @@
                 return !string.IsNullOrEmpty(SettingsDirectory) ? gamePathSettingsFile : string.Empty;
             }
         }
+
+        public static string MainWindowSettingsFile
+        {
+            get
+            {
+                string gamePathSettingsFile = $"{SettingsDirectory}\\ThLaunchSite.MainWindowSettings.xml";
+                return !string.IsNullOrEmpty(SettingsDirectory) ? gamePathSettingsFile : string.Empty;
+            }
+        }
     }
 }

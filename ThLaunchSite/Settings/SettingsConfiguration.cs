@@ -77,5 +77,39 @@ namespace ThLaunchSite.Settings
                 GamePath.Th18 = string.Empty;
             }
         }
+
+        public static void SaveMainWindowSettings(MainWindowSettings mainWindowSettings)
+        {
+            string? mainWindowSettingsFile = PathInfo.MainWindowSettingsFile;
+
+            XmlSerializer mainWindowSettingsSerializer = new(typeof(MainWindowSettings));
+            FileStream fs = new(mainWindowSettingsFile, FileMode.Create);
+            mainWindowSettingsSerializer.Serialize(fs, mainWindowSettings);
+            fs.Close();
+        }
+
+        public static MainWindowSettings ConfigureMainWindowSettings()
+        {
+            string? mainWindowSettingsFile = PathInfo.MainWindowSettingsFile;
+
+            MainWindowSettings mainWindowSettings = new();
+
+            if (File.Exists(mainWindowSettingsFile))
+            {
+                XmlSerializer mainWindowSettingsSerializer = new(typeof(MainWindowSettings));
+                FileStream fs = new(mainWindowSettingsFile, FileMode.Open);
+
+                mainWindowSettings = (MainWindowSettings)mainWindowSettingsSerializer.Deserialize(fs);
+                fs.Close();
+            }
+            else
+            {
+                mainWindowSettings.WindowWidth = 470;
+                mainWindowSettings.WindowHeight = 330;
+                mainWindowSettings.SelectedGameId = GameIndex.Th06;
+            }
+
+            return mainWindowSettings;
+        }
     }
 }
