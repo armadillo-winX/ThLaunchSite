@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThLaunchSite"
         mc:Ignorable="d"
-        Title="MainWindow" Height="330" Width="470" Closing="Window_Closing">
+        Title="MainWindow" Height="400" Width="550" Closing="Window_Closing">
     <Grid>
         <Menu Height="18" VerticalAlignment="Top">
             <MenuItem Header="ゲーム(_G)">

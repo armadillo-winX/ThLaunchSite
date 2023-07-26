@@ -104,8 +104,8 @@ namespace ThLaunchSite.Settings
             }
             else
             {
-                mainWindowSettings.WindowWidth = 470;
-                mainWindowSettings.WindowHeight = 330;
+                mainWindowSettings.WindowWidth = 550;
+                mainWindowSettings.WindowHeight = 400;
                 mainWindowSettings.SelectedGameId = GameIndex.Th06;
             }
 
