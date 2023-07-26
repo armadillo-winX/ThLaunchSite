@@ -9,9 +9,26 @@
     <Grid>
         <Menu Height="18" VerticalAlignment="Top">
             <MenuItem Header="ゲーム(_G)">
-                <MenuItem x:Name="LaunchGameMenuItem" Header="ゲームを起動する(_L)" Click="LaunchGameMenuItem_Click">
+                <MenuItem x:Name="LaunchGameMenuItem" Header="ゲームを起動する(_L)" 
+                          Click="LaunchGameMenuItem_Click">
                     <MenuItem.Icon>
                         <Image Source="/Images/Run_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="LaunchWithVpatchMenuItem" Header="VsyncPatchを適用して起動する(_V)" 
+                          Click="LaunchWithVpatchMenuItem_Click"/>
+                <MenuItem x:Name="LaunchWithThpracMenuItem" Header="thpracを適用して起動する(_T)"
+                          Click="LaunchWithThpracMenuItem_Click"/>
+                <Separator />
+                <MenuItem x:Name="LaunchCustomProgramMenuItem" Header="環境カスタムプログラムを起動する(_C)"
+                          Click="LaunchCustomeMenuItem_Click"/>
+                <Separator />
+                <MenuItem x:Name="CatchGameProcessMenuItem" Header="実行中のゲームプロセスの捕捉"
+                          Click="CatchGameProcessMenuItem_Click"/>
+                <MenuItem x:Name="KillGameProcessMenuItem" Header="ゲームプロセスを強制終了(_K)"
+                          Click="KillGameProcessMenuItem_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Stop_16x.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>

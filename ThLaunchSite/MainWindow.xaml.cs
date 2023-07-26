@@ -54,6 +54,7 @@ namespace ThLaunchSite
             InitializeComponent();
 
             this.Title = $"{_appName} ver.{_appVersion}";
+            KillGameProcessMenuItem.IsEnabled= false;
 
             this.GameProcessName = string.Empty;
 
@@ -143,8 +144,15 @@ namespace ThLaunchSite
         {
             GameComboBox.IsEnabled = !enabled;
             LaunchGameMenuItem.IsEnabled = !enabled;
+            LaunchWithVpatchMenuItem.IsEnabled = !enabled;
+            LaunchWithThpracMenuItem.IsEnabled = !enabled;
+            LaunchCustomProgramMenuItem.IsEnabled = !enabled;
+            KillGameProcessMenuItem.IsEnabled = !enabled;
+
             GamePathBox.IsEnabled= !enabled;
             GamePathBrowseButton.IsEnabled= !enabled;
+
+            KillGameProcessMenuItem.IsEnabled = enabled;
         }
 
         private void EnableWaitGameEndMode(string gameProcessName)
@@ -207,22 +215,128 @@ namespace ThLaunchSite
 
         private void LaunchGameMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            string gameId = GetSelectedGameId();
-            string gameProcessName = GameOperation.LaunchGame(gameId);
-            EnableWaitGameEndMode(gameProcessName);
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
             try
             {
-                SettingsConfiguration.SaveGamePathSettings();
-                SaveMainWindowSettings();
+                string gameId = GetSelectedGameId();
+                string gameProcessName = GameOperation.LaunchGame(gameId);
+                EnableWaitGameEndMode(gameProcessName);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"設定の保存に失敗\n{ex.Message}", "エラー",
+                MessageBox.Show(this, $"ゲームの起動に失敗。\n{ex.Message}", "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public void LaunchWithVpatchMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string gameId = GetSelectedGameId();
+                string gameProcessName = GameOperation.LaunchGameWithVpatch(gameId);
+                EnableWaitGameEndMode(gameProcessName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, $"ゲームの起動に失敗。\n{ex.Message}", "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public void LaunchWithThpracMenuItem_Click(Object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string gameId = GetSelectedGameId();
+                string gameProcessName = GameOperation.LaunchGameWithThprac(gameId);
+                EnableWaitGameEndMode(gameProcessName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, $"ゲームの起動に失敗。\n{ex.Message}", "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public void LaunchCustomeMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string gameId = GetSelectedGameId();
+                GameOperation.LaunchCustomProgram(gameId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, $"環境カスタムプログラムの起動に失敗。\n{ex.Message}", "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public void KillGameProcessMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string gameId = this.GameProcessName;
+                GameOperation.KillGameProcess(gameId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, $"ゲームの強制終了に失敗。\n{ex.Message}", "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void CatchGameProcessMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            string gameId = GetSelectedGameId();
+            if (GameOperation.IsRunningGame(gameId))
+            {
+                EnableWaitGameEndMode(gameId);
+            }
+            else
+            {
+                MessageBox.Show(this, "ゲームプロセスが見つかりませんでした。", "ゲームプロセスの捕捉",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            if (_gameWaitingWorker != null && _gameWaitingWorker.IsBusy)
+            {
+                MessageBoxResult result = MessageBox.Show(
+                    this, $"ゲーム終了待機モードです。\n本当に{_appName}を終了させますか。", _appName,
+                    MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                if (result == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        SettingsConfiguration.SaveGamePathSettings();
+                        SaveMainWindowSettings();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"設定の保存に失敗\n{ex.Message}", "エラー",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                try
+                {
+                    SettingsConfiguration.SaveGamePathSettings();
+                    SaveMainWindowSettings();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"設定の保存に失敗\n{ex.Message}", "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
