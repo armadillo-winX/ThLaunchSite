@@ -147,7 +147,7 @@ namespace ThLaunchSite
             LaunchWithVpatchMenuItem.IsEnabled = !enabled;
             LaunchWithThpracMenuItem.IsEnabled = !enabled;
             LaunchCustomProgramMenuItem.IsEnabled = !enabled;
-            KillGameProcessMenuItem.IsEnabled = !enabled;
+            CatchGameProcessMenuItem.IsEnabled = !enabled;
 
             GamePathBox.IsEnabled= !enabled;
             GamePathBrowseButton.IsEnabled= !enabled;
@@ -278,6 +278,8 @@ namespace ThLaunchSite
             {
                 string gameId = this.GameProcessName;
                 GameOperation.KillGameProcess(gameId);
+                MessageBox.Show(this, "ゲームを強制終了させました。", "ゲームプロセスの強制終了",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
