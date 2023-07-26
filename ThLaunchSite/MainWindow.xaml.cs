@@ -13,6 +13,7 @@ using System.ComponentModel;
 using System.Threading;
 using System.Windows.Controls;
 using System.Windows.Threading;
+using System.Xml.Linq;
 
 namespace ThLaunchSite
 {
@@ -25,7 +26,7 @@ namespace ThLaunchSite
 
         private AboutDialog? _aboutDialog = null;
         private BackgroundWorker? _gameWaitingWorker = null;
-        private DispatcherTimer? _timeCountTimer = null;
+        private DispatcherTimer? _gameControlTimer = null;
 
         private readonly string? _appName = VersionInfo.AppName;
         private readonly string? _appVersion = VersionInfo.AppVersion;
@@ -184,12 +185,12 @@ namespace ThLaunchSite
 
             int time = 0;
 
-            _timeCountTimer = new DispatcherTimer
+            _gameControlTimer = new DispatcherTimer
             {
                 Interval = TimeSpan.FromSeconds(1)
             };
 
-            _timeCountTimer.Tick += (e, s) =>
+            _gameControlTimer.Tick += (e, s) =>
             {
                 int minutes = time / 60;
                 int secounds = time % 60; //timeを60で割ったあまり
@@ -197,8 +198,13 @@ namespace ThLaunchSite
                 string gameRunTime = String.Format("{0:D2}min {1:D2}sec", minutes, secounds);
                 GameRunningTimeBlock.Text = gameRunTime;
                 time += 1;
+
+                Process[] gameProcesses = Process.GetProcessesByName(this.GameProcessName);
+                Process gameProcess = gameProcesses[0];
+                string pagedMemorySize = $"{gameProcess.WorkingSet64 / 1024 / 1024} MiB";
+                PagedMemorySizeBlock.Text = pagedMemorySize;
             };
-            _timeCountTimer.Start();
+            _gameControlTimer.Start();
         }
 
         private void Worker_Dowork(object sender, DoWorkEventArgs e)
@@ -213,7 +219,7 @@ namespace ThLaunchSite
 
         private void Worker_Running_Complete(object sender, RunWorkerCompletedEventArgs e)
         {
-            _timeCountTimer.Stop();
+            _gameControlTimer.Stop();
             AppStatusBlock.Content = "準備完了";
             this.GameProcessName = string.Empty;
             EnableLimitationMode(false);

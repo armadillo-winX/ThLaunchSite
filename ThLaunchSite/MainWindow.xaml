@@ -108,7 +108,10 @@
                                        Text="データパネル" 
                                        VerticalAlignment="Top"/>
                             <TextBlock x:Name="GameRunningTimeBlock"
-                                HorizontalAlignment="Left" Margin="100,43,0,0" TextWrapping="Wrap" Text="00min 00sec" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+                                HorizontalAlignment="Left" Margin="113,43,0,0" TextWrapping="Wrap" Text="00min 00sec" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+                            <Label Content="物理メモリ使用量" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="PagedMemorySizeBlock" HorizontalAlignment="Left" Margin="113,84,0,0" 
+                                       TextWrapping="Wrap" Text="0MiB" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
 
                         </Grid>
                     </ScrollViewer>
