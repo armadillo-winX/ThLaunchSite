@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows.Controls;
+using System.Windows.Threading;
 
 namespace ThLaunchSite
 {
@@ -24,11 +25,11 @@ namespace ThLaunchSite
 
         private AboutDialog? _aboutDialog = null;
         private BackgroundWorker? _gameWaitingWorker = null;
+        private DispatcherTimer? _timeCountTimer = null;
 
         private readonly string? _appName = VersionInfo.AppName;
         private readonly string? _appVersion = VersionInfo.AppVersion;
         private readonly string? _settingsDirectory = PathInfo.SettingsDirectory;
-
 
         private readonly Dictionary<string, int> GameDictionary =
             new()
@@ -181,6 +182,23 @@ namespace ThLaunchSite
             _gameWaitingWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(Worker_Running_Complete);
             _gameWaitingWorker.RunWorkerAsync(gameProcessName);
 
+            int time = 0;
+
+            _timeCountTimer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(1)
+            };
+
+            _timeCountTimer.Tick += (e, s) =>
+            {
+                int minutes = time / 60;
+                int secounds = time % 60; //timeを60で割ったあまり
+
+                string gameRunTime = String.Format("{0:D2}min {1:D2}sec", minutes, secounds);
+                GameRunningTimeBlock.Text = gameRunTime;
+                time += 1;
+            };
+            _timeCountTimer.Start();
         }
 
         private void Worker_Dowork(object sender, DoWorkEventArgs e)
@@ -195,6 +213,7 @@ namespace ThLaunchSite
 
         private void Worker_Running_Complete(object sender, RunWorkerCompletedEventArgs e)
         {
+            _timeCountTimer.Stop();
             AppStatusBlock.Content = "準備完了";
             this.GameProcessName = string.Empty;
             EnableLimitationMode(false);

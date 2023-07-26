@@ -66,8 +66,8 @@
         <TabControl Margin="0,78,0,22">
             <TabItem Header="管制パネル">
                 <Grid>
-                    <ScrollViewer HorizontalAlignment="Left" Width="259"
-                                  VerticalScrollBarVisibility="Auto" CanContentScroll="True">
+                    <ScrollViewer
+                                  VerticalScrollBarVisibility="Auto" CanContentScroll="True" Margin="0,0,193,0">
                         <Grid>
                             <TextBlock HorizontalAlignment="Left"
                                        Margin="10,10,0,0" TextWrapping="Wrap" Text="ウィンドウリサイザ" VerticalAlignment="Top"/>
@@ -97,6 +97,15 @@
                                      Text="" VerticalAlignment="Top" Width="120"/>
                             <Button x:Name="ResizeButton"
                                     Content="リサイズ(_R)" Width="90" Height="24" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Click="ResizeButton_Click"/>
+
+                        </Grid>
+                    </ScrollViewer>
+                    <ScrollViewer HorizontalAlignment="Right" Width="188"
+                                  VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Label Content="ゲーム実行時間" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="GameRunningTimeBlock"
+                                HorizontalAlignment="Center" Margin="0,41,0,0" TextWrapping="Wrap" Text="00min 00sec" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
 
                         </Grid>
                     </ScrollViewer>
