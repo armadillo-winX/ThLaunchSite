@@ -63,6 +63,45 @@
         <StatusBar Height="22" VerticalAlignment="Bottom">
             <StatusBarItem x:Name="AppStatusBlock"/>
         </StatusBar>
+        <TabControl Margin="0,78,0,22">
+            <TabItem Header="管制パネル">
+                <Grid>
+                    <ScrollViewer HorizontalAlignment="Left" Width="259"
+                                  VerticalScrollBarVisibility="Auto" CanContentScroll="True">
+                        <Grid>
+                            <TextBlock HorizontalAlignment="Left"
+                                       Margin="10,10,0,0" TextWrapping="Wrap" Text="ウィンドウリサイザ" VerticalAlignment="Top"/>
+                            <Label Content="リサイズ率:" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top"/>
+                            <ComboBox x:Name="ResizeRateComboBox"
+                                      HorizontalAlignment="Left" Margin="75,53,0,0" VerticalAlignment="Top" Width="120">
+                                <ComboBoxItem Content="50%"/>
+                                <ComboBoxItem Content="75%"/>
+                                <ComboBoxItem Content="125%"/>
+                                <ComboBoxItem Content="150%"/>
+                                <ComboBoxItem Content="175%"/>
+                                <ComboBoxItem Content="200%"/>
+                                <ComboBoxItem Content="250%"/>
+                                <ComboBoxItem Content="300%"/>
+                            </ComboBox>
+                            <RadioButton x:Name="ResizeByRateRadioButton" Content="リサイズ率を指定してリサイズ" 
+                                         HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top"
+                                         Click="ResizeByRateRadioButton_Click"/>
+                            <RadioButton x:Name="ResizeBySizeRadioButton" Content="ウィンドウサイズを指定してリサイズ"
+                                         HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"
+                                         Click="ResizeBySizeRadioButton_Click"/>
+                            <Label Content="幅:" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="GameWindowWidthBox" HorizontalAlignment="Left" Margin="75,132,0,0" TextWrapping="NoWrap" 
+                                     Text="" VerticalAlignment="Top" Width="120"/>
+                            <Label Content="高さ:" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="GameWindowHeightBox" HorizontalAlignment="Left" Margin="75,163,0,0" TextWrapping="NoWrap" 
+                                     Text="" VerticalAlignment="Top" Width="120"/>
+                            <Button x:Name="ResizeButton"
+                                    Content="リサイズ(_R)" Width="90" Height="24" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Click="ResizeButton_Click"/>
 
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

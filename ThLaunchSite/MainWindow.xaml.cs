@@ -53,9 +53,10 @@ namespace ThLaunchSite
             InitializeComponent();
 
             this.Title = $"{_appName} ver.{_appVersion}";
-            KillGameProcessMenuItem.IsEnabled= false;
 
             this.GameProcessName = string.Empty;
+
+            EnableLimitationMode(false);
 
             if (!Directory.Exists(_settingsDirectory))
             {
@@ -116,6 +117,15 @@ namespace ThLaunchSite
             this.Height = mainWindowSettings.WindowHeight;
             this.Topmost = mainWindowSettings.AlwaysOnTop;
             AlwaysOnTopMenuItem.IsChecked = mainWindowSettings.AlwaysOnTop;
+            ResizeRateComboBox.SelectedIndex = mainWindowSettings.ResizeRateIndex;
+            if (mainWindowSettings.ResizeByRate) ResizeByRateRadioButton.IsChecked = true;
+            if (mainWindowSettings.ResizeBySize) ResizeBySizeRadioButton.IsChecked = true;
+
+            ResizeRateComboBox.IsEnabled = mainWindowSettings.ResizeByRate;
+            GameWindowWidthBox.IsEnabled = mainWindowSettings.ResizeBySize;
+            GameWindowHeightBox.IsEnabled = mainWindowSettings.ResizeBySize;
+            GameWindowWidthBox.Text = mainWindowSettings.ResizeWidth;
+            GameWindowHeightBox.Text = mainWindowSettings.ResizeHeight;
 
             string? selectedGameId = mainWindowSettings.SelectedGameId;
             if (!string.IsNullOrEmpty(selectedGameId))
@@ -135,6 +145,11 @@ namespace ThLaunchSite
             mainWindowSettings.WindowHeight = this.Height;
             mainWindowSettings.SelectedGameId = GetSelectedGameId();
             mainWindowSettings.AlwaysOnTop = AlwaysOnTopMenuItem.IsChecked;
+            mainWindowSettings.ResizeRateIndex = ResizeRateComboBox.SelectedIndex;
+            mainWindowSettings.ResizeByRate = ResizeByRateRadioButton.IsChecked == true;
+            mainWindowSettings.ResizeBySize= ResizeBySizeRadioButton.IsChecked == true;
+            mainWindowSettings.ResizeWidth = GameWindowWidthBox.Text;
+            mainWindowSettings.ResizeHeight = GameWindowHeightBox.Text;
 
             SettingsConfiguration.SaveMainWindowSettings(mainWindowSettings);
         }
@@ -152,6 +167,7 @@ namespace ThLaunchSite
             GamePathBrowseButton.IsEnabled= !enabled;
 
             KillGameProcessMenuItem.IsEnabled = enabled;
+            ResizeButton.IsEnabled= enabled;
         }
 
         private void EnableWaitGameEndMode(string gameProcessName)
@@ -357,6 +373,67 @@ namespace ThLaunchSite
         private void AlwaysOnTopMenuItem_Click(object sender, RoutedEventArgs e)
         {
             this.Topmost = AlwaysOnTopMenuItem.IsChecked;
+        }
+
+        private void ResizeByRateRadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            ResizeRateComboBox.IsEnabled = ResizeByRateRadioButton.IsChecked == true;
+            GameWindowWidthBox.IsEnabled = ResizeBySizeRadioButton.IsChecked == true;
+            GameWindowHeightBox.IsEnabled = ResizeBySizeRadioButton.IsChecked == true;
+        }
+
+        private void ResizeBySizeRadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            ResizeRateComboBox.IsEnabled = ResizeByRateRadioButton.IsChecked == true;
+            GameWindowWidthBox.IsEnabled = ResizeBySizeRadioButton.IsChecked == true;
+            GameWindowHeightBox.IsEnabled = ResizeBySizeRadioButton.IsChecked == true;
+        }
+
+        private void ResizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            string name = this.GameProcessName;
+
+            if (ResizeByRateRadioButton.IsChecked == true)
+            {
+                if (ResizeRateComboBox.SelectedIndex > -1)
+                {
+                    ComboBoxItem item = (ComboBoxItem)ResizeRateComboBox.SelectedItem;
+                    string rate = (string)item.Content;
+
+                    double resizeRate = double.Parse(rate.Replace("%", "")) / 100;
+
+                    try
+                    {
+                        int[] sizes = GameWindowHandler.GetWindowSizes(name);
+
+                        //リサイズ率に基づいてウィンドウの変更サイズを決定
+                        int width = (int)Math.Round(sizes[0] * resizeRate);
+                        int height = (int)Math.Round(sizes[1] * resizeRate);
+
+                        GameWindowHandler.ResizeWindow(name, width, height);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, "エラー",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            else if (ResizeBySizeRadioButton.IsChecked == true)
+            {
+                try
+                {
+                    int width = int.Parse(GameWindowWidthBox.Text);
+                    int height = int.Parse(GameWindowHeightBox.Text);
+
+                    GameWindowHandler.ResizeWindow(name, width, height);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message, "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
     }
 }
