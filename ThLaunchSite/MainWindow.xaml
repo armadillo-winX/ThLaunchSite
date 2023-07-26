@@ -67,7 +67,7 @@
             <TabItem Header="管制パネル">
                 <Grid>
                     <ScrollViewer
-                                  VerticalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalAlignment="Left" Width="225">
+                                  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
                         <Grid>
                             <TextBlock HorizontalAlignment="Left"
                                        Margin="10,10,0,0" TextWrapping="Wrap" Text="ウィンドウリサイザ" VerticalAlignment="Top"/>
@@ -97,24 +97,23 @@
                                      Text="" VerticalAlignment="Top" Width="120"/>
                             <Button x:Name="ResizeButton"
                                     Content="リサイズ(_R)" Width="90" Height="24" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Click="ResizeButton_Click"/>
-
-                        </Grid>
-                    </ScrollViewer>
-                    <ScrollViewer
-                                  VerticalScrollBarVisibility="Auto" Margin="225,0,0,0">
-                        <Grid>
-                            <Label Content="ゲーム実行時間" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"
+                            <StackPanel Margin="225,0,0,0">
+                                <Grid>
+                                    <Label Content="ゲーム実行時間" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"
                                        Text="データパネル" 
                                        VerticalAlignment="Top"/>
-                            <TextBlock x:Name="GameRunningTimeBlock"
+                                    <TextBlock x:Name="GameRunningTimeBlock"
                                 HorizontalAlignment="Left" Margin="113,43,0,0" TextWrapping="Wrap" Text="00min 00sec" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-                            <Label Content="物理メモリ使用量" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top"/>
-                            <TextBlock x:Name="PagedMemorySizeBlock" HorizontalAlignment="Left" Margin="113,84,0,0" 
+                                    <Label Content="物理メモリ使用量" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top"/>
+                                    <TextBlock x:Name="PagedMemorySizeBlock" HorizontalAlignment="Left" Margin="113,84,0,0" 
                                        TextWrapping="Wrap" Text="0MiB" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
 
+                                </Grid>
+                            </StackPanel>
                         </Grid>
                     </ScrollViewer>
+
                 </Grid>
             </TabItem>
         </TabControl>
