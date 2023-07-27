@@ -25,7 +25,7 @@ Microsoft Visual Studio Community 2022 Current
 ・東方紅魔郷　～ the Embodiment of Scarlet Devil.
 ・東方妖々夢　～ Perfect Cherry Blossom.
 ・東方永夜抄　～ Imperishable Night.
-・東方花映塚　～ Phantasmagoria of Flower View.(ランチャー機能のみの対応)
+・東方花映塚　～ Phantasmagoria of Flower View.
 ・東方風神録　～ Mountain of Faith.
 ・東方地霊殿　～ Subterranean Animism.
 ・東方星蓮船　～ Undefined Fantastic Object.
