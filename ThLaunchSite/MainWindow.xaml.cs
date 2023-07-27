@@ -54,6 +54,14 @@ namespace ThLaunchSite
             InitializeComponent();
 
             this.Title = $"{_appName} ver.{_appVersion}";
+            if (((App)Application.Current).IsAdmin())
+            {
+                AuthorityBlock.Content = "管理者権限";
+            }
+            else
+            {
+                AuthorityBlock.Content = "ユーザー権限";
+            }
 
             this.GameProcessName = string.Empty;
 

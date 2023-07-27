@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThLaunchSite"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="550" Closing="Window_Closing">
+        Title="MainWindow" Height="400" Width="550" ResizeMode="CanResizeWithGrip" Closing="Window_Closing">
     <Grid>
         <Menu Height="18" VerticalAlignment="Top">
             <MenuItem Header="ゲーム(_G)">
@@ -61,6 +61,7 @@
         <TextBox x:Name="GamePathBox" Margin="46,55,57,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <Button x:Name="GamePathBrowseButton" Content="参照(_B)"  HorizontalAlignment="Right" Margin="0,54,10,0" VerticalAlignment="Top" Click="GamePathBrowseButton_Click"/>
         <StatusBar Height="22" VerticalAlignment="Bottom">
+            <StatusBarItem x:Name="AuthorityBlock" Content="Authority" DockPanel.Dock="Right" Margin="0,0,20,0"/>
             <StatusBarItem x:Name="AppStatusBlock"/>
         </StatusBar>
         <TabControl Margin="0,78,0,22">
