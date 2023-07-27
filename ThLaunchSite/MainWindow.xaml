@@ -107,6 +107,9 @@
                                 <Label Content="物理メモリ使用量" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top"/>
                                 <TextBlock x:Name="PagedMemorySizeBlock" HorizontalAlignment="Left" Margin="113,80,0,0" 
                                        TextWrapping="Wrap" Text="0MiB" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+                                <Label Content="仮想メモリ使用量" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top"/>
+                                <TextBlock x:Name="VirtialMemorySizeBlock" HorizontalAlignment="Left" Margin="113,114,0,0" TextWrapping="Wrap"
+                                           Text="0MiB" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
 
                             </Grid>
                         </Grid>
