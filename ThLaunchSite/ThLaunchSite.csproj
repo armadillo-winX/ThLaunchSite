@@ -37,4 +37,10 @@
     <Resource Include="Images\User_16x.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Doc\ReadMe.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
