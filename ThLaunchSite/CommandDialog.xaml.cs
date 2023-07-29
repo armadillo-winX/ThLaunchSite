@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls;
-
-namespace ThLaunchSite
+﻿namespace ThLaunchSite
 {
     /// <summary>
     /// CommandDialog.xaml の相互作用ロジック
