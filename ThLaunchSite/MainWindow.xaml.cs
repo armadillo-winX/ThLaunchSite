@@ -13,6 +13,7 @@ using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Threading;
 
 namespace ThLaunchSite
@@ -476,6 +477,52 @@ namespace ThLaunchSite
                 {
                     MessageBox.Show(this, ex.Message, "エラー",
                         MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private async void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (_gameWaitingWorker != null && _gameWaitingWorker.IsBusy)
+            {
+                MessageBox.Show(this, "ゲーム終了待機中は他のゲームを起動することはできません。", _appName,
+                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            else
+            {
+                if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.P)
+                {
+                    CommandDialog commandDialog = new();
+                    commandDialog.Owner = this;
+                    if (commandDialog.ShowDialog() == true)
+                    {
+                        string? gameId = commandDialog.GameId;
+                        if (!string.IsNullOrEmpty(gameId))
+                        {
+                            if (GameDictionary.ContainsKey(gameId))
+                            {
+                                int index = GameDictionary[gameId];
+                                GameComboBox.SelectedIndex = index;
+                                try
+                                {
+                                    EnableLimitationMode(true);
+                                    string gameProcessName = await Task.Run(() => GameOperation.LaunchGame(gameId));
+                                    EnableWaitGameEndMode(gameProcessName);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(this, $"ゲームの起動に失敗。\n{ex.Message}", "エラー",
+                                        MessageBoxButton.OK, MessageBoxImage.Error);
+                                    EnableLimitationMode(false);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show(this, "未対応のゲーム作品です。", "エラー",
+                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        }
+                    }
                 }
             }
         }
