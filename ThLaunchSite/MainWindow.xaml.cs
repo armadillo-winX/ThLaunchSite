@@ -501,13 +501,14 @@ namespace ThLaunchSite
                     if (commandDialog.ShowDialog() == true)
                     {
                         string? gameId = commandDialog.GameId;
+                        int patchIndex = commandDialog.PatchIndex;
                         if (!string.IsNullOrEmpty(gameId))
                         {
                             if (GameDictionary.ContainsKey(gameId))
                             {
                                 int index = GameDictionary[gameId];
                                 GameComboBox.SelectedIndex = index;
-                                LaunchGame(gameId, 0);
+                                LaunchGame(gameId, patchIndex);
                             }
                             else
                             {
