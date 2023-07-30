@@ -1,4 +1,4 @@
-﻿using System.Windows;
+﻿using System.Text;
 
 namespace ThLaunchSite
 {
@@ -14,6 +14,27 @@ namespace ThLaunchSite
             AppNameBlock.Text = VersionInfo.AppName;
             VersionBlock.Text = $"Version.{VersionInfo.AppVersion}";
             DeveloperBlock.Text = $"Developer {VersionInfo.Developer}";
+            DotNetVersionBlock.Text = $"ランタイム {VersionInfo.DotNetViersion}";
+
+            string readmeTextData = GetReadme();
+            ReadMeTextBox.Text = readmeTextData;
+        }
+
+        private string GetReadme()
+        {
+            string readme = PathInfo.Readme;
+            try
+            {
+                StreamReader fs = new(readme, Encoding.UTF8);
+                string mes = fs.ReadToEnd();
+                fs.Close();
+
+                return mes;
+            }
+            catch (Exception)
+            {
+                return "ReadMe.txtを読み込めません。";
+            }
         }
 
         private void OKButton_Click(object sender, RoutedEventArgs e)

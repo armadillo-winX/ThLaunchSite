@@ -5,21 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThLaunchSite"
         mc:Ignorable="d"
-        Title="このツールについて" Height="225" Width="305" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner" Closing="Window_Closing">
+        Title="このツールについて" Height="340" Width="432" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner" Closing="Window_Closing">
     <Grid>
         <TextBlock x:Name="AppNameBlock"
                    HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" 
                    Text="TextBlock" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <TextBlock x:Name="VersionBlock"
                    HorizontalAlignment="Left" Margin="10,39,0,0" TextWrapping="Wrap"
-                   Text="TextBlock" VerticalAlignment="Top" FontSize="14"/>
+                   Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="DeveloperBlock"
-                   HorizontalAlignment="Left" Margin="10,63,0,0" TextWrapping="Wrap"
-                   Text="TextBlock" VerticalAlignment="Top" FontSize="14"/>
+                   HorizontalAlignment="Left" Margin="10,65,0,0" TextWrapping="Wrap"
+                   Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="DotNetVersionBlock"
+                   HorizontalAlignment="Left" Margin="10,91,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
         <Button x:Name="OKButton" Content="_OK"
                 HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom"
                 IsDefault="True"
                 Width="90" Height="24" Click="OKButton_Click"/>
+        <TextBox x:Name="ReadMeTextBox" IsReadOnly="True"
+                 Margin="10,117,10,39" TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto" Text=""/>
 
     </Grid>
 </Window>

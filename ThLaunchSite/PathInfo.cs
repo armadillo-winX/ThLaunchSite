@@ -25,5 +25,7 @@
                 return !string.IsNullOrEmpty(SettingsDirectory) ? gamePathSettingsFile : string.Empty;
             }
         }
+
+        public static string Readme => $"{AppLocation}\\Doc\\ReadMe.txt";
     }
 }

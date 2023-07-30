@@ -9,5 +9,7 @@
         public static string? AppVersion => FileVersionInfo.GetVersionInfo(_appPath).ProductVersion + " Beta Preview";
 
         public static string? Developer => FileVersionInfo.GetVersionInfo(_appPath).CompanyName;
+
+        public static string DotNetViersion => $".NET {Environment.Version}";
     }
 }
