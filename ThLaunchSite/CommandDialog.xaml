@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThLaunchSite"
         mc:Ignorable="d"
-        Title="コマンド入力ウィンドウ" Height="145" Width="319" ResizeMode="NoResize" ShowInTaskbar="False" WindowStyle="ToolWindow" WindowStartupLocation="CenterOwner">
+        Title="コマンドゲームランチャー" Height="145" Width="319" ResizeMode="NoResize" ShowInTaskbar="False" WindowStyle="ToolWindow" WindowStartupLocation="CenterOwner">
     <Grid>
         <TextBox x:Name="CommandBox"
                  TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Margin="10,10,10,0" CharacterCasing="Lower"/>
