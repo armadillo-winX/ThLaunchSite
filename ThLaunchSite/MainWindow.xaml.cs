@@ -121,6 +121,43 @@ namespace ThLaunchSite
             }
         }
 
+        private async void LaunchGame(string gameId, int patchIndex)
+        {
+            try
+            {
+                EnableLimitationMode(true);
+
+                string gameProcessName;
+
+                switch (patchIndex)
+                {
+                    case 0:
+                        gameProcessName = await Task.Run(() 
+                            => GameOperation.StartGameProcess(gameId)
+                            );
+                        EnableWaitGameEndMode(gameProcessName);
+                        break;
+                    case 1:
+                        gameProcessName = await Task.Run(() 
+                            => GameOperation.StartGameProcessWithVpatch(gameId)
+                            );
+                        EnableWaitGameEndMode(gameProcessName);
+                        break;
+                    case 2:
+                        gameProcessName = await Task.Run(()
+                            => GameOperation.StartGameProcessWithThprac(gameId)
+                            );
+                        EnableWaitGameEndMode(gameProcessName);
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, $"ゲームの起動に失敗。\n{ex.Message}", "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         private void ConfigureMainWindowSettings()
         {
             MainWindowSettings mainWindowSettings = SettingsConfiguration.ConfigureMainWindowSettings();
@@ -267,55 +304,22 @@ namespace ThLaunchSite
             }
         }
 
-        private async void LaunchGameMenuItem_Click(object sender, RoutedEventArgs e)
+        private void LaunchGameMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                string gameId = GetSelectedGameId();
-                EnableLimitationMode(true);
-                string gameProcessName = await Task.Run(() => GameOperation.LaunchGame(gameId));
-                EnableWaitGameEndMode(gameProcessName);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(this, $"ゲームの起動に失敗。\n{ex.Message}", "エラー",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                EnableLimitationMode(false);
-            }
+            string gameId = GetSelectedGameId();
+            LaunchGame(gameId, 0);
         }
 
-        public async void LaunchWithVpatchMenuItem_Click(object sender, RoutedEventArgs e)
+        public void LaunchWithVpatchMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                string gameId = GetSelectedGameId();
-                EnableLimitationMode(true);
-                string gameProcessName = await Task.Run(() => GameOperation.LaunchGameWithVpatch(gameId));
-                EnableWaitGameEndMode(gameProcessName);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(this, $"ゲームの起動に失敗。\n{ex.Message}", "エラー",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                EnableLimitationMode(false);
-            }
+            string gameId = GetSelectedGameId();
+            LaunchGame(gameId, 1);
         }
 
-        public async void LaunchWithThpracMenuItem_Click(Object sender, RoutedEventArgs e)
+        public void LaunchWithThpracMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                string gameId = GetSelectedGameId();
-                EnableLimitationMode(true);
-                string gameProcessName = await Task.Run(() => GameOperation.LaunchGameWithThprac(gameId));
-                EnableWaitGameEndMode(gameProcessName);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(this, $"ゲームの起動に失敗。\n{ex.Message}", "エラー",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                EnableLimitationMode(false);
-            }
+            string gameId = GetSelectedGameId();
+            LaunchGame(gameId, 2);
         }
 
         public void LaunchCustomeMenuItem_Click(object sender, RoutedEventArgs e)
@@ -481,7 +485,7 @@ namespace ThLaunchSite
             }
         }
 
-        private async void Window_KeyDown(object sender, KeyEventArgs e)
+        private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (_gameWaitingWorker != null && _gameWaitingWorker.IsBusy)
             {
@@ -503,18 +507,7 @@ namespace ThLaunchSite
                             {
                                 int index = GameDictionary[gameId];
                                 GameComboBox.SelectedIndex = index;
-                                try
-                                {
-                                    EnableLimitationMode(true);
-                                    string gameProcessName = await Task.Run(() => GameOperation.LaunchGame(gameId));
-                                    EnableWaitGameEndMode(gameProcessName);
-                                }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show(this, $"ゲームの起動に失敗。\n{ex.Message}", "エラー",
-                                        MessageBoxButton.OK, MessageBoxImage.Error);
-                                    EnableLimitationMode(false);
-                                }
+                                LaunchGame(gameId, 0);
                             }
                             else
                             {
