@@ -1,6 +1,10 @@
 ﻿---------------------------------------------------
-Touhou Launch Site    Copyright © Mashiro Tamane
+Touhou Launch Site (Beta Preview)
+Copyright © Mashiro Tamane
 ---------------------------------------------------
+
+§注意事項
+本ソフトウェアはBeta Preview版です。多数の不具合や安定性の問題がある可能性があります。
 
 §はじめに
 本ツールは上海アリス幻樂団「東方Project」作品群に特化した高度ゲームランチャーです。
