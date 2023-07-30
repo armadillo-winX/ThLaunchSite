@@ -40,6 +40,10 @@
                         this.PatchIndex = 0;
                     }
                 }
+                else
+                {
+                    this.PatchIndex = 0;
+                }
             }
         }
 
