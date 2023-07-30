@@ -155,6 +155,7 @@ namespace ThLaunchSite
             {
                 MessageBox.Show(this, $"ゲームの起動に失敗。\n{ex.Message}", "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
+                EnableLimitationMode(false);
             }
         }
 
