@@ -520,5 +520,19 @@ namespace ThLaunchSite
                 }
             }
         }
+
+        private void LaunchGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!LaunchGameButtonMenu.IsOpen)
+            {
+                LaunchGameButtonMenu.PlacementTarget = LaunchGameButton;
+                LaunchGameButtonMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
+                LaunchGameButtonMenu.IsOpen = true;
+            }
+            else
+            {
+                LaunchGameButtonMenu.IsOpen = false;
+            }
+        }
     }
 }
