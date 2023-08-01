@@ -13,8 +13,8 @@ namespace ThLaunchSite
 
             AppNameBlock.Text = VersionInfo.AppName;
             VersionBlock.Text = $"Version.{VersionInfo.AppVersion}";
-            DeveloperBlock.Text = $"Developer {VersionInfo.Developer}";
-            DotNetVersionBlock.Text = $"ランタイム {VersionInfo.DotNetViersion}";
+            DeveloperBlock.Text = $"by {VersionInfo.Developer}";
+            DotNetVersionBlock.Text = $"Runtime: {VersionInfo.DotNetViersion}";
 
             string readmeTextData = GetReadme();
             ReadMeTextBox.Text = readmeTextData;
