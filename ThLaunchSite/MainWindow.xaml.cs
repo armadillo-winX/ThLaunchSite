@@ -259,6 +259,39 @@ namespace ThLaunchSite
             _gameControlTimer.Start();
         }
 
+        private void ShowCommandGameLauncherDialog()
+        {
+            if (_gameWaitingWorker != null && _gameWaitingWorker.IsBusy)
+            {
+                MessageBox.Show(this, "ゲーム終了待機中は他のゲームを起動することはできません。", _appName,
+                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            else
+            {
+                CommandDialog commandDialog = new();
+                commandDialog.Owner = this;
+                if (commandDialog.ShowDialog() == true)
+                {
+                    string? gameId = commandDialog.GameId;
+                    int patchIndex = commandDialog.PatchIndex;
+                    if (!string.IsNullOrEmpty(gameId))
+                    {
+                        if (GameDictionary.ContainsKey(gameId))
+                        {
+                            int index = GameDictionary[gameId];
+                            GameComboBox.SelectedIndex = index;
+                            LaunchGame(gameId, patchIndex);
+                        }
+                        else
+                        {
+                            MessageBox.Show(this, "未対応のゲーム作品です。", "エラー",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                }
+            }
+        }
+
         private void Worker_Dowork(object sender, DoWorkEventArgs e)
         {
             string name = (string)e.Argument;
@@ -488,37 +521,9 @@ namespace ThLaunchSite
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (_gameWaitingWorker != null && _gameWaitingWorker.IsBusy)
+            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.P)
             {
-                MessageBox.Show(this, "ゲーム終了待機中は他のゲームを起動することはできません。", _appName,
-                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
-            else
-            {
-                if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.P)
-                {
-                    CommandDialog commandDialog = new();
-                    commandDialog.Owner = this;
-                    if (commandDialog.ShowDialog() == true)
-                    {
-                        string? gameId = commandDialog.GameId;
-                        int patchIndex = commandDialog.PatchIndex;
-                        if (!string.IsNullOrEmpty(gameId))
-                        {
-                            if (GameDictionary.ContainsKey(gameId))
-                            {
-                                int index = GameDictionary[gameId];
-                                GameComboBox.SelectedIndex = index;
-                                LaunchGame(gameId, patchIndex);
-                            }
-                            else
-                            {
-                                MessageBox.Show(this, "未対応のゲーム作品です。", "エラー",
-                                    MessageBoxButton.OK, MessageBoxImage.Error);
-                            }
-                        }
-                    }
-                }
+                ShowCommandGameLauncherDialog();
             }
         }
 
@@ -534,6 +539,11 @@ namespace ThLaunchSite
             {
                 LaunchGameButtonMenu.IsOpen = false;
             }
+        }
+
+        private void CommandGameLauncherMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ShowCommandGameLauncherDialog();
         }
     }
 }

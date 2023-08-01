@@ -36,6 +36,13 @@
                 <MenuItem x:Name="AlwaysOnTopMenuItem"
                           IsCheckable="True" Header="常に最前面に表示(_A)" Click="AlwaysOnTopMenuItem_Click"/>
             </MenuItem>
+            <MenuItem Header="ツール(_T)">
+                <MenuItem x:Name="CommandGameLauncherMenuItem" Header="コマンドゲームランチャー(Ctrl+P)" Click="CommandGameLauncherMenuItem_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/SearchAndApps_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
             <MenuItem Header="ヘルプ(_H)">
                 <MenuItem x:Name="AboutMenuItem" Header="このツールについて(_A)" Click="AboutMenuItem_Click"/>
             </MenuItem>

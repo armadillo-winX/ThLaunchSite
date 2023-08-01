@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <None Remove="Images\Run_16x.png" />
+    <None Remove="Images\SearchAndApps_16x.png" />
     <None Remove="Images\Settings_12x_16x.png" />
     <None Remove="Images\Stop_16x.png" />
     <None Remove="Images\User_16x.png" />
@@ -30,6 +31,7 @@
 
   <ItemGroup>
     <Resource Include="Images\Run_16x.png" />
+    <Resource Include="Images\SearchAndApps_16x.png" />
     <Resource Include="Images\Settings_12x_16x.png" />
     <Resource Include="Images\Stop_16x.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
