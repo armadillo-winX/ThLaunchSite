@@ -121,6 +121,19 @@ namespace ThLaunchSite
             }
         }
 
+        private string GetSelectedGameTitle()
+        {
+            if (GameComboBox.SelectedIndex > -1)
+            {
+                ComboBoxItem item = (ComboBoxItem)GameComboBox.SelectedItem;
+                return (string)item.Content;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
         private async void LaunchGame(string gameId, int patchIndex)
         {
             try
@@ -231,6 +244,8 @@ namespace ThLaunchSite
             _gameWaitingWorker.RunWorkerAsync(gameProcessName);
 
             int time = 0;
+
+            GameTitleBlock.Text = GetSelectedGameTitle();
 
             _gameControlTimer = new DispatcherTimer
             {

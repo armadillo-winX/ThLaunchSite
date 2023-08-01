@@ -131,18 +131,21 @@
                             <Button x:Name="ResizeButton"
                                     Content="リサイズ(_R)" Width="90" Height="24" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Click="ResizeButton_Click"/>
                             <Grid Margin="255,0,0,0" >
-                                <Label Content="ゲーム実行時間" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top"/>
+                                <Label Content="ゲーム実行時間" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"
                                        Text="データパネル" 
                                        VerticalAlignment="Top"/>
                                 <TextBlock x:Name="GameRunningTimeBlock"
-                                HorizontalAlignment="Left" Margin="113,43,0,0" TextWrapping="Wrap" Text="00min 00sec" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-                                <Label Content="物理メモリ使用量" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top"/>
-                                <TextBlock x:Name="PagedMemorySizeBlock" HorizontalAlignment="Left" Margin="113,80,0,0" 
+                                HorizontalAlignment="Left" Margin="111,76,0,0" TextWrapping="Wrap" Text="00min 00sec" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+                                <Label Content="物理メモリ使用量" HorizontalAlignment="Left" Margin="10,117,0,0" VerticalAlignment="Top"/>
+                                <TextBlock x:Name="PagedMemorySizeBlock" HorizontalAlignment="Left" Margin="111,113,0,0" 
                                        TextWrapping="Wrap" Text="0MiB" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
-                                <Label Content="仮想メモリ使用量" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top"/>
-                                <TextBlock x:Name="VirtialMemorySizeBlock" HorizontalAlignment="Left" Margin="113,114,0,0" TextWrapping="Wrap"
+                                <Label Content="仮想メモリ使用量" HorizontalAlignment="Left" Margin="10,151,0,0" VerticalAlignment="Top"/>
+                                <TextBlock x:Name="VirtialMemorySizeBlock" HorizontalAlignment="Left" Margin="111,148,0,0" TextWrapping="Wrap"
                                            Text="0MiB" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+                                <Label HorizontalAlignment="Left" Margin="10,45,0,0" Content="ゲームタイトル" VerticalAlignment="Top"/>
+                                <TextBlock x:Name="GameTitleBlock"
+                                           HorizontalAlignment="Left" Margin="111,42,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
 
                             </Grid>
                         </Grid>
