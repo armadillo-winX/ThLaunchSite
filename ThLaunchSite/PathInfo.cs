@@ -27,5 +27,7 @@
         }
 
         public static string Readme => $"{AppLocation}\\Doc\\ReadMe.txt";
+
+        public static string GamePlayLogFile => $"{AppLocation}\\GamePlayLog.xml";
     }
 }

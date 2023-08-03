@@ -150,8 +150,23 @@
                             </Grid>
                         </Grid>
                     </ScrollViewer>
-
                 </Grid>
+            </TabItem>
+            <TabItem Header="ゲーム実行履歴">
+                <DataGrid x:Name="GameLogDataGrid" ItemsSource="{Binding}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Width="50"
+                                            Binding="{Binding GameId}"/>
+                        <DataGridTextColumn Header="ゲーム" Width="120"
+                                            Binding="{Binding GameName}"/>
+                        <DataGridTextColumn Header="開始時刻" Width="150"
+                                            Binding="{Binding GameStartTime}"/>
+                        <DataGridTextColumn Header="終了時刻" Width="150"
+                                            Binding="{Binding GameEndTime}"/>
+                        <DataGridTextColumn Header="起動時間" Width="120"
+                                            Binding="{Binding GameRunningTime}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </TabItem>
         </TabControl>
     </Grid>

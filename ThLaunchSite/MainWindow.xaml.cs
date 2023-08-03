@@ -9,12 +9,14 @@ global using ThLaunchSite.Settings;
 
 using Microsoft.Win32;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
+using System.Xml;
 
 namespace ThLaunchSite
 {
@@ -23,7 +25,13 @@ namespace ThLaunchSite
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string GameId { get; set; }
+
+        private string GameName { get; set; } 
+
         private string GameProcessName { get; set; }
+
+        private DateTime GameStartTime { get; set; }
 
         private AboutDialog? _aboutDialog = null;
         private BackgroundWorker? _gameWaitingWorker = null;
@@ -32,6 +40,7 @@ namespace ThLaunchSite
         private readonly string? _appName = VersionInfo.AppName;
         private readonly string? _appVersion = VersionInfo.AppVersion;
         private readonly string? _settingsDirectory = PathInfo.SettingsDirectory;
+        private readonly string _gamePlayLogFile = PathInfo.GamePlayLogFile;
 
         private readonly Dictionary<string, int> GameDictionary =
             new()
@@ -65,6 +74,8 @@ namespace ThLaunchSite
                 AuthorityBlock.Content = "ユーザー権限";
             }
 
+            this.GameId = string.Empty;
+            this.GameName = string.Empty;
             this.GameProcessName = string.Empty;
 
             EnableLimitationMode(false);
@@ -104,6 +115,8 @@ namespace ThLaunchSite
                 MessageBox.Show($"メインウィンドウ設定の構成に失敗。\n{ex.Message}", "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+            ViewGamePlayLogData();
 
             AppStatusBlock.Content = "準備完了";
         }
@@ -172,6 +185,26 @@ namespace ThLaunchSite
             }
         }
 
+        private void ViewGamePlayLogData()
+        {
+            GameLogDataGrid.Items.Clear();
+            if (File.Exists(_gamePlayLogFile))
+            {
+                try
+                {
+                    ObservableCollection<GamePlayLogData> gamePlayLogDatas = new();
+                    gamePlayLogDatas = GamePlayLogRecorder.GetGamePlayLogDatas();
+                    GameLogDataGrid.AutoGenerateColumns = false;
+                    GameLogDataGrid.DataContext = gamePlayLogDatas;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, $"ゲーム実行履歴の取得に失敗。\n{ex.Message}", "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
         private void ConfigureMainWindowSettings()
         {
             MainWindowSettings mainWindowSettings = SettingsConfiguration.ConfigureMainWindowSettings();
@@ -205,7 +238,7 @@ namespace ThLaunchSite
             MainWindowSettings mainWindowSettings = new();
             mainWindowSettings.WindowWidth = this.Width;
             mainWindowSettings.WindowHeight = this.Height;
-            mainWindowSettings.SelectedGameId = GetSelectedGameId();
+            mainWindowSettings.SelectedGameId = this.GameId;
             mainWindowSettings.AlwaysOnTop = AlwaysOnTopMenuItem.IsChecked;
             mainWindowSettings.ResizeRateIndex = ResizeRateComboBox.SelectedIndex;
             mainWindowSettings.ResizeByRate = ResizeByRateRadioButton.IsChecked == true;
@@ -235,6 +268,8 @@ namespace ThLaunchSite
         private void EnableWaitGameEndMode(string gameProcessName)
         {
             this.GameProcessName= gameProcessName;
+            this.GameStartTime= DateTime.Now;
+
             AppStatusBlock.Content = "ゲームの終了を待機中";
             EnableLimitationMode(true);
 
@@ -245,7 +280,7 @@ namespace ThLaunchSite
 
             int time = 0;
 
-            GameTitleBlock.Text = GetSelectedGameTitle();
+            GameTitleBlock.Text = this.GameName;
 
             _gameControlTimer = new DispatcherTimer
             {
@@ -320,9 +355,33 @@ namespace ThLaunchSite
         private void Worker_Running_Complete(object sender, RunWorkerCompletedEventArgs e)
         {
             _gameControlTimer.Stop();
+
+            GamePlayLogData gamePlayLogData = new GamePlayLogData();
+            gamePlayLogData.GameId = this.GameId;
+            gamePlayLogData.GameName = this.GameName;
+            gamePlayLogData.GameStartTime = this.GameStartTime.ToString("yyyy/MM/dd hh:mm:ss");
+
+            DateTime gameEndTime = DateTime.Now;
+            gamePlayLogData.GameEndTime = gameEndTime.ToString("yyyy/MM/dd hh:mm:ss");
+
+            TimeSpan runningTimeSpan = gameEndTime - this.GameStartTime;
+            gamePlayLogData.GameRunningTime = runningTimeSpan.ToString("mm\\:ss");
+
+            try
+            {
+                GamePlayLogRecorder.SaveGamePlayLog(gamePlayLogData);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, $"ゲーム実行ログの保存に失敗。\n{ex.Message}", "エラー",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
             AppStatusBlock.Content = "準備完了";
+
             this.GameProcessName = string.Empty;
             EnableLimitationMode(false);
+            ViewGamePlayLogData();
         }
 
         public void AboutMenuItem_Click(object sender, RoutedEventArgs e)
@@ -348,26 +407,26 @@ namespace ThLaunchSite
             {
                 string gamePath = openFileDialog.FileName;
                 GamePathBox.Text = gamePath;
-                string gameId = GetSelectedGameId();
+                string gameId = this.GameId;
                 GamePath.SetGamePath(gameId, gamePath);
             }
         }
 
         private void LaunchGameMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            string gameId = GetSelectedGameId();
+            string gameId = this.GameId;
             LaunchGame(gameId, 0);
         }
 
         public void LaunchWithVpatchMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            string gameId = GetSelectedGameId();
+            string gameId = this.GameId;
             LaunchGame(gameId, 1);
         }
 
         public void LaunchWithThpracMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            string gameId = GetSelectedGameId();
+            string gameId = this.GameId;
             LaunchGame(gameId, 2);
         }
 
@@ -375,7 +434,7 @@ namespace ThLaunchSite
         {
             try
             {
-                string gameId = GetSelectedGameId();
+                string gameId = this.GameId;
                 GameOperation.LaunchCustomProgram(gameId);
             }
             catch (Exception ex)
@@ -403,7 +462,7 @@ namespace ThLaunchSite
 
         private void CatchGameProcessMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            string gameId = GetSelectedGameId();
+            string gameId = this.GameId;
             if (GameOperation.IsRunningGame(gameId))
             {
                 EnableWaitGameEndMode(gameId);
@@ -459,8 +518,9 @@ namespace ThLaunchSite
         {
             GamePathBox.Clear();
 
-            string gameId = GetSelectedGameId();
-            string? gamePath = GamePath.GetGamePath(gameId);
+            this.GameId = GetSelectedGameId();
+            this.GameName = GetSelectedGameTitle();
+            string? gamePath = GamePath.GetGamePath(this.GameId);
 
             if (!string.IsNullOrEmpty(gamePath))
             {
