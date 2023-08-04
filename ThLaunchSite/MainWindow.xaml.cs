@@ -598,5 +598,29 @@ namespace ThLaunchSite
         {
             ShowCommandGameLauncherDialog();
         }
+
+        private void TotalGameRunningTimeStatisticsMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (GameLogDataGrid.Items.Count > 0)
+            {
+                ObservableCollection<GamePlayLogData> gamePlayLogDatas 
+                    = GameLogDataGrid.DataContext as ObservableCollection<GamePlayLogData>;
+
+                int totalGameRunningTimeInt = 0;
+                foreach (GamePlayLogData gamePlayLogData in  gamePlayLogDatas)
+                {
+                    string[] gameRunningTimeRecords = gamePlayLogData.GameRunningTime.Split(":");
+                    int gameRunningTimeMinInt = int.Parse(gameRunningTimeRecords[0]) * 60;
+                    int gameRunningTimeSecInt = int.Parse(gameRunningTimeRecords[1]);
+                    totalGameRunningTimeInt += gameRunningTimeMinInt + gameRunningTimeSecInt;
+                }
+
+                TimeSpan totalGameRunningTime = TimeSpan.FromSeconds(totalGameRunningTimeInt);
+                GameRunningTimeStaticsDialog gameRunningTimeStaticsDialog = new();
+                gameRunningTimeStaticsDialog.TotalGameRunningTime = totalGameRunningTime.ToString("mm\\:ss");
+                gameRunningTimeStaticsDialog.Owner = this;
+                gameRunningTimeStaticsDialog.ShowDialog();
+            }
+        }
     }
 }

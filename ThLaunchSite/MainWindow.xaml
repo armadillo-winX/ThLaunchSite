@@ -35,6 +35,13 @@
                         <Image Source="/Images/Stop_16x.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="TotalGameRunningTimeStatisticsMenuItem" Header="ゲーム累積実行時間統計" 
+                          Click="TotalGameRunningTimeStatisticsMenuItem_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Time_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="オプション(_O)">
                 <MenuItem x:Name="AlwaysOnTopMenuItem"
@@ -100,6 +107,11 @@
             <Button x:Name="KillGameButton" ToolTip="ゲームプロセスを強制終了" Click="KillGameProcessMenuItem_Click">
                 <Button.Content>
                     <Image Source="/Images/Stop_16x.png"/>
+                </Button.Content>
+            </Button>
+            <Button x:Name="TotalGameRunningTimeStaticsButton" ToolTip="ゲーム累積実行時間統計" Click="TotalGameRunningTimeStatisticsMenuItem_Click">
+                <Button.Content>
+                    <Image Source="/Images/Time_16x.png"/>
                 </Button.Content>
             </Button>
             <Separator/>
