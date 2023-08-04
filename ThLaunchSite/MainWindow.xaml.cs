@@ -255,8 +255,6 @@ namespace ThLaunchSite
             _gameWaitingWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(Worker_Running_Complete);
             _gameWaitingWorker.RunWorkerAsync(gameProcessName);
 
-            int time = 0;
-
             GameTitleBlock.Text = this.GameName;
 
             _gameControlTimer = new DispatcherTimer
@@ -266,12 +264,10 @@ namespace ThLaunchSite
 
             _gameControlTimer.Tick += (e, s) =>
             {
-                int minutes = time / 60;
-                int secounds = time % 60; //timeを60で割ったあまり
+                TimeSpan time = DateTime.Now - this.GameStartTime;
 
-                string gameRunTime = String.Format("{0:D2}min {1:D2}sec", minutes, secounds);
+                string gameRunTime = time.ToString(@"mm\m\i\nss\s\e\c");
                 GameRunningTimeBlock.Text = gameRunTime;
-                time += 1;
 
                 if (GameOperation.IsRunningGame(this.GameProcessName))
                 {
