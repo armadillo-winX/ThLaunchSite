@@ -160,7 +160,6 @@ namespace ThLaunchSite
 
         private void ViewGamePlayLogData()
         {
-            GameLogDataGrid.Items.Clear();
             if (File.Exists(_gamePlayLogFile))
             {
                 try
