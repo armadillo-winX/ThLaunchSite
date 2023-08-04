@@ -230,11 +230,14 @@ namespace ThLaunchSite
             LaunchWithThpracMenuItem.IsEnabled = !enabled;
             LaunchCustomProgramMenuItem.IsEnabled = !enabled;
             CatchGameProcessMenuItem.IsEnabled = !enabled;
+            CommandGameLauncherMenuItem.IsEnabled = !enabled;
+            CommandGameLauncherButton.IsEnabled = !enabled;
 
             GamePathBox.IsEnabled= !enabled;
             GamePathBrowseButton.IsEnabled= !enabled;
 
             KillGameProcessMenuItem.IsEnabled = enabled;
+            KillGameButton.IsEnabled= enabled;
             ResizeButton.IsEnabled= enabled;
         }
 

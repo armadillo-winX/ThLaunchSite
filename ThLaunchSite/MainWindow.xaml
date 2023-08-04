@@ -88,6 +88,17 @@
                     </StackPanel>
                 </Button.Content>
             </Button>
+            <Button x:Name="KillGameButton" ToolTip="ゲームプロセスを強制終了" Click="KillGameProcessMenuItem_Click">
+                <Button.Content>
+                    <Image Source="/Images/Stop_16x.png"/>
+                </Button.Content>
+            </Button>
+            <Separator/>
+            <Button x:Name="CommandGameLauncherButton" ToolTip="コマンドゲームランチャー(Ctrl+P)" Click="CommandGameLauncherMenuItem_Click">
+                <Button.Content>
+                    <Image Source="/Images/SearchAndApps_16x.png"/>
+                </Button.Content>
+            </Button>
         </ToolBar>
         <Label Content="パス:" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="GamePathBox" IsReadOnly="True" Margin="46,55,57,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
