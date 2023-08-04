@@ -234,6 +234,7 @@ namespace ThLaunchSite
             GamePathBox.IsEnabled= !enabled;
             GamePathBrowseButton.IsEnabled= !enabled;
             LaunchGameButton.IsEnabled= !enabled;
+            CatchGameProcessButton.IsEnabled= !enabled;
             CommandGameLauncherButton.IsEnabled = !enabled;
 
             KillGameProcessMenuItem.IsEnabled = enabled;
