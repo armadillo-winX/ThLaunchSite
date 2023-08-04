@@ -617,7 +617,7 @@ namespace ThLaunchSite
 
                 TimeSpan totalGameRunningTime = TimeSpan.FromSeconds(totalGameRunningTimeInt);
                 GameRunningTimeStaticsDialog gameRunningTimeStaticsDialog = new();
-                gameRunningTimeStaticsDialog.TotalGameRunningTime = totalGameRunningTime.ToString("mm\\:ss");
+                gameRunningTimeStaticsDialog.TotalGameRunningTime = totalGameRunningTime.ToString(@"mm\m\i\nss\s\e\c");
                 gameRunningTimeStaticsDialog.Owner = this;
                 gameRunningTimeStaticsDialog.ShowDialog();
             }
