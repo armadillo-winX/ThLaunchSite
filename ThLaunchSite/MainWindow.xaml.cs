@@ -120,32 +120,6 @@ namespace ThLaunchSite
             AppStatusBlock.Content = "準備完了";
         }
 
-        private string GetSelectedGameId()
-        {
-            if (GameComboBox.SelectedIndex > -1)
-            {
-                ComboBoxItem item = (ComboBoxItem)GameComboBox.SelectedItem;
-                return (string)item.Uid;
-            }
-            else
-            {
-                return string.Empty;
-            }
-        }
-
-        private string GetSelectedGameTitle()
-        {
-            if (GameComboBox.SelectedIndex > -1)
-            {
-                ComboBoxItem item = (ComboBoxItem)GameComboBox.SelectedItem;
-                return (string)item.Content;
-            }
-            else
-            {
-                return string.Empty;
-            }
-        }
-
         private async void LaunchGame(string gameId, int patchIndex)
         {
             try
@@ -517,8 +491,9 @@ namespace ThLaunchSite
         {
             GamePathBox.Clear();
 
-            this.GameId = GetSelectedGameId();
-            this.GameName = GetSelectedGameTitle();
+            ComboBoxItem item = (ComboBoxItem)GameComboBox.SelectedItem;
+            this.GameId = (string)item.Uid;
+            this.GameName = (string)item.Content;
             string? gamePath = GamePath.GetGamePath(this.GameId);
 
             if (!string.IsNullOrEmpty(gamePath))
