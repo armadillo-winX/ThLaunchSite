@@ -333,7 +333,7 @@ namespace ThLaunchSite
         {
             _gameControlTimer.Stop();
 
-            GamePlayLogData gamePlayLogData = new GamePlayLogData
+            GamePlayLogData gamePlayLogData = new()
             {
                 GameId = this.GameId,
                 GameName = this.GameName,

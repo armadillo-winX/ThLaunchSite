@@ -14,7 +14,7 @@ namespace ThLaunchSite.Game
                 CreateGamePlayLogFile();
             }
 
-            XmlDocument gamePlayLogXml = new XmlDocument();
+            XmlDocument gamePlayLogXml = new();
             gamePlayLogXml.Load(_gamePlayLogFile);
             XmlElement rootNode = gamePlayLogXml.DocumentElement;
 
@@ -57,7 +57,7 @@ namespace ThLaunchSite.Game
             {
                 foreach (XmlNode gameLog in allGameLogs)
                 {
-                    GamePlayLogData gamePlayLogData = new GamePlayLogData
+                    GamePlayLogData gamePlayLogData = new()
                     {
                         GameId = gameLog.SelectSingleNode("GameId").InnerText,
                         GameName = gameLog.SelectSingleNode("GameName").InnerText,
