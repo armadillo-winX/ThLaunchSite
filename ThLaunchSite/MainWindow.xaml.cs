@@ -431,8 +431,8 @@ namespace ThLaunchSite
         {
             try
             {
-                string gameId = this.GameProcessName;
-                GameOperation.KillGameProcess(gameId);
+                string gameProcessName = this.GameProcessName;
+                GameOperation.KillGameProcess(gameProcessName);
                 MessageBox.Show(this, "ゲームを強制終了させました。", "ゲームプロセスの強制終了",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }

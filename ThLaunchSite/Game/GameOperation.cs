@@ -9,7 +9,7 @@ namespace ThLaunchSite.Game
             string? gamePath = GamePath.GetGamePath(gameId);
             if (File.Exists(gamePath))
             {
-                string name = Path.GetFileNameWithoutExtension(gamePath);
+                string gameProcessName = Path.GetFileNameWithoutExtension(gamePath);
                 string gameDirectory = Path.GetDirectoryName(gamePath);
 
                 ProcessStartInfo gameProcessStartInfo = new()
@@ -21,7 +21,7 @@ namespace ThLaunchSite.Game
                 _ = Process.Start(gameProcessStartInfo);
 
                 int i = 0;
-                while (!IsRunningGame(name))
+                while (!IsRunningGame(gameProcessName))
                 {
                     Thread.Sleep(100);
                     i++;
@@ -31,7 +31,7 @@ namespace ThLaunchSite.Game
                     }
                 }
 
-                return name;
+                return gameProcessName;
             }
             else
             {
@@ -46,7 +46,7 @@ namespace ThLaunchSite.Game
             string vpatchPath = $"{gameDirectory}\\vpatch.exe";
             if (File.Exists(gamePath) && File.Exists(vpatchPath))
             {
-                string name = Path.GetFileNameWithoutExtension(gamePath);
+                string gameProcessName = Path.GetFileNameWithoutExtension(gamePath);
 
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
@@ -57,7 +57,7 @@ namespace ThLaunchSite.Game
                 _ = Process.Start(gameProcessStartInfo);
 
                 int i = 0;
-                while (!IsRunningGame(name))
+                while (!IsRunningGame(gameProcessName))
                 {
                     Thread.Sleep(100);
                     i++;
@@ -67,7 +67,7 @@ namespace ThLaunchSite.Game
                     }
                 }
 
-                return name;
+                return gameProcessName;
             }
             else if (!File.Exists(vpatchPath))
             {
@@ -92,7 +92,7 @@ namespace ThLaunchSite.Game
             {
                 string thpracPath = thpracFiles[thpracFilesLength - 1];
 
-                string name = Path.GetFileNameWithoutExtension(gamePath);
+                string gameProcessName = Path.GetFileNameWithoutExtension(gamePath);
 
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
@@ -103,7 +103,7 @@ namespace ThLaunchSite.Game
                 _ = Process.Start(gameProcessStartInfo);
 
                 int i = 0;
-                while (!IsRunningGame(name))
+                while (!IsRunningGame(gameProcessName))
                 {
                     Thread.Sleep(100);
                     i++;
@@ -113,7 +113,7 @@ namespace ThLaunchSite.Game
                     }
                 }
 
-                return name;
+                return gameProcessName;
             }
             else if (thpracFilesLength == 0)
             {
@@ -132,7 +132,7 @@ namespace ThLaunchSite.Game
             string patchPath = $"{gameDirectory}\\{patch}";
             if (File.Exists(gamePath) && File.Exists(patchPath))
             {
-                string name = Path.GetFileNameWithoutExtension(gamePath);
+                string gameProcessName = Path.GetFileNameWithoutExtension(gamePath);
 
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
@@ -143,7 +143,7 @@ namespace ThLaunchSite.Game
                 _ = Process.Start(gameProcessStartInfo);
 
                 int i = 0;
-                while (!IsRunningGame(name))
+                while (!IsRunningGame(gameProcessName))
                 {
                     Thread.Sleep(100);
                     i++;
@@ -153,7 +153,7 @@ namespace ThLaunchSite.Game
                     }
                 }
 
-                return name;
+                return gameProcessName;
             }
             else if (!File.Exists(patchPath))
             {
@@ -200,16 +200,16 @@ namespace ThLaunchSite.Game
             }
         }
 
-        public static void KillGameProcess(string name)
+        public static void KillGameProcess(string gameProcessName)
         {
-            Process[] processes = Process.GetProcessesByName(name);
-            if (processes.Length > 0)
+            Process[] gameProcesses = Process.GetProcessesByName(gameProcessName);
+            if (gameProcesses.Length > 0)
             {
-                foreach (Process process in processes)
+                foreach (Process gameProcess in gameProcesses)
                 {
-                    process.Kill();
+                    gameProcess.Kill();
                     //終了を待機
-                    process.WaitForExit();
+                    gameProcess.WaitForExit();
                 }
             }
             else
@@ -218,9 +218,9 @@ namespace ThLaunchSite.Game
             }
         }
 
-        public static bool IsRunningGame(string name)
+        public static bool IsRunningGame(string gameProcessName)
         {
-            return Process.GetProcessesByName(name).Length > 0;
+            return Process.GetProcessesByName(gameProcessName).Length > 0;
         }
     }
 }
