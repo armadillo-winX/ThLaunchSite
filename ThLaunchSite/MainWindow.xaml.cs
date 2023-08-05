@@ -207,16 +207,18 @@ namespace ThLaunchSite
 
         private void SaveMainWindowSettings()
         {
-            MainWindowSettings mainWindowSettings = new();
-            mainWindowSettings.WindowWidth = this.Width;
-            mainWindowSettings.WindowHeight = this.Height;
-            mainWindowSettings.SelectedGameId = this.GameId;
-            mainWindowSettings.AlwaysOnTop = AlwaysOnTopMenuItem.IsChecked;
-            mainWindowSettings.ResizeRateIndex = ResizeRateComboBox.SelectedIndex;
-            mainWindowSettings.ResizeByRate = ResizeByRateRadioButton.IsChecked == true;
-            mainWindowSettings.ResizeBySize= ResizeBySizeRadioButton.IsChecked == true;
-            mainWindowSettings.ResizeWidth = GameWindowWidthBox.Text;
-            mainWindowSettings.ResizeHeight = GameWindowHeightBox.Text;
+            MainWindowSettings mainWindowSettings = new()
+            {
+                WindowWidth = this.Width,
+                WindowHeight = this.Height,
+                SelectedGameId = this.GameId,
+                AlwaysOnTop = AlwaysOnTopMenuItem.IsChecked,
+                ResizeRateIndex = ResizeRateComboBox.SelectedIndex,
+                ResizeByRate = ResizeByRateRadioButton.IsChecked == true,
+                ResizeBySize = ResizeBySizeRadioButton.IsChecked == true,
+                ResizeWidth = GameWindowWidthBox.Text,
+                ResizeHeight = GameWindowHeightBox.Text
+            };
 
             SettingsConfiguration.SaveMainWindowSettings(mainWindowSettings);
         }
@@ -291,8 +293,10 @@ namespace ThLaunchSite
             }
             else
             {
-                CommandDialog commandDialog = new();
-                commandDialog.Owner = this;
+                CommandDialog commandDialog = new()
+                {
+                    Owner = this
+                };
                 if (commandDialog.ShowDialog() == true)
                 {
                     string? gameId = commandDialog.GameId;
@@ -329,10 +333,12 @@ namespace ThLaunchSite
         {
             _gameControlTimer.Stop();
 
-            GamePlayLogData gamePlayLogData = new GamePlayLogData();
-            gamePlayLogData.GameId = this.GameId;
-            gamePlayLogData.GameName = this.GameName;
-            gamePlayLogData.GameStartTime = this.GameStartTime.ToString("yyyy/MM/dd hh:mm:ss");
+            GamePlayLogData gamePlayLogData = new GamePlayLogData
+            {
+                GameId = this.GameId,
+                GameName = this.GameName,
+                GameStartTime = this.GameStartTime.ToString("yyyy/MM/dd hh:mm:ss")
+            };
 
             DateTime gameEndTime = DateTime.Now;
             gamePlayLogData.GameEndTime = gameEndTime.ToString("yyyy/MM/dd hh:mm:ss");
@@ -361,8 +367,10 @@ namespace ThLaunchSite
         {
             if (_aboutDialog == null || !_aboutDialog.IsLoaded)
             {
-                _aboutDialog = new();
-                _aboutDialog.Owner = this;
+                _aboutDialog = new()
+                {
+                    Owner = this
+                };
                 _aboutDialog.Show();
             }
             else
@@ -374,8 +382,10 @@ namespace ThLaunchSite
 
         private void GamePathBrowseButtonClick(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new();
-            openFileDialog.Filter = "ゲーム実行ファイル|*.exe";
+            OpenFileDialog openFileDialog = new()
+            {
+                Filter = "ゲーム実行ファイル|*.exe"
+            };
             if (openFileDialog.ShowDialog() == true)
             {
                 string gamePath = openFileDialog.FileName;
@@ -612,9 +622,11 @@ namespace ThLaunchSite
                 }
 
                 TimeSpan totalGameRunningTime = TimeSpan.FromSeconds(totalGameRunningTimeInt);
-                GameRunningTimeStaticsDialog gameRunningTimeStaticsDialog = new();
-                gameRunningTimeStaticsDialog.TotalGameRunningTime = totalGameRunningTime.ToString(@"mm\m\i\nss\s\e\c");
-                gameRunningTimeStaticsDialog.Owner = this;
+                GameRunningTimeStaticsDialog gameRunningTimeStaticsDialog = new()
+                {
+                    TotalGameRunningTime = totalGameRunningTime.ToString(@"mm\m\i\nss\s\e\c"),
+                    Owner = this
+                };
                 gameRunningTimeStaticsDialog.ShowDialog();
             }
         }

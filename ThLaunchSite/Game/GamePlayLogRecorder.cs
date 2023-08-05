@@ -57,12 +57,14 @@ namespace ThLaunchSite.Game
             {
                 foreach (XmlNode gameLog in allGameLogs)
                 {
-                    GamePlayLogData gamePlayLogData = new GamePlayLogData();
-                    gamePlayLogData.GameId = gameLog.SelectSingleNode("GameId").InnerText;
-                    gamePlayLogData.GameName = gameLog.SelectSingleNode("GameName").InnerText;
-                    gamePlayLogData.GameStartTime = gameLog.SelectSingleNode("GameStartTime").InnerText;
-                    gamePlayLogData.GameEndTime = gameLog.SelectSingleNode("GameEndTime").InnerText;
-                    gamePlayLogData.GameRunningTime = gameLog.SelectSingleNode("GameRunningTime").InnerText;
+                    GamePlayLogData gamePlayLogData = new GamePlayLogData
+                    {
+                        GameId = gameLog.SelectSingleNode("GameId").InnerText,
+                        GameName = gameLog.SelectSingleNode("GameName").InnerText,
+                        GameStartTime = gameLog.SelectSingleNode("GameStartTime").InnerText,
+                        GameEndTime = gameLog.SelectSingleNode("GameEndTime").InnerText,
+                        GameRunningTime = gameLog.SelectSingleNode("GameRunningTime").InnerText
+                    };
 
                     gamePlayLogDatas.Add(gamePlayLogData);
                 }
