@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <None Remove="Images\FindSymbol_16x.png" />
+    <None Remove="Images\FolderOpened_16x.png" />
     <None Remove="Images\Run_16x.png" />
     <None Remove="Images\SearchAndApps_16x.png" />
     <None Remove="Images\Settings_12x_16x.png" />
@@ -33,6 +34,7 @@
 
   <ItemGroup>
     <Resource Include="Images\FindSymbol_16x.png" />
+    <Resource Include="Images\FolderOpened_16x.png" />
     <Resource Include="Images\Run_16x.png" />
     <Resource Include="Images\SearchAndApps_16x.png" />
     <Resource Include="Images\Settings_12x_16x.png" />

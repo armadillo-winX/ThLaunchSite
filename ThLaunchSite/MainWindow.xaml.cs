@@ -427,6 +427,20 @@ namespace ThLaunchSite
             }
         }
 
+        private void OpenGameDirectoryMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string gameId = this.GameId;
+                GameOperation.OpenGameDirectory(gameId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         public void KillGameProcessMenuItemClick(object sender, RoutedEventArgs e)
         {
             try

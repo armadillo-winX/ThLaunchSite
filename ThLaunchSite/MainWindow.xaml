@@ -19,6 +19,12 @@
                           Click="LaunchWithVpatchMenuItemClick"/>
                 <MenuItem x:Name="LaunchWithThpracMenuItem" Header="thpracを適用して起動する(_T)"
                           Click="LaunchWithThpracMenuItemClick"/>
+                <MenuItem x:Name="OpenGameDirectoryMenuItem" Header="ゲームのインストールディレクトリを開く(_O)"
+                          Click="OpenGameDirectoryMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/FolderOpened_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
                 <Separator />
                 <MenuItem x:Name="LaunchCustomProgramMenuItem" Header="環境カスタムプログラムを起動する(_C)"
                           Click="LaunchCustomeMenuItemClick"/>
@@ -99,6 +105,13 @@
                     </StackPanel>
                 </Button.Content>
             </Button>
+            <Button x:Name="OpenGameDirectoryButton" ToolTip="ゲームのインストールディレクトリを開く"
+                    Click="OpenGameDirectoryMenuItemClick">
+                <Button.Content>
+                    <Image Source="/Images/FolderOpened_16x.png" />
+                </Button.Content>
+            </Button>
+            <Separator/>
             <Button x:Name="CatchGameProcessButton" ToolTip="実行中のゲームプロセスの捕捉" Click="CatchGameProcessMenuItemClick">
                 <Button.Content>
                     <Image Source="/Images/FindSymbol_16x.png"/>
