@@ -612,19 +612,20 @@ namespace ThLaunchSite
                 ObservableCollection<GamePlayLogData> gamePlayLogDatas 
                     = GameLogDataGrid.DataContext as ObservableCollection<GamePlayLogData>;
 
-                int totalGameRunningTimeInt = 0;
+                int totalGameRunningTime = 0;
                 foreach (GamePlayLogData gamePlayLogData in  gamePlayLogDatas)
                 {
-                    string[] gameRunningTimeRecords = gamePlayLogData.GameRunningTime.Split(":");
-                    int gameRunningTimeMinInt = int.Parse(gameRunningTimeRecords[0]) * 60;
-                    int gameRunningTimeSecInt = int.Parse(gameRunningTimeRecords[1]);
-                    totalGameRunningTimeInt += gameRunningTimeMinInt + gameRunningTimeSecInt;
+                    string[] gameRunningTimeRecord = gamePlayLogData.GameRunningTime.Split(":");
+                    int gameRunningTimeMin = int.Parse(gameRunningTimeRecord[0]) * 60;
+                    int gameRunningTimeSec = int.Parse(gameRunningTimeRecord[1]);
+                    totalGameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
                 }
 
-                TimeSpan totalGameRunningTime = TimeSpan.FromSeconds(totalGameRunningTimeInt);
+                int minutes = totalGameRunningTime / 60;
+                int seconds = totalGameRunningTime % 60;
                 GameRunningTimeStaticsDialog gameRunningTimeStaticsDialog = new()
                 {
-                    TotalGameRunningTime = totalGameRunningTime.ToString(@"mm\m\i\nss\s\e\c"),
+                    TotalGameRunningTime = $"{minutes}min {seconds}sec",
                     Owner = this
                 };
                 gameRunningTimeStaticsDialog.ShowDialog();
