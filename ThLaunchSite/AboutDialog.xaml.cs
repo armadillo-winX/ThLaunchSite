@@ -28,11 +28,11 @@ namespace ThLaunchSite
             string readme = PathInfo.Readme;
             try
             {
-                StreamReader fs = new(readme, Encoding.UTF8);
-                string mes = fs.ReadToEnd();
-                fs.Close();
+                StreamReader fileStream = new(readme, Encoding.UTF8);
+                string readmeTextData = fileStream.ReadToEnd();
+                fileStream.Close();
 
-                return mes;
+                return readmeTextData;
             }
             catch (Exception)
             {
@@ -45,11 +45,11 @@ namespace ThLaunchSite
             string license = PathInfo.LicenseFile;
             try
             {
-                StreamReader fs = new(license, Encoding.UTF8);
-                string mes = fs.ReadToEnd();
-                fs.Close();
+                StreamReader fileStream = new(license, Encoding.UTF8);
+                string licenseTextData = fileStream.ReadToEnd();
+                fileStream.Close();
 
-                return mes;
+                return licenseTextData;
             }
             catch (Exception)
             {
