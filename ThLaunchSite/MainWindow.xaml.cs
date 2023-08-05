@@ -363,7 +363,7 @@ namespace ThLaunchSite
             ViewGamePlayLogData();
         }
 
-        public void AboutMenuItemClick(object sender, RoutedEventArgs e)
+        private void AboutMenuItemClick(object sender, RoutedEventArgs e)
         {
             if (_aboutDialog == null || !_aboutDialog.IsLoaded)
             {
@@ -401,19 +401,19 @@ namespace ThLaunchSite
             LaunchGame(gameId, 0);
         }
 
-        public void LaunchWithVpatchMenuItemClick(object sender, RoutedEventArgs e)
+        private void LaunchWithVpatchMenuItemClick(object sender, RoutedEventArgs e)
         {
             string gameId = this.GameId;
             LaunchGame(gameId, 1);
         }
 
-        public void LaunchWithThpracMenuItemClick(object sender, RoutedEventArgs e)
+        private void LaunchWithThpracMenuItemClick(object sender, RoutedEventArgs e)
         {
             string gameId = this.GameId;
             LaunchGame(gameId, 2);
         }
 
-        public void LaunchCustomeMenuItemClick(object sender, RoutedEventArgs e)
+        private void LaunchCustomeMenuItemClick(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -441,7 +441,7 @@ namespace ThLaunchSite
             }
         }
 
-        public void KillGameProcessMenuItemClick(object sender, RoutedEventArgs e)
+        private void KillGameProcessMenuItemClick(object sender, RoutedEventArgs e)
         {
             try
             {
