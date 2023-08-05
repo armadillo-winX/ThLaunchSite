@@ -28,6 +28,8 @@
 
         public static string Readme => $"{AppLocation}\\Doc\\ReadMe.txt";
 
+        public static string LicenseFile => $"{AppLocation}\\Doc\\License.txt";
+
         public static string GamePlayLogFile => $"{AppLocation}\\GamePlayLog.xml";
     }
 }

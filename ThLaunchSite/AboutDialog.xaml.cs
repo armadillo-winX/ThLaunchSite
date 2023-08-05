@@ -18,6 +18,9 @@ namespace ThLaunchSite
 
             string readmeTextData = GetReadme();
             ReadMeTextBox.Text = readmeTextData;
+
+            string licenseTextData = GetLicense();
+            LicenseBox.Text = licenseTextData;
         }
 
         private string GetReadme()
@@ -34,6 +37,23 @@ namespace ThLaunchSite
             catch (Exception)
             {
                 return "ReadMe.txtを読み込めません。";
+            }
+        }
+
+        private string GetLicense()
+        {
+            string license = PathInfo.LicenseFile;
+            try
+            {
+                StreamReader fs = new(license, Encoding.UTF8);
+                string mes = fs.ReadToEnd();
+                fs.Close();
+
+                return mes;
+            }
+            catch (Exception)
+            {
+                return "License.txtを読み込めません。";
             }
         }
 

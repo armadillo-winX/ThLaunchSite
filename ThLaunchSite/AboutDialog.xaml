@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThLaunchSite"
         mc:Ignorable="d"
-        Title="このツールについて" Height="340" Width="432" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner" Closing="WindowClosing">
+        Title="このツールについて" Height="375" Width="421" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner" Closing="WindowClosing">
     <Grid>
         <TextBlock x:Name="AppNameBlock"
                    HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" 
@@ -19,12 +19,23 @@
         <TextBlock x:Name="DotNetVersionBlock"
                    HorizontalAlignment="Left" Margin="10,91,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
         <Button x:Name="OKButton" Content="_OK"
-                HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                 IsDefault="True"
                 Width="90" Height="24" Click="OKButtonClick"/>
-        <TextBox x:Name="ReadMeTextBox" IsReadOnly="True"
-                 Margin="10,117,10,39" TextWrapping="Wrap"
-                 VerticalScrollBarVisibility="Auto" Text=""/>
+        <TabControl Margin="0,117,0,24">
+            <TabItem Header="ReadMe">
+                <Grid>
+                    <TextBox x:Name="ReadMeTextBox" IsReadOnly="True" TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto" Text=""/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="ライセンス">
+                <Grid>
+                    <TextBox x:Name="LicenseBox" IsReadOnly="True" TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto" Text=""/>
+                </Grid>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>
