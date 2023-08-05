@@ -47,7 +47,7 @@
             }
         }
 
-        private void OKButton_Click(object sender, RoutedEventArgs e)
+        private void OKButtonClick(object sender, RoutedEventArgs e)
         {
             string command = CommandBox.Text;
             CommandParser(command);
@@ -55,12 +55,12 @@
             this.Close();
         }
 
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        private void CancelButtonClick(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        private void HelpButtonClick(object sender, RoutedEventArgs e)
         {
             string commandHelp = "起動したい東方原作を th<作品番号> で指定してください。\n\n例\n\n東方妖々夢\nth07\n\n東方輝針城\nth14\n\n\n";
             string optionHelp = "また、以下のオプションを付与できます。\n/vp, /vpatch, /vsyncpatch     VsyncPatchの適用\n/tp, /thprac     thpracの適用\n\n\n";

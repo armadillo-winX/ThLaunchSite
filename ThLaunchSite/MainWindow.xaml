@@ -5,39 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThLaunchSite"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="550" ResizeMode="CanResizeWithGrip" Closing="Window_Closing" KeyDown="Window_KeyDown">
+        Title="MainWindow" Height="400" Width="550" ResizeMode="CanResizeWithGrip" Closing="WindowClosing" KeyDown="WindowKeyDown">
     <Grid>
         <Menu Height="18" VerticalAlignment="Top">
             <MenuItem Header="ゲーム(_G)">
                 <MenuItem x:Name="LaunchGameMenuItem" Header="ゲームを起動する(_L)" 
-                          Click="LaunchGameMenuItem_Click">
+                          Click="LaunchGameMenuItemClick">
                     <MenuItem.Icon>
                         <Image Source="/Images/Run_16x.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="LaunchWithVpatchMenuItem" Header="VsyncPatchを適用して起動する(_V)" 
-                          Click="LaunchWithVpatchMenuItem_Click"/>
+                          Click="LaunchWithVpatchMenuItemClick"/>
                 <MenuItem x:Name="LaunchWithThpracMenuItem" Header="thpracを適用して起動する(_T)"
-                          Click="LaunchWithThpracMenuItem_Click"/>
+                          Click="LaunchWithThpracMenuItemClick"/>
                 <Separator />
                 <MenuItem x:Name="LaunchCustomProgramMenuItem" Header="環境カスタムプログラムを起動する(_C)"
-                          Click="LaunchCustomeMenuItem_Click"/>
+                          Click="LaunchCustomeMenuItemClick"/>
                 <Separator />
                 <MenuItem x:Name="CatchGameProcessMenuItem" Header="実行中のゲームプロセスの捕捉"
-                          Click="CatchGameProcessMenuItem_Click">
+                          Click="CatchGameProcessMenuItemClick">
                     <MenuItem.Icon>
                         <Image Source="/Images/FindSymbol_16x.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="KillGameProcessMenuItem" Header="ゲームプロセスを強制終了(_K)"
-                          Click="KillGameProcessMenuItem_Click">
+                          Click="KillGameProcessMenuItemClick">
                     <MenuItem.Icon>
                         <Image Source="/Images/Stop_16x.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator/>
                 <MenuItem x:Name="TotalGameRunningTimeStatisticsMenuItem" Header="ゲーム累積実行時間統計" 
-                          Click="TotalGameRunningTimeStatisticsMenuItem_Click">
+                          Click="TotalGameRunningTimeStatisticsMenuItemClick">
                     <MenuItem.Icon>
                         <Image Source="/Images/Time_16x.png"/>
                     </MenuItem.Icon>
@@ -45,21 +45,21 @@
             </MenuItem>
             <MenuItem Header="オプション(_O)">
                 <MenuItem x:Name="AlwaysOnTopMenuItem"
-                          IsCheckable="True" Header="常に最前面に表示(_A)" Click="AlwaysOnTopMenuItem_Click"/>
+                          IsCheckable="True" Header="常に最前面に表示(_A)" Click="AlwaysOnTopMenuItemClick"/>
             </MenuItem>
             <MenuItem Header="ツール(_T)">
-                <MenuItem x:Name="CommandGameLauncherMenuItem" Header="コマンドゲームランチャー(Ctrl+P)" Click="CommandGameLauncherMenuItem_Click">
+                <MenuItem x:Name="CommandGameLauncherMenuItem" Header="コマンドゲームランチャー(Ctrl+P)" Click="CommandGameLauncherMenuItemClick">
                     <MenuItem.Icon>
                         <Image Source="/Images/SearchAndApps_16x.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="ヘルプ(_H)">
-                <MenuItem x:Name="AboutMenuItem" Header="このツールについて(_A)" Click="AboutMenuItem_Click"/>
+                <MenuItem x:Name="AboutMenuItem" Header="このツールについて(_A)" Click="AboutMenuItemClick"/>
             </MenuItem>
         </Menu>
         <ToolBar x:Name="MainToolBar" Height="28" Margin="0,18,0,0" VerticalAlignment="Top">
-            <ComboBox x:Name="GameComboBox" Width="120" SelectionChanged="GameComboBox_SelectionChanged">
+            <ComboBox x:Name="GameComboBox" Width="120" SelectionChanged="GameComboBoxSelectionChanged">
                 <ComboBoxItem Uid="Th06" Content="東方紅魔郷"/>
                 <ComboBoxItem Uid="Th07" Content="東方妖々夢"/>
                 <ComboBoxItem Uid="Th08" Content="東方永夜抄"/>
@@ -74,22 +74,22 @@
                 <ComboBoxItem Uid="Th17" Content="東方鬼形獣"/>
                 <ComboBoxItem Uid="Th18" Content="東方虹龍洞"/>
             </ComboBox>
-            <Button x:Name="LaunchGameButton" ContextMenuService.Placement="Bottom" Click="LaunchGameButton_Click">
+            <Button x:Name="LaunchGameButton" ContextMenuService.Placement="Bottom" Click="LaunchGameButtonClick">
                 <Button.ContextMenu>
                     <ContextMenu x:Name="LaunchGameButtonMenu" Placement="Bottom">
                         <MenuItem Header="ゲームを起動する(_L)" 
-                          Click="LaunchGameMenuItem_Click">
+                          Click="LaunchGameMenuItemClick">
                             <MenuItem.Icon>
                                 <Image Source="/Images/Run_16x.png"/>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Header="VsyncPatchを適用して起動する(_V)" 
-                          Click="LaunchWithVpatchMenuItem_Click"/>
+                          Click="LaunchWithVpatchMenuItemClick"/>
                         <MenuItem Header="thpracを適用して起動する(_T)"
-                          Click="LaunchWithThpracMenuItem_Click"/>
+                          Click="LaunchWithThpracMenuItemClick"/>
                         <Separator />
                         <MenuItem Header="環境カスタムプログラムを起動する(_C)"
-                          Click="LaunchCustomeMenuItem_Click"/>
+                          Click="LaunchCustomeMenuItemClick"/>
                     </ContextMenu>
                 </Button.ContextMenu>
                 <Button.Content>
@@ -99,23 +99,23 @@
                     </StackPanel>
                 </Button.Content>
             </Button>
-            <Button x:Name="CatchGameProcessButton" ToolTip="実行中のゲームプロセスの捕捉" Click="CatchGameProcessMenuItem_Click">
+            <Button x:Name="CatchGameProcessButton" ToolTip="実行中のゲームプロセスの捕捉" Click="CatchGameProcessMenuItemClick">
                 <Button.Content>
                     <Image Source="/Images/FindSymbol_16x.png"/>
                 </Button.Content>
             </Button>
-            <Button x:Name="KillGameButton" ToolTip="ゲームプロセスを強制終了" Click="KillGameProcessMenuItem_Click">
+            <Button x:Name="KillGameButton" ToolTip="ゲームプロセスを強制終了" Click="KillGameProcessMenuItemClick">
                 <Button.Content>
                     <Image Source="/Images/Stop_16x.png"/>
                 </Button.Content>
             </Button>
-            <Button x:Name="TotalGameRunningTimeStaticsButton" ToolTip="ゲーム累積実行時間統計" Click="TotalGameRunningTimeStatisticsMenuItem_Click">
+            <Button x:Name="TotalGameRunningTimeStaticsButton" ToolTip="ゲーム累積実行時間統計" Click="TotalGameRunningTimeStatisticsMenuItemClick">
                 <Button.Content>
                     <Image Source="/Images/Time_16x.png"/>
                 </Button.Content>
             </Button>
             <Separator/>
-            <Button x:Name="CommandGameLauncherButton" ToolTip="コマンドゲームランチャー(Ctrl+P)" Click="CommandGameLauncherMenuItem_Click">
+            <Button x:Name="CommandGameLauncherButton" ToolTip="コマンドゲームランチャー(Ctrl+P)" Click="CommandGameLauncherMenuItemClick">
                 <Button.Content>
                     <Image Source="/Images/SearchAndApps_16x.png"/>
                 </Button.Content>
@@ -123,7 +123,7 @@
         </ToolBar>
         <Label Content="パス:" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="GamePathBox" IsReadOnly="True" Margin="46,55,57,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Button x:Name="GamePathBrowseButton" Content="参照(_B)"  HorizontalAlignment="Right" Margin="0,54,10,0" VerticalAlignment="Top" Click="GamePathBrowseButton_Click"/>
+        <Button x:Name="GamePathBrowseButton" Content="参照(_B)"  HorizontalAlignment="Right" Margin="0,54,10,0" VerticalAlignment="Top" Click="GamePathBrowseButtonClick"/>
         <StatusBar Height="22" VerticalAlignment="Bottom">
             <StatusBarItem x:Name="AuthorityBlock" Content="Authority" DockPanel.Dock="Right" Margin="0,0,20,0"/>
             <StatusBarItem x:Name="AppStatusBlock"/>
@@ -150,10 +150,10 @@
                             </ComboBox>
                             <RadioButton x:Name="ResizeByRateRadioButton" Content="リサイズ率を指定してリサイズ" 
                                          HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top"
-                                         Click="ResizeByRateRadioButton_Click"/>
+                                         Click="ResizeByRateRadioButtonClick"/>
                             <RadioButton x:Name="ResizeBySizeRadioButton" Content="ウィンドウサイズを指定してリサイズ"
                                          HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"
-                                         Click="ResizeBySizeRadioButton_Click"/>
+                                         Click="ResizeBySizeRadioButtonClick"/>
                             <Label Content="幅:" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top"/>
                             <TextBox x:Name="GameWindowWidthBox" HorizontalAlignment="Left" Margin="75,132,0,0" TextWrapping="NoWrap" 
                                      Text="" VerticalAlignment="Top" Width="120"/>
@@ -161,7 +161,7 @@
                             <TextBox x:Name="GameWindowHeightBox" HorizontalAlignment="Left" Margin="75,163,0,0" TextWrapping="NoWrap" 
                                      Text="" VerticalAlignment="Top" Width="120"/>
                             <Button x:Name="ResizeButton"
-                                    Content="リサイズ(_R)" Width="90" Height="24" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Click="ResizeButton_Click"/>
+                                    Content="リサイズ(_R)" Width="90" Height="24" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Click="ResizeButtonClick"/>
                             <Grid Margin="255,0,0,0" >
                                 <Label Content="ゲーム実行時間" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"

@@ -10,7 +10,7 @@
         <Label Content="あなたは累積でこれだけの時間東方をプレイしています" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="GameRunningTimeBlock" HorizontalAlignment="Center" Margin="0,56,0,0" 
                    TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-        <Button x:Name="CloseButton" Width="90" Content="閉じる(_C)" IsDefault="True" HorizontalAlignment="Center" Margin="0,0,0,10" Click="CloseButton_Click" Height="24" VerticalAlignment="Bottom"/>
+        <Button x:Name="CloseButton" Width="90" Content="閉じる(_C)" IsDefault="True" HorizontalAlignment="Center" Margin="0,0,0,10" Click="CloseButtonClick" Height="24" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>

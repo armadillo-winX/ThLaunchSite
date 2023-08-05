@@ -251,8 +251,8 @@ namespace ThLaunchSite
             EnableLimitationMode(true);
 
             _gameWaitingWorker = new BackgroundWorker();
-            _gameWaitingWorker.DoWork += new DoWorkEventHandler(Worker_Dowork);
-            _gameWaitingWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(Worker_Running_Complete);
+            _gameWaitingWorker.DoWork += new DoWorkEventHandler(WorkerDowork);
+            _gameWaitingWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkerRunningComplete);
             _gameWaitingWorker.RunWorkerAsync(gameProcessName);
 
             GameTitleBlock.Text = this.GameName;
@@ -315,7 +315,7 @@ namespace ThLaunchSite
             }
         }
 
-        private void Worker_Dowork(object sender, DoWorkEventArgs e)
+        private void WorkerDowork(object sender, DoWorkEventArgs e)
         {
             string name = (string)e.Argument;
 
@@ -325,7 +325,7 @@ namespace ThLaunchSite
             }
         }
 
-        private void Worker_Running_Complete(object sender, RunWorkerCompletedEventArgs e)
+        private void WorkerRunningComplete(object sender, RunWorkerCompletedEventArgs e)
         {
             _gameControlTimer.Stop();
 
@@ -357,7 +357,7 @@ namespace ThLaunchSite
             ViewGamePlayLogData();
         }
 
-        public void AboutMenuItem_Click(object sender, RoutedEventArgs e)
+        public void AboutMenuItemClick(object sender, RoutedEventArgs e)
         {
             if (_aboutDialog == null || !_aboutDialog.IsLoaded)
             {
@@ -372,7 +372,7 @@ namespace ThLaunchSite
             }
         }
 
-        private void GamePathBrowseButton_Click(object sender, RoutedEventArgs e)
+        private void GamePathBrowseButtonClick(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new();
             openFileDialog.Filter = "ゲーム実行ファイル|*.exe";
@@ -385,25 +385,25 @@ namespace ThLaunchSite
             }
         }
 
-        private void LaunchGameMenuItem_Click(object sender, RoutedEventArgs e)
+        private void LaunchGameMenuItemClick(object sender, RoutedEventArgs e)
         {
             string gameId = this.GameId;
             LaunchGame(gameId, 0);
         }
 
-        public void LaunchWithVpatchMenuItem_Click(object sender, RoutedEventArgs e)
+        public void LaunchWithVpatchMenuItemClick(object sender, RoutedEventArgs e)
         {
             string gameId = this.GameId;
             LaunchGame(gameId, 1);
         }
 
-        public void LaunchWithThpracMenuItem_Click(object sender, RoutedEventArgs e)
+        public void LaunchWithThpracMenuItemClick(object sender, RoutedEventArgs e)
         {
             string gameId = this.GameId;
             LaunchGame(gameId, 2);
         }
 
-        public void LaunchCustomeMenuItem_Click(object sender, RoutedEventArgs e)
+        public void LaunchCustomeMenuItemClick(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -417,7 +417,7 @@ namespace ThLaunchSite
             }
         }
 
-        public void KillGameProcessMenuItem_Click(object sender, RoutedEventArgs e)
+        public void KillGameProcessMenuItemClick(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -433,7 +433,7 @@ namespace ThLaunchSite
             }
         }
 
-        private void CatchGameProcessMenuItem_Click(object sender, RoutedEventArgs e)
+        private void CatchGameProcessMenuItemClick(object sender, RoutedEventArgs e)
         {
             string gameId = this.GameId;
             if (GameOperation.IsRunningGame(gameId))
@@ -447,7 +447,7 @@ namespace ThLaunchSite
             }
         }
 
-        private void Window_Closing(object sender, CancelEventArgs e)
+        private void WindowClosing(object sender, CancelEventArgs e)
         {
             if (_gameWaitingWorker != null && _gameWaitingWorker.IsBusy)
             {
@@ -487,7 +487,7 @@ namespace ThLaunchSite
             }
         }
 
-        private void GameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void GameComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             GamePathBox.Clear();
 
@@ -502,26 +502,26 @@ namespace ThLaunchSite
             }
         }
 
-        private void AlwaysOnTopMenuItem_Click(object sender, RoutedEventArgs e)
+        private void AlwaysOnTopMenuItemClick(object sender, RoutedEventArgs e)
         {
             this.Topmost = AlwaysOnTopMenuItem.IsChecked;
         }
 
-        private void ResizeByRateRadioButton_Click(object sender, RoutedEventArgs e)
+        private void ResizeByRateRadioButtonClick(object sender, RoutedEventArgs e)
         {
             ResizeRateComboBox.IsEnabled = ResizeByRateRadioButton.IsChecked == true;
             GameWindowWidthBox.IsEnabled = ResizeBySizeRadioButton.IsChecked == true;
             GameWindowHeightBox.IsEnabled = ResizeBySizeRadioButton.IsChecked == true;
         }
 
-        private void ResizeBySizeRadioButton_Click(object sender, RoutedEventArgs e)
+        private void ResizeBySizeRadioButtonClick(object sender, RoutedEventArgs e)
         {
             ResizeRateComboBox.IsEnabled = ResizeByRateRadioButton.IsChecked == true;
             GameWindowWidthBox.IsEnabled = ResizeBySizeRadioButton.IsChecked == true;
             GameWindowHeightBox.IsEnabled = ResizeBySizeRadioButton.IsChecked == true;
         }
 
-        private void ResizeButton_Click(object sender, RoutedEventArgs e)
+        private void ResizeButtonClick(object sender, RoutedEventArgs e)
         {
             string name = this.GameProcessName;
 
@@ -568,7 +568,7 @@ namespace ThLaunchSite
             }
         }
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
+        private void WindowKeyDown(object sender, KeyEventArgs e)
         {
             if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.P)
             {
@@ -576,7 +576,7 @@ namespace ThLaunchSite
             }
         }
 
-        private void LaunchGameButton_Click(object sender, RoutedEventArgs e)
+        private void LaunchGameButtonClick(object sender, RoutedEventArgs e)
         {
             if (!LaunchGameButtonMenu.IsOpen)
             {
@@ -590,12 +590,12 @@ namespace ThLaunchSite
             }
         }
 
-        private void CommandGameLauncherMenuItem_Click(object sender, RoutedEventArgs e)
+        private void CommandGameLauncherMenuItemClick(object sender, RoutedEventArgs e)
         {
             ShowCommandGameLauncherDialog();
         }
 
-        private void TotalGameRunningTimeStatisticsMenuItem_Click(object sender, RoutedEventArgs e)
+        private void TotalGameRunningTimeStatisticsMenuItemClick(object sender, RoutedEventArgs e)
         {
             if (GameLogDataGrid.Items.Count > 0)
             {

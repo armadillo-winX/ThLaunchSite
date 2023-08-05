@@ -37,12 +37,12 @@ namespace ThLaunchSite
             }
         }
 
-        private void OKButton_Click(object sender, RoutedEventArgs e)
+        private void OKButtonClick(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             _ = this.Owner.Activate();
         }
