@@ -63,7 +63,7 @@ namespace ThLaunchSite
         {
             InitializeComponent();
 
-            this.Title = $"{_appName} ver.{_appVersion}";
+            this.Title = _appName;
             if (((App)Application.Current).IsAdmin())
             {
                 AuthorityBlock.Content = "管理者権限";
