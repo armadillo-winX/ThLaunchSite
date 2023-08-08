@@ -233,15 +233,15 @@ namespace ThLaunchSite
             CatchGameProcessMenuItem.IsEnabled = !enabled;
             CommandGameLauncherMenuItem.IsEnabled = !enabled;
 
-            GamePathBox.IsEnabled= !enabled;
-            GamePathBrowseButton.IsEnabled= !enabled;
-            LaunchGameButton.IsEnabled= !enabled;
-            CatchGameProcessButton.IsEnabled= !enabled;
+            GamePathBox.IsEnabled = !enabled;
+            GamePathBrowseButton.IsEnabled = !enabled;
+            LaunchGameButton.IsEnabled = !enabled;
+            CatchGameProcessButton.IsEnabled = !enabled;
             CommandGameLauncherButton.IsEnabled = !enabled;
 
             KillGameProcessMenuItem.IsEnabled = enabled;
-            KillGameButton.IsEnabled= enabled;
-            ResizeButton.IsEnabled= enabled;
+            KillGameButton.IsEnabled = enabled;
+            ResizeButton.IsEnabled = enabled;
         }
 
         private void EnableWaitGameEndMode(string gameProcessName)
