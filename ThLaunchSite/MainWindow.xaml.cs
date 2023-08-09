@@ -558,7 +558,7 @@ namespace ThLaunchSite
 
         private void ResizeButtonClick(object sender, RoutedEventArgs e)
         {
-            string name = this.GameProcessName;
+            string gameProcessName = this.GameProcessName;
 
             if (ResizeByRateRadioButton.IsChecked == true)
             {
@@ -571,13 +571,13 @@ namespace ThLaunchSite
 
                     try
                     {
-                        int[] sizes = GameWindowHandler.GetWindowSizes(name);
+                        int[] sizes = GameWindowHandler.GetWindowSizes(gameProcessName);
 
                         //リサイズ率に基づいてウィンドウの変更サイズを決定
                         int width = (int)Math.Round(sizes[0] * resizeRate);
                         int height = (int)Math.Round(sizes[1] * resizeRate);
 
-                        GameWindowHandler.ResizeWindow(name, width, height);
+                        GameWindowHandler.ResizeWindow(gameProcessName, width, height);
                     }
                     catch (Exception ex)
                     {
@@ -593,7 +593,7 @@ namespace ThLaunchSite
                     int width = int.Parse(GameWindowWidthBox.Text);
                     int height = int.Parse(GameWindowHeightBox.Text);
 
-                    GameWindowHandler.ResizeWindow(name, width, height);
+                    GameWindowHandler.ResizeWindow(gameProcessName, width, height);
                 }
                 catch (Exception ex)
                 {

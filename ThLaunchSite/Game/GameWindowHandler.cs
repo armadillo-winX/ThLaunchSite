@@ -25,10 +25,10 @@ namespace ThLaunchSite.Game
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int y, int cx, int cy, int uFlags);
 
-        public static int[] GetWindowSizes(string name)
+        public static int[] GetWindowSizes(string gameProcessName)
         {
             //ウィンドウハンドルの取得
-            IntPtr process = Process.GetProcessesByName(name)[0].MainWindowHandle;
+            IntPtr process = Process.GetProcessesByName(gameProcessName)[0].MainWindowHandle;
 
             //ウィンドウサイズの取得
             RECT rect;
@@ -40,9 +40,9 @@ namespace ThLaunchSite.Game
             return sizes;
         }
 
-        public static void ResizeWindow(string name, int width, int height)
+        public static void ResizeWindow(string gameProcessName, int width, int height)
         {
-            Process process = Process.GetProcessesByName(name)[0];
+            Process process = Process.GetProcessesByName(gameProcessName)[0];
             IntPtr windowHandle = process.MainWindowHandle;
             _ = MoveWindow(windowHandle, 100, 100, width, height, 1);
 
