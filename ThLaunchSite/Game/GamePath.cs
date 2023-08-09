@@ -92,15 +92,15 @@
         {
             if (gameId == GameIndex.Th06)
             {
-                Th06= path;
+                Th06 = path;
             }
             else if (gameId == GameIndex.Th07)
             {
-                Th07= path;
+                Th07 = path;
             }
             else if (gameId == GameIndex.Th08)
             {
-                Th08= path;
+                Th08 = path;
             }
             else if (gameId == GameIndex.Th09)
             {
