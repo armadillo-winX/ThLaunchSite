@@ -10,19 +10,19 @@ namespace ThLaunchSite.Settings
         {
             string? gamePathSettingsFile = PathInfo.GamePathSettingsFile;
 
-            _gamePathSettings.Th06 = GamePath.Th06;
-            _gamePathSettings.Th07 = GamePath.Th07;
-            _gamePathSettings.Th08 = GamePath.Th08;
-            _gamePathSettings.Th09 = GamePath.Th09;
-            _gamePathSettings.Th10 = GamePath.Th10;
-            _gamePathSettings.Th11 = GamePath.Th11;
-            _gamePathSettings.Th12 = GamePath.Th12;
-            _gamePathSettings.Th13 = GamePath.Th13;
-            _gamePathSettings.Th14 = GamePath.Th14;
-            _gamePathSettings.Th15 = GamePath.Th15;
-            _gamePathSettings.Th16 = GamePath.Th16;
-            _gamePathSettings.Th17 = GamePath.Th17;
-            _gamePathSettings.Th18 = GamePath.Th18;
+            _gamePathSettings.Th06 = GamePath.Th06FilePath;
+            _gamePathSettings.Th07 = GamePath.Th07FilePath;
+            _gamePathSettings.Th08 = GamePath.Th08FilePath;
+            _gamePathSettings.Th09 = GamePath.Th09FilePath;
+            _gamePathSettings.Th10 = GamePath.Th10FilePath;
+            _gamePathSettings.Th11 = GamePath.Th11FilePath;
+            _gamePathSettings.Th12 = GamePath.Th12FilePath;
+            _gamePathSettings.Th13 = GamePath.Th13FilePath;
+            _gamePathSettings.Th14 = GamePath.Th14FilePath;
+            _gamePathSettings.Th15 = GamePath.Th15FilePath;
+            _gamePathSettings.Th16 = GamePath.Th16FilePath;
+            _gamePathSettings.Th17 = GamePath.Th17FilePath;
+            _gamePathSettings.Th18 = GamePath.Th18FilePath;
 
             if (!string.IsNullOrEmpty(gamePathSettingsFile))
             {
@@ -46,35 +46,35 @@ namespace ThLaunchSite.Settings
                 _gamePathSettings = (GamePathSettings)serializer.Deserialize(fs);
                 fs.Close();
 
-                GamePath.Th06 = _gamePathSettings.Th06;
-                GamePath.Th07 = _gamePathSettings.Th07;
-                GamePath.Th08 = _gamePathSettings.Th08;
-                GamePath.Th09 = _gamePathSettings.Th09;
-                GamePath.Th10 = _gamePathSettings.Th10;
-                GamePath.Th11 = _gamePathSettings.Th11;
-                GamePath.Th12 = _gamePathSettings.Th12;
-                GamePath.Th13 = _gamePathSettings.Th13;
-                GamePath.Th14 = _gamePathSettings.Th14;
-                GamePath.Th15 = _gamePathSettings.Th15;
-                GamePath.Th16 = _gamePathSettings.Th16;
-                GamePath.Th17 = _gamePathSettings.Th17;
-                GamePath.Th18 = _gamePathSettings.Th18;
+                GamePath.Th06FilePath = _gamePathSettings.Th06;
+                GamePath.Th07FilePath = _gamePathSettings.Th07;
+                GamePath.Th08FilePath = _gamePathSettings.Th08;
+                GamePath.Th09FilePath = _gamePathSettings.Th09;
+                GamePath.Th10FilePath = _gamePathSettings.Th10;
+                GamePath.Th11FilePath = _gamePathSettings.Th11;
+                GamePath.Th12FilePath = _gamePathSettings.Th12;
+                GamePath.Th13FilePath = _gamePathSettings.Th13;
+                GamePath.Th14FilePath = _gamePathSettings.Th14;
+                GamePath.Th15FilePath = _gamePathSettings.Th15;
+                GamePath.Th16FilePath = _gamePathSettings.Th16;
+                GamePath.Th17FilePath = _gamePathSettings.Th17;
+                GamePath.Th18FilePath = _gamePathSettings.Th18;
             }
             else
             {
-                GamePath.Th06 = string.Empty;
-                GamePath.Th07 = string.Empty;
-                GamePath.Th08 = string.Empty;
-                GamePath.Th09 = string.Empty;
-                GamePath.Th10 = string.Empty;
-                GamePath.Th11 = string.Empty;
-                GamePath.Th12 = string.Empty;
-                GamePath.Th13 = string.Empty;
-                GamePath.Th14 = string.Empty;
-                GamePath.Th15 = string.Empty;
-                GamePath.Th16 = string.Empty;
-                GamePath.Th17 = string.Empty;
-                GamePath.Th18 = string.Empty;
+                GamePath.Th06FilePath = string.Empty;
+                GamePath.Th07FilePath = string.Empty;
+                GamePath.Th08FilePath = string.Empty;
+                GamePath.Th09FilePath = string.Empty;
+                GamePath.Th10FilePath = string.Empty;
+                GamePath.Th11FilePath = string.Empty;
+                GamePath.Th12FilePath = string.Empty;
+                GamePath.Th13FilePath = string.Empty;
+                GamePath.Th14FilePath = string.Empty;
+                GamePath.Th15FilePath = string.Empty;
+                GamePath.Th16FilePath = string.Empty;
+                GamePath.Th17FilePath = string.Empty;
+                GamePath.Th18FilePath = string.Empty;
             }
         }
 
