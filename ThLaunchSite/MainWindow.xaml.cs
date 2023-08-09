@@ -382,10 +382,21 @@ namespace ThLaunchSite
 
         private void GamePathBrowseButtonClick(object sender, RoutedEventArgs e)
         {
+            string fileFilter;
+            if (this.GameId == GameIndex.Th06)
+            {
+                fileFilter = "東方紅魔郷実行ファイル|東方紅魔郷.exe;th06*.exe|すべてのファイル|*.*";
+            }
+            else
+            {
+                fileFilter = $"{this.GameName}実行ファイル|{this.GameId.ToLower()}*.exe|すべてのファイル|*.*";
+            }
+
             OpenFileDialog openFileDialog = new()
             {
-                Filter = "ゲーム実行ファイル|*.exe"
+                Filter = fileFilter
             };
+
             if (openFileDialog.ShowDialog() == true)
             {
                 string gamePath = openFileDialog.FileName;
