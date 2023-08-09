@@ -51,7 +51,7 @@
         {
             string command = CommandBox.Text;
             CommandParser(command);
-            DialogResult = true;
+            this.DialogResult = true;
             this.Close();
         }
 
