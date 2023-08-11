@@ -470,15 +470,17 @@ namespace ThLaunchSite
 
         private void CatchGameProcessMenuItemClick(object sender, RoutedEventArgs e)
         {
-            string gameId = this.GameId;
-            if (GameOperation.IsRunningGame(gameId))
+            try
             {
-                EnableWaitGameEndMode(gameId);
+                string gameId = GameOperation.SearchRunningGameProcess();
+                string gameProcessName = Path.GetFileNameWithoutExtension(GamePath.GetGamePath(gameId));
+                GameComboBox.SelectedIndex = GameDictionary[gameId];
+                EnableWaitGameEndMode(gameProcessName);
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(this, "ゲームプロセスが見つかりませんでした。", "ゲームプロセスの捕捉",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

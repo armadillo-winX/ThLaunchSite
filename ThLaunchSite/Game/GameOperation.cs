@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Reflection;
+using System.Threading;
 
 namespace ThLaunchSite.Game
 {
@@ -200,6 +201,26 @@ namespace ThLaunchSite.Game
             }
         }
 
+        public static string SearchRunningGameProcess()
+        {
+            string gameId = string.Empty;
+
+            PropertyInfo[] propertyInfos = typeof(GameIndex).GetProperties();
+
+            foreach (PropertyInfo propertyInfo in propertyInfos)
+            {
+                gameId = propertyInfo.GetValue(null, null).ToString();
+                string gamePath = GamePath.GetGamePath(gameId);
+                string gameProcessName = Path.GetFileNameWithoutExtension(gamePath);
+                if (IsRunningGame(gameProcessName))
+                {
+                    return gameId;
+                }
+            }
+
+            throw new ProcessNotFoundException("ゲームプロセスが検知されませんでした。");
+        }
+
         public static void KillGameProcess(string gameProcessName)
         {
             Process[] gameProcesses = Process.GetProcessesByName(gameProcessName);
@@ -220,7 +241,18 @@ namespace ThLaunchSite.Game
 
         public static bool IsRunningGame(string gameProcessName)
         {
-            return Process.GetProcessesByName(gameProcessName).Length > 0;
+            if (string.IsNullOrEmpty(gameProcessName))
+            {
+                return false;
+            }
+            else if (Process.GetProcessesByName(gameProcessName).Length > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
