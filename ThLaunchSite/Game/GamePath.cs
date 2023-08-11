@@ -88,59 +88,59 @@
             }
         }
 
-        public static void SetGamePath(string gameId, string path)
+        public static void SetGamePath(string gameId, string gamePath)
         {
             if (gameId == GameIndex.Th06)
             {
-                Th06FilePath = path;
+                Th06FilePath = gamePath;
             }
             else if (gameId == GameIndex.Th07)
             {
-                Th07FilePath = path;
+                Th07FilePath = gamePath;
             }
             else if (gameId == GameIndex.Th08)
             {
-                Th08FilePath = path;
+                Th08FilePath = gamePath;
             }
             else if (gameId == GameIndex.Th09)
             {
-                Th09FilePath = path;
+                Th09FilePath = gamePath;
             }
             else if (gameId == GameIndex.Th10)
             {
-                Th10FilePath = path;
+                Th10FilePath = gamePath;
             }
             else if (gameId == GameIndex.Th11)
             {
-                Th11FilePath = path;
+                Th11FilePath = gamePath;
             }
             else if (gameId == GameIndex.Th12)
             {
-                Th12FilePath = path;
+                Th12FilePath = gamePath;
             }
             else if (gameId == GameIndex.Th13)
             {
-                Th13FilePath = path;
+                Th13FilePath = gamePath;
             }
             else if (gameId == GameIndex.Th14)
             {
-                Th14FilePath = path;
+                Th14FilePath = gamePath;
             }
             else if (gameId == GameIndex.Th15)
             {
-                Th15FilePath = path;
+                Th15FilePath = gamePath;
             }
             else if (gameId == GameIndex.Th16)
             {
-                Th16FilePath = path;
+                Th16FilePath = gamePath;
             }
             else if (gameId == GameIndex.Th17)
             {
-                Th17FilePath = path;
+                Th17FilePath = gamePath;
             }
             else if (gameId == GameIndex.Th18)
             {
-                Th18FilePath = path;
+                Th18FilePath = gamePath;
             }
         }
     }

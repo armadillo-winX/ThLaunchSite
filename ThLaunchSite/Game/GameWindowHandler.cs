@@ -28,11 +28,11 @@ namespace ThLaunchSite.Game
         public static int[] GetWindowSizes(string gameProcessName)
         {
             //ウィンドウハンドルの取得
-            IntPtr process = Process.GetProcessesByName(gameProcessName)[0].MainWindowHandle;
+            IntPtr gameProcess = Process.GetProcessesByName(gameProcessName)[0].MainWindowHandle;
 
             //ウィンドウサイズの取得
             RECT rect;
-            _ = GetWindowRect(process, out rect);
+            _ = GetWindowRect(gameProcess, out rect);
             int width = rect.right - rect.left;
             int height = rect.bottom - rect.top;
 
@@ -42,11 +42,11 @@ namespace ThLaunchSite.Game
 
         public static void ResizeWindow(string gameProcessName, int width, int height)
         {
-            Process process = Process.GetProcessesByName(gameProcessName)[0];
-            IntPtr windowHandle = process.MainWindowHandle;
+            Process gameProcess = Process.GetProcessesByName(gameProcessName)[0];
+            IntPtr windowHandle = gameProcess.MainWindowHandle;
             _ = MoveWindow(windowHandle, 100, 100, width, height, 1);
 
-            Interaction.AppActivate(process.Id);
+            Interaction.AppActivate(gameProcess.Id);
         }
     }
 }

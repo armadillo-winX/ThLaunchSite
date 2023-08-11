@@ -16,7 +16,7 @@
             _ = CommandBox.Focus();
         }
 
-        private void CommandParser(string command)
+        private void ParseCommand(string command)
         {
             if (!string.IsNullOrEmpty(command))
             {
@@ -50,7 +50,7 @@
         private void OKButtonClick(object sender, RoutedEventArgs e)
         {
             string command = CommandBox.Text;
-            CommandParser(command);
+            ParseCommand(command);
             this.DialogResult = true;
             this.Close();
         }
@@ -64,11 +64,11 @@
         {
             string commandHelp = "起動したい東方原作を th<作品番号> で指定してください。\n\n例\n\n東方妖々夢\nth07\n\n東方輝針城\nth14\n\n\n";
             string optionHelp = "また、以下のオプションを付与できます。\n/vp, /vpatch, /vsyncpatch     VsyncPatchの適用\n/tp, /thprac     thpracの適用\n\n\n";
-            string exmaple 
+            string example 
                 = "<コマンド入力例>\n\n東方紅魔郷を起動する場合\nth06\n\nVsyncPatchを適用して東方永夜抄を起動する場合\nth08 /vpatch\n\nthpracを適用して東方風神録を起動する場合\nth10 /tp\n\n\n";
             string runHelp = "入力例のようにテキストボックスにコマンドを入力し、Enterキーを押すか、[起動(L)]ボタンをクリックするとゲームが起動します。";
 
-            string helpMessage = commandHelp + optionHelp + exmaple + runHelp;
+            string helpMessage = commandHelp + optionHelp + example + runHelp;
             MessageBox.Show(this, helpMessage, "コマンドゲームランチャーのヘルプ",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }

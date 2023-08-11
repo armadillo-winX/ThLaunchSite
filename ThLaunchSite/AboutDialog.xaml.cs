@@ -14,7 +14,7 @@ namespace ThLaunchSite
             AppNameBlock.Text = VersionInfo.AppName;
             VersionBlock.Text = $"Version.{VersionInfo.AppVersion}";
             DeveloperBlock.Text = $"by {VersionInfo.Developer}";
-            DotNetVersionBlock.Text = $"Runtime: {VersionInfo.DotNetViersion}";
+            DotNetVersionBlock.Text = $"Runtime: {VersionInfo.DotNetVersion}";
 
             string readmeTextData = GetReadme();
             ReadMeTextBox.Text = readmeTextData;
@@ -25,10 +25,10 @@ namespace ThLaunchSite
 
         private string GetReadme()
         {
-            string readme = PathInfo.Readme;
+            string readmeFile = PathInfo.ReadmeFile;
             try
             {
-                StreamReader fileStream = new(readme, Encoding.UTF8);
+                StreamReader fileStream = new(readmeFile, Encoding.UTF8);
                 string readmeTextData = fileStream.ReadToEnd();
                 fileStream.Close();
 
@@ -42,10 +42,10 @@ namespace ThLaunchSite
 
         private string GetLicense()
         {
-            string license = PathInfo.LicenseFile;
+            string licenseFile = PathInfo.LicenseFile;
             try
             {
-                StreamReader fileStream = new(license, Encoding.UTF8);
+                StreamReader fileStream = new(licenseFile, Encoding.UTF8);
                 string licenseTextData = fileStream.ReadToEnd();
                 fileStream.Close();
 

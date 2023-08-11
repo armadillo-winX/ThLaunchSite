@@ -268,8 +268,8 @@ namespace ThLaunchSite
             {
                 TimeSpan time = DateTime.Now - this.GameStartTime;
 
-                string gameRunTime = time.ToString(@"mm\m\i\nss\s\e\c");
-                GameRunningTimeBlock.Text = gameRunTime;
+                string gameRunningTime = time.ToString(@"mm\m\i\nss\s\e\c");
+                GameRunningTimeBlock.Text = gameRunningTime;
 
                 if (GameOperation.IsRunningGame(this.GameProcessName))
                 {
@@ -321,9 +321,9 @@ namespace ThLaunchSite
 
         private void WorkerDowork(object sender, DoWorkEventArgs e)
         {
-            string name = (string)e.Argument;
+            string gameProcessName = (string)e.Argument;
 
-            while (GameOperation.IsRunningGame(name))
+            while (GameOperation.IsRunningGame(gameProcessName))
             {
                 Thread.Sleep(500);
             }
@@ -571,13 +571,13 @@ namespace ThLaunchSite
 
                     try
                     {
-                        int[] sizes = GameWindowHandler.GetWindowSizes(gameProcessName);
+                        int[] gameWindowSizes = GameWindowHandler.GetWindowSizes(gameProcessName);
 
                         //リサイズ率に基づいてウィンドウの変更サイズを決定
-                        int width = (int)Math.Round(sizes[0] * resizeRate);
-                        int height = (int)Math.Round(sizes[1] * resizeRate);
+                        int resizeWidth = (int)Math.Round(gameWindowSizes[0] * resizeRate);
+                        int resizeHeight = (int)Math.Round(gameWindowSizes[1] * resizeRate);
 
-                        GameWindowHandler.ResizeWindow(gameProcessName, width, height);
+                        GameWindowHandler.ResizeWindow(gameProcessName, resizeWidth, resizeHeight);
                     }
                     catch (Exception ex)
                     {
@@ -590,10 +590,10 @@ namespace ThLaunchSite
             {
                 try
                 {
-                    int width = int.Parse(GameWindowWidthBox.Text);
-                    int height = int.Parse(GameWindowHeightBox.Text);
+                    int resizeWidth = int.Parse(GameWindowWidthBox.Text);
+                    int resizeHeight = int.Parse(GameWindowHeightBox.Text);
 
-                    GameWindowHandler.ResizeWindow(gameProcessName, width, height);
+                    GameWindowHandler.ResizeWindow(gameProcessName, resizeWidth, resizeHeight);
                 }
                 catch (Exception ex)
                 {

@@ -27,11 +27,11 @@ namespace ThLaunchSite.Settings
             if (!string.IsNullOrEmpty(gamePathSettingsFile))
             {
                 // XmlSerializerを使ってファイルに保存（SettingSerializerオブジェクトの内容を書き込む）
-                XmlSerializer serializer = new(typeof(GamePathSettings));
-                FileStream fs = new(gamePathSettingsFile, FileMode.Create);
+                XmlSerializer gamePathSettingsSerializer = new(typeof(GamePathSettings));
+                FileStream fileStream = new(gamePathSettingsFile, FileMode.Create);
                 // オブジェクトをシリアル化してXMLファイルに書き込む
-                serializer.Serialize(fs, _gamePathSettings);
-                fs.Close();
+                gamePathSettingsSerializer.Serialize(fileStream, _gamePathSettings);
+                fileStream.Close();
             }
         }
 
@@ -40,11 +40,11 @@ namespace ThLaunchSite.Settings
             string? gamePathSettingsFile = PathInfo.GamePathSettingsFile;
             if (!string.IsNullOrEmpty(gamePathSettingsFile) && File.Exists(gamePathSettingsFile))
             {
-                XmlSerializer serializer = new(typeof(GamePathSettings));
-                FileStream fs = new(gamePathSettingsFile, FileMode.Open);
+                XmlSerializer gamePathSettingsSerializer = new(typeof(GamePathSettings));
+                FileStream fileStream = new(gamePathSettingsFile, FileMode.Open);
 
-                _gamePathSettings = (GamePathSettings)serializer.Deserialize(fs);
-                fs.Close();
+                _gamePathSettings = (GamePathSettings)gamePathSettingsSerializer.Deserialize(fileStream);
+                fileStream.Close();
 
                 GamePath.Th06FilePath = _gamePathSettings.Th06;
                 GamePath.Th07FilePath = _gamePathSettings.Th07;
@@ -83,9 +83,9 @@ namespace ThLaunchSite.Settings
             string? mainWindowSettingsFile = PathInfo.MainWindowSettingsFile;
 
             XmlSerializer mainWindowSettingsSerializer = new(typeof(MainWindowSettings));
-            FileStream fs = new(mainWindowSettingsFile, FileMode.Create);
-            mainWindowSettingsSerializer.Serialize(fs, mainWindowSettings);
-            fs.Close();
+            FileStream fileStream = new(mainWindowSettingsFile, FileMode.Create);
+            mainWindowSettingsSerializer.Serialize(fileStream, mainWindowSettings);
+            fileStream.Close();
         }
 
         public static MainWindowSettings ConfigureMainWindowSettings()
@@ -97,10 +97,10 @@ namespace ThLaunchSite.Settings
             if (File.Exists(mainWindowSettingsFile))
             {
                 XmlSerializer mainWindowSettingsSerializer = new(typeof(MainWindowSettings));
-                FileStream fs = new(mainWindowSettingsFile, FileMode.Open);
+                FileStream fileStream = new(mainWindowSettingsFile, FileMode.Open);
 
-                mainWindowSettings = (MainWindowSettings)mainWindowSettingsSerializer.Deserialize(fs);
-                fs.Close();
+                mainWindowSettings = (MainWindowSettings)mainWindowSettingsSerializer.Deserialize(fileStream);
+                fileStream.Close();
             }
             else
             {

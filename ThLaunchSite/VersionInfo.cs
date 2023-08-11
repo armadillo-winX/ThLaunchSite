@@ -10,6 +10,6 @@
 
         public static string? Developer => FileVersionInfo.GetVersionInfo(_appPath).CompanyName;
 
-        public static string DotNetViersion => $".NET {Environment.Version}";
+        public static string DotNetVersion => $".NET {Environment.Version}";
     }
 }
