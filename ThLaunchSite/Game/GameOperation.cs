@@ -203,13 +203,11 @@ namespace ThLaunchSite.Game
 
         public static string SearchRunningGameProcess()
         {
-            string gameId = string.Empty;
-
             PropertyInfo[] propertyInfos = typeof(GameIndex).GetProperties();
 
             foreach (PropertyInfo propertyInfo in propertyInfos)
             {
-                gameId = propertyInfo.GetValue(null, null).ToString();
+                string gameId = propertyInfo.GetValue(null, null).ToString();
                 string gamePath = GamePath.GetGamePath(gameId);
                 string gameProcessName = Path.GetFileNameWithoutExtension(gamePath);
                 if (IsRunningGame(gameProcessName))
