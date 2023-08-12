@@ -1,0 +1,15 @@
+﻿<Window x:Class="ThLaunchSite.SelectThpracDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThLaunchSite"
+        mc:Ignorable="d"
+        Title="thprac選択" Height="246" Width="300" ShowInTaskbar="False" WindowStyle="ToolWindow"
+        ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <ListBox x:Name="ThpracFilesListBox" Margin="10,10,10,39" />
+        <Button x:Name="OKButton" Content="実行(_R)" IsDefault="True" Width="90" Height="24" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Click="OKButton_Click"/>
+
+    </Grid>
+</Window>
