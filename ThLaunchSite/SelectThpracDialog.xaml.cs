@@ -5,21 +5,25 @@
     /// </summary>
     public partial class SelectThpracDialog : Window
     {
-        public string[]? ThpracFiles { get; set; }
+        public string[]? ThpracFiles
+        {
+            set
+            {
+                if (value.Length > 0)
+                {
+                    foreach (string thpracFile in value)
+                    {
+                        ThpracFilesListBox.Items.Add(Path.GetFileName(thpracFile));
+                    }
+                }
+            } 
+        }
 
         public string? ThpracFileName { get; set; }
 
         public SelectThpracDialog()
         {
             InitializeComponent();
-
-            if (this.ThpracFiles != null && this.ThpracFiles.Length > 0)
-            {
-                foreach (string thpracFile in this.ThpracFiles)
-                {
-                    ThpracFilesListBox.Items.Add(Path.GetFileName(thpracFile));
-                }
-            }
         }
 
         private void OKButton_Click(object sender, RoutedEventArgs e)

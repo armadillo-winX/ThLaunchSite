@@ -143,11 +143,44 @@ namespace ThLaunchSite
                         EnableWaitGameEndMode(gameProcessName);
                         break;
                     case 2:
-                        gameProcessName = await Task.Run(()
-                            => GameOperation.StartGameProcessWithThprac(gameId)
+                        string[] thpracFiles = GameOperation.GetThpracFiles(gameId);
+                        if (thpracFiles.Length == 1)
+                        {
+                            gameProcessName = await Task.Run(()
+                                => GameOperation.StartGameProcessWithAnyPatch(gameId, Path.GetFileName(thpracFiles[0]))
                             );
-                        EnableWaitGameEndMode(gameProcessName);
-                        break;
+                            EnableWaitGameEndMode(gameProcessName);
+                            break;
+                        }
+                        else if (thpracFiles.Length > 1)
+                        {
+                            SelectThpracDialog thpracDialog = new()
+                            {
+                                ThpracFiles = thpracFiles,
+                                Owner = this
+                            };
+
+                            if (thpracDialog.ShowDialog() == true)
+                            {
+                                gameProcessName = await Task.Run(()
+                                    => GameOperation.StartGameProcessWithAnyPatch(gameId, thpracDialog.ThpracFileName)
+                                );
+                                EnableWaitGameEndMode(gameProcessName);
+                                break;
+                            }
+                            else
+                            {
+                                EnableLimitationMode(false);
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            _ = MessageBox.Show(this, "thpracの実行ファイルが見つかりませんでした。", "エラー",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                            EnableLimitationMode(false);
+                            break;
+                        }
                 }
             }
             catch (Exception ex)
