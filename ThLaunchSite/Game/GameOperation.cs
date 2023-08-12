@@ -191,6 +191,17 @@ namespace ThLaunchSite.Game
             }
         }
 
+        public static string[] GetThpracFiles(string gameId)
+        {
+            string? gamePath = GamePath.GetGamePath(gameId);
+            string gameDirectory = Path.GetDirectoryName(gamePath);
+
+            string[] thpracFiles = Directory.GetFiles(
+                gameDirectory, "thprac*.exe", SearchOption.TopDirectoryOnly);
+
+            return thpracFiles;
+        }
+
         public static void OpenGameDirectory(string gameId)
         {
             string? gamePath = GamePath.GetGamePath(gameId);
