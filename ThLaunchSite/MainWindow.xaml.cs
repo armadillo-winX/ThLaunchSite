@@ -138,7 +138,7 @@ namespace ThLaunchSite
                         break;
                     case 1:
                         gameProcessName = await Task.Run(() 
-                            => GameOperation.StartGameProcessWithVpatch(gameId)
+                            => GameOperation.StartGameProcessWithPatch(gameId, "vpatch.exe")
                             );
                         EnableWaitGameEndMode(gameProcessName);
                         break;
@@ -147,7 +147,7 @@ namespace ThLaunchSite
                         if (thpracFiles.Length == 1)
                         {
                             gameProcessName = await Task.Run(()
-                                => GameOperation.StartGameProcessWithAnyPatch(gameId, Path.GetFileName(thpracFiles[0]))
+                                => GameOperation.StartGameProcessWithPatch(gameId, Path.GetFileName(thpracFiles[0]))
                             );
                             EnableWaitGameEndMode(gameProcessName);
                             break;
@@ -163,7 +163,7 @@ namespace ThLaunchSite
                             if (thpracDialog.ShowDialog() == true)
                             {
                                 gameProcessName = await Task.Run(()
-                                    => GameOperation.StartGameProcessWithAnyPatch(gameId, thpracDialog.ThpracFileName)
+                                    => GameOperation.StartGameProcessWithPatch(gameId, thpracDialog.ThpracFileName)
                                 );
                                 EnableWaitGameEndMode(gameProcessName);
                                 break;
