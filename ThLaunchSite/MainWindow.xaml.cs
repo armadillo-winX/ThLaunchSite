@@ -143,7 +143,7 @@ namespace ThLaunchSite
                         EnableWaitGameEndMode(gameProcessName);
                         break;
                     case 2:
-                        string[] thpracFiles = GamePath.GetThpracFiles(gameId);
+                        string[] thpracFiles = GameFile.GetThpracFiles(gameId);
                         if (thpracFiles.Length == 1)
                         {
                             gameProcessName = await Task.Run(()
@@ -445,7 +445,7 @@ namespace ThLaunchSite
                 string gamePath = openFileDialog.FileName;
                 GamePathBox.Text = gamePath;
                 string gameId = this.GameId;
-                GamePath.SetGameFilePath(gameId, gamePath);
+                GameFile.SetGameFilePath(gameId, gamePath);
             }
         }
 
@@ -516,7 +516,7 @@ namespace ThLaunchSite
             try
             {
                 string gameId = GameOperation.SearchRunningGameProcess();
-                string gameProcessName = Path.GetFileNameWithoutExtension(GamePath.GetGameFilePath(gameId));
+                string gameProcessName = Path.GetFileNameWithoutExtension(GameFile.GetGameFilePath(gameId));
                 GameComboBox.SelectedIndex = GameDictionary[gameId];
                 EnableWaitGameEndMode(gameProcessName);
             }
@@ -574,7 +574,7 @@ namespace ThLaunchSite
             ComboBoxItem item = (ComboBoxItem)GameComboBox.SelectedItem;
             this.GameId = (string)item.Uid;
             this.GameName = (string)item.Content;
-            string? gamePath = GamePath.GetGameFilePath(this.GameId);
+            string? gamePath = GameFile.GetGameFilePath(this.GameId);
 
             if (!string.IsNullOrEmpty(gamePath))
             {
