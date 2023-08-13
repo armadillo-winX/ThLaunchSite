@@ -143,7 +143,7 @@ namespace ThLaunchSite
                         EnableWaitGameEndMode(gameProcessName);
                         break;
                     case 2:
-                        string[] thpracFiles = GameOperation.GetThpracFiles(gameId);
+                        string[] thpracFiles = GamePath.GetThpracFiles(gameId);
                         if (thpracFiles.Length == 1)
                         {
                             gameProcessName = await Task.Run(()
