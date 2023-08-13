@@ -462,7 +462,7 @@ namespace ThLaunchSite
             try
             {
                 string gameId = this.GameId;
-                GameOperation.LaunchCustomProgram(gameId);
+                GameOperation.StartCustomProgramProcess(gameId);
             }
             catch (Exception ex)
             {

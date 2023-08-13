@@ -80,7 +80,7 @@ namespace ThLaunchSite.Game
             }
         }
 
-        public static void LaunchCustomProgram(string gameId)
+        public static void StartCustomProgramProcess(string gameId)
         {
             string? gamePath = GamePath.GetGamePath(gameId);
             string gameDirectory = Path.GetDirectoryName(gamePath);
