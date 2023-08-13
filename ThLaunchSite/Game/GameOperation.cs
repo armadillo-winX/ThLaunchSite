@@ -7,7 +7,7 @@ namespace ThLaunchSite.Game
     {
         public static string StartGameProcess(string gameId)
         {
-            string? gamePath = GamePath.GetGamePath(gameId);
+            string? gamePath = GamePath.GetGameFilePath(gameId);
             if (File.Exists(gamePath))
             {
                 string gameProcessName = Path.GetFileNameWithoutExtension(gamePath);
@@ -42,7 +42,7 @@ namespace ThLaunchSite.Game
 
         public static string StartGameProcessWithPatch(string gameId, string patchName)
         {
-            string? gamePath = GamePath.GetGamePath(gameId);
+            string? gamePath = GamePath.GetGameFilePath(gameId);
             string gameDirectory = Path.GetDirectoryName(gamePath);
             string patchPath = $"{gameDirectory}\\{patchName}";
             if (File.Exists(gamePath) && File.Exists(patchPath))
@@ -82,7 +82,7 @@ namespace ThLaunchSite.Game
 
         public static void StartCustomProgramProcess(string gameId)
         {
-            string? gamePath = GamePath.GetGamePath(gameId);
+            string? gamePath = GamePath.GetGameFilePath(gameId);
             string gameDirectory = Path.GetDirectoryName(gamePath);
             string customProgramPath = $"{gameDirectory}\\custom.exe";
             if (File.Exists(gamePath) && File.Exists(customProgramPath))
@@ -107,7 +107,7 @@ namespace ThLaunchSite.Game
 
         public static void OpenGameDirectory(string gameId)
         {
-            string? gamePath = GamePath.GetGamePath(gameId);
+            string? gamePath = GamePath.GetGameFilePath(gameId);
             string gameDirectory = Path.GetDirectoryName(gamePath);
             if (Directory.Exists(gameDirectory))
             {
@@ -122,7 +122,7 @@ namespace ThLaunchSite.Game
             foreach (PropertyInfo propertyInfo in propertyInfos)
             {
                 string gameId = propertyInfo.GetValue(null, null).ToString();
-                string gamePath = GamePath.GetGamePath(gameId);
+                string gamePath = GamePath.GetGameFilePath(gameId);
                 string gameProcessName = Path.GetFileNameWithoutExtension(gamePath);
                 if (IsRunningGame(gameProcessName))
                 {

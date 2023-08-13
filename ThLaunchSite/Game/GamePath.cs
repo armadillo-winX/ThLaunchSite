@@ -28,7 +28,7 @@
 
         public static string? Th18FilePath { get; set; }
 
-        public static string? GetGamePath(string gameId)
+        public static string? GetGameFilePath(string gameId)
         {
             if (gameId == GameIndex.Th06)
             {
@@ -88,7 +88,7 @@
             }
         }
 
-        public static void SetGamePath(string gameId, string gamePath)
+        public static void SetGameFilePath(string gameId, string gamePath)
         {
             if (gameId == GameIndex.Th06)
             {
@@ -146,7 +146,7 @@
 
         public static string[] GetThpracFiles(string gameId)
         {
-            string? gamePath = GetGamePath(gameId);
+            string? gamePath = GetGameFilePath(gameId);
             string gameDirectory = Path.GetDirectoryName(gamePath);
 
             string[] thpracFiles = Directory.GetFiles(
@@ -157,7 +157,7 @@
 
         public static string? GetGameOperationLogFilePath(string gameId)
         {
-            string gamePath = GetGamePath(gameId);
+            string gamePath = GetGameFilePath(gameId);
             if (gamePath == null)
             {
                 return null;
