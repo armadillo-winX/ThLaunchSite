@@ -213,6 +213,12 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
+            <TabItem Header="東方動作記録">
+                <Grid>
+                    <TextBox x:Name="GameOperationLogDataBox" Margin="0,0,0,0" TextWrapping="Wrap" Text="" IsReadOnly="True"/>
+
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
