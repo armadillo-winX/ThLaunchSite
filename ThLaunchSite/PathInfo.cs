@@ -31,5 +31,7 @@
         public static string LicenseFile => $"{AppLocation}\\Doc\\License.txt";
 
         public static string GamePlayLogFile => $"{AppLocation}\\GamePlayLog.xml";
+
+        public static string ShanghaiAliceAppData => $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ShanghaiAlice";
     }
 }
