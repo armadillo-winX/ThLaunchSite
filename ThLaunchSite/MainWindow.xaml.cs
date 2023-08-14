@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
+using System.Xml;
 
 namespace ThLaunchSite
 {
@@ -262,6 +263,78 @@ namespace ThLaunchSite
             };
 
             SettingsConfiguration.SaveMainWindowSettings(mainWindowSettings);
+        }
+
+        private void GetExternalTools()
+        {
+            ExternalToolsMenuItem.Items.Clear();
+
+            string exToolsConfig = PathInfo.ExternalToolsConfig;
+            if (File.Exists(exToolsConfig))
+            {
+                try
+                {
+                    XmlDocument exToolsConfigXml = new();
+                    exToolsConfigXml.Load(exToolsConfig);
+                    XmlNodeList exToolsNodeList = exToolsConfigXml.SelectNodes("ExternalTools/ExternalTool");
+                    if (exToolsNodeList.Count > 0)
+                    {
+                        foreach (XmlNode toolNode in exToolsNodeList)
+                        {
+                            string toolName = toolNode.SelectSingleNode("Name").InnerText;
+
+                            MenuItem item = new()
+                            {
+                                Header = toolName
+                            };
+                            item.Click += new RoutedEventHandler(LaunchExternalToolMenuItemClick);
+                            ExternalToolsMenuItem.Items.Add(item);
+                        }
+                    }
+                    else
+                    {
+                        MenuItem item = new()
+                        {
+                            Header = "(なし)",
+                            IsEnabled = false
+                        };
+                        ExternalToolsMenuItem.Items.Add(item);
+                    }
+                }
+                catch (Exception)
+                {
+                    MenuItem item = new()
+                    {
+                        Header = "(なし)",
+                        IsEnabled = false
+                    };
+                    ExternalToolsMenuItem.Items.Add(item);
+                }
+            }
+            else
+            {
+                MenuItem item = new()
+                {
+                    Header = "(なし)",
+                    IsEnabled = false
+                };
+                ExternalToolsMenuItem.Items.Add(item);
+            }
+        }
+
+        private void LaunchExternalToolMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            //MenuItemのHeaderプロパティを取得
+            string name = ((MenuItem)sender).Header.ToString();
+            try
+            {
+                ExternalTools.StartExernalToolProcess(name);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void EnableLimitationMode(bool enabled)
