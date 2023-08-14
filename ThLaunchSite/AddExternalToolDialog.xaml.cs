@@ -43,7 +43,7 @@ namespace ThLaunchSite
                 bool asAdmin = AsAdminCheckBox.IsChecked == true;
                 if (toolName.Length > 0 && toolPath.Length > 0)
                 {
-                    ExternalTools.AddExternalTool(toolName, toolPath, option, asAdmin);
+                    ExternalTool.AddExternalTool(toolName, toolPath, option, asAdmin);
                     this.DialogResult = true;
                 }
             }

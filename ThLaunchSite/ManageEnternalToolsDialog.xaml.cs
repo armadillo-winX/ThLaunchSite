@@ -15,7 +15,7 @@ namespace ThLaunchSite
             {
                 try
                 {
-                    ExternalTools.CreateExternalConfigFile();
+                    ExternalTool.CreateExternalConfigFile();
                 }
                 catch (Exception ex)
                 {
@@ -90,7 +90,7 @@ namespace ThLaunchSite
                 try
                 {
                     string toolName = ExternalToolsListBox.SelectedItem.ToString();
-                    ExternalTools.DeleteExternalTool(toolName);
+                    ExternalTool.DeleteExternalTool(toolName);
                     GetExternalTools();
                 }
                 catch (Exception ex)

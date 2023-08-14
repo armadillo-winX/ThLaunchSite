@@ -108,7 +108,7 @@ namespace ThLaunchSite
             {
                 try
                 {
-                    ExternalTools.CreateExternalConfigFile();
+                    ExternalTool.CreateExternalConfigFile();
                 }
                 catch (Exception ex)
                 {
@@ -345,7 +345,7 @@ namespace ThLaunchSite
             string name = ((MenuItem)sender).Header.ToString();
             try
             {
-                ExternalTools.StartExernalToolProcess(name);
+                ExternalTool.StartExernalToolProcess(name);
             }
             catch (Exception ex)
             {

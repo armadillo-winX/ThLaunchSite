@@ -2,7 +2,7 @@
 
 namespace ThLaunchSite
 {
-    internal class ExternalTools
+    internal class ExternalTool
     {
         public string? Name { get; set; }
 
@@ -14,7 +14,7 @@ namespace ThLaunchSite
 
         public static void StartExernalToolProcess(string toolName)
         {
-            ExternalTools externalTool = GetExternalTool(toolName);
+            ExternalTool externalTool = GetExternalTool(toolName);
 
             ProcessStartInfo toolStartInfo = new()
             {
@@ -109,14 +109,14 @@ namespace ThLaunchSite
             exToolsConfigXml.Save(exToolsConfig);
         }
 
-        public static ExternalTools GetExternalTool(string toolName)
+        public static ExternalTool GetExternalTool(string toolName)
         {
             string exToolsConfig = PathInfo.ExternalToolsConfig;
 
             XmlDocument exToolsConfigXml = new();
             exToolsConfigXml.Load(exToolsConfig);
 
-            ExternalTools externalTool = new()
+            ExternalTool externalTool = new()
             {
                 ToolPath = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']/Path").InnerText,
                 Option = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']/Option").InnerText,
