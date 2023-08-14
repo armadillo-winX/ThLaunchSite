@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace ThLaunchSite.Game
 {
-    internal class GameOperation
+    internal class GameProcessHandler
     {
         public static string StartGameProcess(string gameId)
         {

@@ -158,13 +158,13 @@ namespace ThLaunchSite
                 {
                     case 0:
                         gameProcessName = await Task.Run(() 
-                            => GameOperation.StartGameProcess(gameId)
+                            => GameProcessHandler.StartGameProcess(gameId)
                             );
                         EnableWaitGameEndMode(gameProcessName);
                         break;
                     case 1:
                         gameProcessName = await Task.Run(() 
-                            => GameOperation.StartGameProcessWithPatch(gameId, "vpatch.exe")
+                            => GameProcessHandler.StartGameProcessWithPatch(gameId, "vpatch.exe")
                             );
                         EnableWaitGameEndMode(gameProcessName);
                         break;
@@ -173,7 +173,7 @@ namespace ThLaunchSite
                         if (thpracFiles.Length == 1)
                         {
                             gameProcessName = await Task.Run(()
-                                => GameOperation.StartGameProcessWithPatch(gameId, Path.GetFileName(thpracFiles[0]))
+                                => GameProcessHandler.StartGameProcessWithPatch(gameId, Path.GetFileName(thpracFiles[0]))
                             );
                             EnableWaitGameEndMode(gameProcessName);
                             break;
@@ -189,7 +189,7 @@ namespace ThLaunchSite
                             if (thpracDialog.ShowDialog() == true)
                             {
                                 gameProcessName = await Task.Run(()
-                                    => GameOperation.StartGameProcessWithPatch(gameId, thpracDialog.ThpracFileName)
+                                    => GameProcessHandler.StartGameProcessWithPatch(gameId, thpracDialog.ThpracFileName)
                                 );
                                 EnableWaitGameEndMode(gameProcessName);
                                 break;
@@ -402,7 +402,7 @@ namespace ThLaunchSite
                 string gameRunningTime = time.ToString(@"mm\m\i\nss\s\e\c");
                 GameRunningTimeBlock.Text = gameRunningTime;
 
-                if (GameOperation.IsRunningGame(this.GameProcessName))
+                if (GameProcessHandler.IsRunningGame(this.GameProcessName))
                 {
                     Process[] gameProcesses = Process.GetProcessesByName(this.GameProcessName);
                     Process gameProcess = gameProcesses[0];
@@ -454,7 +454,7 @@ namespace ThLaunchSite
         {
             string gameProcessName = (string)e.Argument;
 
-            while (GameOperation.IsRunningGame(gameProcessName))
+            while (GameProcessHandler.IsRunningGame(gameProcessName))
             {
                 Thread.Sleep(500);
             }
@@ -570,7 +570,7 @@ namespace ThLaunchSite
             try
             {
                 string gameId = this.GameId;
-                GameOperation.StartCustomProgramProcess(gameId);
+                GameProcessHandler.StartCustomProgramProcess(gameId);
             }
             catch (Exception ex)
             {
@@ -584,7 +584,7 @@ namespace ThLaunchSite
             try
             {
                 string gameId = this.GameId;
-                GameOperation.OpenGameDirectory(gameId);
+                GameProcessHandler.OpenGameDirectory(gameId);
             }
             catch (Exception ex)
             {
@@ -598,7 +598,7 @@ namespace ThLaunchSite
             try
             {
                 string gameProcessName = this.GameProcessName;
-                GameOperation.KillGameProcess(gameProcessName);
+                GameProcessHandler.KillGameProcess(gameProcessName);
                 MessageBox.Show(this, "ゲームを強制終了させました。", "ゲームプロセスの強制終了",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -613,7 +613,7 @@ namespace ThLaunchSite
         {
             try
             {
-                string gameId = GameOperation.SearchRunningGameProcess();
+                string gameId = GameProcessHandler.SearchRunningGameProcess();
                 string gameProcessName = Path.GetFileNameWithoutExtension(GameFile.GetGameFilePath(gameId));
                 GameComboBox.SelectedIndex = GameDictionary[gameId];
                 EnableWaitGameEndMode(gameProcessName);
