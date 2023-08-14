@@ -63,6 +63,14 @@ namespace ThLaunchSite
         {
             InitializeComponent();
 
+            string appProcessName = Process.GetCurrentProcess().ProcessName;
+            if (Process.GetProcessesByName(appProcessName).Length > 1)
+            {
+                MessageBox.Show(this, $"{_appName}が既に起動しています。\n多重起動はできません。", "多重起動の検出",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                Environment.Exit(0);
+            }
+
             this.Title = _appName;
             if (((App)Application.Current).IsAdmin())
             {
