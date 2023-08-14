@@ -59,6 +59,7 @@
                         <Image Source="/Images/SearchAndApps_16x.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem x:Name="ManageEnternalToolsMenuItem" Header="外部ツールの管理(_M)" Click="ManageEnternalToolsMenuItemClick"/>
             </MenuItem>
             <MenuItem x:Name="ExternalToolsMenuItem" Header="外部ツール(_X)"/>
             <MenuItem Header="ヘルプ(_H)">

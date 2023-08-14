@@ -104,6 +104,21 @@ namespace ThLaunchSite
                 }
             }
 
+            if (!File.Exists(PathInfo.ExternalToolsConfig))
+            {
+                try
+                {
+                    ExternalTools.CreateExternalConfigFile();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        $"外部ツール管理ファイルの生成に失敗。\n\n[詳細]\n{ex.Message}",
+                        "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+
             try
             {
                 SettingsConfiguration.ConfigureGamePathSettings();
@@ -123,6 +138,8 @@ namespace ThLaunchSite
                 MessageBox.Show($"メインウィンドウ設定の構成に失敗。\n{ex.Message}", "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+            GetExternalTools();
 
             ViewGamePlayLogData();
 
@@ -781,6 +798,17 @@ namespace ThLaunchSite
                 };
                 gameRunningTimeStaticsDialog.ShowDialog();
             }
+        }
+
+        private void ManageEnternalToolsMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            ManageEnternalToolsDialog manageEnternalToolsDialog = new()
+            {
+                Owner = this
+            };
+
+            manageEnternalToolsDialog.ShowDialog();
+            GetExternalTools();
         }
     }
 }
