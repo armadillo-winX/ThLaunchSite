@@ -26,6 +26,15 @@
             }
         }
 
+        public static string ExternalToolsConfig
+        {
+            get
+            {
+                string externalToolsConfigFile = $"{SettingsDirectory}\\ThLaunchSite.ExternalTools.xml";
+                return !string.IsNullOrEmpty(SettingsDirectory) ? externalToolsConfigFile : string.Empty;
+            }
+        }
+
         public static string ReadmeFile => $"{AppLocation}\\Doc\\ReadMe.txt";
 
         public static string LicenseFile => $"{AppLocation}\\Doc\\License.txt";
