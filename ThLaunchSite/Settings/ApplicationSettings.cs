@@ -1,10 +1,10 @@
 ﻿namespace ThLaunchSite.Settings
 {
-    public class MainWindowSettings
+    public class ApplicationSettings
     {
-        public double WindowWidth { get; set; }
+        public double MainWindowWidth { get; set; }
 
-        public double WindowHeight { get; set; }
+        public double MainWindowHeight { get; set; }
 
         public string? SelectedGameId { get; set; }
 

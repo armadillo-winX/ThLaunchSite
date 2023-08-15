@@ -78,41 +78,41 @@ namespace ThLaunchSite.Settings
             }
         }
 
-        public static void SaveMainWindowSettings(MainWindowSettings mainWindowSettings)
+        public static void SaveApplicationSettings(ApplicationSettings applicationSettings)
         {
-            string? mainWindowSettingsFile = PathInfo.MainWindowSettingsFile;
+            string? applicationSettingsFile = PathInfo.ApplicationSettingsFile;
 
-            XmlSerializer mainWindowSettingsSerializer = new(typeof(MainWindowSettings));
-            FileStream fileStream = new(mainWindowSettingsFile, FileMode.Create);
-            mainWindowSettingsSerializer.Serialize(fileStream, mainWindowSettings);
+            XmlSerializer applicationSettingsSerializer = new(typeof(ApplicationSettings));
+            FileStream fileStream = new(applicationSettingsFile, FileMode.Create);
+            applicationSettingsSerializer.Serialize(fileStream, applicationSettings);
             fileStream.Close();
         }
 
-        public static MainWindowSettings ConfigureMainWindowSettings()
+        public static ApplicationSettings ConfigureApplicationSettings()
         {
-            string? mainWindowSettingsFile = PathInfo.MainWindowSettingsFile;
+            string? applicationSettingsFile = PathInfo.ApplicationSettingsFile;
 
-            MainWindowSettings mainWindowSettings = new();
+            ApplicationSettings applicationSettings = new();
 
-            if (File.Exists(mainWindowSettingsFile))
+            if (File.Exists(applicationSettingsFile))
             {
-                XmlSerializer mainWindowSettingsSerializer = new(typeof(MainWindowSettings));
-                FileStream fileStream = new(mainWindowSettingsFile, FileMode.Open);
+                XmlSerializer applicationSettingsSerializer = new(typeof(ApplicationSettings));
+                FileStream fileStream = new(applicationSettingsFile, FileMode.Open);
 
-                mainWindowSettings = (MainWindowSettings)mainWindowSettingsSerializer.Deserialize(fileStream);
+                applicationSettings = (ApplicationSettings)applicationSettingsSerializer.Deserialize(fileStream);
                 fileStream.Close();
             }
             else
             {
-                mainWindowSettings.WindowWidth = 550;
-                mainWindowSettings.WindowHeight = 400;
-                mainWindowSettings.SelectedGameId = GameIndex.Th06;
-                mainWindowSettings.ResizeRateIndex = 2;
-                mainWindowSettings.ResizeByRate = true;
-                mainWindowSettings.ThemeName = "Light";
+                applicationSettings.MainWindowWidth = 550;
+                applicationSettings.MainWindowHeight = 400;
+                applicationSettings.SelectedGameId = GameIndex.Th06;
+                applicationSettings.ResizeRateIndex = 2;
+                applicationSettings.ResizeByRate = true;
+                applicationSettings.ThemeName = "Light";
             }
 
-            return mainWindowSettings;
+            return applicationSettings;
         }
     }
 }

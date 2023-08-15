@@ -17,12 +17,12 @@
             }
         }
 
-        public static string MainWindowSettingsFile
+        public static string ApplicationSettingsFile
         {
             get
             {
-                string gamePathSettingsFile = $"{SettingsDirectory}\\ThLaunchSite.MainWindowSettings.xml";
-                return !string.IsNullOrEmpty(SettingsDirectory) ? gamePathSettingsFile : string.Empty;
+                string applicationSettingsFile = $"{SettingsDirectory}\\ThLaunchSite.ApplicationSettings.xml";
+                return !string.IsNullOrEmpty(SettingsDirectory) ? applicationSettingsFile : string.Empty;
             }
         }
 

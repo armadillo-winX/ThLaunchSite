@@ -142,7 +142,7 @@ namespace ThLaunchSite
 
             try
             {
-                ConfigureMainWindowSettings();
+                ConfigureApplicationSettings();
             }
             catch (Exception ex)
             {
@@ -247,24 +247,24 @@ namespace ThLaunchSite
             }
         }
 
-        private void ConfigureMainWindowSettings()
+        private void ConfigureApplicationSettings()
         {
-            MainWindowSettings mainWindowSettings = SettingsConfiguration.ConfigureMainWindowSettings();
-            this.Width = mainWindowSettings.WindowWidth;
-            this.Height = mainWindowSettings.WindowHeight;
-            this.Topmost = mainWindowSettings.AlwaysOnTop;
-            AlwaysOnTopCheckBox.IsChecked = mainWindowSettings.AlwaysOnTop;
-            ResizeRateComboBox.SelectedIndex = mainWindowSettings.ResizeRateIndex;
-            if (mainWindowSettings.ResizeByRate) ResizeByRateRadioButton.IsChecked = true;
-            if (mainWindowSettings.ResizeBySize) ResizeBySizeRadioButton.IsChecked = true;
+            ApplicationSettings applicationSettings = SettingsConfiguration.ConfigureApplicationSettings();
+            this.Width = applicationSettings.MainWindowWidth;
+            this.Height = applicationSettings.MainWindowHeight;
+            this.Topmost = applicationSettings.AlwaysOnTop;
+            AlwaysOnTopCheckBox.IsChecked = applicationSettings.AlwaysOnTop;
+            ResizeRateComboBox.SelectedIndex = applicationSettings.ResizeRateIndex;
+            if (applicationSettings.ResizeByRate) ResizeByRateRadioButton.IsChecked = true;
+            if (applicationSettings.ResizeBySize) ResizeBySizeRadioButton.IsChecked = true;
 
-            ResizeRateComboBox.IsEnabled = mainWindowSettings.ResizeByRate;
-            GameWindowWidthBox.IsEnabled = mainWindowSettings.ResizeBySize;
-            GameWindowHeightBox.IsEnabled = mainWindowSettings.ResizeBySize;
-            GameWindowWidthBox.Text = mainWindowSettings.ResizeWidth;
-            GameWindowHeightBox.Text = mainWindowSettings.ResizeHeight;
+            ResizeRateComboBox.IsEnabled = applicationSettings.ResizeByRate;
+            GameWindowWidthBox.IsEnabled = applicationSettings.ResizeBySize;
+            GameWindowHeightBox.IsEnabled = applicationSettings.ResizeBySize;
+            GameWindowWidthBox.Text = applicationSettings.ResizeWidth;
+            GameWindowHeightBox.Text = applicationSettings.ResizeHeight;
 
-            string? selectedGameId = mainWindowSettings.SelectedGameId;
+            string? selectedGameId = applicationSettings.SelectedGameId;
             if (!string.IsNullOrEmpty(selectedGameId))
             {
                 GameComboBox.SelectedIndex = GameDictionary[selectedGameId];
@@ -274,7 +274,7 @@ namespace ThLaunchSite
                 GameComboBox.SelectedIndex = 0;
             }
 
-            string? themeName = mainWindowSettings.ThemeName;
+            string? themeName = applicationSettings.ThemeName;
             if (!string.IsNullOrEmpty(themeName))
             {
                 ThemeSettingsComboBox.SelectedIndex = ThemeDictionary[themeName];
@@ -285,12 +285,12 @@ namespace ThLaunchSite
             }
         }
 
-        private void SaveMainWindowSettings()
+        private void SaveApplicationSettings()
         {
-            MainWindowSettings mainWindowSettings = new()
+            ApplicationSettings applicationSettings = new()
             {
-                WindowWidth = this.Width,
-                WindowHeight = this.Height,
+                MainWindowWidth = this.Width,
+                MainWindowHeight = this.Height,
                 SelectedGameId = this.GameId,
                 AlwaysOnTop = AlwaysOnTopCheckBox.IsChecked == true,
                 ResizeRateIndex = ResizeRateComboBox.SelectedIndex,
@@ -301,7 +301,7 @@ namespace ThLaunchSite
                 ThemeName = this.ThemeName
             };
 
-            SettingsConfiguration.SaveMainWindowSettings(mainWindowSettings);
+            SettingsConfiguration.SaveApplicationSettings(applicationSettings);
         }
 
         private void GetExternalTools()
@@ -659,7 +659,7 @@ namespace ThLaunchSite
                     try
                     {
                         SettingsConfiguration.SaveGamePathSettings();
-                        SaveMainWindowSettings();
+                        SaveApplicationSettings();
                     }
                     catch (Exception ex)
                     {
@@ -677,7 +677,7 @@ namespace ThLaunchSite
                 try
                 {
                     SettingsConfiguration.SaveGamePathSettings();
-                    SaveMainWindowSettings();
+                    SaveApplicationSettings();
                 }
                 catch (Exception ex)
                 {
