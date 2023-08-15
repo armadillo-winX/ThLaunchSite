@@ -146,7 +146,7 @@ namespace ThLaunchSite
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"メインウィンドウ設定の構成に失敗。\n{ex.Message}", "エラー",
+                MessageBox.Show($"アプリケーション設定の構成に失敗。\n{ex.Message}", "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
