@@ -33,8 +33,6 @@ namespace ThLaunchSite
 
         private DateTime GameStartTime { get; set; }
 
-        private string? ThemeName { get; set; }
-
         private AboutDialog? _aboutDialog = null;
         private BackgroundWorker? _gameWaitingWorker = null;
         private DispatcherTimer? _gameControlTimer = null;
@@ -298,7 +296,7 @@ namespace ThLaunchSite
                 ResizeBySize = ResizeBySizeRadioButton.IsChecked == true,
                 ResizeWidth = GameWindowWidthBox.Text,
                 ResizeHeight = GameWindowHeightBox.Text,
-                ThemeName = this.ThemeName
+                ThemeName = ApplicationTheme.ThemeName
             };
 
             SettingsConfiguration.SaveApplicationSettings(applicationSettings);
@@ -838,8 +836,7 @@ namespace ThLaunchSite
             ComboBoxItem item = (ComboBoxItem)ThemeSettingsComboBox.SelectedItem;
             string themeName = item.Uid;
 
-            this.ThemeName = themeName;
-            ApplicationTheme.SetApplicationTheme(themeName);
+            ApplicationTheme.ThemeName = themeName;
         }
     }
 }

@@ -4,6 +4,21 @@ namespace ThLaunchSite
 {
     internal class ApplicationTheme
     {
+        private static string? _themeName;
+
+        public static string? ThemeName
+        {
+            get
+            {
+                return _themeName;
+            }
+
+            set
+            {
+                _themeName = value;
+                SetApplicationTheme(_themeName);
+            }
+        }
         public static void SetApplicationTheme(string themeName)
         {
             Theme theme = Application.Current.Resources.MergedDictionaries[0] as Theme;
