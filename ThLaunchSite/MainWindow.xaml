@@ -49,10 +49,6 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="オプション(_O)">
-                <MenuItem x:Name="AlwaysOnTopMenuItem"
-                          IsCheckable="True" Header="常に最前面に表示(_A)" Click="AlwaysOnTopMenuItemClick"/>
-            </MenuItem>
             <MenuItem Header="ツール(_T)">
                 <MenuItem x:Name="CommandGameLauncherMenuItem" Header="コマンドゲームランチャー(Ctrl+P)" Click="CommandGameLauncherMenuItemClick">
                     <MenuItem.Icon>
@@ -218,6 +214,20 @@
             <TabItem Header="東方動作記録">
                 <Grid>
                     <TextBox x:Name="GameOperationLogDataBox" Margin="0,0,0,0" TextWrapping="Wrap" Text="" IsReadOnly="True"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="設定">
+                <Grid>
+                    <CheckBox x:Name="AlwaysOnTopCheckBox" Content="ウィンドウを最前面に固定" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Click="AlwaysOnTopCheckBoxClick"/>
+                    <Label Content="テーマ:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="ThemeSettingsComboBox"
+                              HorizontalAlignment="Left" Margin="53,12,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ThemeSettingsComboBoxSelectionChanged">
+                        <ComboBoxItem Uid="Light" Content="ライト"/>
+                        <ComboBoxItem Uid="Dark" Content="ダーク"/>
+                        <ComboBoxItem Uid="Black" Content="ブラック"/>
+                        <ComboBoxItem Uid="NormalColor" Content="WPF標準"/>
+                    </ComboBox>
 
                 </Grid>
             </TabItem>

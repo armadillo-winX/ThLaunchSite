@@ -19,5 +19,7 @@
         public string? ResizeWidth { get; set; }
 
         public string? ResizeHeight { get; set; }
+
+        public string? ThemeName { get; set; }
     }
 }

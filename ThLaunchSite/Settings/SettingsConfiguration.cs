@@ -109,6 +109,7 @@ namespace ThLaunchSite.Settings
                 mainWindowSettings.SelectedGameId = GameIndex.Th06;
                 mainWindowSettings.ResizeRateIndex = 2;
                 mainWindowSettings.ResizeByRate = true;
+                mainWindowSettings.ThemeName = "Light";
             }
 
             return mainWindowSettings;

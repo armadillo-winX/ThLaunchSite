@@ -33,6 +33,8 @@ namespace ThLaunchSite
 
         private DateTime GameStartTime { get; set; }
 
+        private string? ThemeName { get; set; }
+
         private AboutDialog? _aboutDialog = null;
         private BackgroundWorker? _gameWaitingWorker = null;
         private DispatcherTimer? _gameControlTimer = null;
@@ -58,6 +60,15 @@ namespace ThLaunchSite
                 { "Th16", 10 },
                 { "Th17", 11 },
                 { "Th18", 12 }
+            };
+
+        private readonly Dictionary<string, int> ThemeDictionary =
+            new()
+            {
+                { "Light", 0 },
+                { "Dark" , 1 },
+                { "Black", 2 },
+                { "NormalColor", 3 }
             };
 
         public MainWindow()
@@ -242,7 +253,7 @@ namespace ThLaunchSite
             this.Width = mainWindowSettings.WindowWidth;
             this.Height = mainWindowSettings.WindowHeight;
             this.Topmost = mainWindowSettings.AlwaysOnTop;
-            AlwaysOnTopMenuItem.IsChecked = mainWindowSettings.AlwaysOnTop;
+            AlwaysOnTopCheckBox.IsChecked = mainWindowSettings.AlwaysOnTop;
             ResizeRateComboBox.SelectedIndex = mainWindowSettings.ResizeRateIndex;
             if (mainWindowSettings.ResizeByRate) ResizeByRateRadioButton.IsChecked = true;
             if (mainWindowSettings.ResizeBySize) ResizeBySizeRadioButton.IsChecked = true;
@@ -262,6 +273,16 @@ namespace ThLaunchSite
             {
                 GameComboBox.SelectedIndex = 0;
             }
+
+            string? themeName = mainWindowSettings.ThemeName;
+            if (!string.IsNullOrEmpty(themeName))
+            {
+                ThemeSettingsComboBox.SelectedIndex = ThemeDictionary[themeName];
+            }
+            else
+            {
+                ThemeSettingsComboBox.SelectedIndex = 0;
+            }
         }
 
         private void SaveMainWindowSettings()
@@ -271,12 +292,13 @@ namespace ThLaunchSite
                 WindowWidth = this.Width,
                 WindowHeight = this.Height,
                 SelectedGameId = this.GameId,
-                AlwaysOnTop = AlwaysOnTopMenuItem.IsChecked,
+                AlwaysOnTop = AlwaysOnTopCheckBox.IsChecked == true,
                 ResizeRateIndex = ResizeRateComboBox.SelectedIndex,
                 ResizeByRate = ResizeByRateRadioButton.IsChecked == true,
                 ResizeBySize = ResizeBySizeRadioButton.IsChecked == true,
                 ResizeWidth = GameWindowWidthBox.Text,
-                ResizeHeight = GameWindowHeightBox.Text
+                ResizeHeight = GameWindowHeightBox.Text,
+                ThemeName = this.ThemeName
             };
 
             SettingsConfiguration.SaveMainWindowSettings(mainWindowSettings);
@@ -680,11 +702,6 @@ namespace ThLaunchSite
             }
         }
 
-        private void AlwaysOnTopMenuItemClick(object sender, RoutedEventArgs e)
-        {
-            this.Topmost = AlwaysOnTopMenuItem.IsChecked;
-        }
-
         private void ResizeByRateRadioButtonClick(object sender, RoutedEventArgs e)
         {
             ResizeRateComboBox.IsEnabled = ResizeByRateRadioButton.IsChecked == true;
@@ -809,6 +826,20 @@ namespace ThLaunchSite
 
             manageEnternalToolsDialog.ShowDialog();
             GetExternalTools();
+        }
+
+        private void AlwaysOnTopCheckBoxClick(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = AlwaysOnTopCheckBox.IsChecked == true;
+        }
+
+        private void ThemeSettingsComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem item = (ComboBoxItem)ThemeSettingsComboBox.SelectedItem;
+            string themeName = item.Uid;
+
+            this.ThemeName = themeName;
+            ApplicationTheme.SetApplicationTheme(themeName);
         }
     }
 }
