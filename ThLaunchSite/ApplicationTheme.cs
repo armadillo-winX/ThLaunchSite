@@ -19,7 +19,8 @@ namespace ThLaunchSite
                 SetApplicationTheme(_themeName);
             }
         }
-        public static void SetApplicationTheme(string themeName)
+
+        private static void SetApplicationTheme(string themeName)
         {
             Theme theme = Application.Current.Resources.MergedDictionaries[0] as Theme;
             if (theme != null)
