@@ -281,6 +281,16 @@ namespace ThLaunchSite
             {
                 ThemeSettingsComboBox.SelectedIndex = 0;
             }
+
+            if (applicationSettings.FixMainWindowSize)
+            {
+                this.ResizeMode = ResizeMode.CanMinimize;
+                FixMainWindowSizeCheckBox.IsChecked = true;
+            }
+            else
+            {
+                this.ResizeMode = ResizeMode.CanResizeWithGrip;
+            }
         }
 
         private void SaveApplicationSettings()
@@ -289,6 +299,7 @@ namespace ThLaunchSite
             {
                 MainWindowWidth = this.Width,
                 MainWindowHeight = this.Height,
+                FixMainWindowSize = FixMainWindowSizeCheckBox.IsChecked == true,
                 SelectedGameId = this.GameId,
                 AlwaysOnTop = AlwaysOnTopCheckBox.IsChecked == true,
                 ResizeRateIndex = ResizeRateComboBox.SelectedIndex,
@@ -837,6 +848,18 @@ namespace ThLaunchSite
             string themeName = item.Uid;
 
             ApplicationTheme.ThemeName = themeName;
+        }
+
+        private void FixMainWindowSizeCheckBoxClick(object sender, RoutedEventArgs e)
+        {
+            if (FixMainWindowSizeCheckBox.IsChecked == true)
+            {
+                this.ResizeMode = ResizeMode.CanMinimize;
+            }
+            else
+            {
+                this.ResizeMode = ResizeMode.CanResizeWithGrip;
+            }
         }
     }
 }

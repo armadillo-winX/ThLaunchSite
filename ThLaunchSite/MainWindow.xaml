@@ -221,7 +221,6 @@
                 <Grid>
                     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
                         <Grid>
-                            <CheckBox x:Name="AlwaysOnTopCheckBox" Content="ウィンドウを最前面に固定" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Click="AlwaysOnTopCheckBoxClick"/>
                             <Label Content="テーマ:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                             <ComboBox x:Name="ThemeSettingsComboBox"
                               HorizontalAlignment="Left" Margin="53,12,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ThemeSettingsComboBoxSelectionChanged">
@@ -230,6 +229,9 @@
                                 <ComboBoxItem Uid="Black" Content="ブラック"/>
                                 <ComboBoxItem Uid="NormalColor" Content="WPF標準"/>
                             </ComboBox>
+                            <CheckBox x:Name="AlwaysOnTopCheckBox" Content="ウィンドウを最前面に固定"
+                                      HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Click="AlwaysOnTopCheckBoxClick"/>
+                            <CheckBox x:Name="FixMainWindowSizeCheckBox" Content="メインウィンドウのサイズを固定" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Click="FixMainWindowSizeCheckBoxClick"/>
                         </Grid>
                     </ScrollViewer>
                 </Grid>

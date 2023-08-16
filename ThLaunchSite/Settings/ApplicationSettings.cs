@@ -6,6 +6,8 @@
 
         public double MainWindowHeight { get; set; }
 
+        public bool FixMainWindowSize { get; set; }
+
         public string? SelectedGameId { get; set; }
 
         public bool AlwaysOnTop { get; set; }
