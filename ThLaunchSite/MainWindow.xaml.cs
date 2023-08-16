@@ -25,9 +25,23 @@ namespace ThLaunchSite
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string? _gameName;
+
         private string GameId { get; set; }
 
-        private string GameName { get; set; } 
+        private string GameName 
+        { 
+            get 
+            {
+                return _gameName;
+            }
+
+            set 
+            { 
+                _gameName = value;
+                GameTitleBlock.Text = value;
+            } 
+        } 
 
         private string GameProcessName { get; set; }
 

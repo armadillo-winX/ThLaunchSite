@@ -145,19 +145,15 @@
                     <ScrollViewer
                                   VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
                         <Grid>
-                            <Grid HorizontalAlignment="Left" Width="294" >
-                                <Label Content="ゲーム実行時間" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"
-                                       Text="データパネル" 
-                                       VerticalAlignment="Top"/>
+                            <Grid Margin="0,0,250,0" >
+                                <Label Content="ゲーム実行時間" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
                                 <TextBlock x:Name="GameRunningTimeBlock"
-                                HorizontalAlignment="Left" Margin="111,76,0,0" TextWrapping="Wrap" Text="00min 00sec" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-                                <Label HorizontalAlignment="Left" Margin="10,45,0,0" Content="ゲームタイトル" VerticalAlignment="Top"/>
+                                HorizontalAlignment="Left" Margin="111,44,0,0" TextWrapping="Wrap" Text="00min 00sec" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
                                 <TextBlock x:Name="GameTitleBlock"
-                                           HorizontalAlignment="Left" Margin="111,42,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+                                           HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="NoWrap" Text="GameName" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
 
                             </Grid>
-                            <Grid Margin="294,0,0,0">
+                            <Grid HorizontalAlignment="Right" Width="250">
                                 <TextBlock HorizontalAlignment="Left"
                                        Margin="10,10,0,0" TextWrapping="Wrap" Text="ウィンドウリサイザ" VerticalAlignment="Top"/>
                                 <Label Content="リサイズ率:" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top"/>
