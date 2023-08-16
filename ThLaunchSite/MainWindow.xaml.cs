@@ -432,16 +432,6 @@ namespace ThLaunchSite
 
                 string gameRunningTime = time.ToString(@"mm\m\i\nss\s\e\c");
                 GameRunningTimeBlock.Text = gameRunningTime;
-
-                if (GameProcessHandler.IsRunningGame(this.GameProcessName))
-                {
-                    Process[] gameProcesses = Process.GetProcessesByName(this.GameProcessName);
-                    Process gameProcess = gameProcesses[0];
-                    string pagedMemorySize = $"{gameProcess.WorkingSet64 / 1024 / 1024} MiB";
-                    string virtualMemorySize = $"{gameProcess.VirtualMemorySize64 / 1024 / 1024} MiB";
-                    PagedMemorySizeBlock.Text = pagedMemorySize;
-                    VirtialMemorySizeBlock.Text = virtualMemorySize;
-                }
             };
             _gameControlTimer.Start();
         }
