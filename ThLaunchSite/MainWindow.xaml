@@ -145,35 +145,7 @@
                     <ScrollViewer
                                   VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
                         <Grid>
-                            <TextBlock HorizontalAlignment="Left"
-                                       Margin="10,10,0,0" TextWrapping="Wrap" Text="ウィンドウリサイザ" VerticalAlignment="Top"/>
-                            <Label Content="リサイズ率:" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top"/>
-                            <ComboBox x:Name="ResizeRateComboBox"
-                                      HorizontalAlignment="Left" Margin="75,53,0,0" VerticalAlignment="Top" Width="120">
-                                <ComboBoxItem Content="50%"/>
-                                <ComboBoxItem Content="75%"/>
-                                <ComboBoxItem Content="125%"/>
-                                <ComboBoxItem Content="150%"/>
-                                <ComboBoxItem Content="175%"/>
-                                <ComboBoxItem Content="200%"/>
-                                <ComboBoxItem Content="250%"/>
-                                <ComboBoxItem Content="300%"/>
-                            </ComboBox>
-                            <RadioButton x:Name="ResizeByRateRadioButton" Content="リサイズ率を指定してリサイズ" 
-                                         HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top"
-                                         Click="ResizeByRateRadioButtonClick"/>
-                            <RadioButton x:Name="ResizeBySizeRadioButton" Content="ウィンドウサイズを指定してリサイズ"
-                                         HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"
-                                         Click="ResizeBySizeRadioButtonClick"/>
-                            <Label Content="幅:" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top"/>
-                            <TextBox x:Name="GameWindowWidthBox" HorizontalAlignment="Left" Margin="75,132,0,0" TextWrapping="NoWrap" 
-                                     Text="" VerticalAlignment="Top" Width="120"/>
-                            <Label Content="高さ:" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top"/>
-                            <TextBox x:Name="GameWindowHeightBox" HorizontalAlignment="Left" Margin="75,163,0,0" TextWrapping="NoWrap" 
-                                     Text="" VerticalAlignment="Top" Width="120"/>
-                            <Button x:Name="ResizeButton"
-                                    Content="リサイズ(_R)" Width="90" Height="24" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Click="ResizeButtonClick"/>
-                            <Grid Margin="255,0,0,0" >
+                            <Grid HorizontalAlignment="Left" Width="267" >
                                 <Label Content="ゲーム実行時間" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"
                                        Text="データパネル" 
@@ -190,6 +162,36 @@
                                 <TextBlock x:Name="GameTitleBlock"
                                            HorizontalAlignment="Left" Margin="111,42,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
 
+                            </Grid>
+                            <Grid Margin="267,0,0,0">
+                                <TextBlock HorizontalAlignment="Left"
+                                       Margin="10,10,0,0" TextWrapping="Wrap" Text="ウィンドウリサイザ" VerticalAlignment="Top"/>
+                                <Label Content="リサイズ率:" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top"/>
+                                <ComboBox x:Name="ResizeRateComboBox"
+                                      HorizontalAlignment="Left" Margin="75,53,0,0" VerticalAlignment="Top" Width="120">
+                                    <ComboBoxItem Content="50%"/>
+                                    <ComboBoxItem Content="75%"/>
+                                    <ComboBoxItem Content="125%"/>
+                                    <ComboBoxItem Content="150%"/>
+                                    <ComboBoxItem Content="175%"/>
+                                    <ComboBoxItem Content="200%"/>
+                                    <ComboBoxItem Content="250%"/>
+                                    <ComboBoxItem Content="300%"/>
+                                </ComboBox>
+                                <RadioButton x:Name="ResizeByRateRadioButton" Content="リサイズ率を指定してリサイズ" 
+                                         HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top"
+                                         Click="ResizeByRateRadioButtonClick"/>
+                                <RadioButton x:Name="ResizeBySizeRadioButton" Content="ウィンドウサイズを指定してリサイズ"
+                                         HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"
+                                         Click="ResizeBySizeRadioButtonClick"/>
+                                <Label Content="幅:" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="GameWindowWidthBox" HorizontalAlignment="Left" Margin="75,132,0,0" TextWrapping="NoWrap" 
+                                     Text="" VerticalAlignment="Top" Width="120"/>
+                                <Label Content="高さ:" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="GameWindowHeightBox" HorizontalAlignment="Left" Margin="75,163,0,0" TextWrapping="NoWrap" 
+                                     Text="" VerticalAlignment="Top" Width="120"/>
+                                <Button x:Name="ResizeButton"
+                                    Content="リサイズ(_R)" Width="90" Height="24" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Click="ResizeButtonClick"/>
                             </Grid>
                         </Grid>
                     </ScrollViewer>
