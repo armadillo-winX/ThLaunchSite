@@ -141,9 +141,9 @@
         </StatusBar>
         <TabControl Margin="0,78,0,22">
             <TabItem Header="管制パネル">
-                <Grid>
+                <Grid Margin="0,0,0,0">
                     <ScrollViewer
-                                  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
+                                  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                         <Grid>
                             <Grid Margin="0,0,250,0" >
                                 <TextBlock x:Name="GameTitleBlock"
@@ -155,10 +155,6 @@
                                 <TextBlock x:Name="GameStartTimeBlock"
                                            HorizontalAlignment="Left" Margin="117,76,0,0" TextWrapping="Wrap" Text="" 
                                            VerticalAlignment="Top" />
-                                <TextBlock HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="東方動作記録" VerticalAlignment="Top"/>
-                                <TextBox x:Name="GameOperationLogDataBox"
-                                         Margin="10,126,10,10" TextWrapping="Wrap" Text="" IsReadOnly="True"
-                                         VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"/>
                                 <Label Content="ゲームタイトル" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
 
                             </Grid>
@@ -211,6 +207,10 @@
                                             Binding="{Binding GameRunningTime}"/>
                     </DataGrid.Columns>
                 </DataGrid>
+            </TabItem>
+            <TabItem Header="東方動作記録">
+                <TextBox x:Name="GameOperationLogDataBox" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                Margin="0,0,0,0" TextWrapping="NoWrap" Text="" IsReadOnly="True"/>
             </TabItem>
             <TabItem Header="設定">
                 <Grid>
