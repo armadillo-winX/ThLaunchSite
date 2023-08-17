@@ -516,11 +516,11 @@ namespace ThLaunchSite
             {
                 GameId = this.GameId,
                 GameName = this.GameName,
-                GameStartTime = this.GameStartTime.ToString("yyyy/MM/dd hh:mm:ss")
+                GameStartTime = this.GameStartTime.ToString("yyyy/MM/dd HH:mm:ss")
             };
 
             DateTime gameEndTime = DateTime.Now;
-            gamePlayLogData.GameEndTime = gameEndTime.ToString("yyyy/MM/dd hh:mm:ss");
+            gamePlayLogData.GameEndTime = gameEndTime.ToString("yyyy/MM/dd HH:mm:ss");
 
             TimeSpan runningTimeSpan = gameEndTime - this.GameStartTime;
             gamePlayLogData.GameRunningTime = runningTimeSpan.ToString("mm\\:ss");
