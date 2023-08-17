@@ -146,12 +146,17 @@
                                   VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
                         <Grid>
                             <Grid Margin="0,0,250,0" >
-                                <Label Content="ゲーム実行時間" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
-                                <TextBlock x:Name="GameRunningTimeBlock"
-                                HorizontalAlignment="Left" Margin="111,44,0,0" TextWrapping="Wrap" Text="00min 00sec" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
                                 <TextBlock x:Name="GameTitleBlock"
                                            HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="NoWrap" Text="GameName" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
-
+                                <Label Content="ゲームプレイ時間" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+                                <TextBlock x:Name="GameRunningTimeBlock"
+                                HorizontalAlignment="Left" Margin="117,47,0,0" TextWrapping="Wrap" Text="00min 00sec"
+                                           VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+                                <TextBlock x:Name="GameStartTimeBlock"
+                                           HorizontalAlignment="Left" Margin="117,76,0,0" TextWrapping="Wrap" Text="" 
+                                           VerticalAlignment="Top" />
+                                <TextBox x:Name="GameOperationLogDataBox" Margin="10,126,10,10" TextWrapping="Wrap" Text="" IsReadOnly="True"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="東方動作記録" VerticalAlignment="Top"/>
                             </Grid>
                             <Grid HorizontalAlignment="Right" Width="250">
                                 <TextBlock HorizontalAlignment="Left"
@@ -202,12 +207,6 @@
                                             Binding="{Binding GameRunningTime}"/>
                     </DataGrid.Columns>
                 </DataGrid>
-            </TabItem>
-            <TabItem Header="東方動作記録">
-                <Grid>
-                    <TextBox x:Name="GameOperationLogDataBox" Margin="0,0,0,0" TextWrapping="Wrap" Text="" IsReadOnly="True"/>
-
-                </Grid>
             </TabItem>
             <TabItem Header="設定">
                 <Grid>

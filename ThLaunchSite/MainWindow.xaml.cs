@@ -26,6 +26,7 @@ namespace ThLaunchSite
     public partial class MainWindow : Window
     {
         private string? _gameName;
+        private DateTime _gameStartTime;
 
         private string GameId { get; set; }
 
@@ -45,7 +46,19 @@ namespace ThLaunchSite
 
         private string GameProcessName { get; set; }
 
-        private DateTime GameStartTime { get; set; }
+        private DateTime GameStartTime 
+        {
+            get
+            {
+                return _gameStartTime;
+            }
+
+            set
+            {
+                _gameStartTime = value;
+                GameStartTimeBlock.Text = $"ゲーム開始 {value:yyyy/MM/dd HH:mm:ss}";
+            }
+        }
 
         private AboutDialog? _aboutDialog = null;
         private BackgroundWorker? _gameWaitingWorker = null;
