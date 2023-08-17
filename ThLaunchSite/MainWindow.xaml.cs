@@ -533,16 +533,6 @@ namespace ThLaunchSite
                                 MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            try
-            {
-                string gameOperationLogData = GameFile.GetGameOperationLogData(this.GameId);
-                GameOperationLogDataBox.Text = gameOperationLogData;
-            }
-            catch (Exception ex)
-            {
-                GameOperationLogDataBox.Text = $"東方動作記録の取得に失敗\n{ex.Message}";
-            }
-
             AppStatusBlock.Content = "準備完了";
 
             this.GameProcessName = string.Empty;

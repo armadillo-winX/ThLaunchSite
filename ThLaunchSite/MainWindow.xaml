@@ -208,10 +208,6 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
-            <TabItem Header="東方動作記録">
-                <TextBox x:Name="GameOperationLogDataBox" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
-                Margin="0,0,0,0" TextWrapping="NoWrap" Text="" IsReadOnly="True"/>
-            </TabItem>
             <TabItem Header="設定">
                 <Grid>
                     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
