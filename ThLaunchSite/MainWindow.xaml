@@ -155,8 +155,10 @@
                                 <TextBlock x:Name="GameStartTimeBlock"
                                            HorizontalAlignment="Left" Margin="117,76,0,0" TextWrapping="Wrap" Text="" 
                                            VerticalAlignment="Top" />
-                                <TextBox x:Name="GameOperationLogDataBox" Margin="10,126,10,10" TextWrapping="Wrap" Text="" IsReadOnly="True"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="東方動作記録" VerticalAlignment="Top"/>
+                                <TextBox x:Name="GameOperationLogDataBox"
+                                         Margin="10,126,10,10" TextWrapping="Wrap" Text="" IsReadOnly="True"/>
+                                
                             </Grid>
                             <Grid HorizontalAlignment="Right" Width="250">
                                 <TextBlock HorizontalAlignment="Left"
