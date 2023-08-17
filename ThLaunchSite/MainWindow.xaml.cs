@@ -426,10 +426,9 @@ namespace ThLaunchSite
             GamePathBrowseButton.IsEnabled = !enabled;
             LaunchGameButton.IsEnabled = !enabled;
             CatchGameProcessButton.IsEnabled = !enabled;
-            CommandGameLauncherButton.IsEnabled = !enabled;
 
             KillGameProcessMenuItem.IsEnabled = enabled;
-            KillGameButton.IsEnabled = enabled;
+            KillGameProcessButton.IsEnabled = enabled;
             ResizeButton.IsEnabled = enabled;
         }
 

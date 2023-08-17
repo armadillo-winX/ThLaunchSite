@@ -62,84 +62,30 @@
                 <MenuItem x:Name="AboutMenuItem" Header="このツールについて(_A)" Click="AboutMenuItemClick"/>
             </MenuItem>
         </Menu>
-        <ToolBar x:Name="MainToolBar" Height="28" Margin="0,18,0,0" VerticalAlignment="Top">
-            <ComboBox x:Name="GameComboBox" Width="120" SelectionChanged="GameComboBoxSelectionChanged">
-                <ComboBoxItem Uid="Th06" Content="東方紅魔郷"/>
-                <ComboBoxItem Uid="Th07" Content="東方妖々夢"/>
-                <ComboBoxItem Uid="Th08" Content="東方永夜抄"/>
-                <ComboBoxItem Uid="Th09" Content="東方花映塚"/>
-                <ComboBoxItem Uid="Th10" Content="東方風神録"/>
-                <ComboBoxItem Uid="Th11" Content="東方地霊殿"/>
-                <ComboBoxItem Uid="Th12" Content="東方星蓮船"/>
-                <ComboBoxItem Uid="Th13" Content="東方神霊廟"/>
-                <ComboBoxItem Uid="Th14" Content="東方輝針城"/>
-                <ComboBoxItem Uid="Th15" Content="東方紺珠伝"/>
-                <ComboBoxItem Uid="Th16" Content="東方天空璋"/>
-                <ComboBoxItem Uid="Th17" Content="東方鬼形獣"/>
-                <ComboBoxItem Uid="Th18" Content="東方虹龍洞"/>
-            </ComboBox>
-            <Button x:Name="LaunchGameButton" ContextMenuService.Placement="Bottom" Click="LaunchGameButtonClick">
-                <Button.ContextMenu>
-                    <ContextMenu x:Name="LaunchGameButtonMenu" Placement="Bottom">
-                        <MenuItem Header="ゲームを起動する(_L)" 
-                          Click="LaunchGameMenuItemClick">
-                            <MenuItem.Icon>
-                                <Image Source="/Images/Run_16x.png"/>
-                            </MenuItem.Icon>
-                        </MenuItem>
-                        <MenuItem Header="VsyncPatchを適用して起動する(_V)" 
-                          Click="LaunchWithVpatchMenuItemClick"/>
-                        <MenuItem Header="thpracを適用して起動する(_T)"
-                          Click="LaunchWithThpracMenuItemClick"/>
-                        <Separator />
-                        <MenuItem Header="環境カスタムプログラムを起動する(_C)"
-                          Click="LaunchCustomeMenuItemClick"/>
-                    </ContextMenu>
-                </Button.ContextMenu>
-                <Button.Content>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Images/Run_16x.png" HorizontalAlignment="Left"></Image>
-                        <TextBlock Text="Launch"/>
-                    </StackPanel>
-                </Button.Content>
-            </Button>
-            <Button x:Name="OpenGameDirectoryButton" ToolTip="ゲームのインストールディレクトリを開く"
-                    Click="OpenGameDirectoryMenuItemClick">
-                <Button.Content>
-                    <Image Source="/Images/FolderOpened_16x.png" />
-                </Button.Content>
-            </Button>
-            <Separator/>
-            <Button x:Name="CatchGameProcessButton" ToolTip="実行中のゲームプロセスの捕捉" Click="CatchGameProcessMenuItemClick">
-                <Button.Content>
-                    <Image Source="/Images/FindSymbol_16x.png"/>
-                </Button.Content>
-            </Button>
-            <Button x:Name="KillGameButton" ToolTip="ゲームプロセスを強制終了" Click="KillGameProcessMenuItemClick">
-                <Button.Content>
-                    <Image Source="/Images/Stop_16x.png"/>
-                </Button.Content>
-            </Button>
-            <Button x:Name="TotalGameRunningTimeStaticsButton" ToolTip="ゲーム累積実行時間統計" Click="TotalGameRunningTimeStatisticsMenuItemClick">
-                <Button.Content>
-                    <Image Source="/Images/Time_16x.png"/>
-                </Button.Content>
-            </Button>
-            <Separator/>
-            <Button x:Name="CommandGameLauncherButton" ToolTip="コマンドゲームランチャー(Ctrl+P)" Click="CommandGameLauncherMenuItemClick">
-                <Button.Content>
-                    <Image Source="/Images/SearchAndApps_16x.png"/>
-                </Button.Content>
-            </Button>
-        </ToolBar>
-        <Label Content="パス:" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="GamePathBox" IsReadOnly="True" Margin="46,55,57,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Button x:Name="GamePathBrowseButton" Content="参照(_B)"  HorizontalAlignment="Right" Margin="0,54,10,0" VerticalAlignment="Top" Click="GamePathBrowseButtonClick"/>
+        <ComboBox x:Name="GameComboBox" SelectionChanged="GameComboBoxSelectionChanged"
+                  HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Uid="Th06" Content="東方紅魔郷"/>
+            <ComboBoxItem Uid="Th07" Content="東方妖々夢"/>
+            <ComboBoxItem Uid="Th08" Content="東方永夜抄"/>
+            <ComboBoxItem Uid="Th09" Content="東方花映塚"/>
+            <ComboBoxItem Uid="Th10" Content="東方風神録"/>
+            <ComboBoxItem Uid="Th11" Content="東方地霊殿"/>
+            <ComboBoxItem Uid="Th12" Content="東方星蓮船"/>
+            <ComboBoxItem Uid="Th13" Content="東方神霊廟"/>
+            <ComboBoxItem Uid="Th14" Content="東方輝針城"/>
+            <ComboBoxItem Uid="Th15" Content="東方紺珠伝"/>
+            <ComboBoxItem Uid="Th16" Content="東方天空璋"/>
+            <ComboBoxItem Uid="Th17" Content="東方鬼形獣"/>
+            <ComboBoxItem Uid="Th18" Content="東方虹龍洞"/>
+        </ComboBox>
+        <Label Content="パス:" HorizontalAlignment="Left" Margin="135,21,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="GamePathBox" IsReadOnly="True" Margin="171,25,109,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Button x:Name="GamePathBrowseButton" Content="参照(_B)"  HorizontalAlignment="Right" Margin="0,25,62,0" VerticalAlignment="Top" Click="GamePathBrowseButtonClick"/>
         <StatusBar Height="22" VerticalAlignment="Bottom">
             <StatusBarItem x:Name="AuthorityBlock" Content="Authority" DockPanel.Dock="Right" Margin="0,0,20,0"/>
             <StatusBarItem x:Name="AppStatusBlock"/>
         </StatusBar>
-        <TabControl Margin="0,78,0,22">
+        <TabControl Margin="0,52,0,22">
             <TabItem Header="管制パネル">
                 <Grid Margin="0,0,0,0">
                     <ScrollViewer
@@ -154,8 +100,55 @@
                                 HorizontalAlignment="Left" Margin="110,47,0,0" TextWrapping="Wrap" Text="00min 00sec"
                                            VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
                                 <TextBlock x:Name="GameStartTimeBlock"
-                                           HorizontalAlignment="Left" Margin="117,76,0,0" TextWrapping="Wrap" Text="" 
+                                           HorizontalAlignment="Left" Margin="117,76,0,0" TextWrapping="Wrap" Text="ゲーム開始" 
                                            VerticalAlignment="Top" />
+                                <Button x:Name="LaunchGameButton" HorizontalAlignment="Center" Margin="0,108,0,0" VerticalAlignment="Top" 
+                                        Width="150" Height="24"
+                                        ContextMenuService.Placement="Bottom" Click="LaunchGameButtonClick">
+                                    <Button.ContextMenu>
+                                        <ContextMenu x:Name="LaunchGameButtonMenu" Placement="Bottom">
+                                            <MenuItem Header="ゲームを起動する(_L)" 
+                                                Click="LaunchGameMenuItemClick">
+                                                <MenuItem.Icon>
+                                                    <Image Source="/Images/Run_16x.png"/>
+                                                </MenuItem.Icon>
+                                            </MenuItem>
+                                            <MenuItem Header="VsyncPatchを適用して起動する(_V)" 
+                                            Click="LaunchWithVpatchMenuItemClick"/>
+                                            <MenuItem Header="thpracを適用して起動する(_T)"
+                                            Click="LaunchWithThpracMenuItemClick"/>
+                                            <Separator />
+                                            <MenuItem Header="環境カスタムプログラムを起動する(_C)"
+                                            Click="LaunchCustomeMenuItemClick"/>
+                                        </ContextMenu>
+                                    </Button.ContextMenu>
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="/Images/Run_16x.png" HorizontalAlignment="Left"></Image>
+                                            <TextBlock Text="ゲーム起動" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                                <Button x:Name="CatchGameProcessButton" Click="CatchGameProcessMenuItemClick"
+                                        Width="150" Height="24"
+                                        HorizontalAlignment="Center" Margin="0,137,0,0" VerticalAlignment="Top">
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image HorizontalAlignment="Left" Source="/Images/FindSymbol_16x.png"></Image>
+                                            <TextBlock Text="ゲームプロセスの捕捉" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                                <Button x:Name="KillGameProcessButton" Click="KillGameProcessMenuItemClick"
+                                        Width="150" Height="24"
+                                        HorizontalAlignment="Center" Margin="0,166,0,0" VerticalAlignment="Top">
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image HorizontalAlignment="Left" Source="/Images/Stop_16x.png"></Image>
+                                            <TextBlock Text="ゲームプロセス強制終了" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
 
                             </Grid>
                             <Grid HorizontalAlignment="Right" Width="250">
