@@ -826,10 +826,17 @@ namespace ThLaunchSite
                 int totalGameRunningTime = 0;
                 foreach (GamePlayLogData gamePlayLogData in  gamePlayLogDatas)
                 {
-                    string[] gameRunningTimeRecord = gamePlayLogData.GameRunningTime.Split(":");
-                    int gameRunningTimeMin = int.Parse(gameRunningTimeRecord[0]) * 60;
-                    int gameRunningTimeSec = int.Parse(gameRunningTimeRecord[1]);
-                    totalGameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
+                    try
+                    {
+                        string[] gameRunningTimeRecord = gamePlayLogData.GameRunningTime.Split(":");
+                        int gameRunningTimeMin = int.Parse(gameRunningTimeRecord[0]) * 60;
+                        int gameRunningTimeSec = int.Parse(gameRunningTimeRecord[1]);
+                        totalGameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
+                    }
+                    catch (Exception)
+                    {
+                        
+                    }
                 }
 
                 int minutes = totalGameRunningTime / 60;
