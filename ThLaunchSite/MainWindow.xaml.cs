@@ -719,7 +719,7 @@ namespace ThLaunchSite
 
             ComboBoxItem item = (ComboBoxItem)GameComboBox.SelectedItem;
             this.GameId = (string)item.Uid;
-            this.GameName = (string)item.Content;
+            this.GameName = GameIndex.GetGameName(this.GameId);
             string? gamePath = GameFile.GetGameFilePath(this.GameId);
 
             if (!string.IsNullOrEmpty(gamePath))
