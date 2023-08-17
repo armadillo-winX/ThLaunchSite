@@ -447,8 +447,6 @@ namespace ThLaunchSite
             _gameWaitingWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkerRunningComplete);
             _gameWaitingWorker.RunWorkerAsync(gameProcessName);
 
-            GameTitleBlock.Text = this.GameName;
-
             _gameControlTimer = new DispatcherTimer
             {
                 Interval = TimeSpan.FromSeconds(1)
