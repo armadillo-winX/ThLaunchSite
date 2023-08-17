@@ -147,10 +147,10 @@
                         <Grid>
                             <Grid Margin="0,0,250,0" >
                                 <TextBlock x:Name="GameTitleBlock"
-                                           HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="NoWrap" Text="GameName" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+                                           HorizontalAlignment="Left" Margin="110,10,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
                                 <Label Content="ゲームプレイ時間" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
                                 <TextBlock x:Name="GameRunningTimeBlock"
-                                HorizontalAlignment="Left" Margin="117,47,0,0" TextWrapping="Wrap" Text="00min 00sec"
+                                HorizontalAlignment="Left" Margin="110,47,0,0" TextWrapping="Wrap" Text="00min 00sec"
                                            VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
                                 <TextBlock x:Name="GameStartTimeBlock"
                                            HorizontalAlignment="Left" Margin="117,76,0,0" TextWrapping="Wrap" Text="" 
@@ -159,7 +159,8 @@
                                 <TextBox x:Name="GameOperationLogDataBox"
                                          Margin="10,126,10,10" TextWrapping="Wrap" Text="" IsReadOnly="True"
                                          VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"/>
-                                
+                                <Label Content="ゲームタイトル" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
+
                             </Grid>
                             <Grid HorizontalAlignment="Right" Width="250">
                                 <TextBlock HorizontalAlignment="Left"

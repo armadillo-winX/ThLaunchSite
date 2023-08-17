@@ -435,6 +435,7 @@ namespace ThLaunchSite
 
         private void EnableWaitGameEndMode(string gameProcessName)
         {
+            this.GameName = GameIndex.GetGameName(this.GameId);
             this.GameProcessName= gameProcessName;
             this.GameStartTime= DateTime.Now;
 
@@ -719,7 +720,6 @@ namespace ThLaunchSite
 
             ComboBoxItem item = (ComboBoxItem)GameComboBox.SelectedItem;
             this.GameId = (string)item.Uid;
-            this.GameName = GameIndex.GetGameName(this.GameId);
             string? gamePath = GameFile.GetGameFilePath(this.GameId);
 
             if (!string.IsNullOrEmpty(gamePath))
