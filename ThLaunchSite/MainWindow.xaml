@@ -60,6 +60,12 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="ManageEnternalToolsMenuItem" Header="外部ツールの管理(_M)" Click="ManageEnternalToolsMenuItemClick"/>
+                <Separator/>
+                <MenuItem x:Name="CaptureGameWindowMenuItem" Header="ゲームウィンドウをキャプチャ" Click="CaptureGameWindowMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/CaptureFrame_16x.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem x:Name="ExternalToolsMenuItem" Header="外部ツール(_X)"/>
             <MenuItem Header="ヘルプ(_H)">

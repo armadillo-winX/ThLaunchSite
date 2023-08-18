@@ -460,6 +460,7 @@ namespace ThLaunchSite
             CatchGameProcessButton.IsEnabled = !enabled;
 
             KillGameProcessMenuItem.IsEnabled = enabled;
+            CaptureGameWindowMenuItem.IsEnabled = enabled;
             KillGameProcessButton.IsEnabled = enabled;
             ResizeButton.IsEnabled = enabled;
         }
@@ -928,6 +929,19 @@ namespace ThLaunchSite
             string captureFileFormat = item.Uid;
 
             GameWindowHandler.CaptureFileFormat = captureFileFormat;
+        }
+
+        private void CaptureGameWindowMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                GameWindowHandler.GetGameWindowCapture(this.GameProcessName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
