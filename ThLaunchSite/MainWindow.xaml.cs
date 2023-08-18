@@ -335,7 +335,7 @@ namespace ThLaunchSite
             }
             else
             {
-                CaptureDirectoryPathBox.Text = $"{PathInfo.AppLocation}\\GameCapture";
+                CaptureDirectoryPathBox.Text = PathInfo.GameCaptureDirectory;
             }
             
             string captureFileFormat = applicationSettings.CaptureFileFormat;

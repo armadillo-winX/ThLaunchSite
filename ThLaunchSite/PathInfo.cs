@@ -8,6 +8,8 @@
 
         public static string? SettingsDirectory => $"{AppLocation}\\settings";
 
+        public static string? GameCaptureDirectory => $"{AppLocation}\\GameCapture";
+
         public static string GamePathSettingsFile
         {
             get
