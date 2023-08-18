@@ -170,6 +170,17 @@
                                         </StackPanel>
                                     </Button.Content>
                                 </Button>
+                                <Button x:Name="CaptureGameWindowButton"
+                                        ToolTip="ゲームウィンドウをキャプチャ"
+                                        HorizontalAlignment="Left" Margin="222,108,0,0" VerticalAlignment="Top"
+                                        Width="24" Height="24"
+                                        Click="CaptureGameWindowMenuItemClick">
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="/Images/CaptureFrame_16x.png"></Image>
+                                        </StackPanel>                                    
+                                    </Button.Content>
+                                </Button>
 
                             </Grid>
                             <Grid HorizontalAlignment="Right" Width="250">

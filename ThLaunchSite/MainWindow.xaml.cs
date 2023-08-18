@@ -461,7 +461,9 @@ namespace ThLaunchSite
 
             KillGameProcessMenuItem.IsEnabled = enabled;
             CaptureGameWindowMenuItem.IsEnabled = enabled;
+
             KillGameProcessButton.IsEnabled = enabled;
+            CaptureGameWindowButton.IsEnabled = enabled;
             ResizeButton.IsEnabled = enabled;
         }
 
