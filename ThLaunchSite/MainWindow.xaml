@@ -250,6 +250,7 @@
                             <CheckBox x:Name="FixMainWindowSizeCheckBox" Content="メインウィンドウのサイズを固定" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Click="FixMainWindowSizeCheckBoxClick"/>
                             <Label Content="キャプチャファイルの保存ディレクトリ:" HorizontalAlignment="Left" Margin="214,10,0,0" VerticalAlignment="Top"/>
                             <TextBox x:Name="CaptureDirectoryPathBox"
+                                     IsReadOnly="True"
                                 Margin="214,36,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" TextChanged="CaptureDirectoryPathBoxTextChanged" HorizontalAlignment="Left" Width="273"/>
                             <Button x:Name="BrowseCaptureDirectoryButton"
                                 Content="参照(_B)" Margin="492,35,0,0" VerticalAlignment="Top" Click="BrowseCaptureDirectoryButtonClick" HorizontalAlignment="Left" Width="42"/>
