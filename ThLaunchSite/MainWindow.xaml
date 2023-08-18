@@ -83,7 +83,7 @@
             <ComboBoxItem Uid="Th18" Content="東方虹龍洞"/>
         </ComboBox>
         <Label Content="パス:" HorizontalAlignment="Left" Margin="135,21,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="GamePathBox" IsReadOnly="True" Margin="171,25,109,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBox x:Name="GamePathBox" IsReadOnly="True" Margin="171,25,109,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top"/>
         <Button x:Name="GamePathBrowseButton" Content="参照(_B)"  HorizontalAlignment="Right" Margin="0,25,62,0" VerticalAlignment="Top" Click="GamePathBrowseButtonClick"/>
         <StatusBar Height="22" VerticalAlignment="Bottom">
             <StatusBarItem x:Name="AuthorityBlock" Content="Authority" DockPanel.Dock="Right" Margin="0,0,20,0"/>
