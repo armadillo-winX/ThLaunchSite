@@ -23,5 +23,9 @@
         public string? ResizeHeight { get; set; }
 
         public string? ThemeName { get; set; }
+
+        public string? CaptureFileDirectory { get; set; }
+
+        public string? CaptureFileFormat { get; set; }
     }
 }

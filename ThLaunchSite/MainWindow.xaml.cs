@@ -17,6 +17,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
 using System.Xml;
+using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
 
 namespace ThLaunchSite
 {
@@ -94,6 +95,14 @@ namespace ThLaunchSite
                 { "Dark" , 1 },
                 { "Black", 2 },
                 { "NormalColor", 3 }
+            };
+
+        private readonly Dictionary<string, int> CaptureFileFormatDictionary
+            = new()
+            {
+                { "BMP", 0 },
+                { "JPEG", 1 },
+                { "PNG", 2 }
             };
 
         public MainWindow()
@@ -318,6 +327,26 @@ namespace ThLaunchSite
             {
                 this.ResizeMode = ResizeMode.CanResizeWithGrip;
             }
+
+            string captureFileDirectory = applicationSettings.CaptureFileDirectory;
+            if (!string.IsNullOrEmpty (captureFileDirectory))
+            {
+                CaptureDirectoryPathBox.Text = captureFileDirectory;
+            }
+            else
+            {
+                CaptureDirectoryPathBox.Text = $"{PathInfo.AppLocation}\\GameCapture";
+            }
+            
+            string captureFileFormat = applicationSettings.CaptureFileFormat;
+            if (!string.IsNullOrEmpty (captureFileFormat))
+            {
+                CaptureFormatComboBox.SelectedIndex = CaptureFileFormatDictionary[captureFileFormat];
+            }
+            else
+            {
+                CaptureFormatComboBox.SelectedIndex = 0;
+            }
         }
 
         private void SaveApplicationSettings()
@@ -334,7 +363,9 @@ namespace ThLaunchSite
                 ResizeBySize = ResizeBySizeRadioButton.IsChecked == true,
                 ResizeWidth = GameWindowWidthBox.Text,
                 ResizeHeight = GameWindowHeightBox.Text,
-                ThemeName = ApplicationTheme.ThemeName
+                ThemeName = ApplicationTheme.ThemeName,
+                CaptureFileDirectory = GameWindowHandler.CaptureFileDirectory,
+                CaptureFileFormat = GameWindowHandler.CaptureFileFormat
             };
 
             SettingsConfiguration.SaveApplicationSettings(applicationSettings);
@@ -875,6 +906,28 @@ namespace ThLaunchSite
             {
                 this.ResizeMode = ResizeMode.CanResizeWithGrip;
             }
+        }
+
+        private void BrowseCaptureDirectoryButtonClick(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new();
+            if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                CaptureDirectoryPathBox.Text = folderBrowserDialog.SelectedPath;
+            }
+        }
+
+        private void CaptureDirectoryPathBoxTextChanged(object sender, TextChangedEventArgs e)
+        {
+            GameWindowHandler.CaptureFileDirectory = CaptureDirectoryPathBox.Text;
+        }
+
+        private void CaptureFormatComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem item = (ComboBoxItem)CaptureFormatComboBox.SelectedItem;
+            string captureFileFormat = item.Uid;
+
+            GameWindowHandler.CaptureFileFormat = captureFileFormat;
         }
     }
 }

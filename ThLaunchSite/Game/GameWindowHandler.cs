@@ -28,6 +28,11 @@ namespace ThLaunchSite.Game
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int y, int cx, int cy, int uFlags);
 
+        public static string? CaptureFileDirectory { get; set; }
+
+        public static string? CaptureFileFormat { get; set; }
+
+
         public static int[] GetWindowSizes(string gameProcessName)
         {
             //ウィンドウハンドルの取得
@@ -52,11 +57,11 @@ namespace ThLaunchSite.Game
             Interaction.AppActivate(gameProcess.Id);
         }
 
-        public static void GetGameWindowCapture(string gameProcessName, string outputDirectory, string fileFormat)
+        public static void GetGameWindowCapture(string gameProcessName)
         {
-            if (!Directory.Exists(outputDirectory))
+            if (!Directory.Exists(CaptureFileDirectory))
             {
-                Directory.CreateDirectory(outputDirectory);
+                Directory.CreateDirectory(CaptureFileDirectory);
             }
 
             IntPtr gameProcess = Process.GetProcessesByName(gameProcessName)[0].MainWindowHandle;
@@ -79,17 +84,17 @@ namespace ThLaunchSite.Game
 
             string captureFileName = $"{gameProcessName}-{DateAndTime.Now:yyyy-MM-dd_HH-mm-ss}";
 
-            if (fileFormat == "PNG")
+            if (CaptureFileFormat == "PNG")
             {
-                bitmap.Save($"{outputDirectory}\\{captureFileName}.png", ImageFormat.Png);
+                bitmap.Save($"{CaptureFileDirectory}\\{captureFileName}.png", ImageFormat.Png);
             }
-            else if (fileFormat == "JPEG")
+            else if (CaptureFileFormat == "JPEG")
             {
-                bitmap.Save($"{outputDirectory}\\{captureFileName}.jpeg", ImageFormat.Jpeg);
+                bitmap.Save($"{CaptureFileDirectory}\\{captureFileName}.jpeg", ImageFormat.Jpeg);
             }
             else
             {
-                bitmap.Save($"{outputDirectory}\\{captureFileName}.bmp", ImageFormat.Bmp);
+                bitmap.Save($"{CaptureFileDirectory}\\{captureFileName}.bmp", ImageFormat.Bmp);
             }
         }
     }
