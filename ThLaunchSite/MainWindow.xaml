@@ -106,8 +106,8 @@
                                 <TextBlock x:Name="GameStartTimeBlock"
                                            HorizontalAlignment="Left" Margin="117,76,0,0" TextWrapping="Wrap" Text="ゲーム開始" 
                                            VerticalAlignment="Top" />
-                                <Button x:Name="LaunchGameButton" Margin="10,108,10,0" VerticalAlignment="Top" Height="24"
-                                        ContextMenuService.Placement="Bottom" Click="LaunchGameButtonClick">
+                                <Button x:Name="LaunchGameButton" Margin="10,108,0,0" VerticalAlignment="Top" Height="24" Width="90"
+                                        ContextMenuService.Placement="Bottom" Click="LaunchGameButtonClick" HorizontalAlignment="Left" >
                                     <Button.ContextMenu>
                                         <ContextMenu x:Name="LaunchGameButtonMenu" Placement="Bottom">
                                             <MenuItem Header="ゲームを起動する(_L)" 
@@ -130,28 +130,36 @@
                                     </Button.Content>
                                 </Button>
                                 <Button x:Name="LaunchCustomProgramButton" 
-                                        Height="24"
-                                        Click="LaunchCustomeMenuItemClick" Margin="10,137,10,0" VerticalAlignment="Top">
+                                        ToolTip="環境カスタムプログラムを起動する"
+                                        Height="24" Width="24"
+                                        Click="LaunchCustomeMenuItemClick" Margin="105,108,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
-                                            <Image HorizontalAlignment="Left" Source="/Images/Settings_16x.png"></Image>
-                                            <TextBlock Text="環境カスタムプログラム起動" VerticalAlignment="Center"/>
+                                            <Image
+                                                HorizontalAlignment="Left" Source="/Images/Settings_16x.png"></Image>
                                         </StackPanel>
                                     </Button.Content>
                                 </Button>
-                                <Button x:Name="CatchGameProcessButton" Click="CatchGameProcessMenuItemClick" Height="24" Margin="10,166,10,0" VerticalAlignment="Top">
+                                <Button x:Name="CatchGameProcessButton"
+                                        ToolTip="実行中のゲームプロセスを捕捉する"
+                                        Click="CatchGameProcessMenuItemClick"
+                                        Width="24" Height="24"
+                                        Margin="135,108,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
-                                            <Image HorizontalAlignment="Left" Source="/Images/FindSymbol_16x.png"></Image>
-                                            <TextBlock Text="ゲームプロセスの捕捉" VerticalAlignment="Center"/>
+                                            <Image
+                                                HorizontalAlignment="Left" Source="/Images/FindSymbol_16x.png"></Image>
                                         </StackPanel>
                                     </Button.Content>
                                 </Button>
-                                <Button x:Name="KillGameProcessButton" Click="KillGameProcessMenuItemClick" Height="24" Margin="10,195,10,0" VerticalAlignment="Top">
+                                <Button x:Name="KillGameProcessButton"
+                                        Click="KillGameProcessMenuItemClick" 
+                                        ToolTip="ゲームプロセスを強制終了する"
+                                        Width="24" Height="24" 
+                                        Margin="164,108,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <Image HorizontalAlignment="Left" Source="/Images/Stop_16x.png"></Image>
-                                            <TextBlock Text="ゲームプロセス強制終了" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button.Content>
                                 </Button>
