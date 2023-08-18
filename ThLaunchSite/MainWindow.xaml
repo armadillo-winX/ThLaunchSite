@@ -27,7 +27,11 @@
                 </MenuItem>
                 <Separator />
                 <MenuItem x:Name="LaunchCustomProgramMenuItem" Header="環境カスタムプログラムを起動する(_C)"
-                          Click="LaunchCustomeMenuItemClick"/>
+                          Click="LaunchCustomeMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Settings_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
                 <Separator />
                 <MenuItem x:Name="CatchGameProcessMenuItem" Header="実行中のゲームプロセスの捕捉"
                           Click="CatchGameProcessMenuItemClick">
