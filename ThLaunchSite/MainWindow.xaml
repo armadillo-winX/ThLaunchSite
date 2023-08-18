@@ -236,5 +236,15 @@
                 </Grid>
             </TabItem>
         </TabControl>
+        <Button x:Name="OpenGameDirectoryButton"
+                ToolTip="ゲームのインストールディレクトリを開く"
+                Click="OpenGameDirectoryMenuItemClick"
+                HorizontalAlignment="Right" Margin="0,25,37,0" VerticalAlignment="Top" Width="20" Height="20">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/FolderOpened_16x.png"></Image>
+                </StackPanel>
+            </Button.Content>
+        </Button>
     </Grid>
 </Window>
