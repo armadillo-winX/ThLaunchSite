@@ -106,8 +106,7 @@
                                 <TextBlock x:Name="GameStartTimeBlock"
                                            HorizontalAlignment="Left" Margin="117,76,0,0" TextWrapping="Wrap" Text="ゲーム開始" 
                                            VerticalAlignment="Top" />
-                                <Button x:Name="LaunchGameButton" HorizontalAlignment="Center" Margin="0,108,0,0" VerticalAlignment="Top" 
-                                        Width="150" Height="24"
+                                <Button x:Name="LaunchGameButton" Margin="10,108,10,0" VerticalAlignment="Top" Height="24"
                                         ContextMenuService.Placement="Bottom" Click="LaunchGameButtonClick">
                                     <Button.ContextMenu>
                                         <ContextMenu x:Name="LaunchGameButtonMenu" Placement="Bottom">
@@ -121,9 +120,6 @@
                                             Click="LaunchWithVpatchMenuItemClick"/>
                                             <MenuItem Header="thpracを適用して起動する(_T)"
                                             Click="LaunchWithThpracMenuItemClick"/>
-                                            <Separator />
-                                            <MenuItem Header="環境カスタムプログラムを起動する(_C)"
-                                            Click="LaunchCustomeMenuItemClick"/>
                                         </ContextMenu>
                                     </Button.ContextMenu>
                                     <Button.Content>
@@ -133,9 +129,17 @@
                                         </StackPanel>
                                     </Button.Content>
                                 </Button>
-                                <Button x:Name="CatchGameProcessButton" Click="CatchGameProcessMenuItemClick"
-                                        Width="150" Height="24"
-                                        HorizontalAlignment="Center" Margin="0,137,0,0" VerticalAlignment="Top">
+                                <Button x:Name="LaunchCustomProgramButton" 
+                                        Height="24"
+                                        Click="LaunchCustomeMenuItemClick" Margin="10,137,10,0" VerticalAlignment="Top">
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image HorizontalAlignment="Left" Source="/Images/Settings_16x.png"></Image>
+                                            <TextBlock Text="環境カスタムプログラム起動" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                                <Button x:Name="CatchGameProcessButton" Click="CatchGameProcessMenuItemClick" Height="24" Margin="10,166,10,0" VerticalAlignment="Top">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <Image HorizontalAlignment="Left" Source="/Images/FindSymbol_16x.png"></Image>
@@ -143,9 +147,7 @@
                                         </StackPanel>
                                     </Button.Content>
                                 </Button>
-                                <Button x:Name="KillGameProcessButton" Click="KillGameProcessMenuItemClick"
-                                        Width="150" Height="24"
-                                        HorizontalAlignment="Center" Margin="0,166,0,0" VerticalAlignment="Top">
+                                <Button x:Name="KillGameProcessButton" Click="KillGameProcessMenuItemClick" Height="24" Margin="10,195,10,0" VerticalAlignment="Top">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <Image HorizontalAlignment="Left" Source="/Images/Stop_16x.png"></Image>
