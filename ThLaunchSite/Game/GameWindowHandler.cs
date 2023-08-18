@@ -1,5 +1,8 @@
 ﻿using Microsoft.VisualBasic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using Point = System.Drawing.Point;
 
 namespace ThLaunchSite.Game
 {
@@ -47,6 +50,47 @@ namespace ThLaunchSite.Game
             _ = MoveWindow(windowHandle, 100, 100, width, height, 1);
 
             Interaction.AppActivate(gameProcess.Id);
+        }
+
+        public static void GetGameWindowCapture(string gameProcessName, string outputDirectory, string fileFormat)
+        {
+            if (!Directory.Exists(outputDirectory))
+            {
+                Directory.CreateDirectory(outputDirectory);
+            }
+
+            IntPtr gameProcess = Process.GetProcessesByName(gameProcessName)[0].MainWindowHandle;
+
+            //ウィンドウサイズの取得
+            RECT rect;
+            _ = GetWindowRect(gameProcess, out rect);
+            int width = rect.right - rect.left;
+            int height = rect.bottom - rect.top;
+
+            Rectangle rectangle = new Rectangle(rect.left, rect.top, width, height);
+
+
+            Bitmap bitmap = new Bitmap(rectangle.Width, rectangle.Height);
+
+            Graphics graphics = Graphics.FromImage(bitmap);
+
+            // 画面をコピー
+            graphics.CopyFromScreen(new Point(rectangle.X, rectangle.Y), new Point(0, 0), rectangle.Size);
+
+            string captureFileName = $"{gameProcessName}-{DateAndTime.Now:yyyy-MM-dd_HH-mm-ss}";
+
+            if (fileFormat == "PNG")
+            {
+                bitmap.Save($"{outputDirectory}\\{captureFileName}.png", ImageFormat.Png);
+            }
+            else if (fileFormat == "JPEG")
+            {
+                bitmap.Save($"{outputDirectory}\\{captureFileName}.jpeg", ImageFormat.Jpeg);
+            }
+            else
+            {
+                bitmap.Save($"{outputDirectory}\\{captureFileName}.bmp", ImageFormat.Bmp);
+            }
         }
     }
 }
