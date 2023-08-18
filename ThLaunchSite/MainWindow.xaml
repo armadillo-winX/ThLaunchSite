@@ -133,7 +133,7 @@
                                 <Button x:Name="LaunchCustomProgramButton" 
                                         ToolTip="環境カスタムプログラムを起動する"
                                         Height="24" Width="24"
-                                        Click="LaunchCustomeMenuItemClick" Margin="0,108,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                                        Click="LaunchCustomeMenuItemClick" Margin="135,108,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <Image
