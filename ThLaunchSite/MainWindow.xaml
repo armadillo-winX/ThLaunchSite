@@ -52,6 +52,8 @@
                         <Image Source="/Images/Time_16x.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="ExitApplicationMenuItem" Header="アプリケーションを終了(_X)" Click="ExitApplicationMenuItemClick"/>
             </MenuItem>
             <MenuItem Header="ツール(_T)">
                 <MenuItem x:Name="CommandGameLauncherMenuItem" Header="コマンドゲームランチャー(Ctrl+P)" Click="CommandGameLauncherMenuItemClick">

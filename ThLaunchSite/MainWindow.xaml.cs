@@ -965,5 +965,10 @@ namespace ThLaunchSite
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void ExitApplicationMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
