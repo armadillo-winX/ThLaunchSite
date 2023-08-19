@@ -219,7 +219,7 @@
             </TabItem>
             <TabItem Header="ゲーム実行履歴">
                 <Grid>
-                    <DataGrid x:Name="GameLogDataGrid" ItemsSource="{Binding}">
+                    <DataGrid x:Name="GameLogDataGrid" ItemsSource="{Binding}" Margin="0,39,0,0">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Width="50" IsReadOnly="True"
                                             Binding="{Binding GameId}"/>
@@ -233,6 +233,18 @@
                                             Binding="{Binding GameRunningTime}"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <Button 
+                        x:Name="TotalGameRunningTimeStatisticsButton"
+                        Click="TotalGameRunningTimeStatisticsMenuItemClick"
+                        Width="170" Height="24"
+                        HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/Time_16x.png"></Image>
+                                <TextBlock Text="ゲーム累積実行時間統計" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
                 </Grid>
             </TabItem>
             <TabItem Header="設定">
