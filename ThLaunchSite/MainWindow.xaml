@@ -131,7 +131,8 @@
                                     </Button.ContextMenu>
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
-                                            <Image Source="/Images/Run_16x.png" HorizontalAlignment="Left"></Image>
+                                            <Image Width="16" Height="16"
+                                                   Source="/Images/Run_16x.png" HorizontalAlignment="Left"></Image>
                                             <TextBlock Text="ゲーム起動" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button.Content>
@@ -142,7 +143,7 @@
                                         Click="LaunchCustomeMenuItemClick" Margin="135,108,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
-                                            <Image
+                                            <Image Width="16" Height="16"
                                                 HorizontalAlignment="Left" Source="/Images/Settings_16x.png"></Image>
                                         </StackPanel>
                                     </Button.Content>
@@ -154,7 +155,7 @@
                                         Margin="164,108,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
-                                            <Image
+                                            <Image Width="16" Height="16"
                                                 HorizontalAlignment="Left" Source="/Images/FindSymbol_16x.png"></Image>
                                         </StackPanel>
                                     </Button.Content>
@@ -166,7 +167,8 @@
                                         Margin="193,108,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
-                                            <Image HorizontalAlignment="Left" Source="/Images/Stop_16x.png"></Image>
+                                            <Image Width="16" Height="16"
+                                                   HorizontalAlignment="Left" Source="/Images/Stop_16x.png"></Image>
                                         </StackPanel>
                                     </Button.Content>
                                 </Button>
@@ -177,7 +179,8 @@
                                         Click="CaptureGameWindowMenuItemClick">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
-                                            <Image Source="/Images/CaptureFrame_16x.png"></Image>
+                                            <Image Width="16" Height="16"
+                                                   Source="/Images/CaptureFrame_16x.png"></Image>
                                         </StackPanel>
                                     </Button.Content>
                                 </Button>
@@ -211,12 +214,12 @@
                                 <TextBox x:Name="GameWindowHeightBox" HorizontalAlignment="Left" Margin="75,163,0,0" TextWrapping="NoWrap" 
                                      Text="" VerticalAlignment="Top" Width="120"/>
                                 <Button x:Name="ResizeButton"
-                                    Width="90" Height="24"
+                                    Width="120" Height="24"
                                         HorizontalAlignment="Center" Margin="0,203,0,0" 
                                         VerticalAlignment="Top" Click="ResizeButtonClick">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
-                                            <Image Source="/Images/Resize_16x.png"></Image>
+                                            <Image Width="16" Height="16" Source="/Images/Resize_16x.png"></Image>
                                             <TextBlock Text="リサイズ" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button.Content>
@@ -249,7 +252,8 @@
                         HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="/Images/Time_16x.png"></Image>
+                                <Image Width="16" Height="16"
+                                       Source="/Images/Time_16x.png"></Image>
                                 <TextBlock Text="ゲーム累積実行時間統計" VerticalAlignment="Center"/>
                             </StackPanel>
                         </Button.Content>
