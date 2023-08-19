@@ -178,7 +178,7 @@
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <Image Source="/Images/CaptureFrame_16x.png"></Image>
-                                        </StackPanel>                                    
+                                        </StackPanel>
                                     </Button.Content>
                                 </Button>
 
@@ -211,7 +211,16 @@
                                 <TextBox x:Name="GameWindowHeightBox" HorizontalAlignment="Left" Margin="75,163,0,0" TextWrapping="NoWrap" 
                                      Text="" VerticalAlignment="Top" Width="120"/>
                                 <Button x:Name="ResizeButton"
-                                    Content="リサイズ(_R)" Width="90" Height="24" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Click="ResizeButtonClick"/>
+                                    Width="90" Height="24"
+                                        HorizontalAlignment="Center" Margin="0,203,0,0" 
+                                        VerticalAlignment="Top" Click="ResizeButtonClick">
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="/Images/Resize_16x.png"></Image>
+                                            <TextBlock Text="リサイズ" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
                             </Grid>
                         </Grid>
                     </ScrollViewer>
