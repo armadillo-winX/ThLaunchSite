@@ -110,6 +110,8 @@ namespace ThLaunchSite.Settings
                 applicationSettings.ResizeRateIndex = 2;
                 applicationSettings.ResizeByRate = true;
                 applicationSettings.ThemeName = "Light";
+                applicationSettings.CaptureFileFormat = "BMP";
+                applicationSettings.CaptureFileDirectory = PathInfo.GameCaptureDirectory;
             }
 
             return applicationSettings;
