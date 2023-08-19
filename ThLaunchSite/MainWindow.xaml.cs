@@ -937,7 +937,27 @@ namespace ThLaunchSite
         {
             try
             {
-                GameWindowHandler.GetGameWindowCapture(this.GameProcessName);
+                if (!string.IsNullOrEmpty(GameWindowHandler.CaptureFileDirectory))
+                {
+                    GameWindowHandler.GetGameWindowCapture(this.GameProcessName);
+                }
+                else
+                {
+                    FolderBrowserDialog folderBrowserDialog = new()
+                    {
+                        Description = "キャプチャファイルの保存フォルダを指定してください。"
+                    };
+
+                    if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        GameWindowHandler.CaptureFileDirectory = folderBrowserDialog.SelectedPath;
+                    }
+                    else
+                    {
+                        MessageBox.Show(this, "キャプチャがキャンセルされました。", "ゲームウィンドウのキャプチャ",
+                            MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                }
             }
             catch (Exception ex)
             {
