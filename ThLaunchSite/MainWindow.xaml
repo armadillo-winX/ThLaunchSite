@@ -214,16 +214,11 @@
                                 <TextBox x:Name="GameWindowHeightBox" HorizontalAlignment="Left" Margin="75,163,0,0" TextWrapping="NoWrap" 
                                      Text="" VerticalAlignment="Top" Width="120"/>
                                 <Button x:Name="ResizeButton"
-                                    Width="120" Height="24"
+                                        Content="リサイズ(_R)"
+                                        Width="120" Height="24"
                                         HorizontalAlignment="Center" Margin="0,203,0,0" 
-                                        VerticalAlignment="Top" Click="ResizeButtonClick">
-                                    <Button.Content>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Image Width="16" Height="16" Source="/Images/Resize_16x.png"></Image>
-                                            <TextBlock Text="リサイズ" VerticalAlignment="Center"/>
-                                        </StackPanel>
-                                    </Button.Content>
-                                </Button>
+                                        VerticalAlignment="Top" Click="ResizeButtonClick"/>
+
                             </Grid>
                         </Grid>
                     </ScrollViewer>
