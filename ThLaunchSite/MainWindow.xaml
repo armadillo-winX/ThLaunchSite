@@ -139,7 +139,7 @@
                                         <StackPanel Orientation="Horizontal">
                                             <Image Width="16" Height="16"
                                                    Source="/Images/Run_16x.png" HorizontalAlignment="Left"></Image>
-                                            <TextBlock Text="ゲーム起動" VerticalAlignment="Center"/>
+                                            <TextBlock Text="ゲーム起動▾" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button.Content>
                                 </Button>
