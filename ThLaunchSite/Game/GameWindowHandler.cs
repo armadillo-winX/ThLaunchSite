@@ -28,6 +28,10 @@ namespace ThLaunchSite.Game
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int y, int cx, int cy, int uFlags);
 
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
+
         public static string? CaptureFileDirectory { get; set; }
 
         public static string? CaptureFileFormat { get; set; }
@@ -63,12 +67,14 @@ namespace ThLaunchSite.Game
             {
                 Directory.CreateDirectory(CaptureFileDirectory);
             }
+            Process gameProcess = Process.GetProcessesByName(gameProcessName)[0];
+            IntPtr gameProcessMainWindow = gameProcess.MainWindowHandle;
 
-            IntPtr gameProcess = Process.GetProcessesByName(gameProcessName)[0].MainWindowHandle;
+            Interaction.AppActivate(gameProcess.Id);
 
             //ウィンドウサイズの取得
             RECT rect;
-            _ = GetWindowRect(gameProcess, out rect);
+            _ = GetWindowRect(gameProcessMainWindow, out rect);
             int width = rect.right - rect.left;
             int height = rect.bottom - rect.top;
 
