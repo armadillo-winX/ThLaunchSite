@@ -19,6 +19,8 @@
                           Click="LaunchWithVpatchMenuItemClick"/>
                 <MenuItem x:Name="LaunchWithThpracMenuItem" Header="thpracを適用して起動する(_T)"
                           Click="LaunchWithThpracMenuItemClick"/>
+                <MenuItem x:Name="LaunchWithAnyToolMenuItem" Header="任意のツールを適用して起動する(_A)"
+                          Click="LaunchWithAnyToolMenuItemClick"/>
                 <MenuItem x:Name="OpenGameDirectoryMenuItem" Header="ゲームのインストールディレクトリを開く(_O)"
                           Click="OpenGameDirectoryMenuItemClick">
                     <MenuItem.Icon>
@@ -129,6 +131,8 @@
                                             Click="LaunchWithVpatchMenuItemClick"/>
                                             <MenuItem Header="thpracを適用して起動する(_T)"
                                             Click="LaunchWithThpracMenuItemClick"/>
+                                            <MenuItem Header="任意のツールを適用して起動する(_A)"
+                                            Click="LaunchWithAnyToolMenuItemClick"/>
                                         </ContextMenu>
                                     </Button.ContextMenu>
                                     <Button.Content>

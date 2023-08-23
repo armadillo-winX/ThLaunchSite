@@ -191,7 +191,7 @@ namespace ThLaunchSite
             AppStatusBlock.Content = "準備完了";
         }
 
-        private async void LaunchGame(string gameId, int patchIndex)
+        private async void LaunchGame(string gameId, int toolIndex, string toolName = "")
         {
             try
             {
@@ -199,7 +199,7 @@ namespace ThLaunchSite
 
                 string gameProcessName;
 
-                switch (patchIndex)
+                switch (toolIndex)
                 {
                     case 0:
                         gameProcessName = await Task.Run(() 
@@ -209,7 +209,7 @@ namespace ThLaunchSite
                         break;
                     case 1:
                         gameProcessName = await Task.Run(() 
-                            => GameProcessHandler.StartGameProcessWithPatch(gameId, "vpatch.exe")
+                            => GameProcessHandler.StartGameProcessWithTool(gameId, "vpatch.exe")
                             );
                         EnableWaitGameEndMode(gameProcessName);
                         break;
@@ -218,7 +218,7 @@ namespace ThLaunchSite
                         if (thpracFiles.Length == 1)
                         {
                             gameProcessName = await Task.Run(()
-                                => GameProcessHandler.StartGameProcessWithPatch(gameId, Path.GetFileName(thpracFiles[0]))
+                                => GameProcessHandler.StartGameProcessWithTool(gameId, Path.GetFileName(thpracFiles[0]))
                             );
                             EnableWaitGameEndMode(gameProcessName);
                             break;
@@ -234,7 +234,7 @@ namespace ThLaunchSite
                             if (thpracDialog.ShowDialog() == true)
                             {
                                 gameProcessName = await Task.Run(()
-                                    => GameProcessHandler.StartGameProcessWithPatch(gameId, thpracDialog.ThpracFileName)
+                                    => GameProcessHandler.StartGameProcessWithTool(gameId, thpracDialog.ThpracFileName)
                                 );
                                 EnableWaitGameEndMode(gameProcessName);
                                 break;
@@ -252,6 +252,12 @@ namespace ThLaunchSite
                             EnableLimitationMode(false);
                             break;
                         }
+                    case 3:
+                        gameProcessName = await Task.Run(()
+                            => GameProcessHandler.StartGameProcessWithTool(gameId, toolName)
+                            );
+                        EnableWaitGameEndMode(gameProcessName);
+                        break;
                 }
             }
             catch (Exception ex)
@@ -449,6 +455,7 @@ namespace ThLaunchSite
             LaunchGameMenuItem.IsEnabled = !enabled;
             LaunchWithVpatchMenuItem.IsEnabled = !enabled;
             LaunchWithThpracMenuItem.IsEnabled = !enabled;
+            LaunchWithAnyToolMenuItem.IsEnabled = !enabled;
             LaunchCustomProgramMenuItem.IsEnabled = !enabled;
             CatchGameProcessMenuItem.IsEnabled = !enabled;
             CommandGameLauncherMenuItem.IsEnabled = !enabled;
@@ -511,7 +518,7 @@ namespace ThLaunchSite
                 if (commandDialog.ShowDialog() == true)
                 {
                     string? gameId = commandDialog.GameId;
-                    int patchIndex = commandDialog.PatchIndex;
+                    int patchIndex = commandDialog.ToolIndex;
                     if (!string.IsNullOrEmpty(gameId))
                     {
                         if (GameDictionary.ContainsKey(gameId))
@@ -969,6 +976,21 @@ namespace ThLaunchSite
         private void ExitApplicationMenuItemClick(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void LaunchWithAnyToolMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            SelectToolDialog selectToolDialog = new()
+            {
+                Owner = this,
+                GameId = this.GameId
+            };
+
+            if (selectToolDialog.ShowDialog() == true)
+            {
+                string toolName = selectToolDialog.ToolName;
+                LaunchGame(this.GameId, 3, toolName);
+            }
         }
     }
 }

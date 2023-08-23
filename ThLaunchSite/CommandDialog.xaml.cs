@@ -7,7 +7,7 @@
     {
         public string? GameId { get; set; }
 
-        public int PatchIndex { get; set; }
+        public int ToolIndex { get; set; }
 
         public CommandDialog()
         {
@@ -26,23 +26,23 @@
 
                 if (commands.Length > 1)
                 {
-                    string patchOption = commands[1];
-                    if (patchOption == "vp" || patchOption == "vpatch" || patchOption == "vsyncpatch")
+                    string toolOption = commands[1];
+                    if (toolOption == "vp" || toolOption == "vpatch" || toolOption == "vsyncpatch")
                     {
-                        this.PatchIndex = 1;
+                        this.ToolIndex = 1;
                     }
-                    else if (patchOption == "tp" || patchOption == "thprac")
+                    else if (toolOption == "tp" || toolOption == "thprac")
                     {
-                        this.PatchIndex = 2;
+                        this.ToolIndex = 2;
                     }
                     else
                     {
-                        this.PatchIndex = 0;
+                        this.ToolIndex = 0;
                     }
                 }
                 else
                 {
-                    this.PatchIndex = 0;
+                    this.ToolIndex = 0;
                 }
             }
         }

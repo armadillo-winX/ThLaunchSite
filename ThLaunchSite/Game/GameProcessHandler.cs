@@ -40,7 +40,7 @@ namespace ThLaunchSite.Game
             }
         }
 
-        public static string StartGameProcessWithPatch(string gameId, string patchName)
+        public static string StartGameProcessWithTool(string gameId, string patchName)
         {
             string? gamePath = GameFile.GetGameFilePath(gameId);
             string gameDirectory = Path.GetDirectoryName(gamePath);
