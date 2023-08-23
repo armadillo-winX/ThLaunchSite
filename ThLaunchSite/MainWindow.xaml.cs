@@ -642,6 +642,21 @@ namespace ThLaunchSite
             LaunchGame(gameId, 2);
         }
 
+        private void LaunchWithAnyToolMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            SelectToolDialog selectToolDialog = new()
+            {
+                Owner = this,
+                GameId = this.GameId
+            };
+
+            if (selectToolDialog.ShowDialog() == true)
+            {
+                string toolName = selectToolDialog.ToolName;
+                LaunchGame(this.GameId, 3, toolName);
+            }
+        }
+
         private void LaunchCustomeMenuItemClick(object sender, RoutedEventArgs e)
         {
             try
@@ -976,21 +991,6 @@ namespace ThLaunchSite
         private void ExitApplicationMenuItemClick(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void LaunchWithAnyToolMenuItemClick(object sender, RoutedEventArgs e)
-        {
-            SelectToolDialog selectToolDialog = new()
-            {
-                Owner = this,
-                GameId = this.GameId
-            };
-
-            if (selectToolDialog.ShowDialog() == true)
-            {
-                string toolName = selectToolDialog.ToolName;
-                LaunchGame(this.GameId, 3, toolName);
-            }
         }
     }
 }

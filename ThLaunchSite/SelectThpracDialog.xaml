@@ -9,7 +9,7 @@
         ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
     <Grid>
         <ListBox x:Name="ThpracFilesListBox" Margin="10,47,10,39" />
-        <Button x:Name="OKButton" Content="実行(_R)" IsDefault="True" Width="90" Height="24" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Click="OKButton_Click"/>
+        <Button x:Name="OKButton" Content="実行(_R)" IsDefault="True" Width="90" Height="24" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Click="OKButtonClick"/>
         <TextBlock Margin="10,10,10,0" TextWrapping="Wrap"
                    VerticalAlignment="Top"><Run Text="複数のthprac実行ファイルが見つかりました。"/><LineBreak/><Run Text="実行するthpracのファイルを選択してください。"/></TextBlock>
 
