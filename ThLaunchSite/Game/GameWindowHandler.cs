@@ -28,10 +28,6 @@ namespace ThLaunchSite.Game
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int y, int cx, int cy, int uFlags);
 
-        [DllImport("user32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool SetForegroundWindow(IntPtr hWnd);
-
         public static string? CaptureFileDirectory { get; set; }
 
         public static string? CaptureFileFormat { get; set; }
