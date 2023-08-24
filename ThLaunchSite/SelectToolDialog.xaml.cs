@@ -21,7 +21,8 @@
                     string gameFileName = Path.GetFileName(gamePath);
                     if (!string.IsNullOrEmpty(executableFileName) &&
                         executableFileName != gameFileName &&
-                        executableFileName != "custom.exe")
+                        executableFileName != "custom.exe" &&
+                        !executableFileName.Contains("update")) 
                     {
                         ToolsListBox.Items.Add(executableFileName);
                     }
