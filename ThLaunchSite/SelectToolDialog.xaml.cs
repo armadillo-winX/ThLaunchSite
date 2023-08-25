@@ -22,7 +22,8 @@
                     if (!string.IsNullOrEmpty(executableFileName) &&
                         executableFileName != gameFileName &&
                         executableFileName != "custom.exe" &&
-                        !executableFileName.Contains("update")) 
+                        !executableFileName.Contains("update") &&
+                        executableFileName != "unins000.exe") 
                     {
                         ToolsListBox.Items.Add(executableFileName);
                     }
