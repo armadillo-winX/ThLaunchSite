@@ -479,7 +479,7 @@ namespace ThLaunchSite
             this.GameProcessName= gameProcessName;
             this.GameStartTime= DateTime.Now;
 
-            AppStatusBlock.Content = "ゲームの終了を待機中";
+            AppStatusBlock.Content = $"{GameIndex.GetGameName(this.GameId)}を実行中...";
             EnableLimitationMode(true);
 
             _gameWaitingWorker = new BackgroundWorker();
