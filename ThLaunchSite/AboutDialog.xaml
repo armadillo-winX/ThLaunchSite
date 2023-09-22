@@ -34,6 +34,17 @@
                 </Grid>
             </TabItem>
         </TabControl>
+        <Button x:Name="OpenSystemInformationDialog"
+                ToolTip="システム情報"
+                Margin="0,10,10,0" VerticalAlignment="Top" Height="24" Click="OpenSystemInformationDialogClick" HorizontalAlignment="Right" Width="24">
+            <Button.Content>
+                <StackPanel Orientation="Vertical">
+                    <Image Width="16" Height="16"
+                           HorizontalAlignment="Left"
+                        Source="/Images/SystemInfo_16x.png"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
 
     </Grid>
 </Window>
