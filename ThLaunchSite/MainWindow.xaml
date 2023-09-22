@@ -74,6 +74,8 @@
             <MenuItem x:Name="ExternalToolsMenuItem" Header="外部ツール(_X)"/>
             <MenuItem Header="ヘルプ(_H)">
                 <MenuItem x:Name="AboutMenuItem" Header="このツールについて(_A)" Click="AboutMenuItemClick"/>
+                <Separator/>
+                <MenuItem x:Name="SystemInformationMenuItem" Header="システム情報" Click="SystemInformationMenuItemClick"/>
                 <MenuItem x:Name="AboutDinamicAero2MenuItem" Header="DynamicAero2 について" Click="AboutDinamicAero2MenuItemClick"/>
                 <Separator/>
                 <MenuItem Header="その他">

@@ -1,4 +1,6 @@
-﻿namespace ThLaunchSite
+﻿using System.Runtime.InteropServices;
+
+namespace ThLaunchSite
 {
     internal class VersionInfo
     {
@@ -12,6 +14,12 @@
 
         public static string? Copyright => FileVersionInfo.GetVersionInfo(_appPath).LegalCopyright;
 
-        public static string DotNetVersion => $".NET {Environment.Version}";
+        public static string OperatingSystem => RuntimeInformation.OSDescription;
+
+        public static string DotNetRuntime => RuntimeInformation.FrameworkDescription;
+
+        public static string SystemArchitecture => RuntimeInformation.OSArchitecture.ToString();
+
+        public static string AppArchitecture => RuntimeInformation.ProcessArchitecture.ToString();
     }
 }

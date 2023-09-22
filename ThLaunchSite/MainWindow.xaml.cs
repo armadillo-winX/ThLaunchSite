@@ -1021,5 +1021,15 @@ namespace ThLaunchSite
             MessageBox.Show(this, dllInformation, "DynamicAero2 について",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void SystemInformationMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            SystemInformationDialog systemInformationDialog = new()
+            {
+                Owner = this
+            };
+
+            systemInformationDialog.ShowDialog();
+        }
     }
 }
