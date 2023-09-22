@@ -10,6 +10,8 @@
 
         public static string? Developer => FileVersionInfo.GetVersionInfo(_appPath).CompanyName;
 
+        public static string? Copyright => FileVersionInfo.GetVersionInfo(_appPath).LegalCopyright;
+
         public static string DotNetVersion => $".NET {Environment.Version}";
     }
 }

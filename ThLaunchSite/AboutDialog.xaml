@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThLaunchSite"
         mc:Ignorable="d"
-        Title="このツールについて" Height="375" Width="421" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner" Closing="WindowClosing">
+        Title="このツールについて" Height="354" Width="421" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner" Closing="WindowClosing">
     <Grid>
         <TextBlock x:Name="AppNameBlock"
                    HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" 
@@ -16,13 +16,11 @@
         <TextBlock x:Name="DeveloperBlock"
                    HorizontalAlignment="Left" Margin="10,65,0,0" TextWrapping="Wrap"
                    Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="DotNetVersionBlock"
-                   HorizontalAlignment="Left" Margin="10,91,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
         <Button x:Name="OKButton" Content="_OK"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom"
                 IsDefault="True"
                 Width="90" Height="24" Click="OKButtonClick"/>
-        <TabControl Margin="0,117,0,24">
+        <TabControl Margin="0,91,0,24">
             <TabItem Header="ReadMe">
                 <Grid>
                     <TextBox x:Name="ReadMeTextBox" IsReadOnly="True" TextWrapping="Wrap"
