@@ -11,6 +11,7 @@ using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -1004,6 +1005,21 @@ namespace ThLaunchSite
                 MessageBox.Show(this, ex.Message, "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void AboutDinamicAero2MenuItemClick(object sender, RoutedEventArgs e)
+        {
+            string dynamicAero2DllPath = PathInfo.DynamicAero2DllPath;
+
+            string dllName = FileVersionInfo.GetVersionInfo(dynamicAero2DllPath).ProductName;
+            string dllVersion = FileVersionInfo.GetVersionInfo(dynamicAero2DllPath).FileVersion;
+            string dllDeveloper = FileVersionInfo.GetVersionInfo(dynamicAero2DllPath).CompanyName;
+            string dllCopyright = FileVersionInfo.GetVersionInfo(dynamicAero2DllPath).LegalCopyright;
+
+            string dllInformation = $"{dllName}\nVersion.{dllVersion}\nby {dllDeveloper}\n{dllCopyright}";
+
+            MessageBox.Show(this, dllInformation, "DynamicAero2 について",
+                MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

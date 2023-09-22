@@ -6,6 +6,8 @@
 
         public static string? AppLocation => Path.GetDirectoryName(AppPath);
 
+        public static string? DynamicAero2DllPath => $"{AppLocation}\\DynamicAero2.dll";
+
         public static string? SettingsDirectory => $"{AppLocation}\\settings";
 
         public static string? GameCaptureDirectory => $"{AppLocation}\\GameCapture";
