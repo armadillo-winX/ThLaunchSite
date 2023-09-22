@@ -992,5 +992,18 @@ namespace ThLaunchSite
         {
             this.Close();
         }
+
+        private void OpenApplicationDirectoryMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _ = Process.Start("explorer.exe", PathInfo.AppLocation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

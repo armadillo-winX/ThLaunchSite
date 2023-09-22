@@ -74,6 +74,11 @@
             <MenuItem x:Name="ExternalToolsMenuItem" Header="外部ツール(_X)"/>
             <MenuItem Header="ヘルプ(_H)">
                 <MenuItem x:Name="AboutMenuItem" Header="このツールについて(_A)" Click="AboutMenuItemClick"/>
+                <Separator/>
+                <MenuItem Header="その他">
+                    <MenuItem x:Name="OpenApplicationDirectoryMenuItem" 
+                    Header="アプリケーションフォルダを開く" Click="OpenApplicationDirectoryMenuItemClick"/>
+                </MenuItem>
             </MenuItem>
         </Menu>
         <ComboBox x:Name="GameComboBox" SelectionChanged="GameComboBoxSelectionChanged"
