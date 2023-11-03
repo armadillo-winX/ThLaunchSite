@@ -70,6 +70,7 @@
                         <Image Source="/Images/CaptureFrame_16x.png"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem x:Name="OpenGameCaptureDirectoryMenuItem" Header="ゲームウィンドウキャプチャ保存フォルダを開く" Click="OpenGameCaptureDirectoryMenuItemClick"/>
             </MenuItem>
             <MenuItem x:Name="ExternalToolsMenuItem" Header="外部ツール(_X)"/>
             <MenuItem Header="ヘルプ(_H)">

@@ -1030,5 +1030,18 @@ namespace ThLaunchSite
 
             systemInformationDialog.ShowDialog();
         }
+
+        private void OpenGameCaptureDirectoryMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Process.Start("explorer.exe", GameWindowHandler.CaptureFileDirectory);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
