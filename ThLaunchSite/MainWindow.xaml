@@ -288,7 +288,7 @@
                             <CheckBox x:Name="AlwaysOnTopCheckBox" Content="ウィンドウを最前面に固定"
                                       HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Click="AlwaysOnTopCheckBoxClick"/>
                             <CheckBox x:Name="FixMainWindowSizeCheckBox" Content="メインウィンドウのサイズを固定" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Click="FixMainWindowSizeCheckBoxClick"/>
-                            <Label Content="キャプチャファイルの保存ディレクトリ:" HorizontalAlignment="Left" Margin="214,10,0,0" VerticalAlignment="Top"/>
+                            <Label Content="キャプチャファイルの保存フォルダ:" HorizontalAlignment="Left" Margin="214,10,0,0" VerticalAlignment="Top"/>
                             <TextBox x:Name="CaptureDirectoryPathBox"
                                      IsReadOnly="True"
                                 Margin="214,36,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" TextChanged="CaptureDirectoryPathBoxTextChanged" HorizontalAlignment="Left" Width="273"/>
