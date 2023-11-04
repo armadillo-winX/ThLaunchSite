@@ -107,6 +107,7 @@ namespace ThLaunchSite.Settings
                 applicationSettings.MainWindowWidth = 550;
                 applicationSettings.MainWindowHeight = 400;
                 applicationSettings.SelectedGameId = GameIndex.Th06;
+                applicationSettings.SelectedGamePriorityIndex = 0;
                 applicationSettings.ResizeRateIndex = 2;
                 applicationSettings.ResizeByRate = true;
                 applicationSettings.ThemeName = "Light";

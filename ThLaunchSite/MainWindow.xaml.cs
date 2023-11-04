@@ -47,6 +47,8 @@ namespace ThLaunchSite
 
         private string GameProcessName { get; set; }
 
+        private int GameProcessPriorityIndex { get; set; }
+
         private DateTime GameStartTime 
         {
             get
@@ -293,6 +295,7 @@ namespace ThLaunchSite
             this.Width = applicationSettings.MainWindowWidth;
             this.Height = applicationSettings.MainWindowHeight;
             this.Topmost = applicationSettings.AlwaysOnTop;
+            GameBasePrimaryComboBox.SelectedIndex = applicationSettings.SelectedGamePriorityIndex;
             AlwaysOnTopCheckBox.IsChecked = applicationSettings.AlwaysOnTop;
             ResizeRateComboBox.SelectedIndex = applicationSettings.ResizeRateIndex;
             if (applicationSettings.ResizeByRate) ResizeByRateRadioButton.IsChecked = true;
@@ -363,6 +366,7 @@ namespace ThLaunchSite
                 MainWindowHeight = this.Height,
                 FixMainWindowSize = FixMainWindowSizeCheckBox.IsChecked == true,
                 SelectedGameId = this.GameId,
+                SelectedGamePriorityIndex = this.GameProcessPriorityIndex,
                 AlwaysOnTop = AlwaysOnTopCheckBox.IsChecked == true,
                 ResizeRateIndex = ResizeRateComboBox.SelectedIndex,
                 ResizeByRate = ResizeByRateRadioButton.IsChecked == true,
@@ -452,6 +456,7 @@ namespace ThLaunchSite
         private void EnableLimitationMode(bool enabled)
         {
             GameComboBox.IsEnabled = !enabled;
+            GameBasePrimaryComboBox.IsEnabled = !enabled;
             LaunchGameMenuItem.IsEnabled = !enabled;
             LaunchWithVpatchMenuItem.IsEnabled = !enabled;
             LaunchWithThpracMenuItem.IsEnabled = !enabled;
@@ -481,6 +486,18 @@ namespace ThLaunchSite
 
             AppStatusBlock.Content = $"{GameIndex.GetGameName(this.GameId)}を実行中...";
             EnableLimitationMode(true);
+
+            if (this.GameProcessPriorityIndex > 0)
+            {
+                try
+                {
+                    GameProcessHandler.SetGamePriority(this.GameProcessName, this.GameProcessPriorityIndex);
+                }
+                catch (Exception) 
+                {
+
+                }
+            }
 
             _gameWaitingWorker = new BackgroundWorker();
             _gameWaitingWorker.DoWork += new DoWorkEventHandler(WorkerDowork);
@@ -1042,6 +1059,11 @@ namespace ThLaunchSite
                 MessageBox.Show(this, ex.Message, "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void GameBasePrimaryComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.GameProcessPriorityIndex = GameBasePrimaryComboBox.SelectedIndex;
         }
     }
 }

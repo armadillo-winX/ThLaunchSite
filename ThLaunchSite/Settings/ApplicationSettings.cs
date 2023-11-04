@@ -10,6 +10,8 @@
 
         public string? SelectedGameId { get; set; }
 
+        public int SelectedGamePriorityIndex { get; set; }
+
         public bool AlwaysOnTop { get; set; }
 
         public int ResizeRateIndex { get; set; }

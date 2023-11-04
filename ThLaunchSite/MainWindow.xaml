@@ -202,6 +202,16 @@
                                         </StackPanel>
                                     </Button.Content>
                                 </Button>
+                                <Label Content="ゲームの基本優先度変更:" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top"/>
+                                <ComboBox x:Name="GameBasePrimaryComboBox" 
+                                    HorizontalAlignment="Left" Margin="148,139,0,0" VerticalAlignment="Top" Width="98" SelectionChanged="GameBasePrimaryComboBoxSelectionChanged">
+                                    <ComboBoxItem Uid="Disabled" Content="(無効)"/>
+                                    <ComboBoxItem Uid="High" Content="高"/>
+                                    <ComboBoxItem Uid="AboveNormal" Content="通常以上"/>
+                                    <ComboBoxItem Uid="Normal" Content="通常"/>
+                                    <ComboBoxItem Uid="BelowNormal" Content="通常以下"/>
+                                    <ComboBoxItem Uid="Idle" Content="低"/>
+                                </ComboBox>
 
                             </Grid>
                             <Grid HorizontalAlignment="Right" Width="250">

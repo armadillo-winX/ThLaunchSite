@@ -166,5 +166,31 @@ namespace ThLaunchSite.Game
                 return false;
             }
         }
+
+        public static void SetGamePriority(string gameProcessName, int gamePriorityIndex)
+        {
+            Process[] gameProcesses = Process.GetProcessesByName(gameProcessName);
+            Process gameProcess = gameProcesses[0];
+            if (gamePriorityIndex == 1)
+            {
+                gameProcess.PriorityClass = ProcessPriorityClass.High;
+            }
+            else if (gamePriorityIndex == 2)
+            {
+                gameProcess.PriorityClass = ProcessPriorityClass.AboveNormal;
+            }
+            else if (gamePriorityIndex == 3)
+            {
+                gameProcess.PriorityClass = ProcessPriorityClass.Normal;
+            }
+            else if (gamePriorityIndex == 4)
+            {
+                gameProcess.PriorityClass = ProcessPriorityClass.BelowNormal;
+            }
+            else if (gamePriorityIndex == 5)
+            {
+                gameProcess.PriorityClass = ProcessPriorityClass.Idle;
+            }
+        }
     }
 }
