@@ -17,7 +17,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
 using System.Xml;
-using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
 using Forms = System.Windows.Forms;
 
 namespace ThLaunchSite
@@ -959,7 +958,7 @@ namespace ThLaunchSite
 
         private void BrowseCaptureDirectoryButtonClick(object sender, RoutedEventArgs e)
         {
-            FolderBrowserDialog folderBrowserDialog = new();
+            Forms.FolderBrowserDialog folderBrowserDialog = new();
             if (folderBrowserDialog.ShowDialog() == Forms.DialogResult.OK)
             {
                 CaptureDirectoryPathBox.Text = folderBrowserDialog.SelectedPath;
@@ -989,7 +988,7 @@ namespace ThLaunchSite
                 }
                 else
                 {
-                    FolderBrowserDialog folderBrowserDialog = new()
+                    Forms.FolderBrowserDialog folderBrowserDialog = new()
                     {
                         Description = "キャプチャファイルの保存フォルダを指定してください。"
                     };
