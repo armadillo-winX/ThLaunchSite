@@ -1068,6 +1068,25 @@ namespace ThLaunchSite
         private void GameBasePrimaryComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             this.GameProcessPriorityIndex = GameBasePrimaryComboBox.SelectedIndex;
+            if (this.IsEnabledWaitGameEndMode)
+            {
+                try
+                {
+                    if (this.GameProcessPriorityIndex > 0)
+                    {
+                        GameProcessHandler.SetGamePriority(this.GameProcessName, this.GameProcessPriorityIndex);
+                    }
+                    else
+                    {
+                        GameProcessHandler.SetGamePriority(this.GameProcessName, 3);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, $"ゲームプロセスの基本優先度の変更に失敗\n{ex.Message}", "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
     }
 }
