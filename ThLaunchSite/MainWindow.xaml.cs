@@ -488,7 +488,6 @@ namespace ThLaunchSite
             this.IsEnabledWaitGameEndMode = true;
 
             AppStatusBlock.Content = $"{GameIndex.GetGameName(this.GameId)}を実行中...";
-            EnableLimitationMode(true);
 
             if (this.GameProcessPriorityIndex > 0)
             {
