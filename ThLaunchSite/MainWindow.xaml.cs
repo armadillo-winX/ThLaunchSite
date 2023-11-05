@@ -1090,5 +1090,34 @@ namespace ThLaunchSite
                 }
             }
         }
+
+        private void MainTabControlTabItemMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            int index = MainTabControl.SelectedIndex;
+
+            //マウスホイール回転方向の判定
+            if (e.Delta > 0)
+            {
+                if (index == 0)
+                {
+                    MainTabControl.SelectedIndex = 2;
+                }
+                else
+                {
+                    MainTabControl.SelectedIndex = index - 1;
+                }
+            }
+            else
+            {
+                if (index == 2)
+                {
+                    MainTabControl.SelectedIndex = 0;
+                }
+                else
+                {
+                    MainTabControl.SelectedIndex = index + 1;
+                }
+            }
+        }
     }
 }

@@ -111,8 +111,9 @@
             <StatusBarItem x:Name="AuthorityBlock" Content="Authority" DockPanel.Dock="Right" Margin="0,0,20,0"/>
             <StatusBarItem x:Name="AppStatusBlock"/>
         </StatusBar>
-        <TabControl Margin="0,52,0,22">
-            <TabItem Header="管制パネル">
+        <TabControl x:Name="MainTabControl"
+                    Margin="0,52,0,22">
+            <TabItem Header="管制パネル" MouseWheel="MainTabControlTabItemMouseWheel">
                 <Grid Margin="0,0,0,0">
                     <ScrollViewer
                                   VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
@@ -252,7 +253,7 @@
                     </ScrollViewer>
                 </Grid>
             </TabItem>
-            <TabItem Header="ゲーム実行履歴">
+            <TabItem Header="ゲーム実行履歴" MouseWheel="MainTabControlTabItemMouseWheel">
                 <Grid>
                     <DataGrid x:Name="GameLogDataGrid" ItemsSource="{Binding}" Margin="0,39,0,0">
                         <DataGrid.Columns>
@@ -283,7 +284,7 @@
                     </Button>
                 </Grid>
             </TabItem>
-            <TabItem Header="設定">
+            <TabItem Header="設定" MouseWheel="MainTabControlTabItemMouseWheel">
                 <Grid>
                     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
                         <Grid>
