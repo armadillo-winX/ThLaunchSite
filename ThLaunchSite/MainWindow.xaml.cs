@@ -18,6 +18,7 @@ using System.Windows.Input;
 using System.Windows.Threading;
 using System.Xml;
 using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
+using Forms = System.Windows.Forms;
 
 namespace ThLaunchSite
 {
@@ -741,10 +742,13 @@ namespace ThLaunchSite
         {
             if (this.IsEnabledWaitGameEndMode)
             {
-                MessageBoxResult result = MessageBox.Show(
-                    this, $"ゲーム終了待機モードです。\n本当に{_appName}を終了させますか。", _appName,
-                    MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
-                if (result == MessageBoxResult.Yes)
+                Forms.DialogResult result
+                    = Forms.MessageBox.Show(
+                    $"ゲーム終了待機モードです。\n本当に{_appName}を終了させますか。", _appName,
+                    Forms.MessageBoxButtons.YesNo,
+                    Forms.MessageBoxIcon.Exclamation,
+                    Forms.MessageBoxDefaultButton.Button2);
+                if (result == Forms.DialogResult.Yes)
                 {
                     try
                     {
@@ -956,7 +960,7 @@ namespace ThLaunchSite
         private void BrowseCaptureDirectoryButtonClick(object sender, RoutedEventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new();
-            if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (folderBrowserDialog.ShowDialog() == Forms.DialogResult.OK)
             {
                 CaptureDirectoryPathBox.Text = folderBrowserDialog.SelectedPath;
             }
@@ -990,7 +994,7 @@ namespace ThLaunchSite
                         Description = "キャプチャファイルの保存フォルダを指定してください。"
                     };
 
-                    if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    if (folderBrowserDialog.ShowDialog() == Forms.DialogResult.OK)
                     {
                         GameWindowHandler.CaptureFileDirectory = folderBrowserDialog.SelectedPath;
                     }
