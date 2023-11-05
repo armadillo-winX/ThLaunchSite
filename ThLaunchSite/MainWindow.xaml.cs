@@ -459,7 +459,6 @@ namespace ThLaunchSite
         private void EnableLimitationMode(bool enabled)
         {
             GameComboBox.IsEnabled = !enabled;
-            GameBasePrimaryComboBox.IsEnabled = !enabled;
             LaunchGameMenuItem.IsEnabled = !enabled;
             LaunchWithVpatchMenuItem.IsEnabled = !enabled;
             LaunchWithThpracMenuItem.IsEnabled = !enabled;
@@ -486,6 +485,7 @@ namespace ThLaunchSite
         {
             this.GameProcessName= gameProcessName;
             this.GameStartTime= DateTime.Now;
+            this.IsEnabledWaitGameEndMode = true;
 
             AppStatusBlock.Content = $"{GameIndex.GetGameName(this.GameId)}を実行中...";
             EnableLimitationMode(true);
@@ -569,6 +569,7 @@ namespace ThLaunchSite
 
         private void WorkerRunningComplete(object sender, RunWorkerCompletedEventArgs e)
         {
+            this.IsEnabledWaitGameEndMode = false;
             _gameControlTimer.Stop();
 
             GamePlayLogData gamePlayLogData = new()
