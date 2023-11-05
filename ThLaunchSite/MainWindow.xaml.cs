@@ -63,6 +63,8 @@ namespace ThLaunchSite
             }
         }
 
+        private bool IsEnabledWaitGameEndMode { get; set; }
+
         private AboutDialog? _aboutDialog = null;
         private BackgroundWorker? _gameWaitingWorker = null;
         private DispatcherTimer? _gameControlTimer = null;
@@ -132,6 +134,7 @@ namespace ThLaunchSite
             this.GameId = string.Empty;
             this.GameName = string.Empty;
             this.GameProcessName = string.Empty;
+            this.IsEnabledWaitGameEndMode = false;
 
             EnableLimitationMode(false);
 
