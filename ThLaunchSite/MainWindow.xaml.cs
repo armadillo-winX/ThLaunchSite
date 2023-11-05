@@ -739,7 +739,7 @@ namespace ThLaunchSite
 
         private void WindowClosing(object sender, CancelEventArgs e)
         {
-            if (_gameWaitingWorker != null && _gameWaitingWorker.IsBusy)
+            if (this.IsEnabledWaitGameEndMode)
             {
                 MessageBoxResult result = MessageBox.Show(
                     this, $"ゲーム終了待機モードです。\n本当に{_appName}を終了させますか。", _appName,
