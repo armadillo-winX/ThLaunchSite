@@ -4,6 +4,7 @@ global using System.IO;
 global using System.Windows;
 
 global using ThLaunchSite.Exceptions;
+global using ThLaunchSite.Extentions;
 global using ThLaunchSite.Game;
 global using ThLaunchSite.Settings;
 
