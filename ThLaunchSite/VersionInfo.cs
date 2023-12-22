@@ -8,7 +8,7 @@ namespace ThLaunchSite
 
         public static string? AppName => FileVersionInfo.GetVersionInfo(_appPath).ProductName;
 
-        public static string? AppVersion => FileVersionInfo.GetVersionInfo(_appPath).ProductVersion.RemoveRightOf("+");
+        public static string? AppVersion => FileVersionInfo.GetVersionInfo(_appPath).ProductVersion;
 
         public static string? Developer => FileVersionInfo.GetVersionInfo(_appPath).CompanyName;
 
