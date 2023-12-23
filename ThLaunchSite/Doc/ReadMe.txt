@@ -1,11 +1,11 @@
 ﻿---------------------------------------------------
-Touhou Launch Site (Beta Preview)
+Touhou Launch Site β版
 Copyright © 2023- Mashiro Tamane
 ---------------------------------------------------
 
 
 §注意事項
-本ソフトウェアはBeta Preview版です。多数の不具合や安定性の問題がある可能性があります。
+本ソフトウェアはβ版です。多数の不具合や安定性の問題がある可能性があります。
 
 
 §はじめに
@@ -32,13 +32,13 @@ License.txtを参照してください。
 
 §推奨動作環境
 Microsoft Windows 10/11
-.NET Desktop Runtime 7.0 が必要です。
+.NET Desktop Runtime 8.0 が必要です。
 
 
 §開発環境
 Microsoft Windows 11 Insider Preview Canary
 Microsoft Visual Studio Community 2022 Current
-.NET 7.0
+.NET 8.0
 
 
 §対応作品
@@ -84,12 +84,9 @@ Q.ソースコードとかってありますか?
 A.§フィードバック・お問い合わせの項にGitHubリポジトリへのリンクを貼ってあります。
 
 Q.動かないです。
-A.本ツールの動作には .NET Runtime 7.0 が必要ですので下のリンクからインストールしてみてください。
-https://dotnet.microsoft.com/ja-jp/download/dotnet/7.0
+A.本ツールの動作には .NET Runtime 8.0 が必要ですので下のリンクからインストールしてみてください。
+https://dotnet.microsoft.com/ja-jp/download/dotnet/8.0
 それでも動かない場合、フィードバックをご提供いただくか、開発者に直接ご連絡ください。
-
-Q.東方では誰が好きですか?
-A.十六夜咲夜(特に妖々夢)
 
 Q.Is English supported?
 A.Not now but I want to support English or other languages in the future.
