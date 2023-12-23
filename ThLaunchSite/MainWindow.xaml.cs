@@ -937,10 +937,10 @@ namespace ThLaunchSite
 
         private void BrowseCaptureDirectoryButtonClick(object sender, RoutedEventArgs e)
         {
-            Forms.FolderBrowserDialog folderBrowserDialog = new();
-            if (folderBrowserDialog.ShowDialog() == Forms.DialogResult.OK)
+            OpenFolderDialog openFolderDialog = new();
+            if (openFolderDialog.ShowDialog() == true)
             {
-                CaptureDirectoryPathBox.Text = folderBrowserDialog.SelectedPath;
+                CaptureDirectoryPathBox.Text = openFolderDialog.FolderName;
             }
         }
 
@@ -967,14 +967,14 @@ namespace ThLaunchSite
                 }
                 else
                 {
-                    Forms.FolderBrowserDialog folderBrowserDialog = new()
+                    OpenFolderDialog openFolderDialog = new()
                     {
-                        Description = "キャプチャファイルの保存フォルダを指定してください。"
+                        Title = "キャプチャファイルの保存フォルダを指定してください。"
                     };
 
-                    if (folderBrowserDialog.ShowDialog() == Forms.DialogResult.OK)
+                    if (openFolderDialog.ShowDialog() == true)
                     {
-                        GameWindowHandler.CaptureFileDirectory = folderBrowserDialog.SelectedPath;
+                        GameWindowHandler.CaptureFileDirectory = openFolderDialog.FolderName;
                     }
                     else
                     {
