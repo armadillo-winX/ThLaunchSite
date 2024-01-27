@@ -13,7 +13,7 @@ namespace ThLaunchSite
     /// </summary>
     public partial class App : Application
     {
-        public bool IsAdmin()
+        public static bool IsAdmin()
         {
             //GetCurrentメソッドで現在のユーザーを取得
             System.Security.Principal.WindowsIdentity identity = System.Security.Principal.WindowsIdentity.GetCurrent();

@@ -122,7 +122,7 @@ namespace ThLaunchSite
             }
 
             this.Title = _appName;
-            if (((App)Application.Current).IsAdmin())
+            if (App.IsAdmin())
             {
                 AuthorityBlock.Content = "管理者権限";
             }
