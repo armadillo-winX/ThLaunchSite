@@ -16,7 +16,8 @@ namespace ThLaunchSite.Game
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
                     FileName = gamePath,
-                    WorkingDirectory = gameDirectory
+                    WorkingDirectory = gameDirectory,
+                    UseShellExecute = true
                 };
 
                 _ = Process.Start(gameProcessStartInfo);
@@ -52,7 +53,8 @@ namespace ThLaunchSite.Game
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
                     FileName = patchPath,
-                    WorkingDirectory = gameDirectory
+                    WorkingDirectory = gameDirectory,
+                    UseShellExecute = true
                 };
 
                 _ = Process.Start(gameProcessStartInfo);
