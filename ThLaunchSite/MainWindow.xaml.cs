@@ -17,7 +17,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
 using System.Xml;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 using Forms = System.Windows.Forms;
 
 namespace ThLaunchSite
