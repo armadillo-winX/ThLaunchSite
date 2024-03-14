@@ -79,6 +79,8 @@
                 <MenuItem x:Name="SystemInformationMenuItem" Header="システム情報" Click="SystemInformationMenuItemClick"/>
                 <MenuItem x:Name="AboutDinamicAero2MenuItem" Header="DynamicAero2 について" Click="AboutDinamicAero2MenuItemClick"/>
                 <Separator/>
+                <MenuItem x:Name="SendFeedbackMenuItem" Header="フィードバックの送信(_F)" Click="SendFeedbackMenuItemClick"/>
+                <Separator/>
                 <MenuItem Header="その他">
                     <MenuItem x:Name="OpenApplicationDirectoryMenuItem" 
                     Header="アプリケーションフォルダを開く" Click="OpenApplicationDirectoryMenuItemClick"/>

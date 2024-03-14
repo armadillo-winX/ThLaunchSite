@@ -17,6 +17,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
 using System.Xml;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 using Forms = System.Windows.Forms;
 
 namespace ThLaunchSite
@@ -1096,6 +1097,25 @@ namespace ThLaunchSite
                 {
                     MainTabControl.SelectedIndex = index + 1;
                 }
+            }
+        }
+
+        private void SendFeedbackMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ProcessStartInfo url = new()
+                {
+                    FileName = "https://forms.office.com/r/9vsUThbWN0",
+                    UseShellExecute = true
+                };
+
+                _ = Process.Start(url);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
