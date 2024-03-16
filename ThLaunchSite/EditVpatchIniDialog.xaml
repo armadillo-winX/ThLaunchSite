@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThLaunchSite"
         mc:Ignorable="d"
-        Title="EditVpatchIniDialog" Height="450" Width="800">
+        Title="vpatch.ini エディター" Height="379" Width="432" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow">
     <Grid>
-        
+        <TextBox x:Name="EditorBox" HorizontalAlignment="Center" Text="" Width="432" Margin="0,0,0,24"
+                 HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                 AcceptsReturn="True"/>
+        <Button x:Name="SaveButton" Content="保存(_S)"
+                Width="90" Height="24"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="SaveButtonClick"/>
+
     </Grid>
 </Window>
