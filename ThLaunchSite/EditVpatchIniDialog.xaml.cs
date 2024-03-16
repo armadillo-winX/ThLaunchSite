@@ -57,7 +57,7 @@ namespace ThLaunchSite
 
         private void SaveVsyncPatchIniData(string data)
         {
-            File.WriteAllText(data, this.VsyncPatchIniFilePath);
+            File.WriteAllText(this.VsyncPatchIniFilePath, data);
         }
 
         private void SaveButtonClick(object sender, RoutedEventArgs e)

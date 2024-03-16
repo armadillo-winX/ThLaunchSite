@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="vpatch.ini エディター" Height="379" Width="432" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow">
     <Grid>
-        <TextBox x:Name="EditorBox" HorizontalAlignment="Center" Text="" Width="432" Margin="0,0,0,24"
+        <TextBox x:Name="EditorBox" Text="" Margin="0,0,0,24"
                  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
                  AcceptsReturn="True"/>
         <Button x:Name="SaveButton" Content="保存(_S)"

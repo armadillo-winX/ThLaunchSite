@@ -34,6 +34,7 @@
                         <Image Source="/Images/Settings_16x.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem x:Name="EditVsyncPatchIniMenuItem" Header="vpatch.iniを編集する(_E)" Click="EditVsyncPatchIniMenuItemClick"/>
                 <Separator />
                 <MenuItem x:Name="CatchGameProcessMenuItem" Header="実行中のゲームプロセスの捕捉"
                           Click="CatchGameProcessMenuItemClick">

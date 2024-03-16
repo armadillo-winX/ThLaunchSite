@@ -1117,5 +1117,21 @@ namespace ThLaunchSite
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void EditVsyncPatchIniMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            string gameFilePath = GameFile.GetGameFilePath(this.GameId);
+            string gameDirectoryPath = Path.GetDirectoryName(gameFilePath);
+
+            string vsyncPathIniFilePath = $"{gameDirectoryPath}\\vpatch.ini";
+
+            EditVpatchIniDialog editVpatchIniDialog = new()
+            {
+                Owner = this,
+                VsyncPatchIniFilePath = vsyncPathIniFilePath
+            };
+
+            editVpatchIniDialog.ShowDialog();
+        }
     }
 }
