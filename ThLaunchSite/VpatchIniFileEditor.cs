@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ThLaunchSite
 {
-    internal class IniFileEditor
+    internal class VpatchIniFileEditor
     {
         //---DLL関数の定義 START---//
         //GetPrivateProfileString関数の定義
