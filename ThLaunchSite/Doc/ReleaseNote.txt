@@ -1,5 +1,8 @@
 Touhou Launch Site リリースノート
 
+ver0.1.2-beta
+・vpatch.ini エディターを実装した。
+
 ver0.1.1-beta
 ・フィードバック送信メニューを追加した。
 
