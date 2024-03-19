@@ -861,7 +861,7 @@ namespace ThLaunchSite
 
         private void WindowKeyDown(object sender, KeyEventArgs e)
         {
-            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.P)
+            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.P && !this.IsEnabledWaitGameEndMode)
             {
                 ShowCommandGameLauncherDialog();
             }
