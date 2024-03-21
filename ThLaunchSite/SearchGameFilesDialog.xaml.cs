@@ -10,8 +10,7 @@ namespace ThLaunchSite
     public partial class SearchGameFilesDialog : Window
     {
         private readonly string[] gameFilesName =
-            new string[]
-            {
+            [
                 "東方紅魔郷.exe",
                 "th07.exe",
                 "th08.exe",
@@ -28,7 +27,7 @@ namespace ThLaunchSite
                 "th16.exe",
                 "th17.exe",
                 "th18.exe"
-            };
+            ];
 
         public SearchGameFilesDialog()
         {
