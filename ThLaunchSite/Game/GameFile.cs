@@ -1,4 +1,4 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
 
 namespace ThLaunchSite.Game
 {
@@ -129,6 +129,30 @@ namespace ThLaunchSite.Game
                 gameDirectory, "thprac*.exe", SearchOption.TopDirectoryOnly);
 
             return thpracFiles;
+        }
+
+        private static IEnumerable<string> GetAllDirectories(string rootDirectory)
+        {
+            Queue<string> directories = new();
+
+            directories.Enqueue(rootDirectory);
+            while (directories.Count != 0)
+            {
+                string? directory = directories.Dequeue();
+                if (Directory.Exists(directory))
+                {
+                    yield return directory;
+                    try
+                    {
+                        IEnumerable<string> childDirectories = Directory.EnumerateDirectories(directory);
+                        foreach (string? childDirectory in childDirectories)
+                            directories.Enqueue(childDirectory);
+                    }
+                    catch (Exception)
+                    { 
+                    }
+                }
+            }
         }
     }
 }
