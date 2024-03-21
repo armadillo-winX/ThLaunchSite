@@ -27,6 +27,12 @@
                         <Image Source="/Images/FolderOpened_16x.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="SearchGameFileMenuItem" Header="ゲーム実行ファイルの検索(_S)" Click="SearchGameFileMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Search_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
                 <Separator />
                 <MenuItem x:Name="LaunchCustomProgramMenuItem" Header="環境カスタムプログラムを起動する(_C)"
                           Click="LaunchCustomeMenuItemClick">
@@ -327,6 +333,15 @@
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Images/FolderOpened_16x.png"></Image>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Button HorizontalAlignment="Right" Margin="0,25,12,0" VerticalAlignment="Top" Width="20" Height="20"
+                ToolTip="ゲーム実行ファイルの検索"
+                Click="SearchGameFileMenuItemClick">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/Search_16x.png"></Image>
                 </StackPanel>
             </Button.Content>
         </Button>

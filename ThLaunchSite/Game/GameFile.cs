@@ -131,7 +131,7 @@ namespace ThLaunchSite.Game
             return thpracFiles;
         }
 
-        private static IEnumerable<string> GetAllDirectories(string rootDirectory)
+        public static IEnumerable<string> GetAllDirectories(string rootDirectory)
         {
             Queue<string> directories = new();
 

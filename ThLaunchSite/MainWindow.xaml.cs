@@ -1133,5 +1133,14 @@ namespace ThLaunchSite
 
             editVpatchIniDialog.ShowDialog();
         }
+
+        private void SearchGameFileMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            SearchGameFilesDialog searchGameFilesDialog = new()
+            {
+                Owner = this
+            };
+            searchGameFilesDialog.ShowDialog();
+        }
     }
 }
