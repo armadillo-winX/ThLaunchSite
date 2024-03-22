@@ -30,6 +30,8 @@ namespace ThLaunchSite.Game
 
         public static string Th18 => "Th18";
 
+        public static string Th19 => "Th19";
+
         private readonly static Dictionary<string, string> _gameNameDictionary = new()
         {
             { "Th06", "東方紅魔郷" },
@@ -44,7 +46,8 @@ namespace ThLaunchSite.Game
             { "Th15", "東方紺珠伝" },
             { "Th16", "東方天空璋" },
             { "Th17", "東方鬼形獣" },
-            { "Th18", "東方虹龍洞" }
+            { "Th18", "東方虹龍洞" },
+            { "Th19", "東方獣王園" }
         };
 
         public static string GetGameName(string gameId)

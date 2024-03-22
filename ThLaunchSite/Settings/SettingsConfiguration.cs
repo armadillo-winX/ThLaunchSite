@@ -23,6 +23,7 @@ namespace ThLaunchSite.Settings
             _gamePathSettings.Th16 = GamePath.Th16FilePath;
             _gamePathSettings.Th17 = GamePath.Th17FilePath;
             _gamePathSettings.Th18 = GamePath.Th18FilePath;
+            _gamePathSettings.Th19 = GamePath.Th19FilePath;
 
             if (!string.IsNullOrEmpty(gamePathSettingsFile))
             {
@@ -59,6 +60,7 @@ namespace ThLaunchSite.Settings
                 GamePath.Th16FilePath = _gamePathSettings.Th16;
                 GamePath.Th17FilePath = _gamePathSettings.Th17;
                 GamePath.Th18FilePath = _gamePathSettings.Th18;
+                GamePath.Th19FilePath = _gamePathSettings.Th19;
             }
             else
             {
@@ -75,6 +77,7 @@ namespace ThLaunchSite.Settings
                 GamePath.Th16FilePath = string.Empty;
                 GamePath.Th17FilePath = string.Empty;
                 GamePath.Th18FilePath = string.Empty;
+                GamePath.Th19FilePath = string.Empty;
             }
         }
 

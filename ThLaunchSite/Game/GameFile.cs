@@ -56,6 +56,10 @@
             {
                 return GamePath.Th18FilePath;
             }
+            else if (gameId == GameIndex.Th19)
+            {
+                return GamePath.Th19FilePath;
+            }
             else
             {
                 return null;
@@ -115,6 +119,10 @@
             else if (gameId == GameIndex.Th18)
             {
                 GamePath.Th18FilePath = gamePath;
+            }
+            else if (gameId == GameIndex.Th19)
+            {
+                GamePath.Th19FilePath = gamePath;
             }
         }
 

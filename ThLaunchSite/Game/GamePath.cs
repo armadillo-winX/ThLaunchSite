@@ -27,5 +27,7 @@
         public static string? Th17FilePath { get; set; }
 
         public static string? Th18FilePath { get; set; }
+
+        public static string? Th19FilePath { get; set; }
     }
 }

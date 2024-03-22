@@ -109,6 +109,7 @@
             <ComboBoxItem Uid="Th16" Content="東方天空璋"/>
             <ComboBoxItem Uid="Th17" Content="東方鬼形獣"/>
             <ComboBoxItem Uid="Th18" Content="東方虹龍洞"/>
+            <ComboBoxItem Uid="Th19" Content="東方獣王園"/>
         </ComboBox>
         <Label Content="パス:" HorizontalAlignment="Left" Margin="135,21,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="GamePathBox" IsReadOnly="True" Margin="171,25,109,0"

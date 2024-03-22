@@ -27,5 +27,7 @@
         public string? Th17 { get; set; }
 
         public string? Th18 { get; set; }
+
+        public string? Th19 { get; set; }
     }
 }
