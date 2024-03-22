@@ -1,5 +1,8 @@
 Touhou Launch Site リリースノート
 
+ver0.1.3-beta
+・ゲーム実行ファイルの検索機能を実装した。
+
 ver0.1.2-beta
 ・vpatch.ini エディターを実装した。
 ・ゲーム終了待機モードに関して修正した。
