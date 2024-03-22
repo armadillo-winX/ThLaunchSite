@@ -330,14 +330,14 @@
         <Button x:Name="OpenGameDirectoryButton"
                 ToolTip="ゲームのインストールディレクトリを開く"
                 Click="OpenGameDirectoryMenuItemClick"
-                HorizontalAlignment="Right" Margin="0,25,37,0" VerticalAlignment="Top" Width="20" Height="20">
+                HorizontalAlignment="Right" Margin="0,25,12,0" VerticalAlignment="Top" Width="20" Height="20">
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Images/FolderOpened_16x.png"></Image>
                 </StackPanel>
             </Button.Content>
         </Button>
-        <Button HorizontalAlignment="Right" Margin="0,25,12,0" VerticalAlignment="Top" Width="20" Height="20"
+        <Button HorizontalAlignment="Right" Margin="0,25,37,0" VerticalAlignment="Top" Width="20" Height="20"
                 ToolTip="ゲーム実行ファイルの検索"
                 Click="SearchGameFileMenuItemClick">
             <Button.Content>
