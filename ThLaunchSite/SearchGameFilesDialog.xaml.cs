@@ -50,7 +50,7 @@ namespace ThLaunchSite
                 StatusBlock.Text = "検索しています...";
                 SearchRootDirectoryBox.IsEnabled = false;
                 SearchButton.IsEnabled = false;
-                GameFileListBox.IsEnabled = false;
+                BrowseButton.IsEnabled = false;
                 SetPathButton.IsEnabled = false;
 
                 string rootDirectory = SearchRootDirectoryBox.Text;
@@ -83,7 +83,7 @@ namespace ThLaunchSite
                 StatusBlock.Text = "";
                 SearchRootDirectoryBox.IsEnabled = true;
                 SearchButton.IsEnabled = true;
-                GameFileListBox.IsEnabled = true;
+                BrowseButton.IsEnabled = true;
                 SetPathButton.IsEnabled = true;
             }
             else if (!Directory.Exists(SearchRootDirectoryBox.Text))
