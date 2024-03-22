@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ThLaunchSite.Game
+﻿namespace ThLaunchSite.Game
 {
     internal class GameFile
     {
