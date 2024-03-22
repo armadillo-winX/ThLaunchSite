@@ -16,7 +16,7 @@
         <ListBox x:Name="GameFileListBox" Margin="10,127,10,39"/>
         <Button x:Name="SetPathButton"
                 Width="120" Height="24"
-                Content="設定に登録" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom"/>
+                Content="設定に登録" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Click="SetPathButtonClick"/>
         <Label Content="ゲーム実行ファイル一覧:" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="StatusBlock" HorizontalAlignment="Center" Margin="0,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 

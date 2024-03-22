@@ -97,5 +97,34 @@ namespace ThLaunchSite
                     MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
+
+        private void SetPathButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (GameFileListBox.SelectedIndex > -1)
+            {
+                string gameFilePath = GameFileListBox.SelectedItem.ToString();
+
+                string gameId;
+                if (Path.GetFileNameWithoutExtension(gameFilePath) == "東方紅魔郷")
+                {
+                    gameId = "Th06";
+                }
+                else
+                {
+                    gameId = Path.GetFileNameWithoutExtension(gameFilePath).Replace("tr", "").Replace("t", "T");
+                }
+
+                GameFile.SetGameFilePath(gameId, gameFilePath);
+                MessageBox.Show(this,
+                    $"'{gameFilePath}' を{GameIndex.GetGameName(gameId)}の実行ファイルとして登録しました。",
+                    "ゲーム実行ファイルの検索",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(this, "ゲーム実行ファイル一覧からパスを一つ選択してください。", "ゲーム実行ファイルの検索",
+                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
     }
 }
