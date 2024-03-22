@@ -53,6 +53,8 @@ namespace ThLaunchSite
                 BrowseButton.IsEnabled = false;
                 SetPathButton.IsEnabled = false;
 
+                GameFileListBox.Items.Clear();
+
                 string rootDirectory = SearchRootDirectoryBox.Text;
 
                 await Task.Run(() =>
