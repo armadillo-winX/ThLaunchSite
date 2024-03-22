@@ -1141,6 +1141,8 @@ namespace ThLaunchSite
                 Owner = this
             };
             searchGameFilesDialog.ShowDialog();
+
+            GamePathBox.Text = GameFile.GetGameFilePath(this.GameId);
         }
     }
 }
