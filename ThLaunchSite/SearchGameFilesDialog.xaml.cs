@@ -57,7 +57,7 @@ namespace ThLaunchSite
 
                 await Task.Run(() =>
                 {
-                    IEnumerable<string> directories = GameFile.GetAllDirectories(rootDirectory);
+                    IEnumerable<string> directories = GetAllDirectories(rootDirectory);
 
                     foreach (string directory in directories)
                     {
@@ -124,6 +124,29 @@ namespace ThLaunchSite
             {
                 MessageBox.Show(this, "ゲーム実行ファイル一覧からパスを一つ選択してください。", "ゲーム実行ファイルの検索",
                     MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+        private IEnumerable<string> GetAllDirectories(string rootDirectory)
+        {
+            Queue<string> directories = new();
+
+            directories.Enqueue(rootDirectory);
+            while (directories.Count != 0)
+            {
+                string? directory = directories.Dequeue();
+                if (Directory.Exists(directory))
+                {
+                    yield return directory;
+                    try
+                    {
+                        IEnumerable<string> childDirectories = Directory.EnumerateDirectories(directory);
+                        foreach (string? childDirectory in childDirectories)
+                            directories.Enqueue(childDirectory);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
             }
         }
     }
