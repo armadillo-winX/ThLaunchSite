@@ -1,6 +1,7 @@
 Touhou Launch Site リリースノート
 
 ver0.1.3-beta
+・東方獣王園に対応した。
 ・ゲーム実行ファイルの検索機能を実装した。
 
 ver0.1.2-beta
