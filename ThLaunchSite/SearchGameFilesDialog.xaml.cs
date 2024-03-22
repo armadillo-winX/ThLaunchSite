@@ -26,7 +26,8 @@ namespace ThLaunchSite
                 "th15.exe",
                 "th16.exe",
                 "th17.exe",
-                "th18.exe"
+                "th18.exe",
+                "th19.exe"
             ];
 
         public SearchGameFilesDialog()
