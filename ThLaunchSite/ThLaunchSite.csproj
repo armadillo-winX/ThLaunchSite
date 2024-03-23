@@ -15,6 +15,7 @@
 	  <VersionSuffix>beta</VersionSuffix>
     <UseWindowsForms>True</UseWindowsForms>
 	<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+	<ApplicationIcon>ThLaunchSite.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,6 +29,10 @@
     <None Remove="Images\Stop_16x.png" />
     <None Remove="Images\SystemInfo_16x.png" />
     <None Remove="Images\Time_16x.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ThLaunchSite.ico" />
   </ItemGroup>
 
   <ItemGroup>
