@@ -11,8 +11,8 @@
     <AssemblyVersion></AssemblyVersion>
     <FileVersion></FileVersion>
     <Version>$(VersionPrefix)$(VersionSuffix)</Version>
-	  <VersionPrefix>0.1.4</VersionPrefix>
-	  <VersionSuffix>beta</VersionSuffix>
+	  <VersionPrefix>1.0.0</VersionPrefix>
+	  <VersionSuffix>rc</VersionSuffix>
     <UseWindowsForms>True</UseWindowsForms>
 	<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 	<ApplicationIcon>ThLaunchSite.ico</ApplicationIcon>
