@@ -1,5 +1,8 @@
 Touhou Launch Site リリースノート
 
+ver1.0.0-rc
+・Touhou Launch Site ver1.x.x リリース候補版
+
 ver0.1.4-beta
 ・アプリケーションアイコンを追加した。
 
