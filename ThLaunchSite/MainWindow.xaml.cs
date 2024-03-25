@@ -74,7 +74,7 @@ namespace ThLaunchSite
         private readonly string? _settingsDirectory = PathInfo.SettingsDirectory;
         private readonly string _gamePlayLogFile = PathInfo.GamePlayLogFile;
 
-        private readonly Dictionary<string, int> GameDictionary =
+        private readonly Dictionary<string, int> _gameDictionary =
             new()
             {
                 { "Th06", 0 },
@@ -93,7 +93,7 @@ namespace ThLaunchSite
                 { "Th19", 13 }
             };
 
-        private readonly Dictionary<string, int> ThemeDictionary =
+        private readonly Dictionary<string, int> _themeDictionary =
             new()
             {
                 { "Light", 0 },
@@ -102,7 +102,7 @@ namespace ThLaunchSite
                 { "NormalColor", 3 }
             };
 
-        private readonly Dictionary<string, int> CaptureFileFormatDictionary
+        private readonly Dictionary<string, int> _captureFileFormatDictionary
             = new()
             {
                 { "BMP", 0 },
@@ -314,7 +314,7 @@ namespace ThLaunchSite
             string? selectedGameId = applicationSettings.SelectedGameId;
             if (!string.IsNullOrEmpty(selectedGameId))
             {
-                GameComboBox.SelectedIndex = GameDictionary[selectedGameId];
+                GameComboBox.SelectedIndex = _gameDictionary[selectedGameId];
             }
             else
             {
@@ -324,7 +324,7 @@ namespace ThLaunchSite
             string? themeName = applicationSettings.ThemeName;
             if (!string.IsNullOrEmpty(themeName))
             {
-                ThemeSettingsComboBox.SelectedIndex = ThemeDictionary[themeName];
+                ThemeSettingsComboBox.SelectedIndex = _themeDictionary[themeName];
             }
             else
             {
@@ -354,7 +354,7 @@ namespace ThLaunchSite
             string captureFileFormat = applicationSettings.CaptureFileFormat;
             if (!string.IsNullOrEmpty (captureFileFormat))
             {
-                CaptureFormatComboBox.SelectedIndex = CaptureFileFormatDictionary[captureFileFormat];
+                CaptureFormatComboBox.SelectedIndex = _captureFileFormatDictionary[captureFileFormat];
             }
             else
             {
@@ -541,9 +541,9 @@ namespace ThLaunchSite
                     int patchIndex = commandDialog.ToolIndex;
                     if (!string.IsNullOrEmpty(gameId))
                     {
-                        if (GameDictionary.ContainsKey(gameId))
+                        if (_gameDictionary.ContainsKey(gameId))
                         {
-                            int index = GameDictionary[gameId];
+                            int index = _gameDictionary[gameId];
                             GameComboBox.SelectedIndex = index;
                             LaunchGame(gameId, patchIndex);
                         }
@@ -728,7 +728,7 @@ namespace ThLaunchSite
             {
                 string gameId = GameProcessHandler.SearchRunningGameProcess();
                 string gameProcessName = Path.GetFileNameWithoutExtension(GameFile.GetGameFilePath(gameId));
-                GameComboBox.SelectedIndex = GameDictionary[gameId];
+                GameComboBox.SelectedIndex = _gameDictionary[gameId];
                 EnableWaitGameEndMode(gameProcessName);
             }
             catch (Exception ex)
