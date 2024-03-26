@@ -1,5 +1,5 @@
 ﻿---------------------------------------------------
-Touhou Launch Site ver1.x.x リリース候補版
+Touhou Launch Site ver1.x.x
 Copyright © 2023- Mashiro Tamane
 ---------------------------------------------------
 

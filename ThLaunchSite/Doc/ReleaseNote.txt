@@ -1,5 +1,8 @@
 Touhou Launch Site リリースノート
 
+ver1.0.0
+・Touhou Launch Site ver1.x.x 最初のリリース
+
 ver1.0.0-rc
 ・Touhou Launch Site ver1.x.x リリース候補版
 
