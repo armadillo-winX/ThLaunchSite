@@ -17,16 +17,22 @@ namespace ThLaunchSite
                 "th08tr.exe",
                 "th09.exe",
                 "th09tr.exe",
+                "th095.exe",
                 "th10.exe",
                 "th10tr.exe",
                 "th11.exe",
                 "th12.exe",
+                "th125.exe",
+                "th128.exe",
                 "th13.exe",
                 "th14.exe",
+                "th143.exe",
                 "th15.exe",
                 "th16.exe",
+                "th165.exe",
                 "th17.exe",
                 "th18.exe",
+                "th185.exe",
                 "th19.exe"
             ];
 
