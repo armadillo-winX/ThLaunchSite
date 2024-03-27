@@ -95,7 +95,7 @@
             </MenuItem>
         </Menu>
         <ComboBox x:Name="GameComboBox" SelectionChanged="GameComboBoxSelectionChanged"
-                  HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Width="120">
+                  HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Width="157">
             <ComboBoxItem Uid="Th06" Content="東方紅魔郷"/>
             <ComboBoxItem Uid="Th07" Content="東方妖々夢"/>
             <ComboBoxItem Uid="Th08" Content="東方永夜抄"/>
@@ -117,8 +117,8 @@
             <ComboBoxItem Uid="Th185" Content="バレットフィリア達の闇市場"/>
             <ComboBoxItem Uid="Th19" Content="東方獣王園"/>
         </ComboBox>
-        <Label Content="パス:" HorizontalAlignment="Left" Margin="135,21,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="GamePathBox" IsReadOnly="True" Margin="171,25,109,0"
+        <Label Content="パス:" HorizontalAlignment="Left" Margin="172,21,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="GamePathBox" IsReadOnly="True" Margin="208,25,109,0"
                  TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Height="20"/>
         <Button x:Name="GamePathBrowseButton" Content="参照(_B)"
                 Height="20"
