@@ -1153,5 +1153,24 @@ namespace ThLaunchSite
 
             GamePathBox.Text = GameFile.GetGameFilePath(this.GameId);
         }
+
+        private void OpenWebSiteMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ProcessStartInfo url = new()
+                {
+                    FileName = "https://armadillo-winx.github.io/ThLaunchSite/",
+                    UseShellExecute = true
+                };
+
+                _ = Process.Start(url);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

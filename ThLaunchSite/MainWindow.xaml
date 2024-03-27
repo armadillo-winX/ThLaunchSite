@@ -87,6 +87,7 @@
                 <MenuItem x:Name="AboutDinamicAero2MenuItem" Header="DynamicAero2 について" Click="AboutDinamicAero2MenuItemClick"/>
                 <Separator/>
                 <MenuItem x:Name="SendFeedbackMenuItem" Header="フィードバックの送信(_F)" Click="SendFeedbackMenuItemClick"/>
+                <MenuItem x:Name="OpenWebSiteMenuItem" Header="Touhou Launch Site 配布サイト" Click="OpenWebSiteMenuItemClick"/>
                 <Separator/>
                 <MenuItem Header="その他">
                     <MenuItem x:Name="OpenApplicationDirectoryMenuItem" 
