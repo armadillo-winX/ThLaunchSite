@@ -31,15 +31,21 @@ namespace ThLaunchSite
             int th07GameRunningTime = 0;
             int th08GameRunningTime = 0;
             int th09GameRunningTime = 0;
+            int th095GameRunnningTime = 0;
             int th10GameRunningTime = 0;
             int th11GameRunningTime = 0;
             int th12GameRunningTime = 0;
+            int th125GameRunningTime = 0;
+            int th128GameRunningTime = 0;
             int th13GameRunningTime = 0;
             int th14GameRunningTime = 0;
+            int th143GameRunningTime = 0;
             int th15GameRunningTime = 0;
             int th16GameRunningTime = 0;
+            int th165GameRunningTime = 0;
             int th17GameRunningTime = 0;
             int th18GameRunningTime = 0;
+            int th185GameRunningTime = 0;
             int th19GameRunningTime = 0;
             foreach (GamePlayLogData gamePlayLogData in gamePlayLogDatas)
             {
@@ -68,6 +74,10 @@ namespace ThLaunchSite
                     {
                         th09GameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
                     }
+                    else if (gameId == GameIndex.Th095)
+                    {
+                        th095GameRunnningTime += gameRunningTimeMin + gameRunningTimeSec;
+                    }
                     else if (gameId == GameIndex.Th10)
                     {
                         th10GameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
@@ -80,6 +90,14 @@ namespace ThLaunchSite
                     {
                         th12GameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
                     }
+                    else if (gameId == GameIndex.Th125)
+                    {
+                        th125GameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
+                    }
+                    else if (gameId == GameIndex.Th128)
+                    {
+                        th128GameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
+                    }
                     else if (gameId == GameIndex.Th13)
                     {
                         th13GameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
@@ -87,6 +105,10 @@ namespace ThLaunchSite
                     else if (gameId == GameIndex.Th14)
                     {
                         th14GameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
+                    }
+                    else if (gameId == GameIndex.Th143)
+                    {
+                        th143GameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
                     }
                     else if (gameId == GameIndex.Th15)
                     {
@@ -96,6 +118,10 @@ namespace ThLaunchSite
                     {
                         th16GameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
                     }
+                    else if (gameId == GameIndex.Th165)
+                    {
+                        th165GameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
+                    }
                     else if (gameId == GameIndex.Th17)
                     {
                         th17GameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
@@ -103,6 +129,10 @@ namespace ThLaunchSite
                     else if (gameId == GameIndex.Th18)
                     {
                         th18GameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
+                    }
+                    else if (gameId == GameIndex.Th185)
+                    {
+                        th185GameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
                     }
                     else if (gameId == GameIndex.Th19)
                     {
@@ -148,6 +178,12 @@ namespace ThLaunchSite
                 },
                 new GamePlayLogData
                 {
+                    GameId = GameIndex.Th095,
+                    GameName = GameIndex.GetGameName(GameIndex.Th095),
+                    GameRunningTime = $"{th095GameRunnningTime / 60:00}:{th095GameRunnningTime % 60:00}"
+                },
+                new GamePlayLogData
+                {
                     GameId = GameIndex.Th10,
                     GameName = GameIndex.GetGameName(GameIndex.Th10),
                     GameRunningTime = $"{th10GameRunningTime / 60:00}:{th10GameRunningTime % 60:00}"
@@ -166,6 +202,18 @@ namespace ThLaunchSite
                 },
                 new GamePlayLogData
                 {
+                    GameId = GameIndex.Th125,
+                    GameName = GameIndex.GetGameName(GameIndex.Th125),
+                    GameRunningTime = $"{th125GameRunningTime / 60:00}:{th125GameRunningTime % 60:00}"
+                },
+                new GamePlayLogData
+                {
+                    GameId = GameIndex.Th128,
+                    GameName = GameIndex.GetGameName(GameIndex.Th128),
+                    GameRunningTime = $"{th128GameRunningTime / 60:00}:{th128GameRunningTime % 60:00}"
+                },
+                new GamePlayLogData
+                {
                     GameId = GameIndex.Th13,
                     GameName = GameIndex.GetGameName(GameIndex.Th13),
                     GameRunningTime = $"{th13GameRunningTime / 60:00}:{th13GameRunningTime % 60:00}"
@@ -175,6 +223,12 @@ namespace ThLaunchSite
                     GameId = GameIndex.Th14,
                     GameName = GameIndex.GetGameName(GameIndex.Th14),
                     GameRunningTime = $"{th14GameRunningTime / 60:00}:{th14GameRunningTime % 60:00}"
+                },
+                new GamePlayLogData
+                {
+                    GameId = GameIndex.Th143,
+                    GameName = GameIndex.GetGameName(GameIndex.Th143),
+                    GameRunningTime = $"{th143GameRunningTime / 60:00}:{th143GameRunningTime % 60:00}"
                 },
                 new GamePlayLogData
                 {
@@ -190,6 +244,12 @@ namespace ThLaunchSite
                 },
                 new GamePlayLogData
                 {
+                    GameId = GameIndex.Th165,
+                    GameName = GameIndex.GetGameName(GameIndex.Th165),
+                    GameRunningTime = $"{th165GameRunningTime / 60:00}:{th165GameRunningTime % 60:00}"
+                },
+                new GamePlayLogData
+                {
                     GameId = GameIndex.Th17,
                     GameName = GameIndex.GetGameName(GameIndex.Th17),
                     GameRunningTime = $"{th17GameRunningTime / 60:00}:{th17GameRunningTime % 60:00}"
@@ -199,6 +259,12 @@ namespace ThLaunchSite
                     GameId = GameIndex.Th18,
                     GameName = GameIndex.GetGameName(GameIndex.Th18),
                     GameRunningTime = $"{th18GameRunningTime / 60:00}:{th18GameRunningTime % 60:00}"
+                },
+                new GamePlayLogData
+                {
+                    GameId = GameIndex.Th185,
+                    GameName = GameIndex.GetGameName(GameIndex.Th185),
+                    GameRunningTime = $"{th185GameRunningTime / 60:00}:{th185GameRunningTime % 60:00}"
                 },
                 new GamePlayLogData
                 {
