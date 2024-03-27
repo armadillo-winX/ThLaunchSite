@@ -1,5 +1,8 @@
 Touhou Launch Site リリースノート
 
+ver1.0.1
+・ターゲットシステムバージョンおよび最小システム要件を変更した。
+
 ver1.0.0
 ・Touhou Launch Site ver1.x.x 最初のリリース
 
