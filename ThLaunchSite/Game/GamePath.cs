@@ -10,23 +10,35 @@
 
         public static string? Th09FilePath { get; set; }
 
+        public static string? Th095FilePath { get; set; }
+
         public static string? Th10FilePath { get; set; }
 
         public static string? Th11FilePath { get; set; }
 
         public static string? Th12FilePath { get; set; }
 
+        public static string? Th125FilePath { get; set; }
+
+        public static string? Th128FilePath { get; set; }
+
         public static string? Th13FilePath { get; set; }
 
         public static string? Th14FilePath { get; set; }
+
+        public static string? Th143FilePath { get; set; }
 
         public static string? Th15FilePath { get; set; }
 
         public static string? Th16FilePath { get; set; }
 
+        public static string? Th165FilePath { get; set; }
+
         public static string? Th17FilePath { get; set; }
 
         public static string? Th18FilePath { get; set; }
+
+        public static string? Th185FilePath { get; set; }
 
         public static string? Th19FilePath { get; set; }
     }

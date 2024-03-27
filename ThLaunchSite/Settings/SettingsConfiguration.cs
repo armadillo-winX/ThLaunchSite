@@ -14,15 +14,21 @@ namespace ThLaunchSite.Settings
             _gamePathSettings.Th07 = GamePath.Th07FilePath;
             _gamePathSettings.Th08 = GamePath.Th08FilePath;
             _gamePathSettings.Th09 = GamePath.Th09FilePath;
+            _gamePathSettings.Th095 = GamePath.Th095FilePath;
             _gamePathSettings.Th10 = GamePath.Th10FilePath;
             _gamePathSettings.Th11 = GamePath.Th11FilePath;
             _gamePathSettings.Th12 = GamePath.Th12FilePath;
+            _gamePathSettings.Th125 = GamePath.Th125FilePath;
+            _gamePathSettings.Th128 = GamePath.Th128FilePath;
             _gamePathSettings.Th13 = GamePath.Th13FilePath;
             _gamePathSettings.Th14 = GamePath.Th14FilePath;
+            _gamePathSettings.Th143 = GamePath.Th143FilePath;
             _gamePathSettings.Th15 = GamePath.Th15FilePath;
             _gamePathSettings.Th16 = GamePath.Th16FilePath;
+            _gamePathSettings.Th165 = GamePath.Th165FilePath;
             _gamePathSettings.Th17 = GamePath.Th17FilePath;
             _gamePathSettings.Th18 = GamePath.Th18FilePath;
+            _gamePathSettings.Th185 = GamePath.Th185FilePath;
             _gamePathSettings.Th19 = GamePath.Th19FilePath;
 
             if (!string.IsNullOrEmpty(gamePathSettingsFile))
@@ -51,15 +57,21 @@ namespace ThLaunchSite.Settings
                 GamePath.Th07FilePath = _gamePathSettings.Th07;
                 GamePath.Th08FilePath = _gamePathSettings.Th08;
                 GamePath.Th09FilePath = _gamePathSettings.Th09;
+                GamePath.Th095FilePath = _gamePathSettings.Th095;
                 GamePath.Th10FilePath = _gamePathSettings.Th10;
                 GamePath.Th11FilePath = _gamePathSettings.Th11;
                 GamePath.Th12FilePath = _gamePathSettings.Th12;
+                GamePath.Th125FilePath = _gamePathSettings.Th125;
+                GamePath.Th128FilePath = _gamePathSettings.Th128;
                 GamePath.Th13FilePath = _gamePathSettings.Th13;
                 GamePath.Th14FilePath = _gamePathSettings.Th14;
+                GamePath.Th143FilePath = _gamePathSettings.Th143;
                 GamePath.Th15FilePath = _gamePathSettings.Th15;
                 GamePath.Th16FilePath = _gamePathSettings.Th16;
+                GamePath.Th165FilePath = _gamePathSettings.Th165;
                 GamePath.Th17FilePath = _gamePathSettings.Th17;
                 GamePath.Th18FilePath = _gamePathSettings.Th18;
+                GamePath.Th185FilePath = _gamePathSettings.Th185;
                 GamePath.Th19FilePath = _gamePathSettings.Th19;
             }
             else
@@ -68,15 +80,21 @@ namespace ThLaunchSite.Settings
                 GamePath.Th07FilePath = string.Empty;
                 GamePath.Th08FilePath = string.Empty;
                 GamePath.Th09FilePath = string.Empty;
+                GamePath.Th095FilePath = string.Empty;
                 GamePath.Th10FilePath = string.Empty;
                 GamePath.Th11FilePath = string.Empty;
                 GamePath.Th12FilePath = string.Empty;
+                GamePath.Th125FilePath = string.Empty;
+                GamePath.Th128FilePath = string.Empty;
                 GamePath.Th13FilePath = string.Empty;
                 GamePath.Th14FilePath = string.Empty;
+                GamePath.Th143FilePath = string.Empty;
                 GamePath.Th15FilePath = string.Empty;
                 GamePath.Th16FilePath = string.Empty;
+                GamePath.Th165FilePath = string.Empty;
                 GamePath.Th17FilePath = string.Empty;
                 GamePath.Th18FilePath = string.Empty;
+                GamePath.Th185FilePath = string.Empty;
                 GamePath.Th19FilePath = string.Empty;
             }
         }
