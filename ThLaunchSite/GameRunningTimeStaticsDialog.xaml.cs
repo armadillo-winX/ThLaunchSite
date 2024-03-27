@@ -40,6 +40,7 @@ namespace ThLaunchSite
             int th16GameRunningTime = 0;
             int th17GameRunningTime = 0;
             int th18GameRunningTime = 0;
+            int th19GameRunningTime = 0;
             foreach (GamePlayLogData gamePlayLogData in gamePlayLogDatas)
             {
                 try
@@ -102,6 +103,10 @@ namespace ThLaunchSite
                     else if (gameId == GameIndex.Th18)
                     {
                         th18GameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
+                    }
+                    else if (gameId == GameIndex.Th19)
+                    {
+                        th19GameRunningTime += gameRunningTimeMin + gameRunningTimeSec;
                     }
                 }
                 catch (Exception)
@@ -194,6 +199,12 @@ namespace ThLaunchSite
                     GameId = GameIndex.Th18,
                     GameName = GameIndex.GetGameName(GameIndex.Th18),
                     GameRunningTime = $"{th18GameRunningTime / 60:00}:{th18GameRunningTime % 60:00}"
+                },
+                new GamePlayLogData
+                {
+                    GameId = GameIndex.Th19,
+                    GameName = GameIndex.GetGameName( GameIndex.Th19),
+                    GameRunningTime = $"{th19GameRunningTime / 60:00}:{th19GameRunningTime % 60:00}"
                 }
             };
             EachGameRunningTimeGrid.AutoGenerateColumns = false;
