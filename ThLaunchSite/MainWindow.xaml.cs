@@ -464,12 +464,14 @@ namespace ThLaunchSite
             LaunchWithVpatchMenuItem.IsEnabled = !enabled;
             LaunchWithThpracMenuItem.IsEnabled = !enabled;
             LaunchWithAnyToolMenuItem.IsEnabled = !enabled;
+            SearchGameFileMenuItem.IsEnabled = !enabled;
             LaunchCustomProgramMenuItem.IsEnabled = !enabled;
             CatchGameProcessMenuItem.IsEnabled = !enabled;
             CommandGameLauncherMenuItem.IsEnabled = !enabled;
 
             GamePathBox.IsEnabled = !enabled;
             GamePathBrowseButton.IsEnabled = !enabled;
+            SearchGameFileButton.IsEnabled = !enabled;
             LaunchGameButton.IsEnabled = !enabled;
             LaunchCustomProgramButton.IsEnabled = !enabled;
             CatchGameProcessButton.IsEnabled = !enabled;

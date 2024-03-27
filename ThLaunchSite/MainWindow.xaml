@@ -337,7 +337,8 @@
                 </StackPanel>
             </Button.Content>
         </Button>
-        <Button HorizontalAlignment="Right" Margin="0,25,37,0" VerticalAlignment="Top" Width="20" Height="20"
+        <Button x:Name="SearchGameFileButton"
+                HorizontalAlignment="Right" Margin="0,25,37,0" VerticalAlignment="Top" Width="20" Height="20"
                 ToolTip="ゲーム実行ファイルの検索"
                 Click="SearchGameFileMenuItemClick">
             <Button.Content>
