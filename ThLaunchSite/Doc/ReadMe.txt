@@ -54,6 +54,13 @@ Microsoft Visual Studio Community 2022 Current
 ・東方虹龍洞　～ Unconnected Marketeers.
 ・東方獣王園　～ Unfinished Dream of All Living Ghost.
 
+・東方文花帖　～ Shoot the Bullet.
+・ダブルスポイラー　～ 東方文花帖
+・妖精大戦争　～ 東方三月精
+・弾幕アマノジャク　～ Impossible Spell Card.
+・秘封ナイトメアダイアリー　～ Violet Detector.
+・バレットフィリア達の闇市場 〜 100th Black Market.
+
 
 §ソースコード
 本ソフトウェアはオープンソースにて開発されており、ソースコードはGitHubで2条項BSDライセンスで公開されています。
