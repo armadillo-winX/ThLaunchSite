@@ -16,9 +16,9 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Width="40" IsReadOnly="True"
                                             Binding="{Binding GameId}"/>
-                <DataGridTextColumn Header="ゲーム" Width="120" IsReadOnly="True"
+                <DataGridTextColumn Header="ゲーム" Width="160" IsReadOnly="True"
                                             Binding="{Binding GameName}" FontSize="14"/>
-                <DataGridTextColumn Header="起動時間" Width="120" IsReadOnly="True"
+                <DataGridTextColumn Header="起動時間" Width="80" IsReadOnly="True"
                                             Binding="{Binding GameRunningTime}" FontSize="14"/>
             </DataGrid.Columns>
         </DataGrid>
