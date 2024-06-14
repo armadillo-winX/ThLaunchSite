@@ -15,3 +15,12 @@ Microsoft Visual Studio 2022<br>
 Microsoft .NET 8.0<br>
 ## 免責事項
 2条項BSDライセンスが適用されます
+## 使用しているライブラリ
+東方管制塔 NX が使用しているライブラリのライセンスについては[Doc/License.txt](ThLaunchSite/Doc/License.txt)を参照してください
+### DynamicAero2
+Copyright (c) 2020 manju summoner
+### System.Drawing.Common
+Copyright (c) .NET Foundation and Contributors
+### DX ライブラリ
+Copyright (C) 2001-2024 Takumi Yamada.
+
