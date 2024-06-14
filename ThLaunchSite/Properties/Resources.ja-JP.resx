@@ -1,0 +1,717 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppPrimaryAboveNormal" xml:space="preserve">
+    <value>通常以上</value>
+  </data>
+  <data name="AppPrimaryBelowNormal" xml:space="preserve">
+    <value>通常以下</value>
+  </data>
+  <data name="AppPrimaryHigh" xml:space="preserve">
+    <value>高</value>
+  </data>
+  <data name="AppPrimaryIdle" xml:space="preserve">
+    <value>低</value>
+  </data>
+  <data name="AppPrimaryNormal" xml:space="preserve">
+    <value>通常</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>追加(_A)</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>参照(_B)</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>閉じる(_C)</value>
+  </data>
+  <data name="ButtonCreate" xml:space="preserve">
+    <value>作成(_C)</value>
+  </data>
+  <data name="ButtonDelete" xml:space="preserve">
+    <value>削除(_D)</value>
+  </data>
+  <data name="ButtonExecute" xml:space="preserve">
+    <value>実行(_R)</value>
+  </data>
+  <data name="ButtonLaunchGame" xml:space="preserve">
+    <value>ゲーム起動</value>
+  </data>
+  <data name="ButtonOK" xml:space="preserve">
+    <value>_OK</value>
+  </data>
+  <data name="ButtonRegisterToSettings" xml:space="preserve">
+    <value>設定に登録</value>
+  </data>
+  <data name="ButtonResize" xml:space="preserve">
+    <value>リサイズ(_R)</value>
+  </data>
+  <data name="ButtonRestore" xml:space="preserve">
+    <value>復元(_R)</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>保存(_S)</value>
+  </data>
+  <data name="ButtonSearch" xml:space="preserve">
+    <value>検索(_S)</value>
+  </data>
+  <data name="ButtonSelectGame" xml:space="preserve">
+    <value>ゲームを選択▾</value>
+  </data>
+  <data name="CheckBoxAlwaysOnTop" xml:space="preserve">
+    <value>ウィンドウを最前面に固定</value>
+  </data>
+  <data name="CheckBoxBackupScoreFileWhenGameEnd" xml:space="preserve">
+    <value>ゲーム終了時にスコアファイルをバックアップする</value>
+  </data>
+  <data name="CheckBoxFixMainWindowSize" xml:space="preserve">
+    <value>メインウィンドウのサイズを固定</value>
+  </data>
+  <data name="CheckBoxGrantAdministratorPrivileges" xml:space="preserve">
+    <value>管理者特権を付与する</value>
+  </data>
+  <data name="CheckBoxSetAsTrial" xml:space="preserve">
+    <value>体験版として設定する</value>
+  </data>
+  <data name="DataGridCulumnDescription" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="DataGridCulumnDeveloper" xml:space="preserve">
+    <value>開発者</value>
+  </data>
+  <data name="DataGridCulumnGameEndTime" xml:space="preserve">
+    <value>終了時刻</value>
+  </data>
+  <data name="DataGridCulumnGameName" xml:space="preserve">
+    <value>ゲーム</value>
+  </data>
+  <data name="DataGridCulumnGameRunningTime" xml:space="preserve">
+    <value>起動時間</value>
+  </data>
+  <data name="DataGridCulumnGameStartTime" xml:space="preserve">
+    <value>開始時刻</value>
+  </data>
+  <data name="DataGridCulumnID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="DataGridCulumnName" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="DataGridCulumnVersion" xml:space="preserve">
+    <value>バージョン</value>
+  </data>
+  <data name="ErrorMessageCaptureFolderNotFound" xml:space="preserve">
+    <value>キャプチャファイルの保存フォルダが存在しませんでした。</value>
+  </data>
+  <data name="ErrorMessageCustomProgramNotFound" xml:space="preserve">
+    <value>custom.exe(環境カスタムプログラム)が見つかりませんでした。</value>
+  </data>
+  <data name="ErrorMessageFailedToChangeGameBasePrimary" xml:space="preserve">
+    <value>ゲームプロセスの基本優先度の変更に失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToConfigApplicationSettings" xml:space="preserve">
+    <value>アプリケーション設定の構成に失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToCreateExternalToolsConfigFile" xml:space="preserve">
+    <value>外部ツール管理ファイルの生成に失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToCreateGameEditionConfigFile" xml:space="preserve">
+    <value>ゲームの製品版・体験版指定設定の構成に失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToCreateGamePathConfigFile" xml:space="preserve">
+    <value>ゲームパス設定の構成に失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToCreatePluginDirecoty" xml:space="preserve">
+    <value>プラグイン管理フォルダの生成に失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToCreateScoreBackup" xml:space="preserve">
+    <value>スコアファイルのバックアップの作成に失敗しました。</value>
+  </data>
+  <data name="ErrorMessageFailedToCreateSettingsDirectory" xml:space="preserve">
+    <value>設定ファイル保存ディレクトリの生成に失敗。アプリケーションを終了します。</value>
+  </data>
+  <data name="ErrorMessageFailedToDeleteBackup" xml:space="preserve">
+    <value>バックアップの削除に失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToDetectGameProcess" xml:space="preserve">
+    <value>ゲームプロセスの検知に失敗しました。</value>
+  </data>
+  <data name="ErrorMessageFailedToFindThpracFiles" xml:space="preserve">
+    <value>thpracの実行ファイルが見つかりませんでした。</value>
+  </data>
+  <data name="ErrorMessageFailedToGameExecutionLog" xml:space="preserve">
+    <value>ゲーム実行ログの保存に失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToGetGameExecutionLog" xml:space="preserve">
+    <value>ゲーム実行履歴の取得に失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToGetPlugins" xml:space="preserve">
+    <value>プラグインの取得に失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToInstall" xml:space="preserve">
+    <value>のインストールに失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToKillGameProcess" xml:space="preserve">
+    <value>ゲームの強制終了に失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToReadBackupDirectory" xml:space="preserve">
+    <value>バックアップフォルダの読み取りに失敗</value>
+  </data>
+  <data name="ErrorMessageFailedToReadSpecifiedFile" xml:space="preserve">
+    <value>指定されたファイルの読み込みに失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToReadVpatchIni" xml:space="preserve">
+    <value>vpatch.iniの読み込みに失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToRestoreFromBackup" xml:space="preserve">
+    <value>バックアップからの復元に失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToSaveFile" xml:space="preserve">
+    <value>ファイルの保存に失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToSaveSettings" xml:space="preserve">
+    <value>設定の保存に失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToStartCustomProgram" xml:space="preserve">
+    <value>環境カスタムプログラムの起動に失敗。</value>
+  </data>
+  <data name="ErrorMessageFailedToStartGameProcess" xml:space="preserve">
+    <value>ゲームの起動に失敗。</value>
+  </data>
+  <data name="ErrorMessageGameFileNotFound" xml:space="preserve">
+    <value>ゲームの実行ファイルが見つかりませんでした。</value>
+  </data>
+  <data name="ErrorMessageInvalidSelection" xml:space="preserve">
+    <value>不正な選択がなされました。</value>
+  </data>
+  <data name="ErrorMessageMultiActivation" xml:space="preserve">
+    <value>東方管制塔 NX が既に起動しています。多重起動はできません。</value>
+  </data>
+  <data name="ErrorMessageNotFound" xml:space="preserve">
+    <value>が見つかりませんでした。</value>
+  </data>
+  <data name="ErrorMessageNotFoundVpatchIni" xml:space="preserve">
+    <value>vpatch.iniが見つかりませんでした。</value>
+  </data>
+  <data name="ErrorMessageSpecifiedFileNotFound" xml:space="preserve">
+    <value>指定されたファイルが存在しません。</value>
+  </data>
+  <data name="LabelCaptureFileFormat" xml:space="preserve">
+    <value>キャプチャファイルフォーマット:</value>
+  </data>
+  <data name="LabelChangeGameBasePrimary" xml:space="preserve">
+    <value>ゲームの基本優先度変更:</value>
+  </data>
+  <data name="LabelGameCaptureFolder" xml:space="preserve">
+    <value>キャプチャファイルの保存フォルダ:</value>
+  </data>
+  <data name="LabelGameFilesList" xml:space="preserve">
+    <value>ゲーム実行ファイル一覧:</value>
+  </data>
+  <data name="LabelGamePlayTime" xml:space="preserve">
+    <value>ゲームプレイ時間</value>
+  </data>
+  <data name="LabelHeight" xml:space="preserve">
+    <value>高さ:</value>
+  </data>
+  <data name="LabelInstallTarget" xml:space="preserve">
+    <value>インストール先:</value>
+  </data>
+  <data name="LabelMessageTotalGameRunningTime" xml:space="preserve">
+    <value>あなたは累積でこれだけの時間東方を起動しています</value>
+  </data>
+  <data name="LabelOption" xml:space="preserve">
+    <value>オプション:</value>
+  </data>
+  <data name="LabelPath" xml:space="preserve">
+    <value>パス:</value>
+  </data>
+  <data name="LabelRunningTimeByGame" xml:space="preserve">
+    <value>作品別の起動時間</value>
+  </data>
+  <data name="LabelScoreBackupsList" xml:space="preserve">
+    <value>バックアップの一覧</value>
+  </data>
+  <data name="LabelSearchRootFolder" xml:space="preserve">
+    <value>検索親フォルダ(_R):</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>テーマ:</value>
+  </data>
+  <data name="LabelToolName" xml:space="preserve">
+    <value>ツール名:</value>
+  </data>
+  <data name="LabelWidth" xml:space="preserve">
+    <value>幅:</value>
+  </data>
+  <data name="MainTabControlPanel" xml:space="preserve">
+    <value>管制パネル</value>
+  </data>
+  <data name="MainTabGameHistory" xml:space="preserve">
+    <value>ゲーム実行履歴</value>
+  </data>
+  <data name="MainTabScoreBackup" xml:space="preserve">
+    <value>スコアファイルのバックアップ</value>
+  </data>
+  <data name="MainTabSettings" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="MenuAboutDynamicAero2" xml:space="preserve">
+    <value>DynamicAero2 について</value>
+  </data>
+  <data name="MenuAboutThisTool" xml:space="preserve">
+    <value>このツールについて(_A)</value>
+  </data>
+  <data name="MenuCaptureGameWindow" xml:space="preserve">
+    <value>ゲームウィンドウをキャプチャ</value>
+  </data>
+  <data name="MenuCatchRunningGameProcess" xml:space="preserve">
+    <value>実行中のゲームプロセスの捕捉</value>
+  </data>
+  <data name="MenuCreateAllGameScoreBackup" xml:space="preserve">
+    <value>すべてのゲーム</value>
+  </data>
+  <data name="MenuCreateScoreBackup" xml:space="preserve">
+    <value>スコアファイルのバックアップを作成(_B)</value>
+  </data>
+  <data name="MenuCreateSelectedGameScoreBackup" xml:space="preserve">
+    <value>選択中のゲーム</value>
+  </data>
+  <data name="MenuEditVpatchIni" xml:space="preserve">
+    <value>vpatch.iniを編集する</value>
+  </data>
+  <data name="MenuExitApplication" xml:space="preserve">
+    <value>アプリケーションを終了(_X)</value>
+  </data>
+  <data name="MenuExternalTools" xml:space="preserve">
+    <value>外部ツール(_X)</value>
+  </data>
+  <data name="MenuGame" xml:space="preserve">
+    <value>ゲーム(_G)</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>ヘルプ(_H)</value>
+  </data>
+  <data name="MenuInstallTools" xml:space="preserve">
+    <value>補助ツールのインストール(_I)</value>
+  </data>
+  <data name="MenuKillGameProcess" xml:space="preserve">
+    <value>ゲームプロセスを強制終了</value>
+  </data>
+  <data name="MenuLaunchCustomProgram" xml:space="preserve">
+    <value>custom.exe(環境設定)を開く(_C)</value>
+  </data>
+  <data name="MenuLaunchGame" xml:space="preserve">
+    <value>ゲームを起動する(_L)</value>
+  </data>
+  <data name="MenuLaunchGameWithAnyTool" xml:space="preserve">
+    <value>任意のツールを適用して起動する(_A)</value>
+  </data>
+  <data name="MenuLaunchGameWithThprac" xml:space="preserve">
+    <value>thprac を適用して起動する(_T)</value>
+  </data>
+  <data name="MenuLaunchGameWithVpatch" xml:space="preserve">
+    <value>VsyncPatchを適用して起動する(_V)</value>
+  </data>
+  <data name="MenuManageExternalTools" xml:space="preserve">
+    <value>外部ツールの管理(_M)</value>
+  </data>
+  <data name="MenuNone" xml:space="preserve">
+    <value>(なし)</value>
+  </data>
+  <data name="MenuOpenCaptureFolder" xml:space="preserve">
+    <value>ウィンドウキャプチャ保存フォルダを開く</value>
+  </data>
+  <data name="MenuOpenGameDirectory" xml:space="preserve">
+    <value>ゲームのインストールフォルダを開く(_O)</value>
+  </data>
+  <data name="MenuOpenGameLog" xml:space="preserve">
+    <value>ゲームのlog.txtを開く</value>
+  </data>
+  <data name="MenuPluginBaseVersion" xml:space="preserve">
+    <value>プラグイン基底ライブラリについて</value>
+  </data>
+  <data name="MenuPluginManager" xml:space="preserve">
+    <value>プラグインの管理(_P)</value>
+  </data>
+  <data name="MenuSearchGameFile" xml:space="preserve">
+    <value>ゲーム実行ファイルの検索(_S)</value>
+  </data>
+  <data name="MenuSendFeedback" xml:space="preserve">
+    <value>フィードバックの送信(_F)</value>
+  </data>
+  <data name="MenuSetGamePath" xml:space="preserve">
+    <value>ゲームのパスを設定する</value>
+  </data>
+  <data name="MenuSystemInformation" xml:space="preserve">
+    <value>システム情報</value>
+  </data>
+  <data name="MenuTools" xml:space="preserve">
+    <value>ツール(_T)</value>
+  </data>
+  <data name="MenuTotalGameRunningStatistics" xml:space="preserve">
+    <value>ゲーム累積実行時間統計</value>
+  </data>
+  <data name="MessageAskDelete" xml:space="preserve">
+    <value>を削除しますか。</value>
+  </data>
+  <data name="MessageAskGameExit" xml:space="preserve">
+    <value>ゲーム終了待機モードです。本当に東方管制塔を終了させますか</value>
+  </data>
+  <data name="MessageAskIsItOk" xml:space="preserve">
+    <value>よろしいですか。</value>
+  </data>
+  <data name="MessageAskOverwriteTool" xml:space="preserve">
+    <value>と同名のファイルがインストール先のフォルダに既に存在します。上書きしますか。</value>
+  </data>
+  <data name="MessageBackupCreationDate" xml:space="preserve">
+    <value>バックアップの作成日時:</value>
+  </data>
+  <data name="MessageBackupFileName" xml:space="preserve">
+    <value>バックアップ名:</value>
+  </data>
+  <data name="MessageCanceledInstall" xml:space="preserve">
+    <value>のインストールをキャンセルしました。</value>
+  </data>
+  <data name="MessageCaptureCanceled" xml:space="preserve">
+    <value>キャプチャがキャンセルされました。</value>
+  </data>
+  <data name="MessageCreated" xml:space="preserve">
+    <value>作成しました。</value>
+  </data>
+  <data name="MessageExternalToolExists" xml:space="preserve">
+    <value>は既に追加済みです。</value>
+  </data>
+  <data name="MessageGamePathRegisterToSettings" xml:space="preserve">
+    <value>の実行ファイルとして登録しました。</value>
+  </data>
+  <data name="MessageInstall" xml:space="preserve">
+    <value>インストールしました:</value>
+  </data>
+  <data name="MessageInstallToolDescription1" xml:space="preserve">
+    <value>このウィンドウにインストールするファイルを</value>
+  </data>
+  <data name="MessageInstallToolDescription2" xml:space="preserve">
+    <value>すべてドラッグアンドドロップ</value>
+  </data>
+  <data name="MessageMultiThpracFilesFound" xml:space="preserve">
+    <value>複数のthprac実行ファイルが見つかりました。</value>
+  </data>
+  <data name="MessageNoGameSelected" xml:space="preserve">
+    <value>[ゲームが未選択]</value>
+  </data>
+  <data name="MessageNoInstallTargetSelected" xml:space="preserve">
+    <value>インストール先が選択されていません。</value>
+  </data>
+  <data name="MessageOverwriteInstall" xml:space="preserve">
+    <value>上書きしてインストールしました。</value>
+  </data>
+  <data name="MessageRestore" xml:space="preserve">
+    <value>復元しました。</value>
+  </data>
+  <data name="MessageRestoreFromBackup" xml:space="preserve">
+    <value>のスコアファイルを復元します。</value>
+  </data>
+  <data name="MessageSave" xml:space="preserve">
+    <value>保存しました。</value>
+  </data>
+  <data name="MessageScoreFileNotFound" xml:space="preserve">
+    <value>スコアファイルが見つかりませんでした。</value>
+  </data>
+  <data name="MessageSearching" xml:space="preserve">
+    <value>検索しています...</value>
+  </data>
+  <data name="MessageSearchRootFolderNotFound" xml:space="preserve">
+    <value>検索親フォルダが存在しません。</value>
+  </data>
+  <data name="MessageSelectBackupFileToDelete" xml:space="preserve">
+    <value>削除するバックアップファイルを選択してください。</value>
+  </data>
+  <data name="MessageSelectBackupFileToRestoreFrom" xml:space="preserve">
+    <value>復元元のバックアップファイルを選択してください。</value>
+  </data>
+  <data name="MessageSelectGameToSetPathFromList" xml:space="preserve">
+    <value>リストからパスを設定するゲームを選択してください。</value>
+  </data>
+  <data name="MessageSelectPathFromGameFilesList" xml:space="preserve">
+    <value>ゲーム実行ファイル一覧からパスを一つ選択してください。</value>
+  </data>
+  <data name="MessageSelectThpracFile" xml:space="preserve">
+    <value>適用するthpracのファイルを選択してください。</value>
+  </data>
+  <data name="MessageSelectToolToApply" xml:space="preserve">
+    <value>適用するツールを選択してください。</value>
+  </data>
+  <data name="MessageSetSearchRootFolder" xml:space="preserve">
+    <value>検索親フォルダを指定してください。</value>
+  </data>
+  <data name="MessageToKillGameProcess" xml:space="preserve">
+    <value>ゲームを強制終了させました。</value>
+  </data>
+  <data name="MessageToSetGamePath" xml:space="preserve">
+    <value>ゲームのパスを設定してください。</value>
+  </data>
+  <data name="StatusAdministrator" xml:space="preserve">
+    <value>管理者権限</value>
+  </data>
+  <data name="StatusGameRunnning" xml:space="preserve">
+    <value>ゲームを実行中...</value>
+  </data>
+  <data name="StatusReady" xml:space="preserve">
+    <value>準備完了</value>
+  </data>
+  <data name="StatusUser" xml:space="preserve">
+    <value>ユーザー権限</value>
+  </data>
+  <data name="TextAllFile" xml:space="preserve">
+    <value>すべてのファイル</value>
+  </data>
+  <data name="TextDisabled" xml:space="preserve">
+    <value>(無効)</value>
+  </data>
+  <data name="TextExecutableFile" xml:space="preserve">
+    <value>実行ファイル</value>
+  </data>
+  <data name="TextKeyInputMonitor" xml:space="preserve">
+    <value>キー入力監視</value>
+  </data>
+  <data name="TextPluginList" xml:space="preserve">
+    <value>プラグインの一覧</value>
+  </data>
+  <data name="TextProcessArchitecture" xml:space="preserve">
+    <value>プロセスのアーキテクチャ</value>
+  </data>
+  <data name="TextSystemArchitecture" xml:space="preserve">
+    <value>システムのアーキテクチャ</value>
+  </data>
+  <data name="TextWindowResizer" xml:space="preserve">
+    <value>ウィンドウリサイザ</value>
+  </data>
+  <data name="ThemeBlack" xml:space="preserve">
+    <value>ブラック</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>ダーク</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>ライト</value>
+  </data>
+  <data name="ThemeWPFStandard" xml:space="preserve">
+    <value>WPF 標準</value>
+  </data>
+  <data name="TitleAboutDynamicAero2" xml:space="preserve">
+    <value>DynamicAero2 について</value>
+  </data>
+  <data name="TitleAboutThisTool" xml:space="preserve">
+    <value>このツールについて</value>
+  </data>
+  <data name="TitleAddExternalTool" xml:space="preserve">
+    <value>外部ツールの追加</value>
+  </data>
+  <data name="TitleCaptureGameWindow" xml:space="preserve">
+    <value>ゲームウィンドウのキャプチャ</value>
+  </data>
+  <data name="TitleCreateScoreBackup" xml:space="preserve">
+    <value>スコアファイルバックアップの作成</value>
+  </data>
+  <data name="TitleDeleteBackup" xml:space="preserve">
+    <value>バックアップファイルの削除</value>
+  </data>
+  <data name="TitleError" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="TitleExternalToolsManager" xml:space="preserve">
+    <value>外部ツールの管理</value>
+  </data>
+  <data name="TitleInstallTools" xml:space="preserve">
+    <value>補助ツールのインストール</value>
+  </data>
+  <data name="TitleKillGameProcess" xml:space="preserve">
+    <value>ゲームプロセスの強制終了</value>
+  </data>
+  <data name="TitlePlugInBaseVersion" xml:space="preserve">
+    <value>プラグイン基底ライブラリについて</value>
+  </data>
+  <data name="TitlePluginManager" xml:space="preserve">
+    <value>プラグインの管理</value>
+  </data>
+  <data name="TitleRestoreFromBackup" xml:space="preserve">
+    <value>スコアファイルバックアップからの復元</value>
+  </data>
+  <data name="TitleSearchGameFile" xml:space="preserve">
+    <value>ゲームの実行ファイルの検索</value>
+  </data>
+  <data name="TitleSelectThprac" xml:space="preserve">
+    <value>thprac選択</value>
+  </data>
+  <data name="TitleSelectTool" xml:space="preserve">
+    <value>適用するツールの選択</value>
+  </data>
+  <data name="TitleSetGamePath" xml:space="preserve">
+    <value>ゲームのパスの設定</value>
+  </data>
+  <data name="TitleSystemInformation" xml:space="preserve">
+    <value>システム情報</value>
+  </data>
+  <data name="TitleToSetGameCaptureFolder" xml:space="preserve">
+    <value>キャプチャファイルの保存フォルダを指定してください</value>
+  </data>
+  <data name="TitleTotalGameRunningStatistics" xml:space="preserve">
+    <value>ゲーム累積実行時間統計</value>
+  </data>
+  <data name="TitleVpatchIniEditor" xml:space="preserve">
+    <value>vpatch.ini エディタ</value>
+  </data>
+  <data name="ToolTipCaptureGameWindow" xml:space="preserve">
+    <value>ゲームウィンドウをキャプチャ</value>
+  </data>
+  <data name="ToolTipEditVpatchIni" xml:space="preserve">
+    <value>vpatch.iniを編集する</value>
+  </data>
+  <data name="ToolTipKillGameProcess" xml:space="preserve">
+    <value>ゲームプロセスを強制終了する</value>
+  </data>
+  <data name="ToolTipLaunchCustomProgram" xml:space="preserve">
+    <value>custom.exe(環境設定)を開く</value>
+  </data>
+  <data name="ToolTipLaunchGameWithThprac" xml:space="preserve">
+    <value>thpracを適用して起動する</value>
+  </data>
+  <data name="ToolTipLaunchGameWithVpatch" xml:space="preserve">
+    <value>VsyncPatchを適用して起動する</value>
+  </data>
+  <data name="ToolTipOpenGameFolder" xml:space="preserve">
+    <value>ゲームのインストールフォルダを開く</value>
+  </data>
+  <data name="ToolTipOpenGameLog" xml:space="preserve">
+    <value>ゲームのlog.txtを開く</value>
+  </data>
+  <data name="ToolTipPreset" xml:space="preserve">
+    <value>プリセット</value>
+  </data>
+  <data name="ToolTipSearchGameFile" xml:space="preserve">
+    <value>ゲーム実行ファイルの検索</value>
+  </data>
+  <data name="ToolTipSetGamePath" xml:space="preserve">
+    <value>ゲームのパスを設定する</value>
+  </data>
+  <data name="ToolTipSystemInformation" xml:space="preserve">
+    <value>システム情報</value>
+  </data>
+</root>

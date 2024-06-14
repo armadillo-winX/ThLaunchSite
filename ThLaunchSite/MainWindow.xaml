@@ -1,0 +1,479 @@
+﻿<Window x:Class="ThLaunchSite.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThLaunchSite"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="550" MinHeight="300" MinWidth="450" ResizeMode="CanResizeWithGrip" Closing="WindowClosing">
+    <Grid>
+        <Menu Height="18" VerticalAlignment="Top">
+            <MenuItem x:Name="GameMenuItem" 
+                Header="{Binding Resources.MenuGame, Mode=OneWay, Source={x:Static local:ResourceService.Current}}">
+                <MenuItem x:Name="LaunchGameMenuItem" 
+                          Header="{Binding Resources.MenuLaunchGame, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
+                          Click="LaunchGameMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Launch.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="LaunchWithVpatchMenuItem" 
+                          Header="{Binding Resources.MenuLaunchGameWithVpatch, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
+                          Click="LaunchWithVpatchMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/LaunchVpatch.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="LaunchWithThpracMenuItem" 
+                          Header="{Binding Resources.MenuLaunchGameWithThprac, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                          Click="LaunchWithThpracMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/LaunchThprac.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="LaunchWithAnyToolMenuItem"
+                          Header="{Binding Resources.MenuLaunchGameWithAnyTool, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                          Click="LaunchWithAnyToolMenuItemClick"/>
+                <MenuItem x:Name="LaunchCustomProgramMenuItem" 
+                          Header="{Binding Resources.MenuLaunchCustomProgram, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                          Click="LaunchCustomProgramMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Settings_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="OpenGameDirectoryMenuItem" 
+                          Header="{Binding Resources.MenuOpenGameDirectory, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                          Click="OpenGameDirectoryMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/FolderOpened_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="OpenGameLogFileMenuItem"
+                          Header="{Binding Resources.MenuOpenGameLog, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Click="OpenGameLogFileMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Log_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="EditVsyncPatchIniMenuItem" 
+                          Header="{Binding Resources.MenuEditVpatchIni, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Click="EditVsyncPatchIniMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Edit_grey_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="SearchGameFileMenuItem" 
+                          Header="{Binding Resources.MenuSearchGameFile, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Click="SearchGameFileMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Search_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="SetGamePathMenuItem" 
+                          Header="{Binding Resources.MenuSetGamePath, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Click="SetGamePathMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/OpenFile_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem x:Name="KillGameProcessMenuItem"
+                          Header="{Binding Resources.MenuKillGameProcess, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                          Click="KillGameProcessMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Stop_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="TotalGameRunningTimeStatisticsMenuItem"
+                          Header="{Binding Resources.MenuTotalGameRunningStatistics, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
+                          Click="TotalGameRunningTimeStatisticsMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Time_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="ExitApplicationMenuItem"
+                          Header="{Binding Resources.MenuExitApplication, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Click="ExitApplicationMenuItemClick"/>
+            </MenuItem>
+            <MenuItem
+                x:Name="ToolsMenuItem"
+                Header="{Binding Resources.MenuTools, Mode=OneWay, Source={x:Static local:ResourceService.Current}}">
+                <MenuItem x:Name="CaptureGameWindowMenuItem"
+                          Header="{Binding Resources.MenuCaptureGameWindow, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                          Click="CaptureGameWindowMenuItemClick">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/CaptureFrame_16x.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="OpenGameCaptureDirectoryMenuItem" 
+                          Header="{Binding Resources.MenuOpenCaptureFolder, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
+                          Click="OpenGameCaptureDirectoryMenuItemClick"/>
+                <Separator/>
+                <MenuItem x:Name="ManageEnternalToolsMenuItem"
+                Header="{Binding Resources.MenuManageExternalTools, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
+                Click="ManageExternalToolsMenuItemClick"/>
+                <MenuItem x:Name="InstallToolsMenuItem" 
+                Header="{Binding Resources.MenuInstallTools, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
+                Click="InstallToolMenuItemClick"/>
+                <MenuItem x:Name="CreateScoreBackupMenuItem"
+                Header="{Binding Resources.MenuCreateScoreBackup, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" >
+                    <MenuItem x:Name="CreateSelectedGameScoreBackupMenuItem"
+                    Header="{Binding Resources.MenuCreateSelectedGameScoreBackup, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Click="CreateSelectedGameScoreBackupMenuItemClick"/>
+                    <MenuItem x:Name="CreateAllGamesScoreBackupMenuItem"
+                    Header="{Binding Resources.MenuCreateAllGameScoreBackup, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Click="CreateAllGamesScoreBackupMenuItemClick"/>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="PluginManagerMenuItem"
+                          Header="{Binding Resources.MenuPluginManager, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Click="PluginManagerMenuItemClick"/>
+            </MenuItem>
+            <MenuItem x:Name="ExternalToolsMenuItem" Header="{Binding Resources.MenuExternalTools, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"/>
+            <MenuItem
+                x:Name="HelpMenuItem"
+                Header="{Binding Resources.MenuHelp, Mode=OneWay, Source={x:Static local:ResourceService.Current}}">
+                <MenuItem x:Name="AboutMenuItem"
+                          Header="{Binding Resources.MenuAboutThisTool, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
+                          Click="AboutMenuItemClick"/>
+                <MenuItem x:Name="AboutPluginBaseMenuItem"
+                Header="{Binding Resources.MenuPluginBaseVersion, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
+                Click="AboutPluginBaseMenuItemClick"/>
+                <Separator/>
+                <MenuItem x:Name="SystemInformationMenuItem" 
+                          Header="{Binding Resources.MenuSystemInformation, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
+                          Click="SystemInformationMenuItemClick"/>
+                <MenuItem x:Name="AboutDynamicAero2MenuItem"
+                          Header="{Binding Resources.MenuAboutDynamicAero2, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
+                          Click="AboutDynamicAero2MenuItemClick"/>
+                <Separator/>
+                <MenuItem x:Name="SendFeedbackMenuItem" 
+                          Header="{Binding Resources.MenuSendFeedback, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                          Click="SendFeedbackMenuItemClick"/>
+            </MenuItem>
+        </Menu>
+        <StatusBar Height="22" VerticalAlignment="Bottom">
+            <StatusBarItem x:Name="AuthorityBlock" Content="Authority" DockPanel.Dock="Right" Margin="0,0,20,0"/>
+            <StatusBarItem x:Name="AppStatusBlock"/>
+        </StatusBar>
+        <TabControl x:Name="MainTabControl"
+                    Margin="0,54,0,22">
+            <TabItem Header="{Binding Resources.MainTabControlPanel, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" MouseWheel="MainTabControlTabItemMouseWheel">
+                <Grid Margin="0,0,0,0">
+                    <ScrollViewer
+                                  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Grid Margin="0,0,0,0" >
+                                <TextBlock x:Name="GameTitleBlock"
+                                           HorizontalAlignment="Left" Margin="79,10,0,0" TextWrapping="NoWrap" Text="GameName"
+                                           VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+                                <Label Content="{Binding Resources.LabelGamePlayTime, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top"/>
+                                <TextBlock x:Name="GameRunningTimeBlock"
+                                HorizontalAlignment="Left" Margin="142,72,0,0" TextWrapping="Wrap" Text="00min 00sec"
+                                           VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                                <Button x:Name="LaunchGameButton" Margin="10,108,0,0" VerticalAlignment="Top" 
+                                        Height="24" Width="120"
+                                        Click="LaunchGameMenuItemClick" HorizontalAlignment="Left" >
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Width="16" Height="16"
+                                                   Source="/Images/Launch.png" HorizontalAlignment="Left"></Image>
+                                            <TextBlock 
+                                                Text="{Binding Resources.ButtonLaunchGame, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
+                                                VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                                <Button x:Name="LaunchCustomProgramButton" 
+                                        ToolTip="{Binding Resources.ToolTipLaunchCustomProgram, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                                        Height="24" Width="24"
+                                        Click="LaunchCustomProgramMenuItemClick" Margin="193,108,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Width="16" Height="16"
+                                                HorizontalAlignment="Left" Source="/Images/Settings_16x.png"></Image>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                                <Button x:Name="KillGameProcessButton"
+                                        Click="KillGameProcessMenuItemClick" 
+                                        ToolTip="{Binding Resources.ToolTipKillGameProcess, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                                        Width="24" Height="24" 
+                                        Margin="222,108,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Width="16" Height="16"
+                                                   HorizontalAlignment="Left" Source="/Images/Stop_16x.png"></Image>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                                <Button x:Name="CaptureGameWindowButton"
+                                        ToolTip="{Binding Resources.ToolTipCaptureGameWindow, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                                        HorizontalAlignment="Left" Margin="251,108,0,0" VerticalAlignment="Top"
+                                        Width="24" Height="24"
+                                        Click="CaptureGameWindowMenuItemClick">
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Width="16" Height="16"
+                                                   Source="/Images/CaptureFrame_16x.png"></Image>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+
+                                <CheckBox x:Name="AutoBackupCheckBox"
+                                    Content="{Binding Resources.CheckBoxBackupScoreFileWhenGameEnd, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                                    HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left"
+                                           Margin="324,76,0,0" TextWrapping="Wrap" 
+                                           Text="{Binding Resources.TextWindowResizer, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                                           VerticalAlignment="Top"/>
+                                <Label Content="{Binding Resources.LabelWidth, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                                       HorizontalAlignment="Left" Margin="324,107,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="GameWindowWidthBox" HorizontalAlignment="Left" Margin="375,111,0,0" TextWrapping="NoWrap" 
+                                Text="" VerticalAlignment="Top" Width="120"/>
+                                <Label Content="{Binding Resources.LabelHeight, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                                       HorizontalAlignment="Left" Margin="324,145,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="GameWindowHeightBox" HorizontalAlignment="Left" Margin="375,149,0,0" TextWrapping="NoWrap" 
+                                Text="" VerticalAlignment="Top" Width="120"/>
+                                <Button x:Name="ResizeButton"
+                                Content="{Binding Resources.ButtonResize, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                                Width="120" Height="24"
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Top" Click="ResizeButtonClick" Margin="375,198,0,0"/>
+                                <Button x:Name="WindowResizerPresetButton"
+                                ToolTip="{Binding Resources.ToolTipPreset, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                                Content="･･･" HorizontalAlignment="Left" Margin="473,74,0,0" VerticalAlignment="Top" Width="22"
+                                ContextMenuService.Placement="Right" Click="WindowResizerPresetButtonClick">
+                                    <Button.ContextMenu>
+                                        <ContextMenu x:Name="WindowResizerPresetMenu" Placement="Right">
+                                            <MenuItem Header="640x480" Click="WindowResizerPresetMenuItemClick"/>
+                                            <MenuItem Header="960x720" Click="WindowResizerPresetMenuItemClick"/>
+                                            <MenuItem Header="1280x960" Click="WindowResizerPresetMenuItemClick"/>
+                                        </ContextMenu>
+                                    </Button.ContextMenu>
+                                </Button>
+                                <TextBlock
+                                    x:Name="SubTitleBlock"
+                                    HorizontalAlignment="Left" Margin="79,42,0,0" TextWrapping="Wrap" Text="SubTitle" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+                                <Button 
+                                    x:Name="LaunchWithVpatchButton"
+                                    Click="LaunchWithVpatchMenuItemClick"
+                                    Width="24" Height="24"
+                                    HorizontalAlignment="Left" Margin="135,108,0,0" VerticalAlignment="Top"
+                                    ToolTip="{Binding Resources.ToolTipLaunchGameWithVpatch, Mode=OneWay, Source={x:Static local:ResourceService.Current}}">
+                                    <Button.Content>
+                                        <Image Source="/Images/LaunchVpatch.png" Width="16" Height="16"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button 
+                                    x:Name="LaunchWithThpracButton"
+                                    Click="LaunchWithThpracMenuItemClick"
+                                    Width="24" Height="24"
+                                    HorizontalAlignment="Left" Margin="164,108,0,0" VerticalAlignment="Top"
+                                    ToolTip="{Binding Resources.ToolTipLaunchGameWithThprac, Mode=OneWay, Source={x:Static local:ResourceService.Current}}">
+                                    <Button.Content>
+                                        <Image Width="16" Height="16" Source="/Images/LaunchThprac.png" />
+                                    </Button.Content>
+                                </Button>
+                                <Button 
+                                    x:Name="EditVsyncPatchIniButton"
+                                    Click="EditVsyncPatchIniMenuItemClick"
+                                    Width="24" Height="24" HorizontalAlignment="Left" Margin="280,108,0,0" VerticalAlignment="Top"
+                                    ToolTip="{Binding Resources.ToolTipEditVpatchIni, Mode=OneWay, Source={x:Static local:ResourceService.Current}}">
+                                    <Button.Content>
+                                        <Image Width="16" Height="16" Source="/Images/Edit_grey_16x.png"/>
+                                    </Button.Content>
+                                </Button>
+                                <ToggleButton
+                                    x:Name="ShiftKeyToggleButton"
+                                    Content="Shift"
+                                    IsEnabled="True"
+                                    IsHitTestVisible="False"
+                                    Width="90" Height="24" Margin="10,239,0,0" VerticalAlignment="Top"
+                                    HorizontalAlignment="Left" />
+                                <ToggleButton
+                                    x:Name="ZKeyToggleButton"
+                                    Content="Z"
+                                    IsEnabled="True"
+                                    IsHitTestVisible="False"
+                                    Width="24" Height="24" Margin="105,239,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                    />
+                                <ToggleButton
+                                    x:Name="XKeyToggleButton"
+                                    Content="X"
+                                    IsEnabled="True"
+                                    IsHitTestVisible="False"
+                                    Width="24" Height="24" Margin="134,239,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                    />
+                                <ToggleButton
+                                    x:Name="UpKeyToggleButton"
+                                    Content="↑"
+                                    IsEnabled="True"
+                                    IsHitTestVisible="False"
+                                    Width="24" Height="24" Margin="234,210,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                    />
+                                <ToggleButton
+                                    x:Name="LeftKeyToggleButton"
+                                    Content="←"
+                                    IsEnabled="True"
+                                    IsHitTestVisible="False"
+                                    Width="24" Height="24" Margin="205,239,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                    />
+                                <ToggleButton
+                                    x:Name="DownKeyToggleButton"
+                                    Content="↓"
+                                    IsEnabled="True"
+                                    IsHitTestVisible="False"
+                                    Width="24" Height="24" Margin="234,239,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                    />
+                                <ToggleButton
+                                    x:Name="RightKeyToggleButton"
+                                    Content="→"
+                                    IsEnabled="True"
+                                    IsHitTestVisible="False"
+                                    Width="24" Height="24" Margin="263,239,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                    />
+                                <Image
+                                    x:Name="ThNumberSymbolImage"
+                                    HorizontalAlignment="Left" Width="50" Height="50" Margin="10,10,0,0" VerticalAlignment="Top" />
+                                <TextBlock HorizontalAlignment="Left" Margin="10,198,0,0" TextWrapping="Wrap"
+                                           Text="{Binding Resources.TextKeyInputMonitor, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" VerticalAlignment="Top"/>
+                                <Image
+                                    x:Name="TrialImage"
+                                    HorizontalAlignment="Left" Height="16" Margin="44,43,0,0" VerticalAlignment="Top" Width="16" Source="/Images/TR.png"/>
+                            </Grid>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="{Binding Resources.MainTabGameHistory, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" MouseWheel="MainTabControlTabItemMouseWheel">
+                <Grid>
+                    <DataGrid x:Name="GameLogDataGrid" ItemsSource="{Binding}" Margin="0,39,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{Binding Resources.DataGridCulumnID, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Width="50" IsReadOnly="True"
+                                            Binding="{Binding GameId}"/>
+                            <DataGridTextColumn Header="{Binding Resources.DataGridCulumnGameName, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Width="120" IsReadOnly="True"
+                                            Binding="{Binding GameName}"/>
+                            <DataGridTextColumn Header="{Binding Resources.DataGridCulumnGameStartTime, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Width="150" IsReadOnly="True"
+                                            Binding="{Binding GameStartTime}"/>
+                            <DataGridTextColumn Header="{Binding Resources.DataGridCulumnGameEndTime, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Width="150" IsReadOnly="True"
+                                            Binding="{Binding GameEndTime}"/>
+                            <DataGridTextColumn Header="{Binding Resources.DataGridCulumnGameRunningTime, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Width="75" IsReadOnly="True"
+                                            Binding="{Binding GameRunningTime}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button 
+                        x:Name="TotalGameRunningTimeStatisticsButton"
+                        Click="TotalGameRunningTimeStatisticsMenuItemClick"
+                        Width="170" Height="24"
+                        HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="16" Height="16"
+                                       Source="/Images/Time_16x.png"></Image>
+                                <TextBlock Text="{Binding Resources.MenuTotalGameRunningStatistics, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </TabItem>
+            <TabItem Header="{Binding Resources.MainTabScoreBackup, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" MouseWheel="MainTabControlTabItemMouseWheel">
+                <Grid>
+                    <ListBox x:Name="BackupGameListBox" Margin="10,10,0,10" HorizontalAlignment="Left" Width="100" SelectionChanged="BackupGameListBoxSelectionChanged"/>
+                    <Label Content="{Binding Resources.LabelScoreBackupsList, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                           HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top"/>
+                    <ListBox x:Name="BackupListBox" Margin="115,41,10,39"/>
+                    <Button x:Name="RestoreFromBackupButton"
+                    Width="90" Height="24"
+                    Content="{Binding Resources.ButtonRestore, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" HorizontalAlignment="Right" Margin="0,0,105,10" VerticalAlignment="Bottom" Click="RestoreFromBackupButtonClick"/>
+                    <Button x:Name="DeleteBackupButton"
+                    Width="90" Height="24"
+                    Content="{Binding Resources.ButtonDelete, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Click="DeleteBackupButtonClick"/>
+                    <Button 
+                        x:Name="CreateBackupButton"
+                        Width="90" Height="24"
+                        Content="{Binding Resources.ButtonCreate, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                        HorizontalAlignment="Right" Margin="0,0,200,10" VerticalAlignment="Bottom"
+                        Click="CreateAllGamesScoreBackupMenuItemClick" />
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="{Binding Resources.MainTabSettings, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" MouseWheel="MainTabControlTabItemMouseWheel">
+                <Grid>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True">
+                        <Grid>
+                            <Label Content="{Binding Resources.LabelTheme, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                            <ComboBox x:Name="ThemeSettingsComboBox"
+                              HorizontalAlignment="Left" Margin="122,12,0,0" VerticalAlignment="Top" Width="150" SelectionChanged="ThemeSettingsComboBoxSelectionChanged">
+                                <ComboBoxItem Uid="Light" Content="{Binding Resources.ThemeLight, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"/>
+                                <ComboBoxItem Uid="Dark" Content="{Binding Resources.ThemeDark, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"/>
+                                <ComboBoxItem Uid="Black" Content="{Binding Resources.ThemeBlack, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"/>
+                                <ComboBoxItem Uid="NormalColor" Content="{Binding Resources.ThemeWPFStandard, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"/>
+                            </ComboBox>
+                            <CheckBox x:Name="AlwaysOnTopCheckBox"
+                                      Content="{Binding Resources.CheckBoxAlwaysOnTop, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                                      HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Click="AlwaysOnTopCheckBoxClick"/>
+                            <CheckBox x:Name="FixMainWindowSizeCheckBox"
+                                      Content="{Binding Resources.CheckBoxFixMainWindowSize, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
+                                      HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Click="FixMainWindowSizeCheckBoxClick"/>
+                            <Label Content="{Binding Resources.LabelGameCaptureFolder, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
+                                   HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="CaptureDirectoryPathBox"
+                                     IsReadOnly="True"
+                                Margin="174,164,57,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" TextChanged="CaptureDirectoryPathBoxTextChanged"/>
+                            <Button x:Name="BrowseCaptureDirectoryButton"
+                                Content="{Binding Resources.ButtonBrowse, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Margin="0,162,10,0" VerticalAlignment="Top" Click="BrowseCaptureDirectoryButtonClick" HorizontalAlignment="Right" Width="42"/>
+                            <Label Content="{Binding Resources.LabelCaptureFileFormat, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top"/>
+                            <ComboBox x:Name="CaptureFormatComboBox" 
+                                HorizontalAlignment="Left" Margin="174,194,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CaptureFormatComboBoxSelectionChanged">
+                                <ComboBoxItem Uid="BMP" Content="Bitmap"/>
+                                <ComboBoxItem Uid="JPEG" Content="Jpeg"/>
+                                <ComboBoxItem Uid="PNG" Content="Png"/>
+                            </ComboBox>
+                            <Label Content="言語/Language:" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top"/>
+                            <ComboBox x:Name="LanguageComboBox" HorizontalAlignment="Left" Margin="122,41,0,0" VerticalAlignment="Top" Width="150" SelectionChanged="LanguageComboBoxSelectionChanged">
+                                <ComboBoxItem Uid="Auto" Content="Auto"/>
+                                <ComboBoxItem Uid="en-US" Content="English(United States)"/>
+                                <ComboBoxItem Uid="ja-JP" Content="日本語(日本)"/>
+                            </ComboBox>
+                            <Label Content="{Binding Resources.LabelChangeGameBasePrimary, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top"/>
+                            <ComboBox x:Name="GameBasePrimaryComboBox" 
+                                HorizontalAlignment="Left" Margin="174,121,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="GameBasePrimaryComboBoxSelectionChanged">
+                                <ComboBoxItem Uid="Disabled" Content="{Binding Resources.TextDisabled, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"/>
+                                <ComboBoxItem Uid="High" Content="{Binding Resources.AppPrimaryHigh, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"/>
+                                <ComboBoxItem Uid="AboveNormal" Content="{Binding Resources.AppPrimaryAboveNormal, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"/>
+                                <ComboBoxItem Uid="Normal" Content="{Binding Resources.AppPrimaryNormal, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"/>
+                                <ComboBoxItem Uid="BelowNormal" Content="{Binding Resources.AppPrimaryBelowNormal, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"/>
+                                <ComboBoxItem Uid="Idle" Content="{Binding Resources.AppPrimaryIdle, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"/>
+                            </ComboBox>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="OpenGameDirectoryButton"
+                ToolTip="{Binding Resources.ToolTipOpenGameFolder, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                Click="OpenGameDirectoryMenuItemClick"
+                HorizontalAlignment="Left" Margin="164,23,0,0" VerticalAlignment="Top" Width="24" Height="24">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="16" Height="16" Source="/Images/FolderOpened_16x.png"></Image>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Button x:Name="SelectGameButton" 
+                Width="120" Height="24"
+                Content="{Binding Resources.ButtonSelectGame, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Click="SelectGameButtonClick"
+                ContextMenuService.Placement="Bottom">
+            <Button.ContextMenu>
+                <ContextMenu x:Name="SelectGameButtonContextMenu" Placement="Bottom"/>
+            </Button.ContextMenu>
+        </Button>
+        <Button
+        x:Name="SetGamePathButton"
+        Click="SetGamePathMenuItemClick" Height="24"
+        ToolTip="{Binding Resources.ToolTipSetGamePath, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Margin="135,23,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="24">
+            <Button.Content>
+                <Image Width="16" Height="16" Source="/Images/OpenFile_16x.png" />
+            </Button.Content>
+        </Button>
+    </Grid>
+</Window>

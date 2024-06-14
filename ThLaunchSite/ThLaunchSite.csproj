@@ -1,0 +1,159 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.22000.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <Authors>珠音茉白/東方管制塔開発部</Authors>
+    <Product>東方管制塔 NX</Product>
+    <Copyright>Copyright © 2023- $(Authors)</Copyright>
+    <AssemblyVersion></AssemblyVersion>
+    <FileVersion></FileVersion>
+    <Version>$(VersionPrefix)$(VersionSuffix)</Version>
+	  <VersionPrefix>2.0.0</VersionPrefix>
+	  <VersionSuffix>release</VersionSuffix>
+    <UseWindowsForms>True</UseWindowsForms>
+	<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+	<ApplicationIcon>ThLaunchSite.ico</ApplicationIcon>
+	<SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	<RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\CaptureFrame_16x.png" />
+    <None Remove="Images\Edit_grey_16x.png" />
+    <None Remove="Images\FindSymbol_16x.png" />
+    <None Remove="Images\FolderOpened_16x.png" />
+    <None Remove="Images\Launch.png" />
+    <None Remove="Images\LaunchThprac.png" />
+    <None Remove="Images\LaunchVpatch.png" />
+    <None Remove="Images\Log_16x.png" />
+    <None Remove="Images\OpenFile_16x.png" />
+    <None Remove="Images\SearchAndApps_16x.png" />
+    <None Remove="Images\Search_16x.png" />
+    <None Remove="Images\Settings_16x.png" />
+    <None Remove="Images\Stop_16x.png" />
+    <None Remove="Images\SystemInfo_16x.png" />
+    <None Remove="Images\Time_16x.png" />
+    <None Remove="Images\TR.png" />
+    <None Remove="Images\TRIAL.png" />
+    <None Remove="ThNumberSymbols\Th00.png" />
+    <None Remove="ThNumberSymbols\Th06.png" />
+    <None Remove="ThNumberSymbols\Th07.png" />
+    <None Remove="ThNumberSymbols\Th08.png" />
+    <None Remove="ThNumberSymbols\Th09.png" />
+    <None Remove="ThNumberSymbols\Th095.png" />
+    <None Remove="ThNumberSymbols\Th10.png" />
+    <None Remove="ThNumberSymbols\Th11.png" />
+    <None Remove="ThNumberSymbols\Th12.png" />
+    <None Remove="ThNumberSymbols\Th125.png" />
+    <None Remove="ThNumberSymbols\Th128.png" />
+    <None Remove="ThNumberSymbols\Th13.png" />
+    <None Remove="ThNumberSymbols\Th14.png" />
+    <None Remove="ThNumberSymbols\Th143.png" />
+    <None Remove="ThNumberSymbols\Th15.png" />
+    <None Remove="ThNumberSymbols\Th16.png" />
+    <None Remove="ThNumberSymbols\Th165.png" />
+    <None Remove="ThNumberSymbols\Th17.png" />
+    <None Remove="ThNumberSymbols\Th18.png" />
+    <None Remove="ThNumberSymbols\Th185.png" />
+    <None Remove="ThNumberSymbols\Th19.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DynamicAero2" Version="1.2.1" />
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ThLaunchSite.Plugin\ThLaunchSite.Plugin.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\CaptureFrame_16x.png" />
+    <Resource Include="Images\Edit_grey_16x.png" />
+    <Resource Include="Images\FindSymbol_16x.png" />
+    <Resource Include="Images\FolderOpened_16x.png" />
+    <Resource Include="Images\Launch.png" />
+    <Resource Include="Images\LaunchThprac.png" />
+    <Resource Include="Images\LaunchVpatch.png" />
+    <Resource Include="Images\Log_16x.png" />
+    <Resource Include="Images\OpenFile_16x.png" />
+    <Resource Include="Images\SearchAndApps_16x.png" />
+    <Resource Include="Images\Search_16x.png" />
+    <Resource Include="Images\Settings_16x.png" />
+    <Resource Include="Images\Stop_16x.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SystemInfo_16x.png" />
+    <Resource Include="Images\Time_16x.png" />
+    <Resource Include="Images\TR.png" />
+    <Resource Include="Images\TRIAL.png" />
+    <Resource Include="ThNumberSymbols\Th00.png" />
+    <Resource Include="ThNumberSymbols\Th06.png" />
+    <Resource Include="ThNumberSymbols\Th07.png" />
+    <Resource Include="ThNumberSymbols\Th08.png" />
+    <Resource Include="ThNumberSymbols\Th09.png" />
+    <Resource Include="ThNumberSymbols\Th095.png" />
+    <Resource Include="ThNumberSymbols\Th10.png" />
+    <Resource Include="ThNumberSymbols\Th11.png" />
+    <Resource Include="ThNumberSymbols\Th12.png" />
+    <Resource Include="ThNumberSymbols\Th125.png" />
+    <Resource Include="ThNumberSymbols\Th128.png" />
+    <Resource Include="ThNumberSymbols\Th13.png" />
+    <Resource Include="ThNumberSymbols\Th14.png" />
+    <Resource Include="ThNumberSymbols\Th143.png" />
+    <Resource Include="ThNumberSymbols\Th15.png" />
+    <Resource Include="ThNumberSymbols\Th16.png" />
+    <Resource Include="ThNumberSymbols\Th165.png" />
+    <Resource Include="ThNumberSymbols\Th17.png" />
+    <Resource Include="ThNumberSymbols\Th18.png" />
+    <Resource Include="ThNumberSymbols\Th185.png" />
+    <Resource Include="ThNumberSymbols\Th19.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DLL\DxLib.dll">
+		<Link>DxLib.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DLL\DxLib_x64.dll">
+		<Link>DxLib_x64.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Doc\License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Doc\ReadMe.en-US.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Doc\ReadMe.ja-JP.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Doc\ReleaseNote.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
