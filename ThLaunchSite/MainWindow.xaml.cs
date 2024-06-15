@@ -998,6 +998,18 @@ namespace ThLaunchSite
                 string gameRunningTime = time.ToString(@"mm\m\i\nss\s\e\c");
                 GameRunningTimeBlock.Text = gameRunningTime;
 
+                float gameAudioVolume = 0;
+                try
+                {
+                    gameAudioVolume = GameAudio.GetGameProcessAudioVolume(this.GameProcessName);
+                }
+                catch (Exception)
+                {
+                    gameAudioVolume = 0;
+                }
+
+                GameAudioControlSlider.Value = gameAudioVolume * 100;
+
                 ShiftKeyToggleButton.IsChecked = DX.CheckHitKey(DX.KEY_INPUT_LSHIFT) == 1 || DX.CheckHitKey(DX.KEY_INPUT_RSHIFT) == 1;
                 ShiftKeyToggleButton.IsEnabled = DX.CheckHitKey(DX.KEY_INPUT_LSHIFT) == 1 || DX.CheckHitKey(DX.KEY_INPUT_RSHIFT) == 1;
                 ZKeyToggleButton.IsChecked = DX.CheckHitKey(DX.KEY_INPUT_Z) == 1;
