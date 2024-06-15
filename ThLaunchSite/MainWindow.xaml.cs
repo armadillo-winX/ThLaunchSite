@@ -114,10 +114,7 @@ namespace ThLaunchSite
             }
         }
 
-        private int GameProcessId { get; set; }
-
-        private string GameProcessName { get; set; }
-
+        private Process GameProcess { get; set; }
         private int GameProcessPriorityIndex { get; set; }
 
         private DateTime GameStartTime { get; set; }
@@ -224,8 +221,9 @@ namespace ThLaunchSite
 
             this.GameId = string.Empty;
             this.GameName = string.Empty;
-            this.GameProcessName = string.Empty;
             this.IsWaitGameEndModeEnabled = false;
+
+            this.GameProcess = new();
 
             TrialImage.Visibility = Visibility.Hidden;
 
@@ -365,30 +363,30 @@ namespace ThLaunchSite
             {
                 EnableLimitationMode(true);
 
-                int gameProcessId;
+                Process gameProcess;
 
                 switch (toolIndex)
                 {
                     case 0:
-                        gameProcessId = await Task.Run(()
+                        gameProcess = await Task.Run(()
                             => GameProcessHandler.StartGameProcess(gameId)
                             );
-                        EnableWaitGameEndMode(gameProcessId);
+                        EnableWaitGameEndMode(gameProcess);
                         break;
                     case 1:
-                        gameProcessId = await Task.Run(()
+                        gameProcess = await Task.Run(()
                             => GameProcessHandler.StartGameProcessWithApplyingTool(gameId, "vpatch.exe")
                             );
-                        EnableWaitGameEndMode(gameProcessId);
+                        EnableWaitGameEndMode(gameProcess);
                         break;
                     case 2:
                         LaunchGameWithApplyingThprac(gameId);
                         break;
                     case 3:
-                        gameProcessId = await Task.Run(()
+                        gameProcess = await Task.Run(()
                             => GameProcessHandler.StartGameProcessWithApplyingTool(gameId, toolName)
                             );
-                        EnableWaitGameEndMode(gameProcessId);
+                        EnableWaitGameEndMode(gameProcess);
                         break;
                 }
             }
@@ -403,14 +401,14 @@ namespace ThLaunchSite
 
         private async void LaunchGameWithApplyingThprac(string gameId)
         {
-            int gameProcessId;
+            Process gameProcess;
             string[] thpracFiles = GameFile.GetThpracFiles(gameId);
             if (thpracFiles.Length == 1)
             {
-                gameProcessId = await Task.Run(()
+                gameProcess = await Task.Run(()
                     => GameProcessHandler.StartGameProcessWithApplyingTool(gameId, Path.GetFileName(thpracFiles[0]))
                 );
-                EnableWaitGameEndMode(gameProcessId);
+                EnableWaitGameEndMode(gameProcess);
             }
             else if (thpracFiles.Length > 1)
             {
@@ -422,10 +420,10 @@ namespace ThLaunchSite
 
                 if (thpracDialog.ShowDialog() == true)
                 {
-                    gameProcessId = await Task.Run(()
+                    gameProcess = await Task.Run(()
                         => GameProcessHandler.StartGameProcessWithApplyingTool(gameId, thpracDialog.ThpracFileName)
                     );
-                    EnableWaitGameEndMode(gameProcessId);
+                    EnableWaitGameEndMode(gameProcess);
                 }
                 else
                 {
@@ -948,12 +946,11 @@ namespace ThLaunchSite
             GameAudioControlSlider.IsEnabled = enabled;
         }
 
-        private void EnableWaitGameEndMode(int gameProcessId)
+        private void EnableWaitGameEndMode(Process gameProcess)
         {
             EnableLimitationMode(true);
 
-            this.GameProcessId = gameProcessId;
-            this.GameProcessName = Process.GetProcessById(gameProcessId).ProcessName;
+            this.GameProcess = gameProcess;
             this.GameStartTime = DateTime.Now;
             this.IsWaitGameEndModeEnabled = true;
 
@@ -963,7 +960,7 @@ namespace ThLaunchSite
             {
                 try
                 {
-                    GameProcessHandler.SetGamePriority(this.GameProcessId, this.GameProcessPriorityIndex);
+                    GameProcessHandler.SetGamePriority(this.GameProcess, this.GameProcessPriorityIndex);
                 }
                 catch (Exception)
                 {
@@ -981,14 +978,14 @@ namespace ThLaunchSite
                     }
                     catch (Exception) { }
 
-                    gameProcessPlugin.Main(this.GameId, this.GameProcessName);
+                    gameProcessPlugin.Main(this.GameId, this.GameProcess.ProcessName);
                 }
             }
 
             _gameWaitingWorker = new BackgroundWorker();
             _gameWaitingWorker.DoWork += new DoWorkEventHandler(WorkerDoWork);
             _gameWaitingWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkerRunningComplete);
-            _gameWaitingWorker.RunWorkerAsync(gameProcessId);
+            _gameWaitingWorker.RunWorkerAsync(gameProcess);
 
             _gameControlTimer = new DispatcherTimer
             {
@@ -1005,7 +1002,7 @@ namespace ThLaunchSite
                 float gameAudioVolume = 0;
                 try
                 {
-                    gameAudioVolume = GameAudio.GetGameProcessAudioVolume(this.GameProcessId);
+                    gameAudioVolume = GameAudio.GetGameProcessAudioVolume(this.GameProcess);
                 }
                 catch (Exception)
                 {
@@ -1034,11 +1031,7 @@ namespace ThLaunchSite
 
         private void WorkerDoWork(object sender, DoWorkEventArgs e)
         {
-#pragma warning disable CS8605 // null の可能性がある値をボックス化解除しています。
-            int gameProcessId = (int)e.Argument;
-#pragma warning restore CS8605 // null の可能性がある値をボックス化解除しています。
-
-            Process gameProcess = Process.GetProcessById(gameProcessId);
+            Process gameProcess = (Process)e.Argument;
             gameProcess.WaitForExit();
         }
 
@@ -1115,7 +1108,8 @@ namespace ThLaunchSite
 
             AppStatusBlock.Content = Properties.Resources.StatusReady;
 
-            this.GameProcessName = string.Empty;
+            this.GameProcess.Dispose();
+
             EnableLimitationMode(false);
             ViewGamePlayLogData();
         }
@@ -1202,8 +1196,7 @@ namespace ThLaunchSite
         {
             try
             {
-                int gameProcessId = this.GameProcessId;
-                GameProcessHandler.KillGameProcess(gameProcessId);
+                GameProcessHandler.KillGameProcess(this.GameProcess);
                 MessageBox.Show(this, Properties.Resources.MessageToKillGameProcess, Properties.Resources.TitleKillGameProcess,
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -1261,14 +1254,12 @@ namespace ThLaunchSite
 
         private void ResizeButtonClick(object sender, RoutedEventArgs e)
         {
-            int gameProcessId = this.GameProcessId;
-
             try
             {
                 int resizeWidth = int.Parse(GameWindowWidthBox.Text);
                 int resizeHeight = int.Parse(GameWindowHeightBox.Text);
 
-                GameWindowHandler.ResizeWindow(gameProcessId, resizeWidth, resizeHeight);
+                GameWindowHandler.ResizeWindow(this.GameProcess, resizeWidth, resizeHeight);
             }
             catch (Exception ex)
             {
@@ -1354,7 +1345,7 @@ namespace ThLaunchSite
             {
                 if (!string.IsNullOrEmpty(GameWindowHandler.CaptureFileDirectory))
                 {
-                    GameWindowHandler.GetGameWindowCapture(this.GameId, this.GameProcessId);
+                    GameWindowHandler.GetGameWindowCapture(this.GameId, this.GameProcess);
                 }
                 else
                 {
@@ -1366,7 +1357,7 @@ namespace ThLaunchSite
                     if (openFolderDialog.ShowDialog() == true)
                     {
                         GameWindowHandler.CaptureFileDirectory = openFolderDialog.FolderName;
-                        GameWindowHandler.GetGameWindowCapture(this.GameId, this.GameProcessId);
+                        GameWindowHandler.GetGameWindowCapture(this.GameId, this.GameProcess);
                     }
                     else
                     {
@@ -1442,11 +1433,11 @@ namespace ThLaunchSite
                 {
                     if (this.GameProcessPriorityIndex > 0)
                     {
-                        GameProcessHandler.SetGamePriority(this.GameProcessId, this.GameProcessPriorityIndex);
+                        GameProcessHandler.SetGamePriority(this.GameProcess, this.GameProcessPriorityIndex);
                     }
                     else
                     {
-                        GameProcessHandler.SetGamePriority(this.GameProcessId, 3);
+                        GameProcessHandler.SetGamePriority(this.GameProcess, 3);
                     }
                 }
                 catch (Exception ex)
@@ -1790,11 +1781,11 @@ namespace ThLaunchSite
 
                 try
                 {
-                    float gameAudioVolume = GameAudio.GetGameProcessAudioVolume(this.GameProcessId);
+                    float gameAudioVolume = GameAudio.GetGameProcessAudioVolume(this.GameProcess);
                     if (gameAudioVolume * 100 != GameAudioControlSlider.Value)
                     {
                         GameAudio.SetGameProcessAudioVolume(
-                            this.GameProcessId, (float)(GameAudioControlSlider.Value / 100));
+                            this.GameProcess, (float)(GameAudioControlSlider.Value / 100));
                     }
                 }
                 catch (Exception)

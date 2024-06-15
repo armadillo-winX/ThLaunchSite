@@ -93,9 +93,8 @@
             }
         }
 
-        public static void KillGameProcess(int gameProcessId)
+        public static void KillGameProcess(Process? gameProcess)
         {
-            Process gameProcess = Process.GetProcessById(gameProcessId);
             if (gameProcess != null)
             {
                 gameProcess.Kill();
@@ -122,9 +121,8 @@
             return true;
         }
 
-        public static void SetGamePriority(int gameProcessId, int gamePriorityIndex)
+        public static void SetGamePriority(Process gameProcess, int gamePriorityIndex)
         {
-            Process gameProcess = Process.GetProcessById(gameProcessId);
             if (gamePriorityIndex == 1)
             {
                 gameProcess.PriorityClass = ProcessPriorityClass.High;

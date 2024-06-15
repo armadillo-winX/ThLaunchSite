@@ -34,10 +34,10 @@ namespace ThLaunchSite.Game
         public static string? CaptureFileFormat { get; set; }
 
 
-        public static int[] GetWindowSizes(int gameProcessId)
+        public static int[] GetWindowSizes(Process gameProcess)
         {
             //ウィンドウハンドルの取得
-            IntPtr gameProcessMainWindow = Process.GetProcessById(gameProcessId).MainWindowHandle;
+            IntPtr gameProcessMainWindow = gameProcess.MainWindowHandle;
 
             //ウィンドウサイズの取得
             _ = GetWindowRect(gameProcessMainWindow, out RECT rect);
@@ -48,19 +48,18 @@ namespace ThLaunchSite.Game
             return sizes;
         }
 
-        public static void ResizeWindow(int gameProcessId, int width, int height)
+        public static void ResizeWindow(Process gameProcess, int width, int height)
         {
-            Process gameProcess = Process.GetProcessById(gameProcessId);
             IntPtr gameProcessMainWindow = gameProcess.MainWindowHandle;
             _ = MoveWindow(gameProcessMainWindow, 100, 100, width, height, 1);
 
             Interaction.AppActivate(gameProcess.Id);
         }
 
-        public static void FixTopMost(int gameProcessId)
+        public static void FixTopMost(Process gameProcess)
         {
             //ウィンドウハンドルの取得
-            IntPtr gameProcessMainWindow = Process.GetProcessById(gameProcessId).MainWindowHandle;
+            IntPtr gameProcessMainWindow = gameProcess.MainWindowHandle;
 
             const int SWP_NOSIZE = 0x0001;
             const int SWP_NOMOVE = 0x0002;
@@ -70,10 +69,10 @@ namespace ThLaunchSite.Game
             _ = SetWindowPos(gameProcessMainWindow, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
         }
 
-        public static void ReleaseTopMost(int gameProcessId)
+        public static void ReleaseTopMost(Process gameProcess)
         {
             //ウィンドウハンドルの取得
-            IntPtr gameProcessMainWindow = Process.GetProcessById(gameProcessId).MainWindowHandle;
+            IntPtr gameProcessMainWindow = gameProcess.MainWindowHandle;
 
             const int SWP_NOSIZE = 0x0001;
             const int SWP_NOMOVE = 0x0002;
@@ -83,18 +82,17 @@ namespace ThLaunchSite.Game
             _ = SetWindowPos(gameProcessMainWindow, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
         }
 
-        public static void GetGameWindowCapture(string gameId, int gameProcessId)
+        public static void GetGameWindowCapture(string gameId, Process gameProcess)
         {
             if (!Directory.Exists(CaptureFileDirectory))
             {
                 Directory.CreateDirectory(CaptureFileDirectory);
             }
-            Process gameProcess = Process.GetProcessById(gameProcessId);
             IntPtr gameProcessMainWindow = gameProcess.MainWindowHandle;
 
-            Interaction.AppActivate(gameProcessId);
+            Interaction.AppActivate(gameProcess.Id);
             //最前面に固定
-            FixTopMost(gameProcessId);
+            FixTopMost(gameProcess);
 
             //ウィンドウサイズの取得
             _ = GetWindowRect(gameProcessMainWindow, out RECT rect);
@@ -113,7 +111,7 @@ namespace ThLaunchSite.Game
             graphics.Dispose();
 
             //最前面固定解除
-            ReleaseTopMost(gameProcessId);
+            ReleaseTopMost(gameProcess);
 
             string captureFileName = $"{gameId}-{DateAndTime.Now:yyyy-MM-dd_HH-mm-ss}";
 
