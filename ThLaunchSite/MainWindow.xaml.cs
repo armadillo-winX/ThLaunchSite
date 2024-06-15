@@ -677,7 +677,7 @@ namespace ThLaunchSite
                 Icon = 
                 new Image
                 {
-                    Source = new BitmapImage(new Uri("pack://application:,,,/ThLaunchSite;component/Images/OpenFile_16x.png"))
+                    Source = new BitmapImage(new Uri("pack://application:,,,/ThLaunchSite;component/Images/Settings.png"))
                 }
             };
             gamePathSettingsMenuItem.Click += new RoutedEventHandler(SetGamePathMenuItemClick);

@@ -21,17 +21,6 @@
                 HorizontalAlignment="Right" VerticalAlignment="Bottom"
                 IsDefault="True"
                 Width="90" Height="24" Click="OKButtonClick" Margin="0,0,10,10"/>
-        <Button x:Name="OpenSystemInformationDialog"
-                ToolTip="{Binding Resources.ToolTipSystemInformation, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
-                Margin="10,0,0,10" Click="OpenSystemInformationDialogClick" Height="24" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="24">
-            <Button.Content>
-                <StackPanel Orientation="Vertical">
-                    <Image Width="16" Height="16"
-                           HorizontalAlignment="Left"
-                        Source="/Images/SystemInfo_16x.png"/>
-                </StackPanel>
-            </Button.Content>
-        </Button>
 
     </Grid>
 </Window>

@@ -14,21 +14,21 @@
                           Header="{Binding Resources.MenuLaunchGame, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
                           Click="LaunchGameMenuItemClick">
                     <MenuItem.Icon>
-                        <Image Source="/Images/Launch.png"/>
+                        <Image Source="/Images/Start.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="LaunchWithVpatchMenuItem" 
                           Header="{Binding Resources.MenuLaunchGameWithVpatch, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
                           Click="LaunchWithVpatchMenuItemClick">
                     <MenuItem.Icon>
-                        <Image Source="/Images/LaunchVpatch.png"/>
+                        <Image Source="/Images/StartVpatch.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="LaunchWithThpracMenuItem" 
                           Header="{Binding Resources.MenuLaunchGameWithThprac, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
                           Click="LaunchWithThpracMenuItemClick">
                     <MenuItem.Icon>
-                        <Image Source="/Images/LaunchThprac.png" />
+                        <Image Source="/Images/StartThprac.png" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="LaunchWithAnyToolMenuItem"
@@ -38,7 +38,7 @@
                           Header="{Binding Resources.MenuLaunchCustomProgram, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
                           Click="LaunchCustomProgramMenuItemClick">
                     <MenuItem.Icon>
-                        <Image Source="/Images/Settings_16x.png"/>
+                        <Image Source="/Images/StartCustom.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator/>
@@ -46,32 +46,29 @@
                           Header="{Binding Resources.MenuOpenGameDirectory, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
                           Click="OpenGameDirectoryMenuItemClick">
                     <MenuItem.Icon>
-                        <Image Source="/Images/FolderOpened_16x.png"/>
+                        <Image Source="/Images/Folder.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="OpenGameLogFileMenuItem"
                           Header="{Binding Resources.MenuOpenGameLog, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Click="OpenGameLogFileMenuItemClick">
-                    <MenuItem.Icon>
-                        <Image Source="/Images/Log_16x.png"/>
-                    </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="EditVsyncPatchIniMenuItem" 
                           Header="{Binding Resources.MenuEditVpatchIni, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Click="EditVsyncPatchIniMenuItemClick">
                     <MenuItem.Icon>
-                        <Image Source="/Images/Edit_grey_16x.png"/>
+                        <Image Source="/Images/VpatchIniEditor.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator/>
                 <MenuItem x:Name="SearchGameFileMenuItem" 
                           Header="{Binding Resources.MenuSearchGameFile, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Click="SearchGameFileMenuItemClick">
                     <MenuItem.Icon>
-                        <Image Source="/Images/Search_16x.png"/>
+                        <Image Source="/Images/Search.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="SetGamePathMenuItem" 
                           Header="{Binding Resources.MenuSetGamePath, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Click="SetGamePathMenuItemClick">
                     <MenuItem.Icon>
-                        <Image Source="/Images/OpenFile_16x.png"/>
+                        <Image Source="/Images/Settings.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator />
@@ -79,7 +76,7 @@
                           Header="{Binding Resources.MenuKillGameProcess, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
                           Click="KillGameProcessMenuItemClick">
                     <MenuItem.Icon>
-                        <Image Source="/Images/Stop_16x.png"/>
+                        <Image Source="/Images/Stop.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator/>
@@ -87,7 +84,7 @@
                           Header="{Binding Resources.MenuTotalGameRunningStatistics, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
                           Click="TotalGameRunningTimeStatisticsMenuItemClick">
                     <MenuItem.Icon>
-                        <Image Source="/Images/Time_16x.png"/>
+                        <Image Source="/Images/History.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator/>
@@ -101,7 +98,7 @@
                           Header="{Binding Resources.MenuCaptureGameWindow, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
                           Click="CaptureGameWindowMenuItemClick">
                     <MenuItem.Icon>
-                        <Image Source="/Images/CaptureFrame_16x.png"></Image>
+                        <Image Source="/Images/Capture.png"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="OpenGameCaptureDirectoryMenuItem" 
@@ -173,7 +170,7 @@
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <Image Width="16" Height="16"
-                                                   Source="/Images/Launch.png" HorizontalAlignment="Left"></Image>
+                                                   Source="/Images/Start.png" HorizontalAlignment="Left"></Image>
                                             <TextBlock 
                                                 Text="{Binding Resources.ButtonLaunchGame, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
                                                 VerticalAlignment="Center"/>
@@ -187,7 +184,7 @@
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <Image Width="16" Height="16"
-                                                HorizontalAlignment="Left" Source="/Images/Settings_16x.png"></Image>
+                                                HorizontalAlignment="Left" Source="/Images/StartCustom.png"></Image>
                                         </StackPanel>
                                     </Button.Content>
                                 </Button>
@@ -199,7 +196,7 @@
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <Image Width="16" Height="16"
-                                                   HorizontalAlignment="Left" Source="/Images/Stop_16x.png"></Image>
+                                                   HorizontalAlignment="Left" Source="/Images/Stop.png"></Image>
                                         </StackPanel>
                                     </Button.Content>
                                 </Button>
@@ -211,7 +208,7 @@
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <Image Width="16" Height="16"
-                                                   Source="/Images/CaptureFrame_16x.png"></Image>
+                                                   Source="/Images/Capture.png"></Image>
                                         </StackPanel>
                                     </Button.Content>
                                 </Button>
@@ -258,7 +255,7 @@
                                     HorizontalAlignment="Left" Margin="135,108,0,0" VerticalAlignment="Top"
                                     ToolTip="{Binding Resources.ToolTipLaunchGameWithVpatch, Mode=OneWay, Source={x:Static local:ResourceService.Current}}">
                                     <Button.Content>
-                                        <Image Source="/Images/LaunchVpatch.png" Width="16" Height="16"/>
+                                        <Image Source="/Images/StartVpatch.png" Width="16" Height="16"/>
                                     </Button.Content>
                                 </Button>
                                 <Button 
@@ -268,7 +265,7 @@
                                     HorizontalAlignment="Left" Margin="164,108,0,0" VerticalAlignment="Top"
                                     ToolTip="{Binding Resources.ToolTipLaunchGameWithThprac, Mode=OneWay, Source={x:Static local:ResourceService.Current}}">
                                     <Button.Content>
-                                        <Image Width="16" Height="16" Source="/Images/LaunchThprac.png" />
+                                        <Image Width="16" Height="16" Source="/Images/StartThprac.png" />
                                     </Button.Content>
                                 </Button>
                                 <Button 
@@ -277,7 +274,7 @@
                                     Width="24" Height="24" HorizontalAlignment="Left" Margin="280,108,0,0" VerticalAlignment="Top"
                                     ToolTip="{Binding Resources.ToolTipEditVpatchIni, Mode=OneWay, Source={x:Static local:ResourceService.Current}}">
                                     <Button.Content>
-                                        <Image Width="16" Height="16" Source="/Images/Edit_grey_16x.png"/>
+                                        <Image Width="16" Height="16" Source="/Images/VpatchIniEditor.png"/>
                                     </Button.Content>
                                 </Button>
                                 <ToggleButton
@@ -380,7 +377,7 @@
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <Image Width="16" Height="16"
-                                       Source="/Images/Time_16x.png"></Image>
+                                       Source="/Images/History.png"></Image>
                                 <TextBlock Text="{Binding Resources.MenuTotalGameRunningStatistics, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
                                            VerticalAlignment="Center"/>
                             </StackPanel>
@@ -468,7 +465,7 @@
                 HorizontalAlignment="Left" Margin="164,23,0,0" VerticalAlignment="Top" Width="24" Height="24">
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
-                    <Image Width="16" Height="16" Source="/Images/FolderOpened_16x.png"></Image>
+                    <Image Width="16" Height="16" Source="/Images/Folder.png"></Image>
                 </StackPanel>
             </Button.Content>
         </Button>
@@ -486,7 +483,7 @@
         Click="SetGamePathMenuItemClick" Height="24"
         ToolTip="{Binding Resources.ToolTipSetGamePath, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Margin="135,23,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="24">
             <Button.Content>
-                <Image Width="16" Height="16" Source="/Images/OpenFile_16x.png" />
+                <Image Width="16" Height="16" Source="/Images/Settings.png" />
             </Button.Content>
         </Button>
     </Grid>

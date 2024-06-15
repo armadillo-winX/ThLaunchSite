@@ -23,15 +23,5 @@
         {
             _ = this.Owner.Activate();
         }
-
-        private void OpenSystemInformationDialogClick(object sender, RoutedEventArgs e)
-        {
-            SystemInformationDialog systemInformationDialog = new()
-            {
-                Owner = this.Owner
-            };
-
-            systemInformationDialog.ShowDialog();
-        }
     }
 }

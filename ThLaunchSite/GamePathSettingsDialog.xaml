@@ -21,7 +21,7 @@
                 ToolTip="{Binding Resources.ToolTipSearchGameFile, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" Click="SearchGameFileButtonClick">
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Images/Search_16x.png" Stretch="None"></Image>
+                    <Image Source="/Images/Search.png" Stretch="None"></Image>
                 </StackPanel>
             </Button.Content>
         </Button>

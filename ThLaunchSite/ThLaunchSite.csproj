@@ -22,23 +22,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\CaptureFrame_16x.png" />
-    <None Remove="Images\Edit_grey_16x.png" />
-    <None Remove="Images\FindSymbol_16x.png" />
-    <None Remove="Images\FolderOpened_16x.png" />
-    <None Remove="Images\Launch.png" />
-    <None Remove="Images\LaunchThprac.png" />
-    <None Remove="Images\LaunchVpatch.png" />
-    <None Remove="Images\Log_16x.png" />
-    <None Remove="Images\OpenFile_16x.png" />
-    <None Remove="Images\SearchAndApps_16x.png" />
-    <None Remove="Images\Search_16x.png" />
-    <None Remove="Images\Settings_16x.png" />
-    <None Remove="Images\Stop_16x.png" />
-    <None Remove="Images\SystemInfo_16x.png" />
-    <None Remove="Images\Time_16x.png" />
+    <None Remove="Images\Capture.png" />
+    <None Remove="Images\Folder.png" />
+    <None Remove="Images\History.png" />
+    <None Remove="Images\Search.png" />
+    <None Remove="Images\Settings.png" />
+    <None Remove="Images\Start.png" />
+    <None Remove="Images\StartCustom.png" />
+    <None Remove="Images\StartThprac.png" />
+    <None Remove="Images\StartVpatch.png" />
+    <None Remove="Images\Stop.png" />
     <None Remove="Images\TR.png" />
     <None Remove="Images\TRIAL.png" />
+    <None Remove="Images\VpatchIniEditor.png" />
     <None Remove="ThNumberSymbols\Th00.png" />
     <None Remove="ThNumberSymbols\Th06.png" />
     <None Remove="ThNumberSymbols\Th07.png" />
@@ -78,25 +74,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\CaptureFrame_16x.png" />
-    <Resource Include="Images\Edit_grey_16x.png" />
-    <Resource Include="Images\FindSymbol_16x.png" />
-    <Resource Include="Images\FolderOpened_16x.png" />
-    <Resource Include="Images\Launch.png" />
-    <Resource Include="Images\LaunchThprac.png" />
-    <Resource Include="Images\LaunchVpatch.png" />
-    <Resource Include="Images\Log_16x.png" />
-    <Resource Include="Images\OpenFile_16x.png" />
-    <Resource Include="Images\SearchAndApps_16x.png" />
-    <Resource Include="Images\Search_16x.png" />
-    <Resource Include="Images\Settings_16x.png" />
-    <Resource Include="Images\Stop_16x.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\SystemInfo_16x.png" />
-    <Resource Include="Images\Time_16x.png" />
+    <Resource Include="Images\Capture.png" />
+    <Resource Include="Images\Folder.png" />
+    <Resource Include="Images\History.png" />
+    <Resource Include="Images\Search.png" />
+    <Resource Include="Images\Settings.png" />
+    <Resource Include="Images\Start.png" />
+    <Resource Include="Images\StartCustom.png" />
+    <Resource Include="Images\StartThprac.png" />
+    <Resource Include="Images\StartVpatch.png" />
+    <Resource Include="Images\Stop.png" />
     <Resource Include="Images\TR.png" />
     <Resource Include="Images\TRIAL.png" />
+    <Resource Include="Images\VpatchIniEditor.png" />
     <Resource Include="ThNumberSymbols\Th00.png" />
     <Resource Include="ThNumberSymbols\Th06.png" />
     <Resource Include="ThNumberSymbols\Th07.png" />
