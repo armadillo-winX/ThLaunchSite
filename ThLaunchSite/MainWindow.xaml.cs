@@ -1044,6 +1044,8 @@ namespace ThLaunchSite
             this.IsWaitGameEndModeEnabled = false;
             _gameControlTimer.Stop();
 
+            GameAudioControlSlider.Value = 0;
+
             ShiftKeyToggleButton.IsChecked = false;
             ShiftKeyToggleButton.IsEnabled = false;
             ZKeyToggleButton.IsChecked = false;
