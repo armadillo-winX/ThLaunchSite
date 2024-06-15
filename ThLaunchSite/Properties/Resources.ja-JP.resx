@@ -381,6 +381,9 @@
   <data name="MenuAboutDynamicAero2" xml:space="preserve">
     <value>DynamicAero2 について</value>
   </data>
+  <data name="MenuAboutNAudio" xml:space="preserve">
+    <value>NAudio について</value>
+  </data>
   <data name="MenuAboutThisTool" xml:space="preserve">
     <value>このツールについて(_A)</value>
   </data>

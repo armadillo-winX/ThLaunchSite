@@ -853,6 +853,15 @@ namespace ThLaunchSite.Properties {
         }
         
         /// <summary>
+        ///   About NAudio に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MenuAboutNAudio {
+            get {
+                return ResourceManager.GetString("MenuAboutNAudio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   _About This Tool に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string MenuAboutThisTool {
