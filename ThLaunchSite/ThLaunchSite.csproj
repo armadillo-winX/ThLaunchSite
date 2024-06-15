@@ -59,6 +59,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Folder.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
@@ -75,7 +79,6 @@
 
   <ItemGroup>
     <Resource Include="Images\Capture.png" />
-    <Resource Include="Images\Folder.png" />
     <Resource Include="Images\History.png" />
     <Resource Include="Images\Search.png" />
     <Resource Include="Images\Settings.png" />
