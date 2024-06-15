@@ -1781,7 +1781,7 @@ namespace ThLaunchSite
 
         private void GameAudioControlSliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            GameAudioVolumeBlock.Text = GameAudioControlSlider.Value.ToString();
+            GameAudioVolumeBlock.Text = ((int)(GameAudioControlSlider.Value)).ToString();
 
             try
             {
