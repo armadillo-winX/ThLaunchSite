@@ -1763,5 +1763,10 @@ namespace ThLaunchSite
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+
+        private void GameAudioControlSliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            GameAudioVolumeBlock.Text = GameAudioControlSlider.Value.ToString();
+        }
     }
 }
