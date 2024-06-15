@@ -327,6 +327,9 @@
   <data name="LabelGamePlayTime" xml:space="preserve">
     <value>ゲームプレイ時間</value>
   </data>
+  <data name="LabelGameVolume" xml:space="preserve">
+    <value>ゲームの音量:</value>
+  </data>
   <data name="LabelHeight" xml:space="preserve">
     <value>高さ:</value>
   </data>
@@ -359,6 +362,9 @@
   </data>
   <data name="LabelWidth" xml:space="preserve">
     <value>幅:</value>
+  </data>
+  <data name="MainTabAudioControl" xml:space="preserve">
+    <value>音量管制</value>
   </data>
   <data name="MainTabControlPanel" xml:space="preserve">
     <value>管制パネル</value>

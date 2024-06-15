@@ -691,6 +691,15 @@ namespace ThLaunchSite.Properties {
         }
         
         /// <summary>
+        ///   Game Audio Volume: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string LabelGameVolume {
+            get {
+                return ResourceManager.GetString("LabelGameVolume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Height: に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string LabelHeight {
@@ -786,6 +795,15 @@ namespace ThLaunchSite.Properties {
         public static string LabelWidth {
             get {
                 return ResourceManager.GetString("LabelWidth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Audio Control に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MainTabAudioControl {
+            get {
+                return ResourceManager.GetString("MainTabAudioControl", resourceCulture);
             }
         }
         

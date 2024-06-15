@@ -327,6 +327,9 @@
   <data name="LabelGamePlayTime" xml:space="preserve">
     <value>Game Execution Time</value>
   </data>
+  <data name="LabelGameVolume" xml:space="preserve">
+    <value>Game Audio Volume:</value>
+  </data>
   <data name="LabelHeight" xml:space="preserve">
     <value>Height:</value>
   </data>
@@ -359,6 +362,9 @@
   </data>
   <data name="LabelWidth" xml:space="preserve">
     <value>Width:</value>
+  </data>
+  <data name="MainTabAudioControl" xml:space="preserve">
+    <value>Audio Control</value>
   </data>
   <data name="MainTabControlPanel" xml:space="preserve">
     <value>Control Panel</value>
