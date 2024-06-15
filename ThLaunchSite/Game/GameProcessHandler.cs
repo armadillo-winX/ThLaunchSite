@@ -2,7 +2,7 @@
 {
     internal class GameProcessHandler
     {
-        public static int StartGameProcess(string gameId)
+        public static Process StartGameProcess(string gameId)
         {
             string? gamePath = GameFile.GetGameFilePath(gameId);
             if (File.Exists(gamePath))
@@ -20,7 +20,7 @@
 
                 gameProcess.WaitForInputIdle();
 
-                return gameProcess.Id;
+                return gameProcess;
             }
             else
             {
@@ -28,7 +28,7 @@
             }
         }
 
-        public static int StartGameProcessWithApplyingTool(string gameId, string toolName)
+        public static Process StartGameProcessWithApplyingTool(string gameId, string toolName)
         {
             string? gamePath = GameFile.GetGameFilePath(gameId);
             string gameDirectory = Path.GetDirectoryName(gamePath);
@@ -46,7 +46,7 @@
 
                 gameProcess.WaitForInputIdle();
 
-                return gameProcess.Id;
+                return gameProcess;
             }
             else if (!File.Exists(patchPath))
             {
