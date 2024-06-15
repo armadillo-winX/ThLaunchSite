@@ -21,6 +21,8 @@ Microsoft Visual Studio 2022<br>
 Copyright (c) 2020 manju summoner
 ### System.Drawing.Common
 Copyright (c) .NET Foundation and Contributors
+### NAudio
+Copyright 2020 Mark Heath
 ### DX ライブラリ
 Copyright (C) 2001-2024 Takumi Yamada.
 
