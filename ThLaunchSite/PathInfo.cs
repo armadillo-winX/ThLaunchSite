@@ -8,6 +8,10 @@
 
         public static string? DynamicAero2DllPath => $"{AppLocation}\\DynamicAero2.dll";
 
+        public static string? NAudioCoreDllPath => $"{AppLocation}\\NAudio.Core.dll";
+
+        public static string? NAudioWasapiDllPath => $"{AppLocation}\\NAudio.Wasapi.dll";
+
         public static string? SettingsDirectory => $"{AppLocation}\\settings";
 
         public static string? PluginDirectory => $"{AppLocation}\\plugins";

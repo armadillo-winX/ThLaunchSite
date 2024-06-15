@@ -624,6 +624,9 @@
   <data name="ThemeWPFStandard" xml:space="preserve">
     <value>WPF 標準</value>
   </data>
+  <data name="TitleAbouNAudio" xml:space="preserve">
+    <value>NAudio について</value>
+  </data>
   <data name="TitleAboutDynamicAero2" xml:space="preserve">
     <value>DynamicAero2 について</value>
   </data>

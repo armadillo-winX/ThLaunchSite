@@ -139,6 +139,9 @@
                 <MenuItem x:Name="AboutDynamicAero2MenuItem"
                           Header="{Binding Resources.MenuAboutDynamicAero2, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
                           Click="AboutDynamicAero2MenuItemClick"/>
+                <MenuItem x:Name="AboutNAudioMenuItem"
+                          Header="{Binding Resources.MenuAboutNAudio, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" 
+                          Click="AboutNAudioMenuItemClick"/>
                 <Separator/>
                 <MenuItem x:Name="SendFeedbackMenuItem" 
                           Header="{Binding Resources.MenuSendFeedback, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"

@@ -1582,6 +1582,15 @@ namespace ThLaunchSite.Properties {
         }
         
         /// <summary>
+        ///   About NAudio に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TitleAbouNAudio {
+            get {
+                return ResourceManager.GetString("TitleAbouNAudio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   About DynamicAero2 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string TitleAboutDynamicAero2 {
