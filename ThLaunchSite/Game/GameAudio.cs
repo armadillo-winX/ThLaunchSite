@@ -1,9 +1,4 @@
 ﻿using NAudio.CoreAudioApi;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ThLaunchSite.Game
 {
@@ -15,12 +10,12 @@ namespace ThLaunchSite.Game
 
             MMDeviceEnumerator enumerator = new();
             MMDevice defaultAudioDevice = enumerator.GetDefaultAudioEndpoint(DataFlow.Render, Role.Console);
-            if (defaultAudioDevice != null )
+            if (defaultAudioDevice != null)
             {
                 AudioSessionManager audioSessionManager = defaultAudioDevice.AudioSessionManager;
                 SessionCollection sessionsCollection = audioSessionManager.Sessions;
 
-                for (int i = 0;  i < sessionsCollection.Count; i++)
+                for (int i = 0; i < sessionsCollection.Count; i++)
                 {
                     AudioSessionControl session = sessionsCollection[i];
                     uint sessionId = session.GetProcessID;
