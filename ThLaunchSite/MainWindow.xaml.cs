@@ -1448,7 +1448,7 @@ namespace ThLaunchSite
             {
                 if (index == 0)
                 {
-                    MainTabControl.SelectedIndex = 3;
+                    MainTabControl.SelectedIndex = 4;
                 }
                 else
                 {
@@ -1457,7 +1457,7 @@ namespace ThLaunchSite
             }
             else
             {
-                if (index == 3)
+                if (index == 4)
                 {
                     MainTabControl.SelectedIndex = 0;
                 }

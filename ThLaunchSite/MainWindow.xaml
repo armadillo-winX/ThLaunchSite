@@ -342,6 +342,12 @@
                     </ScrollViewer>
                 </Grid>
             </TabItem>
+            <TabItem Header="{Binding Resources.MainTabAudioControl, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                     MouseWheel="MainTabControlTabItemMouseWheel">
+                <Grid>
+                    
+                </Grid>
+            </TabItem>
             <TabItem Header="{Binding Resources.MainTabGameHistory, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" MouseWheel="MainTabControlTabItemMouseWheel">
                 <Grid>
                     <DataGrid x:Name="GameLogDataGrid" ItemsSource="{Binding}" Margin="0,39,0,0">
