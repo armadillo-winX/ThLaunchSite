@@ -1784,20 +1784,23 @@ namespace ThLaunchSite
 
         private void GameAudioControlSliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            GameAudioVolumeBlock.Text = ((int)(GameAudioControlSlider.Value)).ToString();
+            if (this.IsWaitGameEndModeEnabled)
+            {
+                GameAudioVolumeBlock.Text = ((int)(GameAudioControlSlider.Value)).ToString();
 
-            try
-            {
-                float gameAudioVolume = GameAudio.GetGameProcessAudioVolume(this.GameProcessId);
-                if (gameAudioVolume * 100 != GameAudioControlSlider.Value)
+                try
                 {
-                    GameAudio.SetGameProcessAudioVolume(
-                        this.GameProcessId, (float)(GameAudioControlSlider.Value / 100));
+                    float gameAudioVolume = GameAudio.GetGameProcessAudioVolume(this.GameProcessId);
+                    if (gameAudioVolume * 100 != GameAudioControlSlider.Value)
+                    {
+                        GameAudio.SetGameProcessAudioVolume(
+                            this.GameProcessId, (float)(GameAudioControlSlider.Value / 100));
+                    }
                 }
-            }
-            catch (Exception)
-            {
-                
+                catch (Exception)
+                {
+
+                }
             }
         }
     }
