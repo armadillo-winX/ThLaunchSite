@@ -4,10 +4,8 @@ namespace ThLaunchSite.Game
 {
     internal class GameAudio
     {
-        public static float GetGameProcessAudioVolume(string gameProcessName)
+        public static float GetGameProcessAudioVolume(int gameProcessId)
         {
-            Process gameProcess = Process.GetProcessesByName(gameProcessName)[0];
-
             MMDeviceEnumerator enumerator = new();
             MMDevice defaultAudioDevice = enumerator.GetDefaultAudioEndpoint(DataFlow.Render, Role.Console);
             if (defaultAudioDevice != null)
@@ -20,7 +18,7 @@ namespace ThLaunchSite.Game
                     AudioSessionControl session = sessionsCollection[i];
                     uint sessionId = session.GetProcessID;
 
-                    if (sessionId == gameProcess.Id)
+                    if (sessionId == gameProcessId)
                         return session.SimpleAudioVolume.Volume;
                 }
 
@@ -32,10 +30,8 @@ namespace ThLaunchSite.Game
             }
         }
 
-        public static void SetGameProcessAudioVolume(string gameProcessName, float volume)
+        public static void SetGameProcessAudioVolume(int gameProcessId, float volume)
         {
-            Process gameProcess = Process.GetProcessesByName(gameProcessName)[0];
-
             MMDeviceEnumerator enumerator = new();
             MMDevice defaultAudioDevice = enumerator.GetDefaultAudioEndpoint(DataFlow.Render, Role.Console);
             if (defaultAudioDevice != null)
@@ -48,7 +44,7 @@ namespace ThLaunchSite.Game
                     AudioSessionControl session = sessionsCollection[i];
                     uint sessionId = session.GetProcessID;
 
-                    if (sessionId == gameProcess.Id)
+                    if (sessionId == gameProcessId)
                     {
                         session.SimpleAudioVolume.Volume = volume;
                         break;
