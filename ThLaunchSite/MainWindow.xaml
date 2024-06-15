@@ -225,14 +225,14 @@
                                 <TextBox x:Name="GameWindowWidthBox" HorizontalAlignment="Left" Margin="375,111,0,0" TextWrapping="NoWrap" 
                                 Text="" VerticalAlignment="Top" Width="120"/>
                                 <Label Content="{Binding Resources.LabelHeight, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
-                                       HorizontalAlignment="Left" Margin="324,145,0,0" VerticalAlignment="Top"/>
-                                <TextBox x:Name="GameWindowHeightBox" HorizontalAlignment="Left" Margin="375,149,0,0" TextWrapping="NoWrap" 
+                                       HorizontalAlignment="Left" Margin="324,133,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="GameWindowHeightBox" HorizontalAlignment="Left" Margin="375,137,0,0" TextWrapping="NoWrap" 
                                 Text="" VerticalAlignment="Top" Width="120"/>
                                 <Button x:Name="ResizeButton"
                                 Content="{Binding Resources.ButtonResize, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
                                 Width="120" Height="24"
                                 HorizontalAlignment="Left" 
-                                VerticalAlignment="Top" Click="ResizeButtonClick" Margin="375,198,0,0"/>
+                                VerticalAlignment="Top" Click="ResizeButtonClick" Margin="375,169,0,0"/>
                                 <Button x:Name="WindowResizerPresetButton"
                                 ToolTip="{Binding Resources.ToolTipPreset, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
                                 Content="･･･" HorizontalAlignment="Left" Margin="473,74,0,0" VerticalAlignment="Top" Width="22"
@@ -329,28 +329,23 @@
                                 <Image
                                     x:Name="ThNumberSymbolImage"
                                     HorizontalAlignment="Left" Width="50" Height="50" Margin="10,10,0,0" VerticalAlignment="Top" />
-                                <TextBlock HorizontalAlignment="Left" Margin="10,198,0,0" TextWrapping="Wrap"
+                                <TextBlock HorizontalAlignment="Left" Margin="10,210,0,0" TextWrapping="Wrap"
                                            Text="{Binding Resources.TextKeyInputMonitor, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" VerticalAlignment="Top"/>
                                 <Image
                                     x:Name="TrialImage"
                                     HorizontalAlignment="Left" Height="16" Margin="44,43,0,0" VerticalAlignment="Top" Width="16" Source="/Images/TR.png"/>
+                                <Label Content="{Binding Resources.LabelGameVolume, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                                HorizontalAlignment="Left" Margin="324,208,0,0" VerticalAlignment="Top"/>
+                                <Slider x:Name="GameAudioControlSlider"
+                                HorizontalAlignment="Left" Margin="324,239,0,0" VerticalAlignment="Top" Width="210" 
+                                Maximum="100" SmallChange="5" LargeChange="10" TickPlacement="BottomRight" 
+                                Ticks="0,10,20,30,40,50,60,70,80,90,100" ValueChanged="GameAudioControlSliderValueChanged"/>
+                                <TextBlock x:Name="GameAudioVolumeBlock"
+                                HorizontalAlignment="Left" Margin="528,213,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+
                             </Grid>
                         </Grid>
                     </ScrollViewer>
-                </Grid>
-            </TabItem>
-            <TabItem Header="{Binding Resources.MainTabAudioControl, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
-                     MouseWheel="MainTabControlTabItemMouseWheel">
-                <Grid>
-                    <Label Content="{Binding Resources.LabelGameVolume, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
-                           HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                    <Slider x:Name="GameAudioControlSlider"
-                            HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="234" 
-                            Maximum="100" SmallChange="5" LargeChange="10" TickPlacement="BottomRight" 
-                            Ticks="0,10,20,30,40,50,60,70,80,90,100" ValueChanged="GameAudioControlSliderValueChanged"/>
-                    <TextBlock x:Name="GameAudioVolumeBlock"
-                        HorizontalAlignment="Left" Margin="238,15,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
-
                 </Grid>
             </TabItem>
             <TabItem Header="{Binding Resources.MainTabGameHistory, Mode=OneWay, Source={x:Static local:ResourceService.Current}}" MouseWheel="MainTabControlTabItemMouseWheel">
