@@ -1,15 +1,12 @@
-﻿using System.Threading;
-
-namespace ThLaunchSite.Game
+﻿namespace ThLaunchSite.Game
 {
     internal class GameProcessHandler
     {
-        public static string StartGameProcess(string gameId)
+        public static int StartGameProcess(string gameId)
         {
             string? gamePath = GameFile.GetGameFilePath(gameId);
             if (File.Exists(gamePath))
             {
-                string gameProcessName = Path.GetFileNameWithoutExtension(gamePath);
                 string gameDirectory = Path.GetDirectoryName(gamePath);
 
                 ProcessStartInfo gameProcessStartInfo = new()
@@ -19,20 +16,11 @@ namespace ThLaunchSite.Game
                     UseShellExecute = true
                 };
 
-                _ = Process.Start(gameProcessStartInfo);
+                Process gameProcess = Process.Start(gameProcessStartInfo);
 
-                int i = 0;
-                while (!IsRunningGame(gameProcessName))
-                {
-                    Thread.Sleep(100);
-                    i++;
-                    if (i == 100)
-                    {
-                        throw new ProcessNotFoundException(Properties.Resources.ErrorMessageFailedToDetectGameProcess);
-                    }
-                }
+                gameProcess.WaitForInputIdle();
 
-                return gameProcessName;
+                return gameProcess.Id;
             }
             else
             {
@@ -40,15 +28,13 @@ namespace ThLaunchSite.Game
             }
         }
 
-        public static string StartGameProcessWithApplyingTool(string gameId, string toolName)
+        public static int StartGameProcessWithApplyingTool(string gameId, string toolName)
         {
             string? gamePath = GameFile.GetGameFilePath(gameId);
             string gameDirectory = Path.GetDirectoryName(gamePath);
             string patchPath = $"{gameDirectory}\\{toolName}";
             if (File.Exists(gamePath) && File.Exists(patchPath))
             {
-                string gameProcessName = Path.GetFileNameWithoutExtension(gamePath);
-
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
                     FileName = patchPath,
@@ -56,20 +42,11 @@ namespace ThLaunchSite.Game
                     UseShellExecute = true
                 };
 
-                _ = Process.Start(gameProcessStartInfo);
+                Process gameProcess = Process.Start(gameProcessStartInfo);
 
-                int i = 0;
-                while (!IsRunningGame(gameProcessName))
-                {
-                    Thread.Sleep(100);
-                    i++;
-                    if (i == 100)
-                    {
-                        throw new ProcessNotFoundException(Properties.Resources.ErrorMessageFailedToDetectGameProcess);
-                    }
-                }
+                gameProcess.WaitForInputIdle();
 
-                return gameProcessName;
+                return gameProcess.Id;
             }
             else if (!File.Exists(patchPath))
             {
@@ -116,17 +93,14 @@ namespace ThLaunchSite.Game
             }
         }
 
-        public static void KillGameProcess(string gameProcessName)
+        public static void KillGameProcess(int gameProcessId)
         {
-            Process[] gameProcesses = Process.GetProcessesByName(gameProcessName);
-            if (gameProcesses.Length > 0)
+            Process gameProcess = Process.GetProcessById(gameProcessId);
+            if (gameProcess != null)
             {
-                foreach (Process gameProcess in gameProcesses)
-                {
-                    gameProcess.Kill();
-                    //終了を待機
-                    gameProcess.WaitForExit();
-                }
+                gameProcess.Kill();
+                //終了を待機
+                gameProcess.WaitForExit();
             }
             else
             {
@@ -134,22 +108,23 @@ namespace ThLaunchSite.Game
             }
         }
 
-        public static bool IsRunningGame(string gameProcessName)
+        public static bool IsRunningGame(int gameProceessId)
         {
-            if (string.IsNullOrEmpty(gameProcessName))
+            try
+            {
+                Process.GetProcessById(gameProceessId);
+            }
+            catch (Exception)
             {
                 return false;
             }
-            else
-            {
-                return Process.GetProcessesByName(gameProcessName).Length > 0;
-            }
+
+            return true;
         }
 
-        public static void SetGamePriority(string gameProcessName, int gamePriorityIndex)
+        public static void SetGamePriority(int gameProcessId, int gamePriorityIndex)
         {
-            Process[] gameProcesses = Process.GetProcessesByName(gameProcessName);
-            Process gameProcess = gameProcesses[0];
+            Process gameProcess = Process.GetProcessById(gameProcessId);
             if (gamePriorityIndex == 1)
             {
                 gameProcess.PriorityClass = ProcessPriorityClass.High;
