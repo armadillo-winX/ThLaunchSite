@@ -11,7 +11,7 @@
     <AssemblyVersion></AssemblyVersion>
     <FileVersion></FileVersion>
     <Version>$(VersionPrefix)$(VersionSuffix)</Version>
-	  <VersionPrefix>2.0.0</VersionPrefix>
+	  <VersionPrefix>2.1.0</VersionPrefix>
 	  <VersionSuffix>release</VersionSuffix>
     <UseWindowsForms>True</UseWindowsForms>
 	<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
