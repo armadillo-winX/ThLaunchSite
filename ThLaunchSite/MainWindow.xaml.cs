@@ -943,6 +943,7 @@ namespace ThLaunchSite
             KillGameProcessButton.IsEnabled = enabled;
             CaptureGameWindowButton.IsEnabled = enabled;
             ResizeButton.IsEnabled = enabled;
+            GameAudioControlSlider.IsEnabled = enabled;
         }
 
         private void EnableWaitGameEndMode(string gameProcessName)
