@@ -1038,10 +1038,8 @@ namespace ThLaunchSite
             int gameProcessId = (int)e.Argument;
 #pragma warning restore CS8605 // null の可能性がある値をボックス化解除しています。
 
-            while (GameProcessHandler.IsRunningGame(gameProcessId))
-            {
-                Thread.Sleep(500);
-            }
+            Process gameProcess = Process.GetProcessById(gameProcessId);
+            gameProcess.WaitForExit();
         }
 
         private void WorkerRunningComplete(object sender, RunWorkerCompletedEventArgs e)
