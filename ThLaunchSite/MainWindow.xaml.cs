@@ -1549,6 +1549,15 @@ namespace ThLaunchSite
             gamePathSettingsDialog.ShowDialog();
 
             SetGameSelectionMenu();
+
+            if (GameIndex.GetGameEdition(this.GameId) == "Trial")
+            {
+                TrialImage.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                TrialImage.Visibility = Visibility.Hidden;
+            }
         }
 
         private void OpenGameLogFileMenuItemClick(object sender, RoutedEventArgs e)
