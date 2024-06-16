@@ -34,7 +34,14 @@ namespace ThLaunchSite.Game
             }
             else
             {
-                _gameFilesDictionary.Add(gameId, gameFilePath);
+                if (_gameFilesDictionary.ContainsKey(gameId))
+                {
+                    _gameFilesDictionary[gameId] = gameFilePath;
+                }
+                else
+                {
+                    _gameFilesDictionary.Add(gameId, gameFilePath);
+                }
             }
         }
 

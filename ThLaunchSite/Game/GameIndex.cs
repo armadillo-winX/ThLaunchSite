@@ -171,7 +171,14 @@ namespace ThLaunchSite.Game
             }
             else
             {
-                _gameEditionDictionary.Add(gameId, gameEdition);
+                if (_gameEditionDictionary.ContainsKey(gameId))
+                {
+                    _gameEditionDictionary[gameId] = gameEdition;
+                }
+                else
+                {
+                    _gameEditionDictionary.Add(gameId, gameEdition);
+                }
             }
         }
     }
