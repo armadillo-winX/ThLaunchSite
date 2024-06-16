@@ -691,7 +691,7 @@ namespace ThLaunchSite.Properties {
         }
         
         /// <summary>
-        ///   Game Audio Volume: に類似しているローカライズされた文字列を検索します。
+        ///   Game Audio Volume (beta): に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string LabelGameVolume {
             get {

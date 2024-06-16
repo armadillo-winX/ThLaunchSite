@@ -328,7 +328,7 @@
     <value>Game Execution Time</value>
   </data>
   <data name="LabelGameVolume" xml:space="preserve">
-    <value>Game Audio Volume:</value>
+    <value>Game Audio Volume (beta):</value>
   </data>
   <data name="LabelHeight" xml:space="preserve">
     <value>Height:</value>

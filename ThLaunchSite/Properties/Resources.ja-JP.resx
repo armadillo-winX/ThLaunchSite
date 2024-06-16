@@ -328,7 +328,7 @@
     <value>ゲームプレイ時間</value>
   </data>
   <data name="LabelGameVolume" xml:space="preserve">
-    <value>ゲームの音量:</value>
+    <value>ゲームの音量(ベータ版):</value>
   </data>
   <data name="LabelHeight" xml:space="preserve">
     <value>高さ:</value>
