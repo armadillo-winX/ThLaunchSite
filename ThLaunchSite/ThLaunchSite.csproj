@@ -11,8 +11,8 @@
     <AssemblyVersion></AssemblyVersion>
     <FileVersion></FileVersion>
     <Version>$(VersionPrefix)$(VersionSuffix)</Version>
-	  <VersionPrefix>2.1.0</VersionPrefix>
-	  <VersionSuffix>release</VersionSuffix>
+	  <VersionPrefix>2.2.0</VersionPrefix>
+	  <VersionSuffix>beta.1</VersionSuffix>
     <UseWindowsForms>True</UseWindowsForms>
 	<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 	<ApplicationIcon>ThLaunchSite.ico</ApplicationIcon>
