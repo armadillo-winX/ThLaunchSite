@@ -977,7 +977,7 @@ namespace ThLaunchSite
                     }
                     catch (Exception) { }
 
-                    gameProcessPlugin.Main(this.GameId, this.GameProcess.ProcessName);
+                    gameProcessPlugin.Main(this.GameId, this.GameProcess);
                 }
             }
 
