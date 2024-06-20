@@ -514,7 +514,15 @@ namespace ThLaunchSite
                         }
                     }
 
-                    gameFilesPlugin.Main(availableGamesList, availableGameFilesDictionary);
+                    try
+                    {
+                        gameFilesPlugin.Main(availableGamesList, availableGameFilesDictionary);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, Properties.Resources.TitleError,
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 };
 
                 ToolsMenuItem.Items.Add(menuItem);
@@ -548,7 +556,15 @@ namespace ThLaunchSite
                         }
                     }
 
-                    gameScoreFilesPlugin.Main(availableGamesList, availableGameScoreFilesDictionary);
+                    try
+                    {
+                        gameScoreFilesPlugin.Main(availableGamesList, availableGameScoreFilesDictionary);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, Properties.Resources.TitleError,
+                                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 };
 
                 ToolsMenuItem.Items.Add(menuItem);
@@ -572,7 +588,15 @@ namespace ThLaunchSite
 
                 menuItem.Click += (object sender, RoutedEventArgs e) =>
                 {
-                    selectedGamePlugin.Main(this.GameId, GameFile.GetGameFilePath(this.GameId));
+                    try
+                    {
+                        selectedGamePlugin.Main(this.GameId, GameFile.GetGameFilePath(this.GameId));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, Properties.Resources.TitleError,
+                                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 };
 
                 ToolsMenuItem.Items.Add(menuItem);
@@ -596,7 +620,15 @@ namespace ThLaunchSite
 
                 menuItem.Click += (object sender, RoutedEventArgs e) =>
                 {
-                    gamePlayLogPlugin.Main(PathInfo.GamePlayLogFile);
+                    try
+                    {
+                        gamePlayLogPlugin.Main(PathInfo.GamePlayLogFile);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, Properties.Resources.TitleError,
+                                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 };
 
                 ToolsMenuItem.Items.Add(menuItem);
@@ -620,7 +652,15 @@ namespace ThLaunchSite
 
                 menuItem.Click += (object sender, RoutedEventArgs e) =>
                 {
-                    toolPlugin.Main();
+                    try
+                    {
+                        toolPlugin.Main();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, Properties.Resources.TitleError,
+                                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 };
 
                 ToolsMenuItem.Items.Add(menuItem);
@@ -977,7 +1017,15 @@ namespace ThLaunchSite
                     }
                     catch (Exception) { }
 
-                    gameProcessPlugin.Main(this.GameId, this.GameProcess);
+                    try
+                    {
+                        gameProcessPlugin.Main(this.GameId, this.GameProcess);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, Properties.Resources.TitleError,
+                                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
 
