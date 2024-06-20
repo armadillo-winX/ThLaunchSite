@@ -1,4 +1,6 @@
-﻿namespace ThLaunchSite.Plugin
+﻿using System.Diagnostics;
+
+namespace ThLaunchSite.Plugin
 {
     public abstract class GameProcessPluginBase
     {
@@ -27,6 +29,6 @@
         /// </summary>
         /// <param name="gameId"></param>
         /// <param name="gameProcessName"></param>
-        public abstract void Main(string gameId, string gameProcessName);
+        public abstract void Main(string gameId, Process gameProcess);
     }
 }
