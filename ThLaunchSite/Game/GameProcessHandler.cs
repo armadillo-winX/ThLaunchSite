@@ -107,11 +107,11 @@
             }
         }
 
-        public static bool IsRunningGame(int gameProceessId)
+        public static bool IsRunningGame(int gameProcessId)
         {
             try
             {
-                Process.GetProcessById(gameProceessId);
+                Process.GetProcessById(gameProcessId);
             }
             catch (Exception)
             {
