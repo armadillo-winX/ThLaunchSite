@@ -114,6 +114,7 @@ namespace ThLaunchSite
         }
 
         private Process GameProcess { get; set; }
+
         private int GameProcessPriorityIndex { get; set; }
 
         private DateTime GameStartTime { get; set; }
