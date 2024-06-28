@@ -1,4 +1,7 @@
-﻿namespace ThLaunchSite.Game
+﻿using System.Windows.Threading;
+using System.Threading;
+
+namespace ThLaunchSite.Game
 {
     internal class GameProcessHandler
     {
@@ -42,7 +45,20 @@
                     UseShellExecute = true
                 };
 
-                Process gameProcess = Process.Start(gameProcessStartInfo);
+                _ = Process.Start(gameProcessStartInfo);
+
+
+                int i = 0;
+                while (Process.GetProcessesByName(Path.GetFileNameWithoutExtension(gamePath)).Length == 0)
+                {
+                    Thread.Sleep(100);
+                    if (i == 10)
+                    {
+                        throw new ProcessNotFoundException(Properties.Resources.ErrorMessageFailedToStartGameProcess);
+                    }
+                }
+
+                Process gameProcess = Process.GetProcessesByName(Path.GetFileNameWithoutExtension(gamePath))[0];
 
                 gameProcess.WaitForInputIdle();
 
